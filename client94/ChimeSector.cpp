@@ -451,7 +451,7 @@ bool ChimeSector::BuildDynamicRoom2(char *roomDesc, const csVector3 &pos, iColli
 	roomOrigin.z = curPos.z + 1;
 
 	curPos.z += 1+(roomSize.z/2);
-	roomSize.y = 30;
+	roomSize.y = 50;
 	BuildStandardRoom(room, roomSize, curPos);
 	mainRoomOrigin = curPos;
 
@@ -589,9 +589,15 @@ bool ChimeSector::BuildDynamicRoom2(char *roomDesc, const csVector3 &pos, iColli
 
 		if (proceed) {
 
+			float size = 1.0;
+			if (!strcmp(shape, "mdl1"))
+			{
+				size = 0.75;
+				strcpy(shape, "user1");
+			}
 			buf += count;
 			//location.y = 1;
-			AddMeshObj (shape, objUrl, room,location, 1);
+			AddMeshObj (shape, objUrl, room, location, size);
 		}
 	}
 
@@ -794,7 +800,7 @@ bool ChimeSector::BuildStandardRoom(iSector *room, csVector3 const &size, csVect
 	trans += pos;
 	buildFrontDoorWall(walls, room, size, trans, txt, doortxt, csVector3(3,3,3), csVector3(2,3,0), 1, 4,roomFrontDoor);
 	//BuildWall(room, size, trans, FRONT, txt, csVector3(3,3,3));
-	trans.y += 12.0;
+	trans.y += 25.0;
 	doortxt = engine->GetMaterialList()->FindByName ("brownfabric");
 	buildFrontDoorWall(walls, room, size, trans, txt, doortxt, csVector3(3,3,3), csVector3(2,3,0), 1, 4,roomTopDoor);
 	doortxt = engine->GetMaterialList()->FindByName ("halldoor");
@@ -919,7 +925,7 @@ bool ChimeSector::BuildStandardConnector(iSector *room, csVector3 const &size, c
 bool ChimeSector::BuildTopConnector(iSector *room, csVector3 const &size, csVector3 const &pos)
 {
 	iMaterialWrapper* txt, *doortxt;
-	csVector3 trans(0,12.0,0);
+	csVector3 trans(0,25.0,0);
 	iPolygon3D **connFrontDoor, **connBackDoor;
 	
 	iMeshWrapper *wallmesh = engine -> CreateSectorWallsMesh(room, "walls");
@@ -933,7 +939,7 @@ bool ChimeSector::BuildTopConnector(iSector *room, csVector3 const &size, csVect
 	doortxt = engine->GetMaterialList()->FindByName ("marble1");
 
 	//Build front wall of the room
-	trans.Set(-size.x/2.0, 12.0, size.z/2.0);
+	trans.Set(-size.x/2.0, 25.0, size.z/2.0);
 	trans += pos;
 	//BuildWall(room, size, trans, FRONT, txt, csVector3(3,3,3));
 	buildFrontDoorWall(walls, room, size, trans, txt, doortxt, csVector3(3,3,3), csVector3(2,3,0), 1, 0, connFrontDoor);
@@ -943,7 +949,7 @@ bool ChimeSector::BuildTopConnector(iSector *room, csVector3 const &size, csVect
 
 
 	//Build back wall of the room
-	trans.Set(-size.x/2.0, 12.0, -size.z/2.0);
+	trans.Set(-size.x/2.0, 25.0, -size.z/2.0);
 	trans += pos;
 	//BuildWall(room, size, trans, BACK, txt, csVector3(3,3,3));
 	buildBackDoorWall(walls, room, size, trans, txt, doortxt, csVector3(3,3,3), csVector3(2,3,0), 1, 0, connBackDoor);
@@ -953,24 +959,24 @@ bool ChimeSector::BuildTopConnector(iSector *room, csVector3 const &size, csVect
 
 
 	//Build Left wall of the room
-	trans.Set(-size.x/2, 12.0, -size.z/2.0);
+	trans.Set(-size.x/2, 25.0, -size.z/2.0);
 	trans += pos;
 	BuildWall(walls, "left wall", size, trans, LEFT, txt, csVector3(3,3,3));
 
 	//Build Right wall of the room
-	trans.Set(size.x/2, 12.0, -size.z/2.0);
+	trans.Set(size.x/2, 25.0, -size.z/2.0);
 	trans += pos;
 	BuildWall(walls, "right_wall", size, trans, RIGHT, txt, csVector3(3,3,3));
 
 	//Build Roof wall of the room
-	trans.Set(-size.x/2, size.y + 12.0, -size.z/2);
+	trans.Set(-size.x/2, size.y + 25.0, -size.z/2);
 	trans += pos;
 	BuildWall(walls, "ceiling", size, trans, ROOF, txt, csVector3(3,3,3));
 
 	//Build Floor wall of the room
 	//txt = engine->GetMaterialList()->FindByName ("metalfloor");
 	//txt = engine->GetMaterialList()->FindByName ("water");
-	trans.Set(-size.x/2, 12.0, -size.z/2);
+	trans.Set(-size.x/2, 25.0, -size.z/2);
 	trans += pos;
 	BuildWall(walls, "floor", size, trans, FLOOR, txt, csVector3(2,2,1));
 
@@ -1007,7 +1013,7 @@ bool ChimeSector::BuildHallway(iSector *room, csVector3 const &size, csVector3 c
 	trans.Set(-size.x/2.0, 0, -size.z/2.0);
 	trans += pos;
 	buildBackDoorWall(walls, room, size, trans, txt, doortxt, csVector3(3,3,3), csVector3(2,3,0), 1, doorOff, hallBackDoor);
-	trans.y += 12.0;
+	trans.y += 25.0;
 	doortxt = engine->GetMaterialList()->FindByName ("marble1");
 	buildBackDoorWall(walls, room, size, trans, txt, doortxt, csVector3(3,3,3), csVector3(2,3,0), 1, doorOff, hallBackTopDoor);
 

@@ -104,6 +104,8 @@ private:
 	float lookUp;
 	/// Used for refreshing windows
 	bool openGLMode;
+	/// Height of the application
+	const char* winHeight;
 	/// Keeps the list of all doors open
 	csStrVector *openDoors;
 	/// Keeps the list of all users met

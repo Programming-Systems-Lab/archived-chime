@@ -56,6 +56,9 @@ public:
   //draws all inside components
   void Draw();
 
+  //move the window
+  void MoveWindow(float del_x, float del_y);
+
   //returns the camera used by this view
   iCamera* GetCamera();
 

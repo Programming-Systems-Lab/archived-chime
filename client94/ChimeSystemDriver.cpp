@@ -642,6 +642,8 @@ bool ChimeSystemDriver::Initialize(int argc, const char *const argv[], const cha
 
 	//now we will find the mode of that the graphics 3d loader is running at
 	grafx_3d_mode = cfg->GetStr("System.Plugins.iGraphics3D");
+
+	winHeight = cfg->GetStr("Video.ScreenHeight");
 	
 	//if we are in openGL mode, allow moving the AWS window
 	if (!strcmp(grafx_3d_mode, "crystalspace.graphics3d.opengl"))
@@ -761,6 +763,8 @@ void ChimeSystemDriver::FinishWindowSetup()
 	new_view->SetCamera( view->GetCamera()->Clone() );
 	overviewWindow->Setup(aws, new_view);//new csView( engine, myG3D ));
 	overviewWindow->AdjustHeight();
+	if (!strcmp(winHeight, "768"))
+		overviewWindow->MoveWindow(0, -130);
 	if (!overviewWindow->Start()) Report (CS_REPORTER_SEVERITY_NOTIFY, "Could not start AWS window!");
 
 }

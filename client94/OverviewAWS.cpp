@@ -18,7 +18,7 @@ OverviewAWS::OverviewAWS()
   window = NULL;
   room = NULL;
   view = NULL;
-  y = 13.0f;
+  y = 26.0;
   downAngle = 1.57f;
 }
 
@@ -78,6 +78,14 @@ bool OverviewAWS::Hide()
 void OverviewAWS::Draw()
 {
 	view->Draw();
+}
+
+//*********************************************
+//**** Move the AWS window the relative amount
+//*********************************************
+void OverviewAWS::MoveWindow(float del_x, float del_y)
+{
+	window->Move(del_x, del_y);
 }
 
 //****************************************
