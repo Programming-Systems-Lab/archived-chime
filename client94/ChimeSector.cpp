@@ -437,6 +437,15 @@ bool ChimeSector::BuildDynamicRoom2(char *roomDesc, const csVector3 &pos, iColli
 	connector1 = engine->CreateSector ("connector1");
 	BuildStandardConnector(connector1, connSize, curPos, CONN1);
 
+	//setup lighting for the first connector
+	float lightHeight = 3.0;
+	float delta = 0.5;
+	int radius = 10;
+	iStatLight* light;
+	light_list = connector1->GetLights();
+	light = engine -> CreateLight (NULL, csVector3(curPos.x+delta, lightHeight, curPos.z+delta), radius, csColor(1, 1, 1), false);
+	light_list->Add (light->QueryLight());
+
 	roomOrigin.x = curPos.x - (size.x/2);
 	roomOrigin.y = 0;
 	roomOrigin.z = curPos.z + 1;
@@ -446,16 +455,34 @@ bool ChimeSector::BuildDynamicRoom2(char *roomDesc, const csVector3 &pos, iColli
 	BuildStandardRoom(room, roomSize, curPos);
 
 	//setup lighting for the room
-	iStatLight* light;
+	lightHeight = 10.0;
+	delta = 0.5;
+	radius = 20;
 	light_list = room->GetLights();
-	light = engine -> CreateLight (NULL, csVector3(0+curPos.x, 4.9+curPos.y, 0+curPos.z), 80, csColor(1, 1, 1), false);
+	light = engine -> CreateLight (NULL, csVector3(roomOrigin.x+delta, lightHeight, roomOrigin.z+delta), radius, csColor(1, 1, 1), false);
 	light_list->Add (light->QueryLight());
-	light->DecRef();
+	light = engine -> CreateLight (NULL, csVector3(roomSize.x+roomOrigin.x-delta, lightHeight, roomOrigin.z+delta), radius, csColor(1, 1, 1), false);
+	light_list->Add (light->QueryLight());
+	light = engine -> CreateLight (NULL, csVector3(roomOrigin.x+delta, lightHeight, roomOrigin.z+roomSize.z-delta), radius, csColor(1, 1, 1), false);
+	light_list->Add (light->QueryLight());
+	light = engine -> CreateLight (NULL, csVector3(roomSize.x+roomOrigin.x-delta, lightHeight, roomOrigin.z+roomSize.z-delta), radius, csColor(1, 1, 1), false);
+	light_list->Add (light->QueryLight());
+	light = engine -> CreateLight (NULL, csVector3((roomSize.x/2)+roomOrigin.x, lightHeight, (roomSize.z/2)+roomOrigin.z), radius, csColor(1, 1, 1), false);
+	light_list->Add (light->QueryLight());
 	
 	curPos.z += roomSize.z/2 + 1;
 
 	connector2 = engine->CreateSector ("connector2");
 	BuildStandardConnector(connector2, connSize, curPos, CONN2);
+
+	//setup lighting for the second connector
+	lightHeight = 5.0;
+	delta = 0.5;
+	radius = 10;
+	light_list = connector2->GetLights();
+	light = engine -> CreateLight (NULL, csVector3(curPos.x+delta, lightHeight, curPos.z+delta), radius, csColor(1, 1, 1), false);
+	light_list->Add (light->QueryLight());
+	
 
 	//curPos.y += 12;
 	topConnector = engine->CreateSector ("topConnector");
@@ -468,6 +495,23 @@ bool ChimeSector::BuildDynamicRoom2(char *roomDesc, const csVector3 &pos, iColli
 
 	hallway = engine->CreateSector ("hallway");
 	BuildHallway(hallway, hallwaySize, curPos);
+
+	//setup lighting for the hallway
+	lightHeight = 10.0;
+	delta = 0.5;
+	radius = 35;
+	light_list = hallway->GetLights();
+	light = engine -> CreateLight (NULL, csVector3(curPos.x+delta, lightHeight, curPos.z+delta), radius, csColor(1, 1, 1), false);
+	light_list->Add (light->QueryLight());
+	light = engine -> CreateLight (NULL, csVector3(curPos.x-delta+(hallwaySize.x/2), lightHeight, curPos.z-delta+(hallwaySize.z/2)), radius, csColor(1, 1, 1), false);
+	light_list->Add (light->QueryLight());
+	light = engine -> CreateLight (NULL, csVector3(curPos.x+delta-(hallwaySize.x/2), lightHeight, curPos.z-delta+(hallwaySize.z/2)), radius, csColor(1, 1, 1), false);
+	light_list->Add (light->QueryLight());
+
+
+	//discard the light
+	light->DecRef();
+	
 
 	//Set default camera location
 	camLocation = pos;
@@ -608,41 +652,11 @@ bool ChimeSector::BuildDynamicRoom2(char *roomDesc, const csVector3 &pos, iColli
 	hallBackTopDoor[0]->SetAlpha(100);
 
 
-
-	//*****************************************************************
-	//********* Try creating portal for top camera ********************
-	//*****************************************************************
-	//create new constructs for walls
-	//iMeshWrapper *wallmesh = engine -> CreateSectorWallsMesh(room, "walls");
-	//iThingState *walls = SCF_QUERY_INTERFACE(wallmesh->GetMeshObject(), iThingState);
-	//iPolygon3D *topDoor = walls->CreatePolygon();
-	//topDoor->SetAlpha(100);
-
-
 	//Prepare room for collision detection
 	iPolygonMesh* mesh;
 	//iObject *obj;
 	csColliderWrapper *collider;
 
-	//mesh = SCF_QUERY_INTERFACE (walls->GetMeshObject(), iPolygonMesh);
-	//obj = SCF_QUERY_INTERFACE(walls, iObject);
-    //collider = new csColliderWrapper (obj, collide_system, mesh);
-	//mesh->DecRef ();
-	//obj->DecRef();
-
-/*
-	mesh = SCF_QUERY_INTERFACE (connector1, iPolygonMesh);
-    collider = new csColliderWrapper (*connector1, collide_system, mesh);
-    mesh->DecRef ();
-
-	mesh = SCF_QUERY_INTERFACE (connector2, iPolygonMesh);
-    collider = new csColliderWrapper (*connector2, collide_system, mesh);
-    mesh->DecRef ();
-
-	mesh = SCF_QUERY_INTERFACE (hallway, iPolygonMesh);
-    collider = new csColliderWrapper (*hallway, collide_system, mesh);
-    mesh->DecRef ();
-*/	
 
 	//Add collision detection to all the objects in the room
 	for ( i = 0 ; i < room->GetMeshes()->GetCount(); i++)
@@ -657,7 +671,7 @@ bool ChimeSector::BuildDynamicRoom2(char *roomDesc, const csVector3 &pos, iColli
 		}
 	}
 
-		//Add collision detection to all the objects in the room
+	//Add collision detection to all the objects in the hallway
 	for ( i = 0 ; i < hallway->GetMeshes()->GetCount(); i++)
 	{
 		iMeshWrapper* sp = hallway->GetMeshes()->Get(i);
@@ -670,7 +684,7 @@ bool ChimeSector::BuildDynamicRoom2(char *roomDesc, const csVector3 &pos, iColli
 		}
 	}
 
-		//Add collision detection to all the objects in the room
+	//Add collision detection to all the objects in the first connector
 	for ( i = 0 ; i < connector1->GetMeshes()->GetCount(); i++)
 	{
 		iMeshWrapper* sp = connector1->GetMeshes()->Get(i);
@@ -683,7 +697,7 @@ bool ChimeSector::BuildDynamicRoom2(char *roomDesc, const csVector3 &pos, iColli
 		}
 	}
 
-		//Add collision detection to all the objects in the room
+	//Add collision detection to all the objects in the second connector
 	for ( i = 0 ; i < connector2->GetMeshes()->GetCount(); i++)
 	{
 		iMeshWrapper* sp = connector2->GetMeshes()->Get(i);

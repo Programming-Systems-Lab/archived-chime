@@ -833,10 +833,10 @@ void ChimeSystemDriver::FinishWindowSetup()
 //*****************************************
 int ChimeSystemDriver::GetInvisibleAlpha() {
 	if (!grafx_3d_mode) 
-		return 100;
+		return 25;
 
 	else if (!strstr(grafx_3d_mode, "software"))
-		return 100;
+		return 25;
 
 	else if (!strstr(grafx_3d_mode, "opengl"))
 		return 25;
@@ -850,10 +850,10 @@ int ChimeSystemDriver::GetInvisibleAlpha() {
 //**********************************************
 int ChimeSystemDriver::GetVisibleAlpha() {
 	if (!grafx_3d_mode)
-		return 25;
+		return 100;
 	
 	else if (!strstr(grafx_3d_mode, "software"))
-		return 25;
+		return 100;
 
 	else if (!strstr(grafx_3d_mode, "opengl"))
 		return 100;
@@ -3016,8 +3016,9 @@ bool ChimeSystemDriver::AddUser(char *roomUrl, char *username, char *ip_address,
 	mesh = SCF_QUERY_INTERFACE (s, iPolygonMesh);
 	if (mesh)
 	{
-		//(void)new csCollider (*sp, collide_system, mesh);
-		//mesh->DecRef ();
+		//csColliderWrapper* wrap = new csColliderWrapper (mesh->QueryObject (), cdsys, polmesh);
+		//polmesh->DecRef ();
+		//wrap->DecRef ();
 	}
 
 
