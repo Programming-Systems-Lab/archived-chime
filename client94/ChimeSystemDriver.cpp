@@ -388,7 +388,10 @@ void ChimeSystemDriver::UserMoved()
 			nextSector++;			//protect this room from caching out
 		}
 		
-		comm.UserLeftRoom(username, my_ip_address, prevSector->GetUrl(), sec->GetUrl());
+		app->chatWindow->ShowMessage("Leaving room:");
+		app->chatWindow->ShowMessage(prevSector->GetUrl());
+		app->chatWindow->ShowMessage(currentSector->GetUrl());
+		comm.UserLeftRoom(username, my_ip_address, prevSector->GetUrl(), currentSector->GetUrl());
 
 		/*
 		newPos = view->GetCamera()->GetOrigin();
@@ -2797,11 +2800,14 @@ bool ChimeSystemDriver::MoveUser(char *roomUrl, char *username, char *ip_address
 	iMeshWrapper* obj = NULL;
 	obj = sec->FindObject(userID, room);
 	//hack fix to add meshes for users that are in the room
-	while ( !obj ) {
-		char shape[7];
-		GetShape(username, ip_address, shape);
-		AddUser(roomUrl, username, ip_address, shape, x, y, z);
-		obj = sec->FindObject(userID, room);
+	if (sec == GetCurChimeSector())
+	{
+		while ( !obj ) {
+			char shape[7];
+			GetShape(username, ip_address, shape);
+			AddUser(roomUrl, username, ip_address, shape, x, y, z);
+			obj = sec->FindObject(userID, room);
+		}
 	}
 
 	room = sec->FindRoomContainingPoint(newPos);
@@ -3637,7 +3643,7 @@ bool ChimeSystemDriver::UserLeftRoom(char *oldRoomUrl, char *newRoomUrl, char *u
 	for (int i = 0; i<openDoors->Length(); i++)
 		app->chatWindow->ShowMessage((char*)openDoors->Get(i));
 	printf("\nNew door URL: %s", newRoomUrl);
-	if (openDoors->Find(newRoomUrl) != -1)
+	if (openDoors->Find(newRoomUrl) == -1)
 	{
 		DeleteMeshObj(user, room);
 		if (!sec->deleteUser(username))
