@@ -62,7 +62,7 @@ public:
 public:
 	bool LOCKED;
 	bool EXIT;
-	int played_start; //new var -cl
+	int last_played; //new var -cl
 	bool isMaster; // new var -cl
 	void TestMusic();
 	void ShutDown();
