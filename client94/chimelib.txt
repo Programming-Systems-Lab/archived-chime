@@ -16,6 +16,13 @@ TEXT water /lib/chime/water.jpg
 TEXT metalfloor /lib/chime/metalfloor.jpg
 TEXT mdl1 /lib/chime/mdl1.jpg
 TEXT ninja /lib/chime/mdl1.jpg
+TEXT grid0 /lib/chime/grid0.jpg
+TEXT grid1 /lib/chime/grid1.jpg
+TEXT grid2 /lib/chime/grid2.jpg
+TEXT grid3 /lib/chime/grid3.jpg
+TEXT grid4 /lib/chime/grid4.jpg
+TEXT grid5 /lib/chime/grid5.jpg
+TEXT grid6 /lib/chime/grid6.jpg
 
 ;Load all the necessary 3D objects
 ;OBJ  balloons lib/chime/BALLOONS.3DS brownfabric
@@ -28,6 +35,13 @@ OBJ  cube lib/chime/cube.3ds cube
 ;OBJ  mdl1 lib/chime/mdl1.md2 mdl1
 OBJ  mdl1 lib/chime/mdl1.3ds mdl1
 OBJ  ninja lib/chime/ninja.mdl ninja
+OBJ  user0 lib/chime/mdl1.3ds grid0
+OBJ  user1 lib/chime/mdl1.3ds grid1
+OBJ  user2 lib/chime/mdl1.3ds grid2
+OBJ  user3 lib/chime/mdl1.3ds grid3
+OBJ  user4 lib/chime/mdl1.3ds grid4
+OBJ  user5 lib/chime/mdl1.3ds grid5
+OBJ  user6 lib/chime/mdl1.3ds grid6
 
 ;Specify path to the browser
 BROWSER	c:\Progra~1\Intern~1\iexplore.exe

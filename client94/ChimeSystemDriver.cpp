@@ -718,10 +718,45 @@ bool ChimeSystemDriver::Initialize(int argc, const char *const argv[], const cha
 	aws->GetPrefMgr()->SelectDefaultSkin("Normal Windows");
 
 
+	//******************************************************
+	//********** Create the mesh for the user **************
+	//******************************************************
+	char my_ip_address[50];
+	info->GetMyIPAddress(my_ip_address);
+	char name[100];
+	strcpy(name, username);
+	strcat(name, " ");
+	strcat(name, my_ip_address);
+
+	csVector3 userPos = view->GetCamera()->GetTransform().GetOrigin();
+	userPos.x += GetCurChimeSector()->GetOrigin().x;
+	//userPos.y += GetCurChimeSector()->GetOrigin().y;
+	userPos.y = 0;
+	userPos.z += GetCurChimeSector()->GetOrigin().z;
+	//userPos.z -= 1;
+
+	sprite = AddMeshObj("user0", name, view->GetCamera()->GetSector(), userPos, 0.028);
+	if( !sprite ) return false;
+	//sprite->GetMovable()->SetTransform(view->GetCamera()->GetTransform());
+
+	//Add collision detection
+	//iMeshWrapper *sp = FindObject(room, name);
+	//iPolygonMesh* mesh;
+	//iMeshObject *s = sp->GetMeshObject();
+	//mesh = SCF_QUERY_INTERFACE (s, iPolygonMesh);
+	//if (mesh)
+	//{
+		//(void)new csCollider (*sp, collide_system, mesh);
+		//mesh->DecRef ();
+	//}
+
+
+
+
 	//*******************************************************
 	//********* Create the sprite ***************************
 	//*******************************************************
-	
+/**	
 	// Load a texture for our sprite.
     loader = CS_QUERY_REGISTRY (object_reg, iLoader);
 	if (!loader)
@@ -773,7 +808,7 @@ bool ChimeSystemDriver::Initialize(int argc, const char *const argv[], const cha
 	//*************************************************************
 	//**** End of sprite creation *********************************
 	//*************************************************************
-
+*/
 	return true;
 }
 
@@ -1091,7 +1126,10 @@ void ChimeSystemDriver::SetupFrame()
 
 	  if (sprite->GetMovable()->GetSectors()->Find( view->GetCamera()->GetSector() ) < 0)
 		  sprite->GetMovable()->GetSectors()->Add( view->GetCamera()->GetSector() );
-	  sprite->GetMovable()->SetPosition(view->GetCamera()->GetTransform().GetOrigin());
+	  csVector3 positionSprite =  view->GetCamera()->GetTransform().GetOrigin();
+	  positionSprite.y = 0;
+	  //positionSprite.z -= 1;
+	  sprite->GetMovable()->SetPosition(positionSprite);
 	  sprite->GetMovable()->UpdateMove();
 	  view->Draw ();
 	  if (overviewWindow) overviewWindow->Draw ();
@@ -2413,13 +2451,15 @@ iMeshWrapper* ChimeSystemDriver::AddMeshObj (char* tname, char* sname, iSector* 
   }
   iMeshWrapper* spr = Sys->engine->CreateMeshWrapper (tmpl, sname,
 						      where, pos);
-  csMatrix3 m; m.Identity (); m = m * (size/35);
+  csMatrix3 m; 
+  m.Identity (); 
+  //m = m * (size/35);
   spr->GetMovable ()->SetTransform (m);
-  csYScaleMatrix3 scaley_m(0.031);
+  csYScaleMatrix3 scaley_m(size);
   spr->GetMovable ()->Transform (scaley_m);
-  csXScaleMatrix3 scalex_m(0.031);
+  csXScaleMatrix3 scalex_m(size);
   spr->GetMovable()->Transform(scalex_m);
-  csZScaleMatrix3 scalez_m(0.031);
+  csZScaleMatrix3 scalez_m(size);
   spr->GetMovable()->Transform(scalez_m);
   csXRotMatrix3 rotx_m(-1.56);
   spr->GetMovable()->Transform(rotx_m);
@@ -2687,10 +2727,12 @@ bool ChimeSystemDriver::HandleNetworkEvent(int method, char *params)
 
 			//don't add me as a user
 			char my_username[50];
-			info->GetUsername(my_username);	
+			info->GetUsername(my_username);
+			char shape[7];
+			GetShape(username, ip_address, shape);
 
 			if (strcmp(username, "") != 0 && strcmp(username, my_username) != 0) {
-				result = AddUser(newRoomUrl, username, ip_address, "mdl1", 3, 0, 2);  //NEEDS TO BE FIXED - NOT HARDCODED
+				result = AddUser(newRoomUrl, username, ip_address, shape, x, y, z);  //NEEDS TO BE FIXED - NOT HARDCODED
 
 				//fake move that tells the user that has entered
 				//the room to update its meshes and add one for this
@@ -2830,7 +2872,9 @@ bool ChimeSystemDriver::MoveUser(char *roomUrl, char *username, char *ip_address
 	obj = sec->FindObject(userID, room);
 	//hack fix to add meshes for users that are in the room
 	while ( !obj ) {
-		AddUser(roomUrl, username, ip_address, "mdl1", x, y, z);
+		char shape[7];
+		GetShape(username, ip_address, shape);
+		AddUser(roomUrl, username, ip_address, shape, x, y, z);
 		obj = sec->FindObject(userID, room);
 	}
 
@@ -2956,7 +3000,7 @@ bool ChimeSystemDriver::AddUser(char *roomUrl, char *username, char *ip_address,
 	strcat(name, " ");
 	strcat(name, ip_address);
 
-	iMeshWrapper *m = AddMeshObj(shape, name, room, userPos, 0.2);
+	iMeshWrapper *m = AddMeshObj(shape, name, room, userPos, 0.031);
 	if( !m ) return false;
 
 
@@ -3468,3 +3512,17 @@ int ChimeSystemDriver::DrawVideoScreen(csVector3 objPos, csVector3 offset, const
  *
  *
  ****************************************************/
+
+// Calculates which texture to use for the mesh for the user
+// based on username and IP address
+void ChimeSystemDriver::GetShape (char *name, char *ip, char *txtName)
+{
+	int userInt = atoi(name);
+	int ipInt = atoi(ip);
+	int txtNumber = (userInt+ipInt)%5;
+	txtNumber++;
+	//strcpy(txtName, "user");
+	//strcat(txtName, txtNumber);
+	sprintf(txtName, "user%i", txtNumber);
+	printf("\n\nShape: %s", txtName);
+}

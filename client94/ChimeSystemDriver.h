@@ -288,6 +288,9 @@ private:
 	//update the link on the side door
 	bool UpdateSideDoorLink(ChimeSector *sec, int doorNum, char *new_door_url);
 
+	//calculate which texture to use for this user
+	void GetShape (char *name, char *ip, char *txtName);
+
 public:
 
 	InfoStorer *info;					//pointer to all the info about this session

@@ -1,3 +1,5 @@
 denis:denis:super_user
 suhit:suhit:user
 nav:nav:user
+bobby:bobby:user
+gerundy:gerundy:user
