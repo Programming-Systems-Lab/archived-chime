@@ -439,11 +439,8 @@ UserListBox::GetID() {
 	return last_ID++;
 }
 
-UserListBox::DeleteAll() {
+void UserListBox::DeleteAll() {
 	csListBox::DeleteAll();
-	//Insert (new csComponent(this));
-
-	//csListBox::csListBox(parent, CSLBS_VSCROLL | CSLBS_MULTIPLESEL, cslfsThinRect);
 }
 
 //this is an item that is present in the user list box

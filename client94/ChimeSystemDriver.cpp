@@ -83,7 +83,7 @@ static bool ChimeHandleEvent(iEvent& ev) {
 		return true;
 	}
 
-	else
+	else 
 		return Sys ? Sys->HandleEvent(ev): false;
 }
 
@@ -1821,24 +1821,24 @@ bool ChimeSystemDriver::HandleKeyEvent (iEvent &Event)
 		break;
 	case csevKeyDown:
 
-		if(Event.Key.Code == 'a')
+		if(Event.Key.Code == 'a' && Event.Key.Modifiers == CSMASK_CTRL)
 		{
 			return MoveLeft(speed);
 		}
-		if(Event.Key.Code == 'd')
+		if(Event.Key.Code == 'd' && Event.Key.Modifiers == CSMASK_CTRL)
 		{
 			return MoveRight(speed);
 		}
-		if(Event.Key.Code == 'w')
+		if(Event.Key.Code == 'w' && Event.Key.Modifiers == CSMASK_CTRL)
 		{
 			return MoveForward(speed);
 		}
-		if(Event.Key.Code == 's')
+		if(Event.Key.Code == 's' && Event.Key.Modifiers == CSMASK_CTRL)
 		{
 			return MoveBackward(speed);
 		}
 
-		if(Event.Key.Code == 'r')
+		if(Event.Key.Code == 'r' && Event.Key.Modifiers == CSMASK_CTRL)
 		{
 			if( meshSelected )
 			{
@@ -1848,51 +1848,51 @@ bool ChimeSystemDriver::HandleKeyEvent (iEvent &Event)
 			}
 			return true;
 		}
-		if(Event.Key.Code == 'f')
+		if(Event.Key.Code == 'f' && Event.Key.Modifiers == CSMASK_CTRL)
 		{
 			if( freeLook ) freeLook = false;
 			else freeLook = true;
 			return true;
 		}
-		if(Event.Key.Code == '=')
+		if(Event.Key.Code == '=' && Event.Key.Modifiers == CSMASK_CTRL)
 		{
 			if( SPEED < 40 ) SPEED += 1;
 			return true;
 		}
-		if(Event.Key.Code == '-')
+		if(Event.Key.Code == '-' && Event.Key.Modifiers == CSMASK_CTRL)
 		{
 			if( SPEED > 0 ) SPEED -= 1;
 			return true;
 		}
 
-		if(Event.Key.Code == 'c') {
+		if(Event.Key.Code == 'c' && Event.Key.Modifiers == CSMASK_CTRL) {
 			ChangeMouseCursor();
 		}
 
-		if(Event.Key.Code == ',' && overviewWindow) {
+		if(Event.Key.Code == ',' && overviewWindow && Event.Key.Modifiers == CSMASK_CTRL) {
 			//if (overviewWindow) overviewWindow->GetCamera()->Move (CS_VEC_BACKWARD * 2.0f * moveSpeed);
 			overviewWindow->AddHeight(1.0);
 			overviewWindow->AdjustHeight();
 		}
 
-		if(Event.Key.Code == '.' && overviewWindow) {
+		if(Event.Key.Code == '.' && overviewWindow && Event.Key.Modifiers == CSMASK_CTRL) {
 			//overviewWindow->GetCamera()->Move (CS_VEC_FORWARD * 2.0f * moveSpeed);
 			overviewWindow->AddHeight(-1.0);
 			overviewWindow->AdjustHeight();
 		}
 
-		if(Event.Key.Code == 'u') {
+		if(Event.Key.Code == 'u' && Event.Key.Modifiers == CSMASK_CTRL) {
 			locked = false;
 		}
 
-		if(Event.Key.Code == 'l' && overviewWindow) {
+		if(Event.Key.Code == 'l' && overviewWindow && Event.Key.Modifiers == CSMASK_CTRL) {
 			if (!locked)
 				overviewWindow->SnapThisCamera();
 			moveMain = true;
 			locked = true;
 		}
 
-		if(Event.Key.Code == 'k' && overviewWindow) {
+		if(Event.Key.Code == 'k' && overviewWindow && Event.Key.Modifiers == CSMASK_CTRL) {
 			if (!locked)
 				overviewWindow->SnapMainCamera();
 			moveMain = true;
@@ -1900,11 +1900,11 @@ bool ChimeSystemDriver::HandleKeyEvent (iEvent &Event)
 		}
 
 
-		if(Event.Key.Code == '1') {
+		if(Event.Key.Code == '1' && Event.Key.Modifiers == CSMASK_CTRL) {
 			moveMain = true;
 		}
 
-		if(Event.Key.Code == '2') {
+		if(Event.Key.Code == '2' && Event.Key.Modifiers == CSMASK_CTRL) {
 			moveMain = false;
 		}
 
@@ -1926,7 +1926,7 @@ bool ChimeSystemDriver::HandleKeyEvent (iEvent &Event)
 			AIVideoPlayer::TestMusicStatic();
 		}
 		*/
-		if (Event.Key.Code == 'v'){
+		if (Event.Key.Code == 'v' && Event.Key.Modifiers == CSMASK_CTRL){
 			try{
 	
 		// First get the corresponding object, and statically
@@ -2122,47 +2122,7 @@ bool ChimeSystemDriver::HandleEvent (iEvent &Event)
 		break;
 	case csevKeyUp:
 		break;
-		/*
-	case csevKeyDown:
-		
-		HandleKeyEvent(Event);
-
-		if(Event.Key.Code == 116)
-		{
-			csVector3 *camLocation;
-
-			curSector = (curSector + 1) % NUM_SECT;
-			iSector *room = sector[curSector]->GetRoom(0);
-
-			if( room )
-			{
-				camLocation = sector[curSector]->GetCamLocation();
-				Transport(room, *camLocation, csVector3(0,0, 1), csVector3(0,-1, 0));
-			}
-
-			goto handled;
-		}
-		if(Event.Key.Code == 117)
-		{
-			iSector *room = sector[curSector]->GetRoom(0);
-
-			Transport(room, csVector3(0,2.5, -3), csVector3(0,0, 1), csVector3(0,-1, 0));
-
-			goto handled;
-		}
-
-		if(Event.Key.Code == 118)
-		{
-			iSector *room = sector[curSector]->GetRoom(0);
-
-			//csPolygon3D *p = room->GetPolygon3D(0);
-			//csMaterialWrapper* mat = engine->GetMaterials ()->FindByName ("marble");
-			//p->SetMaterial(mat);
-			//engine->Prepare();
-		}
-
-	*/
-
+	
 	}//Switch
 
 	return false;

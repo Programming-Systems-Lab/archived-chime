@@ -25,17 +25,9 @@ bool AlwaysVisibleWindow::HandleEvent(iEvent &Event) {
 			int x = Event.Mouse.x;
 			int y = Event.Mouse.y;
 			if ((app->bound.xmin < x && x < app->bound.xmax) && (app->bound.ymin < y && y < app->bound.ymax)) {
-				//csWindow *top_window = (csWindow*) GetTop();
-				
-				//if (!top_window)
 					Select();
-				//else
-				//	top_window->Select();
 			}
-
-			return csWindow::HandleEvent(Event);
 	}
 
-	else
-		return csWindow::HandleEvent(Event);
+	return csWindow::HandleEvent(Event);
 }
