@@ -11,8 +11,10 @@ del *.class
 echo Recompiling Package
 javac *.java
 
+echo SUCCESS!!!
+
 echo !!!!!!!!!!!!!!!!!!!!!!!FRAX RECOMPILER!!!!!!!!!!!!!!!!!!!!!!!!!
-cd %FRAX
+cd %FRAX%
 
 echo Deleting Old Class files
 del *.class
@@ -51,6 +53,8 @@ javac %FRAX%\protocols\*.java
 javac %FRAX%\gui\*.java
 javac %FRAX%\fraxExceptions\*.java
 
+echo SUCCESS!!!
+
 echo !!!!!!!!!!!!!!!!!!!!!!!!!AUTHENTICATOR RECOMPILING!!!!!!!!!!!!!!
 
 cd %AUTH%
@@ -59,6 +63,8 @@ del *.class
 
 echo Recompiling package
 javac *.java
+
+echo SUCCESS!!!
 
 echo !!!!!!!!!!!!!!!!!!!!!!!!!DATASERVER RECOMPILING!!!!!!!!!!!!!!!!!!
 
@@ -70,6 +76,8 @@ del *.class
 echo Recompiling package
 javac *.java
 
+echo SUCCESS!!!
+
 echo !!!!!!!!!!!!!!!!!!!!!!!!!VEM RECOMPILING!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 cd %VEM%
@@ -79,6 +87,8 @@ del *.class
 
 echo Recompiling package
 javac *.java
+
+echo SUCCESS!!!
 
 echo !!!!!!!!!!!!!!!!!!!!!!!!THEME MANAGER RECOMPILING!!!!!!!!!!!!!!!!!
 
@@ -91,4 +101,7 @@ echo Recompiling package
 javac *.java
 
 cd %CHIME%
+
+echo SUCCESS!!!
+
 echo Done..........

@@ -21,7 +21,7 @@ public class BSCWProtocol extends FRAXProtocol {
     private String final_str;
     private DataInputStream returnedInputStream;
     HTTPResponse rsp;
-    URI dest;
+    HTTPClient.URI dest;
     public String metaData;
 
 
@@ -39,9 +39,9 @@ public class BSCWProtocol extends FRAXProtocol {
     /**
      * Helper method for making a URI object
      */
-    private URI makeURIObj(String object) {
+    private HTTPClient.URI makeURIObj(String object) {
 	try {
-	    dest = new URI(object);
+	    dest = new HTTPClient.URI(object);
 	} catch (Exception e) {
 	    dest = null;
 	}
@@ -53,7 +53,7 @@ public class BSCWProtocol extends FRAXProtocol {
      * gets an HTTPResponse object when it tries to
      * to make a request to a particular URI
      */
-    private HTTPResponse getStream(URI dest) {
+    private HTTPResponse getStream(HTTPClient.URI dest) {
 
 	try {
 	    System.out.println("*******The destination is: " + dest.getPath());
@@ -105,9 +105,9 @@ public class BSCWProtocol extends FRAXProtocol {
      * Special BSCW thing
      * Allows you to get the XML out of the pages
      */
-    private HTTPResponse makeJget(URI tourl) {
+    private HTTPResponse makeJget(HTTPClient.URI tourl) {
 	try {
-	    URI newdest = new URI("http", tourl.getHost(), tourl.getPort(), tourl.getPath() + "?op=jget");
+	    HTTPClient.URI newdest = new HTTPClient.URI("http", tourl.getHost(), tourl.getPort(), tourl.getPath() + "?op=jget");
 
 	return getStream(newdest);
 	} catch (Exception e) {
@@ -131,7 +131,7 @@ public class BSCWProtocol extends FRAXProtocol {
 	//try the URL as specified
 	if (!dest.getPath().trim().endsWith("/")) {
 	    try {
-		rsp = getStream(new URI(URLString));
+		rsp = getStream(new HTTPClient.URI(URLString));
 	    } catch (Exception e) {
 		System.err.println(e.getMessage());
 		rsp = null;

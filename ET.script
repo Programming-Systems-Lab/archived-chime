@@ -1,18 +1,24 @@
 CREATE USER SA PASSWORD "" ADMIN
 /*C1*/CONNECT USER sa PASSWORD ""
-create table ROOM (url varchar(255), username varchar(255), userip varchar(255), PRIMARY KEY (url, username))
+create table ROOM (url varchar(255), username varchar(255), userip varchar(255), shape varchar(255), PRIMARY KEY (url, username))
 create index url on ROOM(url)
 create table MOVEMENT (room varchar(255), obj varchar(255), x0 real, y0 real, z0 real, x1 real, y1 real, z1 real)
 create index obj on MOVEMENT(obj)
-INSERT INTO ROOM VALUES('http://www.yahoo.com/','suhit','192.168.123.201')
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','http://www.altavista.com/',0.0,0.0,0.0,1.9561417,0.0,12.847019)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','http://www.altavista.com/',0.0,0.0,0.0,2.0922592,0.0,12.747167)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','http://www.suhit.com/',0.0,0.0,0.0,8.366356,0.0,7.8363066)
+INSERT INTO ROOM VALUES('http://www.yahoo.com/','suhit','128.59.23.9','user4')
+INSERT INTO ROOM VALUES('http://www.yahoo.com/','denis','128.59.23.6','user5')
+INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','http://www.altavista.com/',0.0,0.0,0.0,2.6931968,0.0,12.807017)
+INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','http://www.altavista.com/',0.0,0.0,0.0,2.6931968,0.0,12.807017)
+INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','http://www.altavista.com/',0.0,0.0,0.0,2.5495234,0.0,12.802356)
+INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','suhit',0.0,0.0,0.0,0.0,0.0,0.0)
+DELETE FROM ROOM WHERE URL='http://www.yahoo.com/' AND USERNAME='suhit' AND USERIP='128.59.23.9' AND SHAPE='user4'
+DELETE FROM ROOM WHERE URL='http://www.yahoo.com/' AND USERNAME='denis' AND USERIP='128.59.23.6' AND SHAPE='user5'
+INSERT INTO ROOM VALUES('http://www.yahoo.com/','suhit','128.59.23.9','user4')
+INSERT INTO ROOM VALUES('http://www.yahoo.com/','denis','128.59.23.6','user5')
 INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','suhit',0.0,0.0,0.0,0.0,0.0,0.0)
 INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','suhit',0.0,0.0,0.0,0.0,0.0,0.0)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','suhit',0.0,0.0,0.0,0.0,0.0,0.0)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','http://www.suhit.com/',0.0,0.0,0.0,7.4226155,0.0,6.9330015)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','http://www.suhit.com/',0.0,0.0,0.0,7.4226155,0.0,6.9330015)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','http://www.suhit.com/',0.0,0.0,0.0,7.4226155,0.0,6.9330015)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','http://www.altavista.com/',0.0,0.0,0.0,1.8246951,0.0,12.956627)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','suhit',0.0,0.0,0.0,0.0,0.0,0.0)
+INSERT INTO ROOM VALUES('http://www.suhit.com/','suhit','128.59.23.9','user4')
+INSERT INTO ROOM VALUES('http://www.suhit.com/','denis','128.59.23.6','user5')
+DELETE FROM ROOM WHERE URL='http://www.yahoo.com/' AND USERNAME='suhit' AND USERIP='128.59.23.9' AND SHAPE='user4'
+DELETE FROM ROOM WHERE URL='http://www.suhit.com/' AND USERNAME='suhit' AND USERIP='128.59.23.9' AND SHAPE='user4'
+DELETE FROM ROOM WHERE URL='http://www.yahoo.com/' AND USERNAME='denis' AND USERIP='128.59.23.6' AND SHAPE='user5'
+DELETE FROM ROOM WHERE URL='http://www.suhit.com/' AND USERNAME='denis' AND USERIP='128.59.23.6' AND SHAPE='user5'
