@@ -698,6 +698,8 @@ bool ChimeSystemDriver::Initialize(int argc, const char *const argv[], const cha
 	//***********************************************************
 	//Initialize the engine
 	//***********************************************************
+	csColor ambColor (0.9, 0.9, 0.9);
+	engine->SetAmbientLight(ambColor);
 	engine->Prepare();
 	ReadRoom(testRoom);
 
@@ -1131,6 +1133,7 @@ void ChimeSystemDriver::SetupFrame()
 	  //positionSprite.z -= 1;
 	  sprite->GetMovable()->SetPosition(positionSprite);
 	  sprite->GetMovable()->UpdateMove();
+	  sprite->DeferUpdateLighting (CS_NLIGHT_STATIC|CS_NLIGHT_DYNAMIC, 10);
 	  view->Draw ();
 	  if (overviewWindow) overviewWindow->Draw ();
 	  
@@ -2451,6 +2454,7 @@ iMeshWrapper* ChimeSystemDriver::AddMeshObj (char* tname, char* sname, iSector* 
   }
   iMeshWrapper* spr = Sys->engine->CreateMeshWrapper (tmpl, sname,
 						      where, pos);
+  spr->DeferUpdateLighting (CS_NLIGHT_STATIC|CS_NLIGHT_DYNAMIC, 10);
   csMatrix3 m; 
   m.Identity (); 
   //m = m * (size/35);
@@ -2883,6 +2887,7 @@ bool ChimeSystemDriver::MoveUser(char *roomUrl, char *username, char *ip_address
 
 	obj->GetMovable()->SetPosition(room, newPos);
 	obj->GetMovable()->UpdateMove();
+	obj->DeferUpdateLighting (CS_NLIGHT_STATIC|CS_NLIGHT_DYNAMIC, 10);
 
 	return true;
 
@@ -3517,9 +3522,25 @@ int ChimeSystemDriver::DrawVideoScreen(csVector3 objPos, csVector3 offset, const
 // based on username and IP address
 void ChimeSystemDriver::GetShape (char *name, char *ip, char *txtName)
 {
-	int userInt = atoi(name);
-	int ipInt = atoi(ip);
-	int txtNumber = (userInt+ipInt)%5;
+	char *name_copy = name;
+	int sum1 = 0;
+	while (*name_copy != 0)
+	{
+		sum1 += (int)*name_copy;
+		name_copy++;
+	}
+
+	char *ip_copy = ip;
+	int sum2 = 0;
+	while (*ip_copy != 0)
+	{
+		sum2 += (int)*ip_copy;
+		ip_copy++;
+	}
+
+	//int userInt = atoi(name);
+	//int ipInt = atoi(ip);
+	int txtNumber = (sum1+sum2)%5;
 	txtNumber++;
 	//strcpy(txtName, "user");
 	//strcat(txtName, txtNumber);
