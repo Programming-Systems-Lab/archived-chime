@@ -1,0 +1,5 @@
+CREATE USER SA PASSWORD "" ADMIN
+/*C1*/CONNECT USER sa PASSWORD ""
+create table SOURCE (id integer, protocol varchar(255), url varchar(255), size integer, type varchar(20), created varchar(255), last_mod varchar(255), src varchar(255), parent integer, classtype varchar(255), subtype varchar(255), shape varchar(255), shape2d varchar(255), opt1 varchar(255), opt2 varchar(255), opt3 varchar(255), opt4 varchar(255), opt5 varchar(255), PRIMARY KEY (id), UNIQUE (protocol, url) )
+create index id on SOURCE(id)
+create index url on SOURCE(protocol, url)

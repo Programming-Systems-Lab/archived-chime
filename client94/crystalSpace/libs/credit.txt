@@ -1,0 +1,23 @@
+The excellent FreeType package is copyright by the guys at www.freetype.org.
+Here we give credit to :
+
+David Turner
+Robert Wilhelm
+Werner Lemberg
+
+and all the nameless programmers who contributed to FreeType.
+
+Thank you for your cool piece of code.
+
+Kudos also to the lib3ds group for their execellent work.  Go to their site at
+http://sourceforge.net/projects/lib3ds
+
+Contributors include:
+
+J.E. Hoffmann
+Eric Sommerlade
+Marcelo E. Magallon
+Michael Fink
+
+A special thanks for JE Hoffman converting lib3ds to make it easier to work 
+with the Crystal Space VFS.
