@@ -283,7 +283,6 @@ bool ChimeApp::HandleEvent (iEvent &Event)
 		  // AI2TV PLAYER SHUTDOWN
 		  if (Sys->myVideoPlayer) Sys->myVideoPlayer->ShutDown();
 		  // END AI2TV PLAYER SHUTDOWN
-		  Sys->ExitSystem();
 		  ShutDown();
           return true;
         }
@@ -328,6 +327,14 @@ void Cleanup ()
   iObjectRegistry* object_reg = Sys->object_reg;
   delete Sys; Sys = NULL;
   csInitializer::DestroyApplication (object_reg);
+}
+
+//override csApp::ShutDown to send the c_disconnect message
+void ChimeApp::ShutDown()
+{
+	if (Sys)
+		Sys->ExitSystem();
+	csApp::ShutDown();
 }
 
 

@@ -391,9 +391,6 @@ bool ChimeSector::BuildDynamicRoom2(char *roomDesc, const csVector3 &pos, iColli
 	char line[500];
 	char roomURL[MAX_URL];
 
-	collider_list = new csVector(16,16);
-	transform_list = new csVector(16,16);
-
 	//iSector *room;
 	iLightList *light_list;
 
@@ -669,28 +666,28 @@ bool ChimeSector::BuildDynamicRoom2(char *roomDesc, const csVector3 &pos, iColli
 	for ( i = 0 ; i < room->GetMeshes()->GetCount(); i++)
 	{
 		sp = room->GetMeshes()->Get(i);
-		System->InitCollider(sp);
+		//System->InitCollider(sp);
 	}
 
 	//Add collision detection to all the objects in the hallway
 	for ( i = 0 ; i < hallway->GetMeshes()->GetCount(); i++)
 	{
 		sp = hallway->GetMeshes()->Get(i);
-		System->InitCollider(sp);
+		//System->InitCollider(sp);
 	}
 
 	//Add collision detection to all the objects in the first connector
 	for ( i = 0 ; i < connector1->GetMeshes()->GetCount(); i++)
 	{
 		sp = connector1->GetMeshes()->Get(i);
-		System->InitCollider(sp);
+		//System->InitCollider(sp);
 	}
 
 	//Add collision detection to all the objects in the second connector
 	for ( i = 0 ; i < connector2->GetMeshes()->GetCount(); i++)
 	{
 		sp = connector2->GetMeshes()->Get(i);
-		System->InitCollider(sp);
+		//System->InitCollider(sp);
 	}
 
 	sp->DecRef();

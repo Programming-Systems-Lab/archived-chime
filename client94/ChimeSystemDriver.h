@@ -104,6 +104,7 @@ private:
 	float lookUp;
 	/// Used for refreshing windows
 	bool openGLMode;
+	csStrVector *openDoors;
 
 
 	/**
@@ -210,10 +211,6 @@ private:
 	bool CollisionDetect();
 	iSector* FindSectContainingPoint(csVector3 &pos, ChimeSector *&sect);
 	void CreateColliders ();
-	//list of colliders
-	csVector *collider_list;
-	//list of transforms
-	csVector *transform_list;
 	//collider for the user mesh
 	iCollider* user_collider;
 
@@ -247,7 +244,7 @@ private:
 	// Delete a specified user from the system
 	bool ChimeSystemDriver::DeleteUser(char *roomUrl, char *username, char*ip_address);
 	// Delete a specified user from a given room
-	bool ChimeSystemDriver::UserLeftRoom(char *roomUrl, char *username, char*ip_address);
+	bool ChimeSystemDriver::UserLeftRoom(char *oldRoomUrl, char *newRoomUrl, char *username, char*ip_address);
 	// Change shape of a givn 3d object
 	bool ChimeSystemDriver::ChangeClass(char *desc);
 	// Read a given room description

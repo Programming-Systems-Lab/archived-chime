@@ -75,6 +75,8 @@ public:
 
   void Refresh3D();
 
+  void ShutDown();
+
   virtual void Draw ();
 };
 

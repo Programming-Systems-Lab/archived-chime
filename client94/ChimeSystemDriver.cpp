@@ -108,8 +108,7 @@ ChimeSystemDriver::ChimeSystemDriver()
 	locked = true;
 	moveMain = true;
 	openGLMode = false;
-	collider_list = new csVector(16,16);
-	transform_list = new csVector(16,16);
+	openDoors = new csStrVector(64, 64);
 	
 	//the menu wasn't drawn
 	menu_drawn = false;
@@ -389,7 +388,7 @@ void ChimeSystemDriver::UserMoved()
 			nextSector++;			//protect this room from caching out
 		}
 		
-		comm.UserLeftRoom(username, my_ip_address, prevSector->GetUrl());
+		comm.UserLeftRoom(username, my_ip_address, prevSector->GetUrl(), sec->GetUrl());
 
 		/*
 		newPos = view->GetCamera()->GetOrigin();
@@ -748,7 +747,7 @@ bool ChimeSystemDriver::Initialize(int argc, const char *const argv[], const cha
 		size = 0.029;
 	sprite = AddMeshObj("user0", name, view->GetCamera()->GetSector(), userPos, size);
 	if( !sprite ) return false;
-	user_collider = InitCollider(sprite);
+	//user_collider = InitCollider(sprite);
 
 	return true;
 }
@@ -1345,6 +1344,11 @@ bool ChimeSystemDriver::OpenDoor(char *doorUrl) {
 		strcpy(reqRoomUrl, doorUrl);
 		comm.SubscribeRoom(doorUrl, username);
 		comm.GetRoom(doorUrl);
+		openDoors->Push(doorUrl);
+	app->chatWindow->ShowMessage("Open doors:");
+	for (int i = 0; i<openDoors->Length(); i++)
+		app->chatWindow->ShowMessage((char*)openDoors->Get(i));
+
 		return true;
 	}
 
@@ -2383,14 +2387,10 @@ bool ChimeSystemDriver::DeleteMeshObj(iMeshWrapper *mesh, iSector *room)
 {
     if (mesh && room && (mesh != sprite))
 	{
-		//return room->GetMeshes()->Remove(mesh);
-		bool rc = engine->RemoveObject(mesh);
-		engine->Prepare();
-		//view->Draw();
-		//if (overviewWindow)
-		//	overviewWindow->Draw();
-		return rc;
-		//return true;
+		csColliderWrapper* coll_wrap = csColliderWrapper::GetColliderWrapper(mesh->QueryObject());
+		if (coll_wrap)
+			coll_wrap->DecRef();
+		return engine->RemoveObject(mesh);
 	}
     else
 	{
@@ -2670,11 +2670,12 @@ bool ChimeSystemDriver::HandleNetworkEvent(int method, char *params)
 	case s_leftRoom:
 		{
 			char oldRoomUrl[MAX_URL];
+			char newRoomUrl[MAX_URL];
 			char username[MAX_URL];
 			char ip_address[MAX_URL];
 
-			sscanf(params, "%s %s %s", username, ip_address, oldRoomUrl);
-			result = UserLeftRoom(oldRoomUrl, username, ip_address);
+			sscanf(params, "%s %s %s %s", username, ip_address, oldRoomUrl, newRoomUrl);
+			result = UserLeftRoom(oldRoomUrl, newRoomUrl, username, ip_address);
 			break;
 		}
 
@@ -2838,13 +2839,9 @@ bool ChimeSystemDriver::AddObject(char *roomUrl, char *objectUrl, char *shape, c
 	iMeshWrapper *m = AddMeshObj(shape, objectUrl, room, objPos, 1);
 	if( !m ) return false;
 	iCollider* coll = InitCollider(m);
-	if (coll) {
-		collider_list->Push(coll);
-		transform_list->Push(&(m->GetMovable()->GetFullTransform()));
-	}
-	coll->DecRef();
-
-
+	if (coll)
+		coll->DecRef();
+	
 	return true;
 }
 
@@ -2929,13 +2926,9 @@ bool ChimeSystemDriver::AddUser(char *roomUrl, char *username, char *ip_address,
 	//Add collision detection
 	iMeshWrapper *sp = FindObject(room, name);
 	iCollider* coll = InitCollider(sp);
-	if (coll) {
-		collider_list->Push(coll);
-		transform_list->Push(&(m->GetMovable()->GetFullTransform()));
-	}
-	coll->DecRef();
-
-
+	if (coll)
+		coll->DecRef();
+	
 	return true;
 }
 
@@ -2980,7 +2973,8 @@ bool ChimeSystemDriver::DeleteUser(char *roomUrl, char *username, char *ip_addre
 	if (!user) return false;
 
 	DeleteMeshObj(user, room);
-	sec->deleteUser(userID);
+	if (!sec->deleteUser(username))
+		sec->deleteUser(username, ip_address);
 
 	return true;
 }
@@ -3598,16 +3592,13 @@ void ChimeSystemDriver::ExitSystem()
 	info->GetUsername(username);
 	char ipaddress[50];
 	info->GetMyIPAddress(ipaddress);
-	printf("\n\nMy username: %s", username);
-	printf("\n\nMy ip address: %s", ipaddress);
 	ChimeSector *sec = GetCurChimeSector();
 	comm.Disconnect(sec->GetUrl(), username, ipaddress, sec->GetUserList());
-	app->chatWindow->ShowMessage("Quit");
 }
 
-bool ChimeSystemDriver::UserLeftRoom(char *roomUrl, char *username, char*ip_address)
+bool ChimeSystemDriver::UserLeftRoom(char *oldRoomUrl, char *newRoomUrl, char *username, char*ip_address)
 {
-	ChimeSector *sec = FindSector( roomUrl );
+	ChimeSector *sec = FindSector( oldRoomUrl );
 	if( !sec ) return false;
 
 	char *userID = sec->MakeUserID(username, ip_address);
@@ -3642,8 +3633,16 @@ bool ChimeSystemDriver::UserLeftRoom(char *roomUrl, char *username, char*ip_addr
 
 	//user->GetMovable()->GetSectors()->Remove(room);
 	//engine->Prepare();
-	//DeleteMeshObj(user, room);
-	sec->deleteUser(userID);
+	app->chatWindow->ShowMessage("Open doors:");
+	for (int i = 0; i<openDoors->Length(); i++)
+		app->chatWindow->ShowMessage((char*)openDoors->Get(i));
+	printf("\nNew door URL: %s", newRoomUrl);
+	if (openDoors->Find(newRoomUrl) != -1)
+	{
+		DeleteMeshObj(user, room);
+		if (!sec->deleteUser(username))
+			sec->deleteUser(username, ip_address);
+	}
 
 	return true;
 }

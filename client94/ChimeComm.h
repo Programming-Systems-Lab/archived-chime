@@ -55,7 +55,7 @@ public:
 	//Broadcast entrance of a user in a given room
 	bool UserEnteredRoom(char *username, char *ip_address, char *newRoomUrl, float x, float y, float z, const csStrVector *userList);
 	//Broadcast that a user has left a given room
-	bool UserLeftRoom(char *username, char *ip_address, char *oldRoomUrl);
+	bool UserLeftRoom(char *username, char *ip_address, char *oldRoomUrl, char *newRoomUrl);
 	//Broadcast addition of new object in a given room
 	bool AddObject(char *roomUrl, char *objectUrl, float x, float y, float z);
 	//Broadcast deletion of new object in a given room

@@ -168,12 +168,13 @@ bool chimeComm::UserEnteredRoom(char *username, char *ip_address, char *newRoomU
 }
 
 //Broadcast that a user has lift a given room
-bool chimeComm::UserLeftRoom(char *username, char *ip_address, char *oldRoomUrl)
+bool chimeComm::UserLeftRoom(char *username, char *ip_address, char *oldRoomUrl, char *newRoomUrl)
 {
 
 	strcpy(command, username);
 	AppendToken(command, ip_address);
 	AppendToken(command, oldRoomUrl);
+	AppendToken(command, newRoomUrl);
 
 	client_comm->SendSienaFunction(c_leftRoom, command, oldRoomUrl,"HTTP");
 	return true;
