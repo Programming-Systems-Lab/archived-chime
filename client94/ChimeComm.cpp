@@ -156,7 +156,7 @@ bool chimeComm::MoveUser(char *roomUrl, char *username, char *ip_address, float 
 }
 
 //Broadcast entrance of a user in a given room
-bool chimeComm::UserEnteredRoom(char *username, char *ip_address, char *newRoomUrl, float x, float y, float z, const csStrVector *userList)
+bool chimeComm::UserEnteredRoom(char *username, char *ip_address, char *newRoomUrl, char *shape, float x, float y, float z, const csStrVector *userList)
 {
 
 	//add user to the history window
@@ -166,6 +166,7 @@ bool chimeComm::UserEnteredRoom(char *username, char *ip_address, char *newRoomU
 	strcpy(command, username);
 	AppendToken(command, ip_address);
 	AppendToken(command, newRoomUrl);
+	AppendToken(command, shape);
 	AppendToken(command, ftoa(x));
 	AppendToken(command, ftoa(y));
 	AppendToken(command, ftoa(z));
@@ -251,11 +252,10 @@ bool chimeComm::Disconnect(char *roomUrl, char *username, char *ip_address, cons
 			
 
 			client_comm->SendUDPFunction(to_ip_address, c_disconnect, command);
-	}
+		}
 	
-	
-	//strcpy(command, username);
-
-	//client_comm->SendSienaFunction(c_disconnect, command, roomUrl, "HTTP");
+	strcpy(command, username);
+	AppendToken(command, ip_address);
+	client_comm->SendSienaFunction(c_disconnect, command, roomUrl, "HTTP");
 	return true;
 }

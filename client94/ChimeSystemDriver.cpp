@@ -165,7 +165,9 @@ bool ChimeSystemDriver::TransportToRoom(char *name) {
 	
 	if(sec) {
 		camLocation = sec->GetCamLocation();
-		Transport(sec->GetRoom(0), *camLocation, csVector3(0,0, 1), csVector3(0, -1, 0));
+		csVector3 pos (0, 0, 1);
+		pos += sec->GetOrigin();
+		Transport(sec->GetMainRoom(), *camLocation, pos, csVector3(0, -1, 0));
 		return true;
 	}
 
@@ -405,7 +407,9 @@ void ChimeSystemDriver::UserMoved()
 				allUsers->Push(name);
 		}
 
-		comm.UserEnteredRoom(username, my_ip_address, sec->GetUrl(), newPos.x, newPos.y, newPos.z, allUsers);
+		char shape[10];
+		GetShape(username, my_ip_address, shape);
+		comm.UserEnteredRoom(username, my_ip_address, sec->GetUrl(), shape, newPos.x, newPos.y, newPos.z, allUsers);
 		ResetLocalChatBuddies(sec);
 	}
 	else
@@ -1031,13 +1035,11 @@ void ChimeSystemDriver::SetupFrame()
 		  return;
 
 	  if (sprite)
-		  if (sprite->GetMovable()->GetSectors()->Find( view->GetCamera()->GetSector() ) < 0)
-			sprite->GetMovable()->GetSectors()->Add( view->GetCamera()->GetSector() );
-	  csVector3 positionSprite =  view->GetCamera()->GetTransform().GetOrigin();
-	  positionSprite.y = 0;
-	  //positionSprite.z -= 1;
-	  if (sprite)
 	  {
+		  if (sprite->GetMovable()->GetSectors()->Find( view->GetCamera()->GetSector() ) < 0)
+			  sprite->GetMovable()->GetSectors()->Add( view->GetCamera()->GetSector() );
+		csVector3 positionSprite =  view->GetCamera()->GetTransform().GetOrigin();
+		positionSprite.y = 0;
 		sprite->GetMovable()->SetPosition(positionSprite);
 		sprite->GetMovable()->UpdateMove();
 		sprite->DeferUpdateLighting (CS_NLIGHT_STATIC|CS_NLIGHT_DYNAMIC, 10);
@@ -1141,16 +1143,20 @@ bool ChimeSystemDriver::Transport(iSector *room, csVector3 pos, csVector3 lookPo
 	if(!room)
 		return false;
 	
-	lookUp = lookUp.y * -1;
-	cam_pos -> Set(room->QueryObject()->GetName(), pos, lookPos, lookUp);
-	cam_pos -> Load(view->GetCamera(), engine);
+	view->GetCamera()->SetSector(room);
+	view->GetCamera()->GetTransform().SetOrigin(pos);
+	if (sprite)
+	{
+		sprite->GetMovable()->SetPosition(room, pos);
+		sprite->GetMovable()->UpdateMove();
+		sprite->DeferUpdateLighting (CS_NLIGHT_STATIC|CS_NLIGHT_DYNAMIC, 10);
+	}
+	if (overviewWindow)
+	{
+		overviewWindow->SnapThisCamera();
+	}
 
-	//next line should be commented WARNINGI!!!!!
-	 //view->GetCamera ()->SetPerspectiveCenter (FrameWidth / 2, FrameHeight / 2);
-	
-	 //view->SetRectangle (0, 0, FrameWidth/2, FrameHeight/2);
-
-	return false;
+	return true;
 }
 
 //**********************************************************************
@@ -2649,15 +2655,16 @@ bool ChimeSystemDriver::HandleNetworkEvent(int method, char *params)
 			char newRoomUrl[MAX_URL];
 			char username[MAX_URL];
 			char ip_address[MAX_URL];
+			char shape[10];
 			float x, y, z;
 
-			sscanf(params, "%s %s %s %f %f %f", username, ip_address, newRoomUrl, &x, &y, &z);
+			sscanf(params, "%s %s %s %s %f %f %f", username, ip_address, newRoomUrl, shape, &x, &y, &z);
 
 			//don't add me as a user
 			char my_username[50];
 			info->GetUsername(my_username);
-			char shape[7];
-			GetShape(username, ip_address, shape);
+			//char shape[7];
+			//GetShape(username, ip_address, shape);
 
 			if (strcmp(username, "") != 0 && strcmp(username, my_username) != 0) {
 				result = AddUser(newRoomUrl, username, ip_address, shape, x, y, z);  //NEEDS TO BE FIXED - NOT HARDCODED
@@ -3151,7 +3158,9 @@ bool ChimeSystemDriver::ReadRoom(char *desc)
 			if (strcmp(my_ip_address, "") == 0)
 				return false;
 
-			comm.UserEnteredRoom(my_username, my_ip_address, sec2->GetUrl(), newPos.x, newPos.y, newPos.z, sec2->GetUserList());
+			char shape[10];
+			GetShape(my_username, my_ip_address, shape);
+			comm.UserEnteredRoom(my_username, my_ip_address, sec2->GetUrl(), shape, newPos.x, newPos.y, newPos.z, sec2->GetUserList());
 		}
 	}
 

@@ -49,7 +49,7 @@ public class EventTracer {
 
     // SQL statements to create the tables
     private static String[] tableCreationSQL = {
-	"create table ROOM (url varchar(255), username varchar(255), userip varchar(255), PRIMARY KEY (url, username))",
+	"create table ROOM (url varchar(255), username varchar(255), userip varchar(255), shape varchar(255), PRIMARY KEY (url, username))",
        	"create index url on ROOM(url)",
 	"create table MOVEMENT (room varchar(255), obj varchar(255), x0 real, y0 real, z0 real, x1 real, y1 real, z1 real)",
 	"create index obj on MOVEMENT(obj)"
@@ -274,11 +274,12 @@ public class EventTracer {
 
 		System.err.println("METHOD CALL: CLIENT.C_ENTEREDROOM");
 
-		if (st.countTokens() < 3)
+		if (st.countTokens() < 4)
 		    return;
 		String username = st.nextToken();
 		String userIP = st.nextToken();
 		String roomUrl = st.nextToken();
+		String shape = st.nextToken();
 		//String username = e.getUsername();
 
 
@@ -317,7 +318,7 @@ public class EventTracer {
 		}
 
 		// add user to the new room
-		addRoomTuple(roomUrl, username, userIP);
+		addRoomTuple(roomUrl, username, userIP, shape);
 
 		// notify the roomates about the new user
 		//v = null;
@@ -325,7 +326,7 @@ public class EventTracer {
 
 		v = findRoomTuple(roomUrl);
 		e.setMethod("s_enteredRoom");
-		e.setData(username + " " + userIP + " " + roomUrl);
+		e.setData(username + " " + userIP + " " + roomUrl + " " + shape);
 
 		try {
 			e.publish();
@@ -437,10 +438,12 @@ public class EventTracer {
 	    else if (method.equals("c_disconnect")) {
 
 		System.err.println("METHOD CALL: CLIENT.C_DISCONNECT");
-		if (st.countTokens() < 1)
+		if (st.countTokens() < 2)
 		    return;
 		String user = st.nextToken();
+		String userip = st.nextToken();
 
+		/**
 		// notify users in the old room
 		String oldRoom = null;
 		Vector v = null;
@@ -465,9 +468,10 @@ public class EventTracer {
 			return;
 		    }
 		}
+		*/
 
 		// remove user from the old room
-		removeUser(user);
+		removeUser(user, userip, false);
 
 		System.err.println("END OF METHOD CALL PROCESS.");
 	    }
@@ -519,9 +523,9 @@ public class EventTracer {
 
     // insert a tuple into the database, if not already there.
     // all string arguments must be enclosed by '' except url.
-    public boolean addRoomTuple(String url, String user, String userIP) {
+    public boolean addRoomTuple(String url, String user, String userIP, String shape) {
 
-	System.err.println("Adding room " + url + " and user " + user + " and userIP " + userIP);
+	System.err.println("Adding room " + url + " and user " + user + " and userIP " + userIP + " and user shape " + shape);
 
 	user = user.toLowerCase();
 	url = url.toLowerCase();
@@ -530,12 +534,14 @@ public class EventTracer {
 		System.err.println("Executing query: " + "insert into ROOM values ('" +
 				   url + "','" +
 				   user + "','" +
-				   userIP + "')");
+				   userIP + "','"+
+				   shape + "')");
 
 	    statement.executeQuery("insert into ROOM values ('" +
 				   url + "','" +
 				   user + "','" +
-				   userIP + "')");
+				   userIP + "','"+
+				   shape + "')");
 	} catch(SQLException e) {
 	    System.err.println(e);
 	    return false;
@@ -614,18 +620,20 @@ public class EventTracer {
     }
 
     // remove the tuple with the specific user from the room database
-    public boolean removeUser(String user) {
+    public boolean removeUser(String user, String userIP, boolean r) {
 	user = user.toLowerCase();
 
 	try {
 	    statement.executeQuery("delete from ROOM where USER='" +
-				   user + "'");
+				   user + "' AND USERIP= '" + userIP + "'");
+		System.err.println("User "+user+" was removed");
+		r = true;
 	} catch(SQLException e) {
 	    System.err.println(e);
-	    return false;
+	    return r;
 	}
 
-	return true;
+	return r;
     }
 
     // remove user from a specific room

@@ -26,13 +26,15 @@ public class RoomTuple {
     private String user;
     private String userIP;
     private String url;
+    private String shape;
 
     // constructors
-    public RoomTuple (String ul, String username, String usernameIP) {
+    public RoomTuple (String ul, String username, String usernameIP, String userShape) {
 
 	url = ul;
 	user = username;
 	userIP = usernameIP;
+	shape = userShape;
     }
 
     // parse a result set into a vector of tuples
@@ -42,6 +44,7 @@ public class RoomTuple {
 	String user = null;
 	String url = null;
 	String userIP = null;
+	String shape = null;
 
 	Vector v = new Vector();
 
@@ -58,11 +61,13 @@ public class RoomTuple {
 			user = r.getString(i);
 		    } else if ( m.getColumnLabel(i).equals("USERIP") ) {
 			userIP = r.getString(i);
+		    } else if ( m.getColumnLabel(i).equals("SHAPE") ) {
+			shape = r.getString(i);
 		    }
 		}
 
 		//System.err.println("before adding tuple");
-		v.add(new RoomTuple(url, user, userIP));
+		v.add(new RoomTuple(url, user, userIP, shape));
 	    }
 
 	} catch(SQLException e) {
@@ -78,6 +83,7 @@ public class RoomTuple {
 	tmp += "URL: " + url + "\n";
 	tmp += "USER: " + user + "\n";
 	tmp += "USERIP: " + userIP + "\n";
+	tmp += "SHAPE: "+ shape + "\n";
 	return tmp;
     }
 
@@ -99,6 +105,7 @@ public class RoomTuple {
     public String getUrl() { return url;}
     public String getUser() { return user;}
     public String getUserIP() { return userIP;}
+    public String getUserShape() {return shape;}
 }
 
 

@@ -37,7 +37,8 @@ public class RoomParser {
 	url = root.getChild("Url").getText();
 
 	String userIP = root.getChild("UserIP").getText();
+	String shape = root.getChild("Shape").getText();
 
-	return new RoomTuple(url, user, userIP);
+	return new RoomTuple(url, user, userIP, shape);
     }
 }
