@@ -831,12 +831,12 @@ void AIVideoPlayer::time_changed(){
       // frames array [first element] exists
       FrameBuffer->frames[(FrameBuffer->getHead()+1)%FrameBuffer->buffer_size] &&
       // frame array [first element] start time > 0 (first frame displayed when video loaded)
-      FrameBuffer->frames[(FrameBuffer->getHead()+1)%FrameBuffer->buffer_size]->frame_number &&
+      FrameBuffer->frames[(FrameBuffer->getHead()+1)%FrameBuffer->buffer_size]->start &&
       // frame array [first element] start time <= the last frame played start time
-      FrameBuffer->frames[(FrameBuffer->getHead()+1)%FrameBuffer->buffer_size]->frame_number 
+      FrameBuffer->frames[(FrameBuffer->getHead()+1)%FrameBuffer->buffer_size]->start 
       <= TimeController->current_frame_number-1 &&
       // avoid calling playThread multiple times w/in same time segment 
-      FrameBuffer->frames[(FrameBuffer->getHead()+1)%FrameBuffer->buffer_size]->frame_number 
+      FrameBuffer->frames[(FrameBuffer->getHead()+1)%FrameBuffer->buffer_size]->start 
       > last_played //added var last_played -cl
 
       // use above line for realtime
@@ -848,7 +848,7 @@ void AIVideoPlayer::time_changed(){
     if (FrameBuffer->size >0) {
       myframe=FrameBuffer->frames[(FrameBuffer->getHead()+1)%FrameBuffer->buffer_size];
     }
-    last_played = myframe->frame_number;
+    last_played = myframe->start;
 
     playThread();	
   }
