@@ -109,6 +109,7 @@ ChimeSystemDriver::ChimeSystemDriver()
 	moveMain = true;
 	openGLMode = false;
 	openDoors = new csStrVector(64, 64);
+	allUsers = new csStrVector(64, 64);
 	
 	//the menu wasn't drawn
 	menu_drawn = false;
@@ -146,6 +147,7 @@ ChimeSystemDriver::ChimeSystemDriver()
 	strcat(testRoom, "http://www.suhit.com/ stool Connector Connector 1\n");
 	//strcat(testRoom, "navdeep mdl1 User 192.168.1.103 1\n");
 	strcpy(reqRoomUrl, "http://www.yahoo.com/");
+	openDoors->Push(reqRoomUrl);
 
 	// from AI2TV
 	myVideoPlayer=0;
@@ -394,7 +396,16 @@ void ChimeSystemDriver::UserMoved()
 		roomOrigin = sec->GetOrigin();
 		newPos -= roomOrigin;
 
-		comm.UserEnteredRoom(username, my_ip_address, sec->GetUrl(), newPos.x, newPos.y, newPos.z, sec->GetUserList());
+		//comm.UserEnteredRoom(username, my_ip_address, sec->GetUrl(), newPos.x, newPos.y, newPos.z, sec->GetUserList());
+		csStrVector *newUsers = sec->GetUserList();
+		for (int i = 0; i<newUsers->Length(); i++)
+		{
+			char *name = (char*)newUsers->Get(i);
+			if (!allUsers->Find(name))
+				allUsers->Push(name);
+		}
+
+		comm.UserEnteredRoom(username, my_ip_address, sec->GetUrl(), newPos.x, newPos.y, newPos.z, allUsers);
 		ResetLocalChatBuddies(sec);
 	}
 	else
@@ -405,7 +416,8 @@ void ChimeSystemDriver::UserMoved()
 		roomOrigin = sec->GetOrigin();
 		newPos -= roomOrigin;
 
-		comm.MoveUser(roomUrl, username, my_ip_address, newPos.x, 0, newPos.z, sec->GetUserList());
+		//comm.MoveUser(roomUrl, username, my_ip_address, newPos.x, 0, newPos.z, sec->GetUserList());
+		comm.MoveUser(roomUrl, username, my_ip_address, newPos.x, 0, newPos.z, allUsers);
 	}
 
 	if ( sprite && sprite->GetMovable()->GetSectors()->Find( view->GetCamera()->GetSector() ) == -1) {
@@ -2385,7 +2397,7 @@ bool ChimeSystemDriver::DeleteMeshObj(iMeshWrapper *mesh, iSector *room)
 		{
 			rt = engine->RemoveObject(mesh);
 		}
-		catch (...) { printf("\n"); }
+		catch (...) { printf("\n\n\nCould not remove the mesh %s", mesh->QueryObject()->GetName()); }
 		return rt;
 	}
     else
@@ -2775,6 +2787,12 @@ bool ChimeSystemDriver::MoveObject(char *roomUrl, char *objectUrl, float x, floa
 bool ChimeSystemDriver::MoveUser(char *roomUrl, char *username, char *ip_address, float x, float y, float z)
 {
 	
+	//if the user is myself, do nothing
+	char my_username[50];
+	info->GetUsername(my_username);
+	if (!strcmp(username, my_username))
+		return true;
+	
 	ChimeSector *sec = NULL;
 	iSector	*room = NULL;
 
@@ -2787,7 +2805,7 @@ bool ChimeSystemDriver::MoveUser(char *roomUrl, char *username, char *ip_address
 
 	csVector3 newPos = sec->GetOrigin();
 	newPos.x += x;
-	newPos.y += y;
+	newPos.y = 0;
 	newPos.z += z;
 
 	iMeshWrapper* obj = NULL;
@@ -2807,10 +2825,9 @@ bool ChimeSystemDriver::MoveUser(char *roomUrl, char *username, char *ip_address
 	if( !room ) return false;
 
 	try{
-	obj->GetMovable()->SetPosition(room, newPos);
-	//obj->GetMovable()->SetPosition(newPos);
-	obj->GetMovable()->UpdateMove();
-	obj->DeferUpdateLighting (CS_NLIGHT_STATIC|CS_NLIGHT_DYNAMIC, 10);
+		obj->GetMovable()->SetPosition(room, newPos);
+		obj->GetMovable()->UpdateMove();
+		obj->DeferUpdateLighting (CS_NLIGHT_STATIC|CS_NLIGHT_DYNAMIC, 10);
 	}
 	catch (...) {printf("MoveUser failed...");}
 
@@ -2908,7 +2925,7 @@ bool ChimeSystemDriver::AddUser(char *roomUrl, char *username, char *ip_address,
 
 	csVector3 userPos = sec->GetOrigin();
 	userPos.x += x;
-	userPos.y += y;
+	userPos.y = 0;
 	userPos.z += z;
 
 
@@ -2919,6 +2936,7 @@ bool ChimeSystemDriver::AddUser(char *roomUrl, char *username, char *ip_address,
 	}
 
 	char *name = sec->MakeUserID(username, ip_address);
+	allUsers->Push(name);
 	//char name[100];
 
 	//strcpy(name, username);
@@ -3645,29 +3663,17 @@ bool ChimeSystemDriver::UserLeftRoom(char *oldRoomUrl, char *newRoomUrl, char *u
 	}
 	if (!isDoorOpen)
 	{
-		DeleteMeshObj(user, room);
-		if (!sec->deleteUser(username))
-			sec->deleteUser(username, ip_address);
+		DeleteUser(oldRoomUrl, username, ip_address);
+		//DeleteMeshObj(user, room);
+		//if (!sec->deleteUser(username))
+		//	sec->deleteUser(username, ip_address);
 	}
 	else
 	{
 		DeleteUser(oldRoomUrl, username, ip_address);
 		char shape[10];
 		GetShape(username, ip_address, shape);
-		AddUser(newRoomUrl, username, ip_address, shape, 10, 0, 2.0);
-		
-		/**
-		ChimeSector *newSec = FindSector( newRoomUrl );
-		if( newSec )
-		{
-			for (int i = 0; i<newSec->numRooms; i++)
-			{
-				if (!user->GetMovable()->GetSectors()->Find(newSec->GetRoom(i)))
-					user->GetMovable()->GetSectors()->Add(newSec->GetRoom(i));
-			}
-			user->GetMovable()->UpdateMove();
-		}
-		*/
+		AddUser(newRoomUrl, username, ip_address, shape, 5, 0, 0);
 	}
 
 	return true;

@@ -138,13 +138,13 @@ bool chimeComm::MoveUser(char *roomUrl, char *username, char *ip_address, float 
 		char *to_username = strtok(temp, " ");
 		char *to_ip_address = strtok(NULL, " ");
 
-		if (to_username != NULL && to_ip_address != NULL 
-			&& strcmp(to_ip_address, ip_address) != 0) //don't send it to yourself
+		//if (to_username != NULL && to_ip_address != NULL 
+		//	&& strcmp(to_ip_address, ip_address) != 0) //don't send it to yourself
 			
 
 			client_comm->SendUDPFunction(to_ip_address, c_moveUser, command);
 	}
-	client_comm->SendSienaFunction(c_moveUser, command, roomUrl, "HTTP");
+	//client_comm->SendSienaFunction(c_moveUser, command, roomUrl, "HTTP");
 	return true;
 }
 

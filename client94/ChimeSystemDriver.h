@@ -104,7 +104,10 @@ private:
 	float lookUp;
 	/// Used for refreshing windows
 	bool openGLMode;
+	/// Keeps the list of all doors open
 	csStrVector *openDoors;
+	/// Keeps the list of all users met
+	csStrVector *allUsers;
 
 
 	/**
