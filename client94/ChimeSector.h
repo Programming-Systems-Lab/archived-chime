@@ -299,6 +299,10 @@ public:
 	iPolygon3D* BuildScreenOnWall(csVector3 const &objPos, csVector3 const &offset, csVector3 const &size, iMaterialWrapper *txt, csVector3 const &txtSize);
 	// ADDED by DOV - to put AIVideo Frames on Screen
 	iMeshWrapper* ChimeSector::PutImageOnScreen(iSector *room, csVector3 const &objPos, csVector3 const &offset, csVector3 const &size, iMaterialWrapper *txt, csVector3 const &txtSize);
+
+	csVector3 limit_coordinates[4][4];
+	csVector3 GetLimits(int roomIndex, int wallIndex);
+
 };
 
 

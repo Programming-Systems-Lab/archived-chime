@@ -213,7 +213,7 @@ private:
 	iMeshWrapper* SelectMesh (iCamera *camera, csVector2 *screenCoord, float &dist);
 	//Check if given mesh intersects with the walls of the room or any of the other
 	//objects in the room.
-	bool CollisionDetect();
+	bool CollisionDetect(csVector3 userPos, csVector3 oldPos);
 	iSector* FindSectContainingPoint(csVector3 &pos, ChimeSector *&sect);
 	void CreateColliders ();
 	//collider for the user mesh

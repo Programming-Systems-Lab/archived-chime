@@ -821,8 +821,8 @@ void ChimeSystemDriver::SetInfoObject() {
 	info->GetSienaLocation(siena_location);
 
 	if (strcmp(password, "") == 0 || strcmp(username, "") == 0 || strcmp(siena_location, "") == 0) {
-			info->SetUsername("suhit");
-			info->SetPassword("suhit");
+			info->SetUsername("nav");
+			info->SetPassword("nav");
 			info->SetSienaLocation("localhost");
 	}
 
@@ -2544,10 +2544,15 @@ iMeshWrapper* ChimeSystemDriver::SelectMesh (iCamera *camera, csVector2 *screenC
 //*********************************************************************************
 //*
 //* check if there is a collision
+//* FIXIT: right now is done using a HACK solution
+//*  by checking coordinates of the user and limiting them against the coordinates
+//*  of the walls. Should use CS collision detection!
 //*
 //*********************************************************************************
-bool ChimeSystemDriver::CollisionDetect()
+bool ChimeSystemDriver::CollisionDetect(csVector3 userPos, csVector3 oldPos)
 {
+
+/**
 	bool rc = false;
 	//collide_system->ResetCollisionPairs();
 	csReversibleTransform user_tr = sprite->GetMovable ()->GetFullTransform ();
@@ -2576,6 +2581,87 @@ bool ChimeSystemDriver::CollisionDetect()
 	if (rc)
 		printf("Collision is true.");
 	return rc;
+*/
+
+	bool ret = false;
+	char username[50];
+	info->GetUsername(username);
+	char ip_address[50];
+	info->GetMyIPAddress(ip_address);
+
+	int index = 0;
+
+	//find which room the user is in
+	ChimeSector *sec = GetCurChimeSector();
+	if (sec == NULL)
+		return false;
+	iSector * room;
+	char *userID = sec->MakeUserID(username, ip_address);
+
+	try
+	{
+
+		room = FindSectContainingPoint(oldPos, sec);
+		if (room == sec->GetConn1())
+			index = 0;
+		if (room == sec->GetMainRoom())
+			index = 1;
+		if (room == sec->GetConn2())
+			index = 2;
+		if (room == sec->GetHallway())
+			index = 3;
+		
+		csVector3 limit[4];
+		for (int i = 0; i<4; i++)
+		{
+			limit[i] = sec->GetLimits(index, i);
+		}
+
+		//handle general cases
+		if (userPos.x <= (limit[0].x + 0.1) || userPos.z <= (limit[0].z + 0.1))
+			ret = true;
+		if (userPos.x >= (limit[3].x - 0.1) || userPos.z >= (limit[3].z - 0.1))
+			ret = true;
+
+		if (index == 3)
+		{
+			printf("\nHallway left lower limit: x = %f  y = %f  z = %f", limit[0].x, limit[0].y, limit[0].z);
+			printf("\nHallway right upper limit: x = %f  y = %f  z = %f", limit[3].x, limit[3].y, limit[3].z);
+			printf("\nUser position: x = %f  y = %f  z = %f", userPos.x, userPos.y, userPos.z);
+		}
+
+		//handle special cases like passing through a door
+		if (index == 0 || index == 2)
+		{
+			if (userPos.z >= limit[3].z || userPos.z <= limit[0].z)
+				ret = false;
+		}
+		if (index == 1)
+		{
+			limit[0] = sec->GetLimits(0, 2);
+			limit[1] = sec->GetLimits(0, 3);
+			limit[2] = sec->GetLimits(2, 0);
+			limit[3] = sec->GetLimits(2, 1);
+			if (userPos.z <= limit[0].z && userPos.x >= limit[0].x && userPos.x <= limit[1].x)
+				ret = false;
+			if (userPos.z >= limit[2].z && userPos.x >= limit[2].x && userPos.x <= limit[3].x)
+				ret = false;
+		}
+		if (index == 3)
+		{
+			limit[1] = sec->GetLimits(2, 2);
+			limit[2] = sec->GetLimits(2, 3);
+			if (userPos.z <= limit[0].z && userPos.x >= limit[1].x && userPos.x <= limit[2].x)
+				ret = false;
+			if (userPos.z >= limit[3].z)
+				ret = false;
+		}
+
+		return ret;
+	}
+	catch (...) { return false; }
+
+
 }
 
 //*********************************************************************************
@@ -3519,10 +3605,32 @@ iCollider* ChimeSystemDriver::InitCollider (iMeshWrapper* mesh)
 // Move to the left
 bool ChimeSystemDriver::MoveLeft(float speed)
 {
+
+	csVector3 oldPos = view->GetCamera()->GetTransform().GetOrigin();
+
 	if (moveMain)
+	{
 		view->GetCamera ()->Move (CS_VEC_LEFT, 2.0f*speed);
+		csVector3 pos = view->GetCamera()->GetTransform().GetOrigin();
+		if ( CollisionDetect(pos, oldPos) )
+		{
+			view->GetCamera ()->Move (CS_VEC_RIGHT, 2.0f*speed);
+			return false;
+		}
+	}
 	if ((locked || !moveMain) && overviewWindow)
+	{
 		overviewWindow->GetCamera ()->Move (CS_VEC_LEFT, 2.0f*speed);
+		if (!locked && !moveMain && overviewWindow)
+		{
+			csVector3 pos = overviewWindow->GetCamera()->GetTransform().GetOrigin();
+			if (CollisionDetect(pos, oldPos))
+			{
+				overviewWindow->GetCamera ()->Move (CS_VEC_RIGHT, 2.0f*speed);
+				return false;
+			}
+		}
+	}
 
 	return true;
 }
@@ -3530,10 +3638,30 @@ bool ChimeSystemDriver::MoveLeft(float speed)
 // Move to the right
 bool ChimeSystemDriver::MoveRight(float speed)
 {
+	csVector3 oldPos = view->GetCamera()->GetTransform().GetOrigin();
 	if (moveMain)
+	{
 		view->GetCamera ()->Move (CS_VEC_RIGHT, 2.0f*speed);
+		csVector3 pos = view->GetCamera()->GetTransform().GetOrigin();
+		if ( CollisionDetect(pos, oldPos) )
+		{
+			view->GetCamera ()->Move (CS_VEC_LEFT, 2.0f*speed);
+			return false;
+		}
+	}
 	if ((locked || !moveMain) && overviewWindow)
+	{
 		overviewWindow->GetCamera ()->Move (CS_VEC_RIGHT, 2.0f*speed);
+		if (!locked && !moveMain && overviewWindow)
+		{
+			csVector3 pos = overviewWindow->GetCamera()->GetTransform().GetOrigin();
+			if (CollisionDetect(pos, oldPos))
+			{
+				overviewWindow->GetCamera ()->Move (CS_VEC_LEFT, 2.0f*speed);
+				return false;
+			}
+		}
+	}
 
 	return true;
 }
@@ -3541,6 +3669,8 @@ bool ChimeSystemDriver::MoveRight(float speed)
 // Move forward
 bool ChimeSystemDriver::MoveForward(float speed)
 {
+	csVector3 oldPos = view->GetCamera()->GetTransform().GetOrigin();
+	
 	//move main camera
 	if (moveMain || locked) {
 		if (lookUp != 0) {
@@ -3553,12 +3683,30 @@ bool ChimeSystemDriver::MoveForward(float speed)
 			}
 		}
 		view->GetCamera ()->Move (CS_VEC_FORWARD * 4.0f * speed * SPEED);
+		csVector3 pos = view->GetCamera()->GetTransform().GetOrigin();
+		if (CollisionDetect(pos, oldPos))
+		{
+			view->GetCamera ()->Move (CS_VEC_BACKWARD * 4.0f * speed * SPEED);
+			return false;
+		}
+
 		UserMoved();
 	}
 
 	//move overview camera
 	if (locked || !moveMain)
+	{
 		if (overviewWindow) overviewWindow->GetCamera ()->Move (CS_VEC_UP * 4.0f * speed * SPEED);
+		if (overviewWindow && !locked && !moveMain)
+		{
+			csVector3 pos = overviewWindow->GetCamera()->GetTransform().GetOrigin();
+			if (CollisionDetect(pos, oldPos))
+			{
+				overviewWindow->GetCamera ()->Move (CS_VEC_DOWN * 4.0f * speed * SPEED);
+				return false;
+			}
+		}
+	}
 
 	return true;
 
@@ -3567,6 +3715,8 @@ bool ChimeSystemDriver::MoveForward(float speed)
 // Move backward
 bool ChimeSystemDriver::MoveBackward(float speed)
 {
+	csVector3 oldPos = view->GetCamera()->GetTransform().GetOrigin();
+	
 	//move main camera
 	if (moveMain || locked) {
 		if (lookUp != 0) {
@@ -3579,13 +3729,30 @@ bool ChimeSystemDriver::MoveBackward(float speed)
 			}
 		}
 		view->GetCamera ()->Move (CS_VEC_BACKWARD * 4.0f * speed * SPEED);
+		csVector3 pos = view->GetCamera()->GetTransform().GetOrigin();
+		if (CollisionDetect(pos, oldPos))
+		{
+			view->GetCamera ()->Move (CS_VEC_FORWARD * 4.0f * speed * SPEED);
+			return false;
+		}
+
 		UserMoved();
 	}
 
 	//move overview camera
 	if (locked || !moveMain)
+	{
 		if (overviewWindow) overviewWindow->GetCamera ()->Move (CS_VEC_DOWN * 4.0f * speed * SPEED);
-
+		if (overviewWindow && !locked && !moveMain)
+		{
+			csVector3 pos = overviewWindow->GetCamera()->GetTransform().GetOrigin();
+			if (CollisionDetect(pos, oldPos))
+			{
+				overviewWindow->GetCamera ()->Move (CS_VEC_UP * 4.0f * speed * SPEED);
+				return false;
+			}
+		}
+	}
 	return true;
 
 }

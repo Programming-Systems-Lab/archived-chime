@@ -1,7 +1,7 @@
 2
-250 localhost
-251 160.39.244.25
-http://www.cs.columbia.edu/~suhit/ai2tv/1
+250 128.59.23.9
+251 localhost
+http://park.psl.cs.columbia.edu/ai2tv
 frame_index.txt
 -------------------------------------------------------
 

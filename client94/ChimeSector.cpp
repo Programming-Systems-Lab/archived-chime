@@ -33,7 +33,7 @@ ChimeSector::ChimeSector()
 	numRooms = 0;	//FIXIT: This should not be hardcoded.
 	memset(roomList, 0, 2*sizeof(csSector*));
 	InitStdVectors();
-	camLocation.Set(0,0,0);
+	camLocation.Set(0,0,5);
 
 	nextSideDoorNum = 0;
 
@@ -53,7 +53,7 @@ ChimeSector::ChimeSector(ChimeSystemDriver  *Sys, iEngine *e)
 	numRooms = 0;	//FIXIT: This should not be hardcoded.
 	memset(roomList, 0, 2*sizeof(csSector*));
 	InitStdVectors();
-	camLocation.Set(0,0,0);
+	camLocation.Set(0,0,5);
 
 	nextSideDoorNum = 0;
 
@@ -437,6 +437,23 @@ bool ChimeSector::BuildDynamicRoom2(char *roomDesc, const csVector3 &pos, iColli
 	connector1 = engine->CreateSector ("connector1");
 	BuildStandardConnector(connector1, connSize, curPos, CONN1);
 
+	//fill limits coordinates
+	limit_coordinates[0][0].x = curPos.x - (connSize.x/2);
+	limit_coordinates[0][0].y = 0;
+	limit_coordinates[0][0].z = curPos.z - (connSize.z/2);
+	limit_coordinates[0][1].x = curPos.x + (connSize.x/2);
+	limit_coordinates[0][1].y = 0;
+	limit_coordinates[0][1].z = curPos.z - (connSize.z/2);
+	limit_coordinates[0][2].x = curPos.x - (connSize.x/2);
+	limit_coordinates[0][2].y = 0;
+	limit_coordinates[0][2].z = curPos.z + (connSize.z/2);
+	limit_coordinates[0][3].x = curPos.x + (connSize.x/2);
+	limit_coordinates[0][3].y = 0;
+	limit_coordinates[0][3].z = curPos.z + (connSize.z/2);
+	limit_coordinates[1][0].z = curPos.z + (connSize.z/2);
+	limit_coordinates[1][1].z = curPos.z + (connSize.z/2);
+
+
 	//setup lighting for the first connector
 	float lightHeight = 3.0;
 	float delta = 0.5;
@@ -455,6 +472,15 @@ bool ChimeSector::BuildDynamicRoom2(char *roomDesc, const csVector3 &pos, iColli
 	BuildStandardRoom(room, roomSize, curPos);
 	mainRoomOrigin = curPos;
 
+	//fill limits coordinates
+	limit_coordinates[1][0].x = curPos.x - (roomSize.x/2);
+	limit_coordinates[1][0].y = 0;
+	limit_coordinates[1][1].x = curPos.x + (roomSize.x/2);
+	limit_coordinates[1][1].y = 0;
+	limit_coordinates[1][2].x = curPos.x - (roomSize.x/2);
+	limit_coordinates[1][2].y = 0;
+	limit_coordinates[1][3].x = curPos.x + (roomSize.x/2);
+	limit_coordinates[1][3].y = 0;
 	
 	//setup lighting for the room
 	light_list = room->GetLights();
@@ -482,6 +508,22 @@ bool ChimeSector::BuildDynamicRoom2(char *roomDesc, const csVector3 &pos, iColli
 	connector2 = engine->CreateSector ("connector2");
 	BuildStandardConnector(connector2, connSize, curPos, CONN2);
 
+	//fill limits coordinates
+	limit_coordinates[2][0].x = curPos.x - (connSize.x/2);
+	limit_coordinates[2][0].y = 0;
+	limit_coordinates[2][0].z = curPos.z - (connSize.z/2);
+	limit_coordinates[1][2].z = curPos.z - (connSize.z/2);
+	limit_coordinates[1][3].z = curPos.z - (connSize.z/2);
+	limit_coordinates[2][1].x = curPos.x + (connSize.x/2);
+	limit_coordinates[2][1].y = 0;
+	limit_coordinates[2][1].z = curPos.z - (connSize.z/2);
+	limit_coordinates[2][2].x = curPos.x - (connSize.x/2);
+	limit_coordinates[2][2].y = 0;
+	limit_coordinates[2][2].z = curPos.z + (connSize.z/2);
+	limit_coordinates[2][3].x = curPos.x + (connSize.x/2);
+	limit_coordinates[2][3].y = 0;
+	limit_coordinates[2][3].z = curPos.z + (connSize.z/2);
+
 	//setup lighting for the second connector
 	lightHeight = 5.0;
 	delta = 0.5;
@@ -495,13 +537,27 @@ bool ChimeSector::BuildDynamicRoom2(char *roomDesc, const csVector3 &pos, iColli
 	topConnector = engine->CreateSector ("topConnector");
 	BuildTopConnector(topConnector, connSize, curPos);
 
-	curPos.z += 1+3;
+	curPos.z += 6;
 	hallwaySize.x = 42;
 	hallwaySize.y = 30;
 	hallwaySize.z = 10;
 
 	hallway = engine->CreateSector ("hallway");
 	BuildHallway(hallway, hallwaySize, curPos);
+
+	//fill limits coordinates
+	limit_coordinates[3][0].x = curPos.x - (hallwaySize.x/2);
+	limit_coordinates[3][0].y = 0;
+	limit_coordinates[3][0].z = curPos.z - (hallwaySize.z/2);
+	limit_coordinates[3][1].x = curPos.x + (hallwaySize.x/2);
+	limit_coordinates[3][1].y = 0;
+	limit_coordinates[3][1].z = curPos.z - (hallwaySize.z/2);
+	limit_coordinates[3][2].x = curPos.x - (hallwaySize.x/2);
+	limit_coordinates[3][2].y = 0;
+	limit_coordinates[3][2].z = curPos.z + (hallwaySize.z/2);
+	limit_coordinates[3][3].x = curPos.x + (hallwaySize.x/2);
+	limit_coordinates[3][3].y = 0;
+	limit_coordinates[3][3].z = curPos.z + (hallwaySize.z/2);
 
 	//setup lighting for the hallway
 	lightHeight = 10.0;
@@ -2286,3 +2342,11 @@ iPolygon3D* ChimeSector::BuildScreenOnWall(csVector3 const &objPos, csVector3 co
 
 	return sideDoorTemp;
 }
+
+//return appropriate room limit coordinates
+
+csVector3 ChimeSector::GetLimits(int roomIndex, int wallIndex)
+{
+	return limit_coordinates[roomIndex][wallIndex];
+}
+
