@@ -2684,8 +2684,24 @@ bool ChimeSystemDriver::HandleNetworkEvent(int method, char *params)
 			char my_username[50];
 			info->GetUsername(my_username);	
 
-			if (strcmp(username, "") != 0 && strcmp(username, my_username) != 0)
+			if (strcmp(username, "") != 0 && strcmp(username, my_username) != 0) {
 				result = AddUser(newRoomUrl, username, ip_address, "mdl1", 3, 0, 2);  //NEEDS TO BE FIXED - NOT HARDCODED
+
+				//fake move that tells the user that has entered
+				//the room to update its meshes and add one for this
+				//user
+				csVector3 newPos, roomOrigin;
+				ChimeSector  *sec;
+				char *roomUrl;
+				sec = GetCurChimeSector();
+				char my_ip_address[50];
+				info->GetMyIPAddress(my_ip_address);
+				newPos = view->GetCamera()->GetTransform().GetOrigin();
+				roomOrigin = sec->GetOrigin();
+				newPos -= roomOrigin;
+				comm.MoveUser(sec->GetUrl(), my_username, my_ip_address, newPos.x, 0, newPos.z, sec->GetUserList());
+			}
+
 
 			break;
 		}
@@ -2808,7 +2824,11 @@ bool ChimeSystemDriver::MoveUser(char *roomUrl, char *username, char *ip_address
 
 	iMeshWrapper* obj = NULL;
 	obj = sec->FindObject(userID, room);
-	if( !obj ) return false;
+	//hack fix to add meshes for users that are in the room
+	while ( !obj ) {
+		AddUser(roomUrl, username, ip_address, "mdl1", x, y, z);
+		obj = sec->FindObject(userID, room);
+	}
 
 	room = sec->FindRoomContainingPoint(newPos);
 	if( !room ) return false;
