@@ -53,7 +53,7 @@ public:
 	//Send updated position of the user
 	bool MoveUser(char *roomUrl, char *username, char *ip_address, float x, float y, float z, const csStrVector *userList);
 	//Broadcast entrance of a user in a given room
-	bool UserEnteredRoom(char *username, char *ip_address, char *newRoomUrl, float x, float y, float z);
+	bool UserEnteredRoom(char *username, char *ip_address, char *newRoomUrl, float x, float y, float z, const csStrVector *userList);
 	//Broadcast that a user has left a given room
 	bool UserLeftRoom(char *username, char *ip_address, char *oldRoomUrl);
 	//Broadcast addition of new object in a given room

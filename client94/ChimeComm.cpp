@@ -148,7 +148,7 @@ bool chimeComm::MoveUser(char *roomUrl, char *username, char *ip_address, float 
 }
 
 //Broadcast entrance of a user in a given room
-bool chimeComm::UserEnteredRoom(char *username, char *ip_address, char *newRoomUrl, float x, float y, float z)
+bool chimeComm::UserEnteredRoom(char *username, char *ip_address, char *newRoomUrl, float x, float y, float z, const csStrVector *userList)
 {
 
 	//add user to the history window
@@ -163,6 +163,7 @@ bool chimeComm::UserEnteredRoom(char *username, char *ip_address, char *newRoomU
 	AppendToken(command, ftoa(z));
 
 	client_comm->SendSienaFunction(c_enteredRoom, command, newRoomUrl, "HTTP");
+	MoveUser(newRoomUrl, username, ip_address, x, y, z, userList);
 	return true;
 }
 

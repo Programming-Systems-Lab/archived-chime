@@ -401,7 +401,7 @@ void ChimeSystemDriver::UserMoved()
 		roomOrigin = sec->GetOrigin();
 		newPos -= roomOrigin;
 
-		comm.UserEnteredRoom(username, my_ip_address, sec->GetUrl(), newPos.x, newPos.y, newPos.z);
+		comm.UserEnteredRoom(username, my_ip_address, sec->GetUrl(), newPos.x, newPos.y, newPos.z, sec->GetUserList());
 		ResetLocalChatBuddies(sec);
 	}
 	else
@@ -1040,8 +1040,11 @@ void ChimeSystemDriver::SetupFrame()
 		sprite->GetMovable()->UpdateMove();
 		sprite->DeferUpdateLighting (CS_NLIGHT_STATIC|CS_NLIGHT_DYNAMIC, 10);
 	  }
-	  view->Draw ();
-	  if (overviewWindow) overviewWindow->Draw ();
+	  try {
+		view->Draw ();
+		if (overviewWindow) overviewWindow->Draw ();
+	  }
+	  catch (...) {printf("\n");}
 	  
 	  //******************************************************
 	  //*********  AWS Test **********************************
@@ -2378,11 +2381,16 @@ iMeshWrapper* ChimeSystemDriver::AddMeshObj (char* tname, char* sname, iSector* 
 //*********************************************************************************
 bool ChimeSystemDriver::DeleteMeshObj(iMeshWrapper *mesh, iSector *room)
 {
-    if (mesh && room)
+    if (mesh && room && (mesh != sprite))
 	{
 		//return room->GetMeshes()->Remove(mesh);
-		//return engine->RemoveObject(mesh);
-		return true;
+		bool rc = engine->RemoveObject(mesh);
+		engine->Prepare();
+		//view->Draw();
+		//if (overviewWindow)
+		//	overviewWindow->Draw();
+		return rc;
+		//return true;
 	}
     else
 	{
@@ -2666,7 +2674,7 @@ bool ChimeSystemDriver::HandleNetworkEvent(int method, char *params)
 			char ip_address[MAX_URL];
 
 			sscanf(params, "%s %s %s", username, ip_address, oldRoomUrl);
-			result = DeleteUser(oldRoomUrl, username, ip_address);
+			result = UserLeftRoom(oldRoomUrl, username, ip_address);
 			break;
 		}
 
@@ -2692,7 +2700,7 @@ bool ChimeSystemDriver::HandleNetworkEvent(int method, char *params)
 			char roomUrl[MAX_URL];
 			char ip_address[50];
 
-			sscanf(params, "%s %s", roomUrl, username, ip_address);
+			sscanf(params, "%s %s %s", roomUrl, username, ip_address);
 			result = DeleteUser(roomUrl, username, ip_address);
 			break;
 		}
@@ -2907,11 +2915,12 @@ bool ChimeSystemDriver::AddUser(char *roomUrl, char *username, char *ip_address,
 	if(!sec->AddUser(username, ip_address))
 		return true;
 
-	char name[100];
+	char *name = sec->MakeUserID(username, ip_address);
+	//char name[100];
 
-	strcpy(name, username);
-	strcat(name, " ");
-	strcat(name, ip_address);
+	//strcpy(name, username);
+	//strcat(name, " ");
+	//strcat(name, ip_address);
 
 	iMeshWrapper *m = AddMeshObj(shape, name, room, userPos, 0.031);
 	if( !m ) return false;
@@ -2967,7 +2976,8 @@ bool ChimeSystemDriver::DeleteUser(char *roomUrl, char *username, char *ip_addre
 		room = sec->GetConn2();
 		user = FindObject(room, userID);
 	}
-	if(!user) return false;
+
+	if (!user) return false;
 
 	DeleteMeshObj(user, room);
 	sec->deleteUser(userID);
@@ -3118,7 +3128,7 @@ bool ChimeSystemDriver::ReadRoom(char *desc)
 			if (strcmp(my_ip_address, "") == 0)
 				return false;
 
-			comm.UserEnteredRoom(my_username, my_ip_address, sec2->GetUrl(), newPos.x, newPos.y, newPos.z);
+			comm.UserEnteredRoom(my_username, my_ip_address, sec2->GetUrl(), newPos.x, newPos.y, newPos.z, sec2->GetUserList());
 		}
 	}
 
@@ -3588,7 +3598,52 @@ void ChimeSystemDriver::ExitSystem()
 	info->GetUsername(username);
 	char ipaddress[50];
 	info->GetMyIPAddress(ipaddress);
+	printf("\n\nMy username: %s", username);
+	printf("\n\nMy ip address: %s", ipaddress);
 	ChimeSector *sec = GetCurChimeSector();
 	comm.Disconnect(sec->GetUrl(), username, ipaddress, sec->GetUserList());
 	app->chatWindow->ShowMessage("Quit");
+}
+
+bool ChimeSystemDriver::UserLeftRoom(char *roomUrl, char *username, char*ip_address)
+{
+	ChimeSector *sec = FindSector( roomUrl );
+	if( !sec ) return false;
+
+	char *userID = sec->MakeUserID(username, ip_address);
+
+	iSector * room;
+	room = sec->GetRoom(0);
+	if( !room ) return false;
+
+	iMeshWrapper* user;
+
+	user = FindObject(room, userID);
+	//Check if user is in hallway
+	if(!user)
+	{
+		room = sec->GetHallway();
+		user = FindObject(room, userID);
+	}
+	//Check if user is in connector1
+	if(!user)
+	{
+		room = sec->GetConn1();
+		user = FindObject(room, userID);
+	}
+	//Check if user is in connector2
+	if(!user)
+	{
+		room = sec->GetConn2();
+		user = FindObject(room, userID);
+	}
+
+	if (!user) return false;
+
+	//user->GetMovable()->GetSectors()->Remove(room);
+	//engine->Prepare();
+	//DeleteMeshObj(user, room);
+	sec->deleteUser(userID);
+
+	return true;
 }
