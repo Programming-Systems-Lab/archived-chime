@@ -766,7 +766,7 @@ iMeshWrapper* ChimeSector::AddMeshObj (char* tname, char* sname, iSector* where,
 //*********************************************************************************
 bool ChimeSector::BuildStandardRoom(iSector *room, csVector3 const &size, csVector3 const &pos)
 {
-	iMaterialWrapper* txt;
+	iMaterialWrapper *txt, *doortxt;
 	csVector3 trans(0,0,0);
 
 	iMeshWrapper *wallmesh = engine -> CreateSectorWallsMesh(room, "walls");
@@ -778,6 +778,7 @@ bool ChimeSector::BuildStandardRoom(iSector *room, csVector3 const &size, csVect
 
 //	if( dice == 0 )
 		txt = engine->GetMaterialList()->FindByName ("brownfabric");
+		doortxt = engine->GetMaterialList()->FindByName ("halldoor");
 //	else if( dice == 1)
 //		txt = engine->GetMaterialList()->FindByName ("glasswall");
 //	else
@@ -787,17 +788,19 @@ bool ChimeSector::BuildStandardRoom(iSector *room, csVector3 const &size, csVect
 	//Build front wall of the room
 	trans.Set(-size.x/2.0, 0, size.z/2.0);
 	trans += pos;
-	buildFrontDoorWall(walls, room, size, trans, txt, csVector3(3,3,3), csVector3(2,3,0), 1, 4,roomFrontDoor);
+	buildFrontDoorWall(walls, room, size, trans, txt, doortxt, csVector3(3,3,3), csVector3(2,3,0), 1, 4,roomFrontDoor);
 	//BuildWall(room, size, trans, FRONT, txt, csVector3(3,3,3));
 	trans.y += 12.0;
-	buildFrontDoorWall(walls, room, size, trans, txt, csVector3(3,3,3), csVector3(2,3,0), 1, 4,roomTopDoor);
+	doortxt = engine->GetMaterialList()->FindByName ("brownfabric");
+	buildFrontDoorWall(walls, room, size, trans, txt, doortxt, csVector3(3,3,3), csVector3(2,3,0), 1, 4,roomTopDoor);
+	doortxt = engine->GetMaterialList()->FindByName ("halldoor");
 
 	//Build back wall of the room
 	trans.Set(-size.x/2.0, 0, -size.z/2.0);
 	trans += pos;
 	
 	//BuildWall(room, size, trans, BACK, txt, csVector3(3,3,3));
-	buildBackDoorWall(walls, room, size, trans, txt, csVector3(3,3,3), csVector3(2,3,0), 1, 4,roomBackDoor);
+	buildBackDoorWall(walls, room, size, trans, txt, doortxt, csVector3(3,3,3), csVector3(2,3,0), 1, 4,roomBackDoor);
 
 	//Build Left wall of the room
 	trans.Set(-size.x/2, 0, -size.z/2.0);
@@ -840,7 +843,7 @@ bool ChimeSector::BuildStandardRoom(iSector *room, csVector3 const &size, csVect
 //*********************************************************************************
 bool ChimeSector::BuildStandardConnector(iSector *room, csVector3 const &size, csVector3 const &pos, int type)
 {
-	iMaterialWrapper* txt;
+	iMaterialWrapper* txt, *doortxt;
 	csVector3 trans(0,0,0);
 	iPolygon3D **connFrontDoor, **connBackDoor;
 	
@@ -860,19 +863,20 @@ bool ChimeSector::BuildStandardConnector(iSector *room, csVector3 const &size, c
 	
 	//Load sandard texure for walls
 	txt = engine->GetMaterialList()->FindByName ("whitemarble");
+	doortxt = engine->GetMaterialList()->FindByName ("halldoor");
 
 	//Build front wall of the room
 	trans.Set(-size.x/2.0, 0, size.z/2.0);
 	trans += pos;
 	//BuildWall(room, size, trans, FRONT, txt, csVector3(3,3,3));
-	buildFrontDoorWall(walls, room, size, trans, txt, csVector3(3,3,3), csVector3(2,3,0), 1, 0, connFrontDoor);
+	buildFrontDoorWall(walls, room, size, trans, txt, doortxt, csVector3(3,3,3), csVector3(2,3,0), 1, 0, connFrontDoor);
 
 
 	//Build back wall of the room
 	trans.Set(-size.x/2.0, 0, -size.z/2.0);
 	trans += pos;
 	//BuildWall(room, size, trans, BACK, txt, csVector3(3,3,3));
-	buildBackDoorWall(walls, room, size, trans, txt, csVector3(3,3,3), csVector3(2,3,0), 1, 0, connBackDoor);
+	buildBackDoorWall(walls, room, size, trans, txt, doortxt, csVector3(3,3,3), csVector3(2,3,0), 1, 0, connBackDoor);
 	//Build Left wall of the room
 	trans.Set(-size.x/2, 0, -size.z/2.0);
 	trans += pos;
@@ -908,7 +912,7 @@ bool ChimeSector::BuildStandardConnector(iSector *room, csVector3 const &size, c
 //*********************************************************************************
 bool ChimeSector::BuildTopConnector(iSector *room, csVector3 const &size, csVector3 const &pos)
 {
-	iMaterialWrapper* txt;
+	iMaterialWrapper* txt, *doortxt;
 	csVector3 trans(0,12.0,0);
 	iPolygon3D **connFrontDoor, **connBackDoor;
 	
@@ -919,20 +923,24 @@ bool ChimeSector::BuildTopConnector(iSector *room, csVector3 const &size, csVect
 	connBackDoor = topConnBackDoor;
 	
 	//Load sandard texure for walls
-	txt = engine->GetMaterialList()->FindByName ("brownfabric");
+	txt = engine->GetMaterialList()->FindByName ("marble1");
+	doortxt = engine->GetMaterialList()->FindByName ("marble1");
 
 	//Build front wall of the room
 	trans.Set(-size.x/2.0, 12.0, size.z/2.0);
 	trans += pos;
 	//BuildWall(room, size, trans, FRONT, txt, csVector3(3,3,3));
-	buildFrontDoorWall(walls, room, size, trans, txt, csVector3(3,3,3), csVector3(2,3,0), 1, 0, connFrontDoor);
+	buildFrontDoorWall(walls, room, size, trans, txt, doortxt, csVector3(3,3,3), csVector3(2,3,0), 1, 0, connFrontDoor);
+
+	txt = engine->GetMaterialList()->FindByName ("brownfabric");
+	doortxt = engine->GetMaterialList()->FindByName ("brownfabric");
 
 
 	//Build back wall of the room
 	trans.Set(-size.x/2.0, 12.0, -size.z/2.0);
 	trans += pos;
 	//BuildWall(room, size, trans, BACK, txt, csVector3(3,3,3));
-	buildBackDoorWall(walls, room, size, trans, txt, csVector3(3,3,3), csVector3(2,3,0), 1, 0, connBackDoor);
+	buildBackDoorWall(walls, room, size, trans, txt, doortxt, csVector3(3,3,3), csVector3(2,3,0), 1, 0, connBackDoor);
 	//Build Left wall of the room
 	trans.Set(-size.x/2, 12.0, -size.z/2.0);
 	trans += pos;
@@ -968,11 +976,12 @@ bool ChimeSector::BuildTopConnector(iSector *room, csVector3 const &size, csVect
 //*********************************************************************************
 bool ChimeSector::BuildHallway(iSector *room, csVector3 const &size, csVector3 const &pos)
 {
-	iMaterialWrapper* txt;
+	iMaterialWrapper* txt, *doortxt;
 	csVector3 trans(0,0,0);
 	float doorOff = (size.x - 2)/2;
 	//Load sandard texure for walls
 	txt = engine->GetMaterialList()->FindByName ("marble1");
+	doortxt = engine->GetMaterialList()->FindByName ("halldoor");
 	
 	iMeshWrapper *wallmesh = engine -> CreateSectorWallsMesh(room, "walls");
 	iThingState *walls = SCF_QUERY_INTERFACE(wallmesh->GetMeshObject(), iThingState);
@@ -980,15 +989,17 @@ bool ChimeSector::BuildHallway(iSector *room, csVector3 const &size, csVector3 c
 	//Build front wall of the room
 	trans.Set(-size.x/2.0, 0, size.z/2.0);
 	trans += pos;
-	buildFrontDoorWall(walls, room, size, trans, txt, csVector3(3,3,3), csVector3(2,3,0), 10, 2, hallFrontDoor);
+	buildFrontDoorWall(walls, room, size, trans, txt, doortxt, csVector3(3,3,3), csVector3(2,3,0), 10, 2, hallFrontDoor);
 	//BuildWall(room, size, trans, FRONT, txt, csVector3(3,3,3));
 	
 	//Build back wall of the room
 	trans.Set(-size.x/2.0, 0, -size.z/2.0);
 	trans += pos;
-	buildBackDoorWall(walls, room, size, trans, txt, csVector3(3,3,3), csVector3(2,3,0), 1, doorOff, hallBackDoor);
+	buildBackDoorWall(walls, room, size, trans, txt, doortxt, csVector3(3,3,3), csVector3(2,3,0), 1, doorOff, hallBackDoor);
 	trans.y += 12.0;
-	buildBackDoorWall(walls, room, size, trans, txt, csVector3(3,3,3), csVector3(2,3,0), 1, doorOff, hallBackTopDoor);
+	doortxt = engine->GetMaterialList()->FindByName ("marble1");
+	buildBackDoorWall(walls, room, size, trans, txt, doortxt, csVector3(3,3,3), csVector3(2,3,0), 1, doorOff, hallBackTopDoor);
+	doortxt = engine->GetMaterialList()->FindByName ("halldoor");
 
 	//Build Left wall of the room
 	trans.Set(-size.x/2, 0, -size.z/2.0);
@@ -1237,7 +1248,7 @@ bool ChimeSector::buildLeftDoorWall(iThingState *walls, iSector *room, csVector3
 
 
 //Build front wall with doors
-bool ChimeSector::buildFrontDoorWall(iThingState *walls, iSector *room, csVector3 const &size, csVector3 const &pos, iMaterialWrapper *txt, csVector3 const &txtSize,
+bool ChimeSector::buildFrontDoorWall(iThingState *walls, iSector *room, csVector3 const &size, csVector3 const &pos, iMaterialWrapper *txt, iMaterialWrapper *doort, csVector3 const &txtSize,
 		                csVector3 const &doorSize, int numDoors, float offset, iPolygon3D *pList[])
 {
 
@@ -1264,7 +1275,7 @@ bool ChimeSector::buildFrontDoorWall(iThingState *walls, iSector *room, csVector
 	curPos = pos;
 	curPos.y += doorSize.y;
 
-	iMaterialWrapper *t = engine->GetMaterialList()->FindByName ("halldoor");
+	//iMaterialWrapper *t = engine->GetMaterialList()->FindByName ("halldoor");
 
 	if(size2.y > 0)
 		BuildDoor(walls, &door_num, size2, curPos, FRONT, txt, txtSize);
@@ -1279,7 +1290,7 @@ bool ChimeSector::buildFrontDoorWall(iThingState *walls, iSector *room, csVector
 
 		curPos.x += offset;
 
-		pList[i] = BuildDoor(walls, &door_num, doorSize, curPos, FRONT, t, doorTxtSize);
+		pList[i] = BuildDoor(walls, &door_num, doorSize, curPos, FRONT, doort, doorTxtSize);
 
 		//create a label on the wall above the door
 		//CreateLabel(room, label_size, curPos, FRONT, csVector3(3,3,3));
@@ -1307,7 +1318,7 @@ iPolygon3D* ChimeSector::BuildDoor(iThingState *walls, int *door_num, csVector3 
 
 
 //Build front wall with doors
-bool ChimeSector::buildBackDoorWall(iThingState *walls, iSector *room, csVector3 const &size, csVector3 const &pos, iMaterialWrapper *txt, csVector3 const &txtSize,
+bool ChimeSector::buildBackDoorWall(iThingState *walls, iSector *room, csVector3 const &size, csVector3 const &pos, iMaterialWrapper *txt, iMaterialWrapper *doort, csVector3 const &txtSize,
 		                csVector3 const &doorSize, int numDoors, float offset, iPolygon3D *pList[])
 {
 
@@ -1332,7 +1343,7 @@ bool ChimeSector::buildBackDoorWall(iThingState *walls, iSector *room, csVector3
 	curPos = pos;
 	curPos.y += doorSize.y;
 
-	iMaterialWrapper *t = engine->GetMaterialList()->FindByName ("halldoor");
+	//iMaterialWrapper *t = engine->GetMaterialList()->FindByName ("halldoor");
 
 	if(size2.y > 0)
 		BuildDoor(walls, &door_num, size2, curPos, BACK, txt, txtSize);
@@ -1345,7 +1356,7 @@ bool ChimeSector::buildBackDoorWall(iThingState *walls, iSector *room, csVector3
 			BuildDoor(walls, &door_num, size1, curPos, BACK, txt, txtSize);
 
 		curPos.x += offset;
-		pList[i] = BuildDoor(walls, &door_num, doorSize, curPos, BACK, t, doorTxtSize);
+		pList[i] = BuildDoor(walls, &door_num, doorSize, curPos, BACK, doort, doorTxtSize);
 
 		curPos.x += doorSize.x;
 	}

@@ -156,11 +156,11 @@ class ChimeSector
 		                csVector3 const &doorSize, int numDoors, float offset, iPolygon3D *pList[]);
 
 	//Build Front wall with doors
-	bool buildFrontDoorWall(iThingState *walls, iSector *room, csVector3 const &size, csVector3 const &pos, iMaterialWrapper *txt, csVector3 const &txtSize,
+	bool buildFrontDoorWall(iThingState *walls, iSector *room, csVector3 const &size, csVector3 const &pos, iMaterialWrapper *txt, iMaterialWrapper *doort, csVector3 const &txtSize,
 		                csVector3 const &doorSize, int numDoors, float offset, iPolygon3D *pList[]);
 	
 	//Build back wall with doors
-	bool buildBackDoorWall(iThingState *walls, iSector *room, csVector3 const &size, csVector3 const &pos, iMaterialWrapper *txt, csVector3 const &txtSize,
+	bool buildBackDoorWall(iThingState *walls, iSector *room, csVector3 const &size, csVector3 const &pos, iMaterialWrapper *txt, iMaterialWrapper *doort, csVector3 const &txtSize,
 		                csVector3 const &doorSize, int numDoors, float offset, iPolygon3D *pList[]);
 public:
 

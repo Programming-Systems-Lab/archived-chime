@@ -167,3 +167,139 @@ INSERT INTO TABLE6 VALUES('http://www.suhit.com/friends.html','LINK','Connector'
 INSERT INTO TABLE6 VALUES('http://www.suhit.com/miscel.html','LINK','Connector','Connector','stool','stool')
 INSERT INTO TABLE6 VALUES('http://www.suhit.com/contact.html','LINK','Connector','Connector','stool','stool')
 /*C1*/CONNECT USER sa PASSWORD ""
+INSERT INTO SOURCE VALUES(7,'http','http://www.philgross.com/',-1,'text/html','1024502057969','-1','null',-1,NULL,NULL,NULL,NULL,'null','3','\u000a\u0009<Source>http://www.philgross.com/flash_and_me_2.jpg</Source>\u000a\u0009<Alt>Me and a koala named Flash</Alt>\u000a\u000a\u000a\u0009<Source>http://www.philgross.com/T_nl_windmill_1c.jpg</Source>\u000a\u0009<Alt>Row of windmills NE</Alt>\u000a\u000a\u000a\u0009<Source>http://www.philgross.com/T_nl_windmill_2c.jpg</Source>\u000a\u0009<Alt>Row of windmills SW</Alt>\u000a\u000a','11','http://www.philgross.com/me.html\u000ahttp://www.philgross.com/resume.html\u000ahttp://softe.cs.columbia.edu/3156-f01/\u000ahttp://www.philgross.com/Teaching_tips.html\u000ahttp://www.cs.columbia.edu/~phil/cs1001-2/public_html\u000ahttp://www.philgross.com/stl/stl.htm\u000ahttp://whim.cs.columbia.edu\u000ahttp://www.philgross.com/current_events.ppt\u000ahttp://www.philgross.com/study-1-8.ps\u000ahttp://www.philgross.com/study-9.ps\u000ahttp://www.philgross.com/study-10.ps\u000a')
+DELETE FROM SOURCE WHERE ID=7 AND PROTOCOL='http' AND URL='http://www.philgross.com/' AND SIZE=-1 AND TYPE='text/html' AND CREATED='1024502057969' AND LAST_MOD='-1' AND SRC='null' AND PARENT=-1 AND CLASSTYPE=NULL AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL AND OPT1='null' AND OPT2='3' AND OPT3='\u000a\u0009<Source>http://www.philgross.com/flash_and_me_2.jpg</Source>\u000a\u0009<Alt>Me and a koala named Flash</Alt>\u000a\u000a\u000a\u0009<Source>http://www.philgross.com/T_nl_windmill_1c.jpg</Source>\u000a\u0009<Alt>Row of windmills NE</Alt>\u000a\u000a\u000a\u0009<Source>http://www.philgross.com/T_nl_windmill_2c.jpg</Source>\u000a\u0009<Alt>Row of windmills SW</Alt>\u000a\u000a' AND OPT4='11' AND OPT5='http://www.philgross.com/me.html\u000ahttp://www.philgross.com/resume.html\u000ahttp://softe.cs.columbia.edu/3156-f01/\u000ahttp://www.philgross.com/Teaching_tips.html\u000ahttp://www.cs.columbia.edu/~phil/cs1001-2/public_html\u000ahttp://www.philgross.com/stl/stl.htm\u000ahttp://whim.cs.columbia.edu\u000ahttp://www.philgross.com/current_events.ppt\u000ahttp://www.philgross.com/study-1-8.ps\u000ahttp://www.philgross.com/study-9.ps\u000ahttp://www.philgross.com/study-10.ps\u000a'
+INSERT INTO SOURCE VALUES(7,'http','http://www.philgross.com/',-1,'text/html','1024502057969','-1','null',-1,'Connector',NULL,NULL,NULL,'null','3','\u000a\u0009<Source>http://www.philgross.com/flash_and_me_2.jpg</Source>\u000a\u0009<Alt>Me and a koala named Flash</Alt>\u000a\u000a\u000a\u0009<Source>http://www.philgross.com/T_nl_windmill_1c.jpg</Source>\u000a\u0009<Alt>Row of windmills NE</Alt>\u000a\u000a\u000a\u0009<Source>http://www.philgross.com/T_nl_windmill_2c.jpg</Source>\u000a\u0009<Alt>Row of windmills SW</Alt>\u000a\u000a','11','http://www.philgross.com/me.html\u000ahttp://www.philgross.com/resume.html\u000ahttp://softe.cs.columbia.edu/3156-f01/\u000ahttp://www.philgross.com/Teaching_tips.html\u000ahttp://www.cs.columbia.edu/~phil/cs1001-2/public_html\u000ahttp://www.philgross.com/stl/stl.htm\u000ahttp://whim.cs.columbia.edu\u000ahttp://www.philgross.com/current_events.ppt\u000ahttp://www.philgross.com/study-1-8.ps\u000ahttp://www.philgross.com/study-9.ps\u000ahttp://www.philgross.com/study-10.ps\u000a')
+DELETE FROM SOURCE WHERE ID=7 AND PROTOCOL='http' AND URL='http://www.philgross.com/' AND SIZE=-1 AND TYPE='text/html' AND CREATED='1024502057969' AND LAST_MOD='-1' AND SRC='null' AND PARENT=-1 AND CLASSTYPE='Connector' AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL AND OPT1='null' AND OPT2='3' AND OPT3='\u000a\u0009<Source>http://www.philgross.com/flash_and_me_2.jpg</Source>\u000a\u0009<Alt>Me and a koala named Flash</Alt>\u000a\u000a\u000a\u0009<Source>http://www.philgross.com/T_nl_windmill_1c.jpg</Source>\u000a\u0009<Alt>Row of windmills NE</Alt>\u000a\u000a\u000a\u0009<Source>http://www.philgross.com/T_nl_windmill_2c.jpg</Source>\u000a\u0009<Alt>Row of windmills SW</Alt>\u000a\u000a' AND OPT4='11' AND OPT5='http://www.philgross.com/me.html\u000ahttp://www.philgross.com/resume.html\u000ahttp://softe.cs.columbia.edu/3156-f01/\u000ahttp://www.philgross.com/Teaching_tips.html\u000ahttp://www.cs.columbia.edu/~phil/cs1001-2/public_html\u000ahttp://www.philgross.com/stl/stl.htm\u000ahttp://whim.cs.columbia.edu\u000ahttp://www.philgross.com/current_events.ppt\u000ahttp://www.philgross.com/study-1-8.ps\u000ahttp://www.philgross.com/study-9.ps\u000ahttp://www.philgross.com/study-10.ps\u000a'
+INSERT INTO SOURCE VALUES(7,'http','http://www.philgross.com/',-1,'text/html','1024502057969','-1','null',-1,'Connector','Connector',NULL,NULL,'null','3','\u000a\u0009<Source>http://www.philgross.com/flash_and_me_2.jpg</Source>\u000a\u0009<Alt>Me and a koala named Flash</Alt>\u000a\u000a\u000a\u0009<Source>http://www.philgross.com/T_nl_windmill_1c.jpg</Source>\u000a\u0009<Alt>Row of windmills NE</Alt>\u000a\u000a\u000a\u0009<Source>http://www.philgross.com/T_nl_windmill_2c.jpg</Source>\u000a\u0009<Alt>Row of windmills SW</Alt>\u000a\u000a','11','http://www.philgross.com/me.html\u000ahttp://www.philgross.com/resume.html\u000ahttp://softe.cs.columbia.edu/3156-f01/\u000ahttp://www.philgross.com/Teaching_tips.html\u000ahttp://www.cs.columbia.edu/~phil/cs1001-2/public_html\u000ahttp://www.philgross.com/stl/stl.htm\u000ahttp://whim.cs.columbia.edu\u000ahttp://www.philgross.com/current_events.ppt\u000ahttp://www.philgross.com/study-1-8.ps\u000ahttp://www.philgross.com/study-9.ps\u000ahttp://www.philgross.com/study-10.ps\u000a')
+DELETE FROM SOURCE WHERE ID=7 AND PROTOCOL='http' AND URL='http://www.philgross.com/' AND SIZE=-1 AND TYPE='text/html' AND CREATED='1024502057969' AND LAST_MOD='-1' AND SRC='null' AND PARENT=-1 AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE=NULL AND SHAPE2D=NULL AND OPT1='null' AND OPT2='3' AND OPT3='\u000a\u0009<Source>http://www.philgross.com/flash_and_me_2.jpg</Source>\u000a\u0009<Alt>Me and a koala named Flash</Alt>\u000a\u000a\u000a\u0009<Source>http://www.philgross.com/T_nl_windmill_1c.jpg</Source>\u000a\u0009<Alt>Row of windmills NE</Alt>\u000a\u000a\u000a\u0009<Source>http://www.philgross.com/T_nl_windmill_2c.jpg</Source>\u000a\u0009<Alt>Row of windmills SW</Alt>\u000a\u000a' AND OPT4='11' AND OPT5='http://www.philgross.com/me.html\u000ahttp://www.philgross.com/resume.html\u000ahttp://softe.cs.columbia.edu/3156-f01/\u000ahttp://www.philgross.com/Teaching_tips.html\u000ahttp://www.cs.columbia.edu/~phil/cs1001-2/public_html\u000ahttp://www.philgross.com/stl/stl.htm\u000ahttp://whim.cs.columbia.edu\u000ahttp://www.philgross.com/current_events.ppt\u000ahttp://www.philgross.com/study-1-8.ps\u000ahttp://www.philgross.com/study-9.ps\u000ahttp://www.philgross.com/study-10.ps\u000a'
+INSERT INTO SOURCE VALUES(7,'http','http://www.philgross.com/',-1,'text/html','1024502057969','-1','null',-1,'Connector','Connector','stool',NULL,'null','3','\u000a\u0009<Source>http://www.philgross.com/flash_and_me_2.jpg</Source>\u000a\u0009<Alt>Me and a koala named Flash</Alt>\u000a\u000a\u000a\u0009<Source>http://www.philgross.com/T_nl_windmill_1c.jpg</Source>\u000a\u0009<Alt>Row of windmills NE</Alt>\u000a\u000a\u000a\u0009<Source>http://www.philgross.com/T_nl_windmill_2c.jpg</Source>\u000a\u0009<Alt>Row of windmills SW</Alt>\u000a\u000a','11','http://www.philgross.com/me.html\u000ahttp://www.philgross.com/resume.html\u000ahttp://softe.cs.columbia.edu/3156-f01/\u000ahttp://www.philgross.com/Teaching_tips.html\u000ahttp://www.cs.columbia.edu/~phil/cs1001-2/public_html\u000ahttp://www.philgross.com/stl/stl.htm\u000ahttp://whim.cs.columbia.edu\u000ahttp://www.philgross.com/current_events.ppt\u000ahttp://www.philgross.com/study-1-8.ps\u000ahttp://www.philgross.com/study-9.ps\u000ahttp://www.philgross.com/study-10.ps\u000a')
+DELETE FROM SOURCE WHERE ID=7 AND PROTOCOL='http' AND URL='http://www.philgross.com/' AND SIZE=-1 AND TYPE='text/html' AND CREATED='1024502057969' AND LAST_MOD='-1' AND SRC='null' AND PARENT=-1 AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE='stool' AND SHAPE2D=NULL AND OPT1='null' AND OPT2='3' AND OPT3='\u000a\u0009<Source>http://www.philgross.com/flash_and_me_2.jpg</Source>\u000a\u0009<Alt>Me and a koala named Flash</Alt>\u000a\u000a\u000a\u0009<Source>http://www.philgross.com/T_nl_windmill_1c.jpg</Source>\u000a\u0009<Alt>Row of windmills NE</Alt>\u000a\u000a\u000a\u0009<Source>http://www.philgross.com/T_nl_windmill_2c.jpg</Source>\u000a\u0009<Alt>Row of windmills SW</Alt>\u000a\u000a' AND OPT4='11' AND OPT5='http://www.philgross.com/me.html\u000ahttp://www.philgross.com/resume.html\u000ahttp://softe.cs.columbia.edu/3156-f01/\u000ahttp://www.philgross.com/Teaching_tips.html\u000ahttp://www.cs.columbia.edu/~phil/cs1001-2/public_html\u000ahttp://www.philgross.com/stl/stl.htm\u000ahttp://whim.cs.columbia.edu\u000ahttp://www.philgross.com/current_events.ppt\u000ahttp://www.philgross.com/study-1-8.ps\u000ahttp://www.philgross.com/study-9.ps\u000ahttp://www.philgross.com/study-10.ps\u000a'
+INSERT INTO SOURCE VALUES(7,'http','http://www.philgross.com/',-1,'text/html','1024502057969','-1','null',-1,'Connector','Connector','stool','stool','null','3','\u000a\u0009<Source>http://www.philgross.com/flash_and_me_2.jpg</Source>\u000a\u0009<Alt>Me and a koala named Flash</Alt>\u000a\u000a\u000a\u0009<Source>http://www.philgross.com/T_nl_windmill_1c.jpg</Source>\u000a\u0009<Alt>Row of windmills NE</Alt>\u000a\u000a\u000a\u0009<Source>http://www.philgross.com/T_nl_windmill_2c.jpg</Source>\u000a\u0009<Alt>Row of windmills SW</Alt>\u000a\u000a','11','http://www.philgross.com/me.html\u000ahttp://www.philgross.com/resume.html\u000ahttp://softe.cs.columbia.edu/3156-f01/\u000ahttp://www.philgross.com/Teaching_tips.html\u000ahttp://www.cs.columbia.edu/~phil/cs1001-2/public_html\u000ahttp://www.philgross.com/stl/stl.htm\u000ahttp://whim.cs.columbia.edu\u000ahttp://www.philgross.com/current_events.ppt\u000ahttp://www.philgross.com/study-1-8.ps\u000ahttp://www.philgross.com/study-9.ps\u000ahttp://www.philgross.com/study-10.ps\u000a')
+create table table7 (url varchar(255), type varchar(255), classtype varchar(255), subtype varchar(255), shape varchar(255), shape2d varchar(255) )
+INSERT INTO TABLE7 VALUES('http://www.philgross.com/flash_and_me_2.jpg','IMAGE',NULL,NULL,NULL,NULL)
+DELETE FROM TABLE7 WHERE URL='http://www.philgross.com/flash_and_me_2.jpg' AND TYPE='IMAGE' AND CLASSTYPE=NULL AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE7 VALUES('http://www.philgross.com/flash_and_me_2.jpg','IMAGE','Component',NULL,NULL,NULL)
+DELETE FROM TABLE7 WHERE URL='http://www.philgross.com/flash_and_me_2.jpg' AND TYPE='IMAGE' AND CLASSTYPE='Component' AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE7 VALUES('http://www.philgross.com/flash_and_me_2.jpg','IMAGE','Component','Component',NULL,NULL)
+DELETE FROM TABLE7 WHERE URL='http://www.philgross.com/flash_and_me_2.jpg' AND TYPE='IMAGE' AND CLASSTYPE='Component' AND SUBTYPE='Component' AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE7 VALUES('http://www.philgross.com/flash_and_me_2.jpg','IMAGE','Component','Component','books',NULL)
+DELETE FROM TABLE7 WHERE URL='http://www.philgross.com/flash_and_me_2.jpg' AND TYPE='IMAGE' AND CLASSTYPE='Component' AND SUBTYPE='Component' AND SHAPE='books' AND SHAPE2D=NULL
+INSERT INTO TABLE7 VALUES('http://www.philgross.com/flash_and_me_2.jpg','IMAGE','Component','Component','books','books')
+INSERT INTO TABLE7 VALUES('http://www.philgross.com/T_nl_windmill_1c.jpg','IMAGE',NULL,NULL,NULL,NULL)
+DELETE FROM TABLE7 WHERE URL='http://www.philgross.com/T_nl_windmill_1c.jpg' AND TYPE='IMAGE' AND CLASSTYPE=NULL AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE7 VALUES('http://www.philgross.com/T_nl_windmill_1c.jpg','IMAGE','Component',NULL,NULL,NULL)
+DELETE FROM TABLE7 WHERE URL='http://www.philgross.com/T_nl_windmill_1c.jpg' AND TYPE='IMAGE' AND CLASSTYPE='Component' AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE7 VALUES('http://www.philgross.com/T_nl_windmill_1c.jpg','IMAGE','Component','Component',NULL,NULL)
+DELETE FROM TABLE7 WHERE URL='http://www.philgross.com/T_nl_windmill_1c.jpg' AND TYPE='IMAGE' AND CLASSTYPE='Component' AND SUBTYPE='Component' AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE7 VALUES('http://www.philgross.com/T_nl_windmill_1c.jpg','IMAGE','Component','Component','books',NULL)
+DELETE FROM TABLE7 WHERE URL='http://www.philgross.com/T_nl_windmill_1c.jpg' AND TYPE='IMAGE' AND CLASSTYPE='Component' AND SUBTYPE='Component' AND SHAPE='books' AND SHAPE2D=NULL
+INSERT INTO TABLE7 VALUES('http://www.philgross.com/T_nl_windmill_1c.jpg','IMAGE','Component','Component','books','books')
+INSERT INTO TABLE7 VALUES('http://www.philgross.com/T_nl_windmill_2c.jpg','IMAGE',NULL,NULL,NULL,NULL)
+DELETE FROM TABLE7 WHERE URL='http://www.philgross.com/T_nl_windmill_2c.jpg' AND TYPE='IMAGE' AND CLASSTYPE=NULL AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE7 VALUES('http://www.philgross.com/T_nl_windmill_2c.jpg','IMAGE','Component',NULL,NULL,NULL)
+DELETE FROM TABLE7 WHERE URL='http://www.philgross.com/T_nl_windmill_2c.jpg' AND TYPE='IMAGE' AND CLASSTYPE='Component' AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE7 VALUES('http://www.philgross.com/T_nl_windmill_2c.jpg','IMAGE','Component','Component',NULL,NULL)
+DELETE FROM TABLE7 WHERE URL='http://www.philgross.com/T_nl_windmill_2c.jpg' AND TYPE='IMAGE' AND CLASSTYPE='Component' AND SUBTYPE='Component' AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE7 VALUES('http://www.philgross.com/T_nl_windmill_2c.jpg','IMAGE','Component','Component','books',NULL)
+DELETE FROM TABLE7 WHERE URL='http://www.philgross.com/T_nl_windmill_2c.jpg' AND TYPE='IMAGE' AND CLASSTYPE='Component' AND SUBTYPE='Component' AND SHAPE='books' AND SHAPE2D=NULL
+INSERT INTO TABLE7 VALUES('http://www.philgross.com/T_nl_windmill_2c.jpg','IMAGE','Component','Component','books','books')
+INSERT INTO TABLE7 VALUES('http://www.philgross.com/me.html','LINK',NULL,NULL,NULL,NULL)
+DELETE FROM TABLE7 WHERE URL='http://www.philgross.com/me.html' AND TYPE='LINK' AND CLASSTYPE=NULL AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE7 VALUES('http://www.philgross.com/me.html','LINK','Connector',NULL,NULL,NULL)
+DELETE FROM TABLE7 WHERE URL='http://www.philgross.com/me.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE7 VALUES('http://www.philgross.com/me.html','LINK','Connector','Connector',NULL,NULL)
+DELETE FROM TABLE7 WHERE URL='http://www.philgross.com/me.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE7 VALUES('http://www.philgross.com/me.html','LINK','Connector','Connector','stool',NULL)
+DELETE FROM TABLE7 WHERE URL='http://www.philgross.com/me.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE='stool' AND SHAPE2D=NULL
+INSERT INTO TABLE7 VALUES('http://www.philgross.com/me.html','LINK','Connector','Connector','stool','stool')
+INSERT INTO TABLE7 VALUES('http://www.philgross.com/resume.html','LINK',NULL,NULL,NULL,NULL)
+DELETE FROM TABLE7 WHERE URL='http://www.philgross.com/resume.html' AND TYPE='LINK' AND CLASSTYPE=NULL AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE7 VALUES('http://www.philgross.com/resume.html','LINK','Connector',NULL,NULL,NULL)
+DELETE FROM TABLE7 WHERE URL='http://www.philgross.com/resume.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE7 VALUES('http://www.philgross.com/resume.html','LINK','Connector','Connector',NULL,NULL)
+DELETE FROM TABLE7 WHERE URL='http://www.philgross.com/resume.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE7 VALUES('http://www.philgross.com/resume.html','LINK','Connector','Connector','stool',NULL)
+DELETE FROM TABLE7 WHERE URL='http://www.philgross.com/resume.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE='stool' AND SHAPE2D=NULL
+INSERT INTO TABLE7 VALUES('http://www.philgross.com/resume.html','LINK','Connector','Connector','stool','stool')
+INSERT INTO TABLE7 VALUES('http://softe.cs.columbia.edu/3156-f01/','LINK',NULL,NULL,NULL,NULL)
+DELETE FROM TABLE7 WHERE URL='http://softe.cs.columbia.edu/3156-f01/' AND TYPE='LINK' AND CLASSTYPE=NULL AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE7 VALUES('http://softe.cs.columbia.edu/3156-f01/','LINK','Connector',NULL,NULL,NULL)
+DELETE FROM TABLE7 WHERE URL='http://softe.cs.columbia.edu/3156-f01/' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE7 VALUES('http://softe.cs.columbia.edu/3156-f01/','LINK','Connector','Connector',NULL,NULL)
+DELETE FROM TABLE7 WHERE URL='http://softe.cs.columbia.edu/3156-f01/' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE7 VALUES('http://softe.cs.columbia.edu/3156-f01/','LINK','Connector','Connector','stool',NULL)
+DELETE FROM TABLE7 WHERE URL='http://softe.cs.columbia.edu/3156-f01/' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE='stool' AND SHAPE2D=NULL
+INSERT INTO TABLE7 VALUES('http://softe.cs.columbia.edu/3156-f01/','LINK','Connector','Connector','stool','stool')
+INSERT INTO TABLE7 VALUES('http://www.philgross.com/Teaching_tips.html','LINK',NULL,NULL,NULL,NULL)
+DELETE FROM TABLE7 WHERE URL='http://www.philgross.com/Teaching_tips.html' AND TYPE='LINK' AND CLASSTYPE=NULL AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE7 VALUES('http://www.philgross.com/Teaching_tips.html','LINK','Connector',NULL,NULL,NULL)
+DELETE FROM TABLE7 WHERE URL='http://www.philgross.com/Teaching_tips.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE7 VALUES('http://www.philgross.com/Teaching_tips.html','LINK','Connector','Connector',NULL,NULL)
+DELETE FROM TABLE7 WHERE URL='http://www.philgross.com/Teaching_tips.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE7 VALUES('http://www.philgross.com/Teaching_tips.html','LINK','Connector','Connector','stool',NULL)
+DELETE FROM TABLE7 WHERE URL='http://www.philgross.com/Teaching_tips.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE='stool' AND SHAPE2D=NULL
+INSERT INTO TABLE7 VALUES('http://www.philgross.com/Teaching_tips.html','LINK','Connector','Connector','stool','stool')
+INSERT INTO TABLE7 VALUES('http://www.cs.columbia.edu/~phil/cs1001-2/public_html','LINK',NULL,NULL,NULL,NULL)
+DELETE FROM TABLE7 WHERE URL='http://www.cs.columbia.edu/~phil/cs1001-2/public_html' AND TYPE='LINK' AND CLASSTYPE=NULL AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE7 VALUES('http://www.cs.columbia.edu/~phil/cs1001-2/public_html','LINK','Connector',NULL,NULL,NULL)
+DELETE FROM TABLE7 WHERE URL='http://www.cs.columbia.edu/~phil/cs1001-2/public_html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE7 VALUES('http://www.cs.columbia.edu/~phil/cs1001-2/public_html','LINK','Connector','Connector',NULL,NULL)
+DELETE FROM TABLE7 WHERE URL='http://www.cs.columbia.edu/~phil/cs1001-2/public_html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE7 VALUES('http://www.cs.columbia.edu/~phil/cs1001-2/public_html','LINK','Connector','Connector','stool',NULL)
+DELETE FROM TABLE7 WHERE URL='http://www.cs.columbia.edu/~phil/cs1001-2/public_html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE='stool' AND SHAPE2D=NULL
+INSERT INTO TABLE7 VALUES('http://www.cs.columbia.edu/~phil/cs1001-2/public_html','LINK','Connector','Connector','stool','stool')
+INSERT INTO TABLE7 VALUES('http://www.philgross.com/stl/stl.htm','LINK',NULL,NULL,NULL,NULL)
+DELETE FROM TABLE7 WHERE URL='http://www.philgross.com/stl/stl.htm' AND TYPE='LINK' AND CLASSTYPE=NULL AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE7 VALUES('http://www.philgross.com/stl/stl.htm','LINK','Connector',NULL,NULL,NULL)
+DELETE FROM TABLE7 WHERE URL='http://www.philgross.com/stl/stl.htm' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE7 VALUES('http://www.philgross.com/stl/stl.htm','LINK','Connector','Connector',NULL,NULL)
+DELETE FROM TABLE7 WHERE URL='http://www.philgross.com/stl/stl.htm' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE7 VALUES('http://www.philgross.com/stl/stl.htm','LINK','Connector','Connector','stool',NULL)
+DELETE FROM TABLE7 WHERE URL='http://www.philgross.com/stl/stl.htm' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE='stool' AND SHAPE2D=NULL
+INSERT INTO TABLE7 VALUES('http://www.philgross.com/stl/stl.htm','LINK','Connector','Connector','stool','stool')
+INSERT INTO TABLE7 VALUES('http://whim.cs.columbia.edu','LINK',NULL,NULL,NULL,NULL)
+DELETE FROM TABLE7 WHERE URL='http://whim.cs.columbia.edu' AND TYPE='LINK' AND CLASSTYPE=NULL AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE7 VALUES('http://whim.cs.columbia.edu','LINK','Connector',NULL,NULL,NULL)
+DELETE FROM TABLE7 WHERE URL='http://whim.cs.columbia.edu' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE7 VALUES('http://whim.cs.columbia.edu','LINK','Connector','Connector',NULL,NULL)
+DELETE FROM TABLE7 WHERE URL='http://whim.cs.columbia.edu' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE7 VALUES('http://whim.cs.columbia.edu','LINK','Connector','Connector','stool',NULL)
+DELETE FROM TABLE7 WHERE URL='http://whim.cs.columbia.edu' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE='stool' AND SHAPE2D=NULL
+INSERT INTO TABLE7 VALUES('http://whim.cs.columbia.edu','LINK','Connector','Connector','stool','stool')
+INSERT INTO TABLE7 VALUES('http://www.philgross.com/current_events.ppt','LINK',NULL,NULL,NULL,NULL)
+DELETE FROM TABLE7 WHERE URL='http://www.philgross.com/current_events.ppt' AND TYPE='LINK' AND CLASSTYPE=NULL AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE7 VALUES('http://www.philgross.com/current_events.ppt','LINK','Connector',NULL,NULL,NULL)
+DELETE FROM TABLE7 WHERE URL='http://www.philgross.com/current_events.ppt' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE7 VALUES('http://www.philgross.com/current_events.ppt','LINK','Connector','Connector',NULL,NULL)
+DELETE FROM TABLE7 WHERE URL='http://www.philgross.com/current_events.ppt' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE7 VALUES('http://www.philgross.com/current_events.ppt','LINK','Connector','Connector','stool',NULL)
+DELETE FROM TABLE7 WHERE URL='http://www.philgross.com/current_events.ppt' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE='stool' AND SHAPE2D=NULL
+INSERT INTO TABLE7 VALUES('http://www.philgross.com/current_events.ppt','LINK','Connector','Connector','stool','stool')
+INSERT INTO TABLE7 VALUES('http://www.philgross.com/study-1-8.ps','LINK',NULL,NULL,NULL,NULL)
+DELETE FROM TABLE7 WHERE URL='http://www.philgross.com/study-1-8.ps' AND TYPE='LINK' AND CLASSTYPE=NULL AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE7 VALUES('http://www.philgross.com/study-1-8.ps','LINK','Connector',NULL,NULL,NULL)
+DELETE FROM TABLE7 WHERE URL='http://www.philgross.com/study-1-8.ps' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE7 VALUES('http://www.philgross.com/study-1-8.ps','LINK','Connector','Connector',NULL,NULL)
+DELETE FROM TABLE7 WHERE URL='http://www.philgross.com/study-1-8.ps' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE7 VALUES('http://www.philgross.com/study-1-8.ps','LINK','Connector','Connector','stool',NULL)
+DELETE FROM TABLE7 WHERE URL='http://www.philgross.com/study-1-8.ps' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE='stool' AND SHAPE2D=NULL
+INSERT INTO TABLE7 VALUES('http://www.philgross.com/study-1-8.ps','LINK','Connector','Connector','stool','stool')
+INSERT INTO TABLE7 VALUES('http://www.philgross.com/study-9.ps','LINK',NULL,NULL,NULL,NULL)
+DELETE FROM TABLE7 WHERE URL='http://www.philgross.com/study-9.ps' AND TYPE='LINK' AND CLASSTYPE=NULL AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE7 VALUES('http://www.philgross.com/study-9.ps','LINK','Connector',NULL,NULL,NULL)
+DELETE FROM TABLE7 WHERE URL='http://www.philgross.com/study-9.ps' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE7 VALUES('http://www.philgross.com/study-9.ps','LINK','Connector','Connector',NULL,NULL)
+DELETE FROM TABLE7 WHERE URL='http://www.philgross.com/study-9.ps' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE7 VALUES('http://www.philgross.com/study-9.ps','LINK','Connector','Connector','stool',NULL)
+DELETE FROM TABLE7 WHERE URL='http://www.philgross.com/study-9.ps' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE='stool' AND SHAPE2D=NULL
+INSERT INTO TABLE7 VALUES('http://www.philgross.com/study-9.ps','LINK','Connector','Connector','stool','stool')
+INSERT INTO TABLE7 VALUES('http://www.philgross.com/study-10.ps','LINK',NULL,NULL,NULL,NULL)
+DELETE FROM TABLE7 WHERE URL='http://www.philgross.com/study-10.ps' AND TYPE='LINK' AND CLASSTYPE=NULL AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE7 VALUES('http://www.philgross.com/study-10.ps','LINK','Connector',NULL,NULL,NULL)
+DELETE FROM TABLE7 WHERE URL='http://www.philgross.com/study-10.ps' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE7 VALUES('http://www.philgross.com/study-10.ps','LINK','Connector','Connector',NULL,NULL)
+DELETE FROM TABLE7 WHERE URL='http://www.philgross.com/study-10.ps' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE7 VALUES('http://www.philgross.com/study-10.ps','LINK','Connector','Connector','stool',NULL)
+DELETE FROM TABLE7 WHERE URL='http://www.philgross.com/study-10.ps' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE='stool' AND SHAPE2D=NULL
+INSERT INTO TABLE7 VALUES('http://www.philgross.com/study-10.ps','LINK','Connector','Connector','stool','stool')

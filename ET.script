@@ -167,10 +167,14 @@ INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,4.989
 INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,5.0,2.0,0.0)
 INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,5.0,2.0,0.0)
 INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,5.0,2.0,0.0)
-/*C1*/CONNECT USER sa PASSWORD ""
 INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,5.0,2.0,0.0)
 INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,5.0,2.0,0.0)
 INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,4.9882607,0.0,0.2913761)
 INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,4.9945903,0.0,0.2909119)
 INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,5.0,2.0,0.0)
 INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,5.0,2.0,0.0)
+INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','suhit',0.0,0.0,0.0,0.0,0.0,0.0)
+INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','suhit',0.0,0.0,0.0,0.0,0.0,0.0)
+INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','suhit',0.0,0.0,0.0,0.0,0.0,0.0)
+/*C1*/CONNECT USER sa PASSWORD ""
+INSERT INTO ROOM VALUES('http://www.philgross.com/','denis','128.59.23.58')

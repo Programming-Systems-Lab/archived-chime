@@ -808,9 +808,9 @@ void ChimeSystemDriver::SetInfoObject() {
 	info->GetSienaLocation(siena_location);
 
 	if (strcmp(password, "") == 0 || strcmp(username, "") == 0 || strcmp(siena_location, "") == 0) {
-			info->SetUsername("suhit");
-			info->SetPassword("suhit");
-			info->SetSienaLocation("128.59.23.34");
+			info->SetUsername("denis");
+			info->SetPassword("denis");
+			info->SetSienaLocation("localhost");
 	}
 
 	info->SetSienaPort(1234);
@@ -967,7 +967,7 @@ void ChimeSystemDriver::SetupFrame()
  //   myMotionMan->UpdateAll ();
 
 
-  if( active && !CollisionDetect())
+  if( active )//&& !CollisionDetect())
   {
 	  // Now rotate the camera according to keyboard state
 	  float speed = (elapsed_time / 1000.) * (0.03 * 20);
@@ -2561,18 +2561,19 @@ bool ChimeSystemDriver::CollisionDetect()
 	{
 		printf("\nObject number %i", i);
 		csColliderWrapper* coll_wrap = csColliderWrapper::GetColliderWrapper(m_list->Get(i)->QueryObject());
-		if (coll_wrap && coll_wrap->GetCollider() != user_collider)
-		{
-			printf("\nColliding object number %i", i);
+		printf("Name: %s", m_list->Get(i)->QueryObject()->GetName());
+		printf("\nColliding object number %i", i);
+		if (coll_wrap)
 			coll = coll_wrap->GetCollider();
-			other_tr = &(m_list->Get(i)->GetMovable()->GetFullTransform());
-			try
-			{
-				if(collide_system->Collide(user_collider, &user_tr, coll, other_tr))
-					rc = true;
-			}
-			catch (...) {printf("\nError upon collision. Number %i", i);}
+		else
+			coll = InitCollider(m_list->Get(i));
+		other_tr = &(m_list->Get(i)->GetMovable()->GetFullTransform());
+		try
+		{
+			if(collide_system->Collide(user_collider, &user_tr, coll, other_tr))
+				rc = true;
 		}
+		catch (...) {printf("\nError upon collision. Number %i", i);}
 	}
 
 	if (rc)
