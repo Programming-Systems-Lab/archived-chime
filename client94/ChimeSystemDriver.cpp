@@ -841,7 +841,7 @@ void ChimeSystemDriver::SetInfoObject() {
 	if (strcmp(password, "") == 0 || strcmp(username, "") == 0 || strcmp(siena_location, "") == 0) {
 			info->SetUsername("suhit");
 			info->SetPassword("suhit");
-			info->SetSienaLocation("localhost");
+			info->SetSienaLocation("128.59.23.34");
 	}
 
 	info->SetSienaPort(1234);
@@ -1885,7 +1885,7 @@ bool ChimeSystemDriver::HandleKeyEvent (iEvent &Event)
 			if( meshSelected )
 			{
 				comm.DeleteObject(selectedMeshSect->GetUrl(), (char*)selectedMesh->QueryObject()->GetName());
-				DeleteMeshObj(selectedMesh);
+				DeleteMeshObj(selectedMesh, view->GetCamera()->GetSector());
 				meshSelected = false;
 			}
 			return true;
@@ -2413,11 +2413,16 @@ iMeshWrapper* ChimeSystemDriver::AddMeshObj (char* tname, char* sname, iSector* 
   }
   iMeshWrapper* spr = Sys->engine->CreateMeshWrapper (tmpl, sname,
 						      where, pos);
-  csMatrix3 m; m.Identity (); m = m * (size/15);
-  csZRotMatrix3 rot_m(-3.141);
-  m = rot_m;
-
-  spr->GetMovable ()->SetTransform (rot_m);
+  csMatrix3 m; m.Identity (); m = m * (size/35);
+  spr->GetMovable ()->SetTransform (m);
+  csYScaleMatrix3 scaley_m(0.031);
+  spr->GetMovable ()->Transform (scaley_m);
+  csXScaleMatrix3 scalex_m(0.031);
+  spr->GetMovable()->Transform(scalex_m);
+  csZScaleMatrix3 scalez_m(0.031);
+  spr->GetMovable()->Transform(scalez_m);
+  csXRotMatrix3 rotx_m(-1.56);
+  spr->GetMovable()->Transform(rotx_m);
   spr->GetMovable ()->UpdateMove ();
 
   spr->DeferUpdateLighting (CS_NLIGHT_STATIC|CS_NLIGHT_DYNAMIC, 10);
@@ -2431,11 +2436,11 @@ iMeshWrapper* ChimeSystemDriver::AddMeshObj (char* tname, char* sname, iSector* 
 //* Delete mesh object in a given room at a given location.
 //*
 //*********************************************************************************
-bool ChimeSystemDriver::DeleteMeshObj(iMeshWrapper *mesh)
+bool ChimeSystemDriver::DeleteMeshObj(iMeshWrapper *mesh, iSector *room)
 {
-    if (mesh)
+    if (mesh && room)
 	{
-        //engine->RemoveMesh (mesh);
+		//return room->GetMeshes()->Remove(mesh);
 		return true;
 	}
     else
@@ -2692,7 +2697,6 @@ bool ChimeSystemDriver::HandleNetworkEvent(int method, char *params)
 				//user
 				csVector3 newPos, roomOrigin;
 				ChimeSector  *sec;
-				char *roomUrl;
 				sec = GetCurChimeSector();
 				char my_ip_address[50];
 				info->GetMyIPAddress(my_ip_address);
@@ -2917,7 +2921,7 @@ bool ChimeSystemDriver::DeleteObject(char *roomUrl, char *objectUrl)
 	}
 	if(!obj) return false;
 
-	DeleteMeshObj(obj);
+	DeleteMeshObj(obj, room);
 
 	return true;
 }
@@ -3010,7 +3014,7 @@ bool ChimeSystemDriver::DeleteUser(char *roomUrl, char *username, char *ip_addre
 	}
 	if(!user) return false;
 
-	DeleteMeshObj(user);
+	DeleteMeshObj(user, room);
 	sec->deleteUser(userID);
 
 	return true;

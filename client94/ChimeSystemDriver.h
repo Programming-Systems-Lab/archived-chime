@@ -371,7 +371,7 @@ public:
 	iMeshWrapper* AddMeshObj (char* tname, char* sname, iSector* where,
 		csVector3 const& pos, float size);
 	//Delete mesh object in a given room at a given location.
-	bool DeleteMeshObj(iMeshWrapper *mesh);
+	bool DeleteMeshObj(iMeshWrapper *mesh, iSector *room);
 	//Find closest mesh to the clicked screen coordinate
 	iMeshWrapper* FindNextClosestMesh (iMeshWrapper *baseMesh,
 		iCamera *camera, csVector2 *screenCoord);
