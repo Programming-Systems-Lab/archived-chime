@@ -1,3 +1,10 @@
+ /*
+ *
+ * Copyright (c) 2002: The Trustees of Columbia University
+ *    in the City of New York.  All Rights Reserved.
+ *
+ *
+ */
 // AIVideoFrameBuffer.cpp: implementation of the AIVideoFrameBuffer class.
 //
 //////////////////////////////////////////////////////////////////////

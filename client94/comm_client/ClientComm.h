@@ -1,3 +1,10 @@
+ /*
+ *
+ * Copyright (c) 2002: The Trustees of Columbia University
+ *    in the City of New York.  All Rights Reserved.
+ *
+ *
+ */
 
 #ifndef __CHIME_UDP_H_
 #define __CHIME_UDP_H_

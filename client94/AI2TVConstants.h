@@ -1,3 +1,10 @@
+ /*
+ *
+ * Copyright (c) 2002: The Trustees of Columbia University
+ *    in the City of New York.  All Rights Reserved.
+ *
+ *
+ */
 #ifndef __AI2TV__CONSTANTS__
 #define __AI2TV__CONSTANTS__
 

@@ -1,5 +1,5 @@
 2
-250 128.59.23.9
+250 128.59.23.6
 251 localhost
 http://park.psl.cs.columbia.edu/ai2tv
 frame_index.txt

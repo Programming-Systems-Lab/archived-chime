@@ -1,3 +1,10 @@
+ /*
+ *
+ * Copyright (c) 2002: The Trustees of Columbia University
+ *    in the City of New York.  All Rights Reserved.
+ *
+ *
+ */
 //Author: Navdeep S. Tinna
 //Date	: 04/28/2001
 //File	: Client.cpp

@@ -1,3 +1,10 @@
+ /*
+ *
+ * Copyright (c) 2002: The Trustees of Columbia University
+ *    in the City of New York.  All Rights Reserved.
+ *
+ *
+ */
 // AIVideoFrameBuffer.h: interface for the AIVideoFrameBuffer class.
 // This stores a circular queue of pre-built frames...
 //////////////////////////////////////////////////////////////////////

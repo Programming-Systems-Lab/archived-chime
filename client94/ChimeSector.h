@@ -1,3 +1,10 @@
+ /*
+ *
+ * Copyright (c) 2002: The Trustees of Columbia University
+ *    in the City of New York.  All Rights Reserved.
+ *
+ *
+ */
 // ChimeSector.h: interface for the ChimeSector class.
 //
 //////////////////////////////////////////////////////////////////////

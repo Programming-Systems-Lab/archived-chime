@@ -1,3 +1,10 @@
+ /*
+ *
+ * Copyright (c) 2002: The Trustees of Columbia University
+ *    in the City of New York.  All Rights Reserved.
+ *
+ *
+ */
 // AIDownloader.cpp: implementation of the AIDownloader class.
 //  This is the worker class dispatched to download from a given
 //  proxy server...

@@ -1,3 +1,10 @@
+ /*
+ *
+ * Copyright (c) 2002: The Trustees of Columbia University
+ *    in the City of New York.  All Rights Reserved.
+ *
+ *
+ */
 #ifndef CHIME_INFO_EVENT
 #define CHIME_INFO_EVENT
 #define MAX_INFO_SIZE 1024
