@@ -458,39 +458,28 @@ bool ChimeSector::BuildDynamicRoom2(char *roomDesc, const csVector3 &pos, iColli
 	BuildStandardRoom(room, roomSize, curPos);
 	mainRoomOrigin = curPos;
 
+	
 	//setup lighting for the room
-	lightHeight = 5.0;
-	delta = 0.5;
-	radius = 7;
 	light_list = room->GetLights();
-	int numLights = roomSize.z;
+	int numLights  = roomSize.z;
 	for (int i = 0; i<numLights; i++)
 	{
-		light = engine -> CreateLight (NULL, csVector3(-(roomOrigin.x/2)+delta, lightHeight, roomOrigin.z+i+delta), radius, csColor(1, 1, 1), false);
+		delta = 0.1;
+		radius = 3;
+		lightHeight = 2.0;
+		light = engine -> CreateLight (NULL, csVector3(leftWallX + delta, lightHeight, roomOrigin.z+(i*(roomSize.z/numLights))+delta), radius, csColor(1, 1, 1), false);
 		light_list->Add (light->QueryLight());
-		light = engine -> CreateLight (NULL, csVector3((roomOrigin.x/2)+delta, lightHeight, roomOrigin.z+i+delta), radius, csColor(1, 1, 1), false);
+		light = engine -> CreateLight (NULL, csVector3(rightWallX - delta, lightHeight, roomOrigin.z+(i*(roomSize.z/numLights))+delta), radius, csColor(1, 1, 1), false);
+		light_list->Add (light->QueryLight());
+		delta = 3.0;
+		radius = 8;
+		lightHeight = 5.0;
+		light = engine -> CreateLight (NULL, csVector3(leftWallX + delta, lightHeight, roomOrigin.z+((i-1)*(roomSize.z/numLights))+delta), radius, csColor(1, 1, 1), false);
+		light_list->Add (light->QueryLight());
+		light = engine -> CreateLight (NULL, csVector3(rightWallX - delta, lightHeight, roomOrigin.z+((i-1)*(roomSize.z/numLights))+delta), radius, csColor(1, 1, 1), false);
 		light_list->Add (light->QueryLight());
 	}
-	
-	/**
-	if (roomSize.z <= 20)
-        radius = 20;
-	else
-		radius = 0.7 * roomSize.z;
-	light_list = room->GetLights();
-	light = engine -> CreateLight (NULL, csVector3(roomOrigin.x+delta, lightHeight, roomOrigin.z+delta), radius, csColor(1, 1, 1), false);
-	light_list->Add (light->QueryLight());
-	light = engine -> CreateLight (NULL, csVector3(roomSize.x+roomOrigin.x-delta, lightHeight, roomOrigin.z+delta), radius, csColor(1, 1, 1), false);
-	light_list->Add (light->QueryLight());
-	light = engine -> CreateLight (NULL, csVector3(roomOrigin.x+delta, lightHeight, roomOrigin.z+roomSize.z-delta), radius, csColor(1, 1, 1), false);
-	light_list->Add (light->QueryLight());
-	light = engine -> CreateLight (NULL, csVector3(roomSize.x+roomOrigin.x-delta, lightHeight, roomOrigin.z+roomSize.z-delta), radius, csColor(1, 1, 1), false);
-	light_list->Add (light->QueryLight());
-	light = engine -> CreateLight (NULL, csVector3((roomSize.x/2)+roomOrigin.x, lightHeight, (roomSize.z/2)+roomOrigin.z), radius, csColor(1, 1, 1), false);
-	light_list->Add (light->QueryLight());
-	*/
 
-	
 	curPos.z += roomSize.z/2 + 1;
 
 	connector2 = engine->CreateSector ("connector2");
@@ -611,7 +600,7 @@ bool ChimeSector::BuildDynamicRoom2(char *roomDesc, const csVector3 &pos, iColli
 
 
 		
-	engine->SetAmbientLight(csColor(.5,.5,.5));
+	engine->SetAmbientLight(csColor(0.5,0.5,0.5));
 	/*connector1->SetAmbientColor(50,50,50);
 	connector2->SetAmbientColor(50,50,50);
 	hallway->SetAmbientColor(50,50,50);
@@ -823,11 +812,13 @@ bool ChimeSector::BuildStandardRoom(iSector *room, csVector3 const &size, csVect
 	//Build Left wall of the room
 	trans.Set(-size.x/2, 0, -size.z/2.0);
 	trans += pos;
+	leftWallX = trans.x;
 	BuildWall(walls, "left_wall",  size, trans, LEFT, txt, csVector3(3,3,3));
 
 	//Build Right wall of the room
 	trans.Set(size.x/2, 0, -size.z/2.0);
 	trans += pos;
+	rightWallX = trans.x;
 	BuildWall(walls, "right_wall", size, trans, RIGHT, txt, csVector3(3,3,3));
 
 	//Build Floor wall of the room
@@ -2082,12 +2073,12 @@ iMeshWrapper* ChimeSector::PutImageOnScreen(iSector *room, csVector3 const &objP
 	iMeshWrapper *doormesh = engine -> CreateSectorWallsMesh(room, "side_door");
 	iThingState *sidedoor = SCF_QUERY_INTERFACE(doormesh->GetMeshObject(), iThingState);
 
-	csVector3 pos(4.9999, 0, 7); //FIXIT: Should NOT be hardcoded
-	pos.z = objPos.z;
-//	pos.x = 4.9999 //FIXIT: This is not smart way
+	csVector3 pos = mainRoomOrigin;
+	pos.z += (objPos.z - size.z - (roomSize.z/2));
+	pos.y = 0;
 
 	if(objPos.x > 0){
-		pos += offset;
+		pos.x = rightWallX;
 
 		iPolygon3D* sideDoorTemp;
 
@@ -2097,8 +2088,7 @@ iMeshWrapper* ChimeSector::PutImageOnScreen(iSector *room, csVector3 const &objP
 		SetSideDoorDirection(nextSideDoorNum, RIGHT);
 		SetSideDoorLocation(nextSideDoorNum, pos);
 	}else{
-		pos.x = -pos.x;
-		pos += offset;
+		pos.x = leftWallX;
 
 		iPolygon3D* sideDoorTemp;
 
@@ -2260,29 +2250,27 @@ iPolygon3D* ChimeSector::BuildScreenOnWall(csVector3 const &objPos, csVector3 co
 	iMeshWrapper *doormesh = engine -> CreateSectorWallsMesh(room, "side_door");
 	iThingState *sidedoor = SCF_QUERY_INTERFACE(doormesh->GetMeshObject(), iThingState);
 
-	csVector3 pos = mainRoomOrigin;//(4.9999, 0, 7); //FIXIT: Should NOT be hardcoded
-	pos.z += (objPos.z - (size.z/2));
-	pos.x += (roomSize.x/2);
+	//find coordinates of where to build
+	csVector3 pos = mainRoomOrigin;
+	pos.z += (objPos.z - size.z - (roomSize.z/2));
 	pos.y = 0;
-//	pos.x = 4.9999 //FIXIT: This is not smart way
 
 	iPolygon3D* sideDoorTemp;
 
+	//if the object is at the right wall
 	if(objPos.x > 0){
-		//pos += offset;
-
-		
+		pos.x = rightWallX;
 
 		sideDoorTemp = BuildWall(sidedoor, "side_door", size, pos, RIGHT, txt, txtSize);
 
 		SetSideDoor(sideDoorTemp, nextSideDoorNum);
 		SetSideDoorDirection(nextSideDoorNum, RIGHT);
 		SetSideDoorLocation(nextSideDoorNum, pos);
-	}else{
-		pos.x = -pos.x;
-		//pos += offset;
-
-	
+	}
+	//if the object is at the left wall
+	else
+	{
+		pos.x = leftWallX;
 
 		sideDoorTemp = BuildWall(sidedoor, "side_door", size, pos, LEFT, txt, txtSize);
 

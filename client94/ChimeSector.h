@@ -61,7 +61,9 @@ class ChimeSector
 	iSector *topConnector;				//Connector room for the top camera
 	iSector* hallway;					//Hallway
 	iSector* room;						//Main room
-	csVector3 mainRoomOrigin;
+	csVector3 mainRoomOrigin;			//Origin coordinates of the main room
+	float leftWallX;					//x coordinate of the left wall of the main room 
+	float rightWallX;					//x coordinate of the right wall of the main room
 	int		  numRooms;					//Number of rooms in th sector.
 	int		  numDoors;					//Number of active doors in the sector.
 

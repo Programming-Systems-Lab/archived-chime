@@ -107,7 +107,7 @@ ChimeSystemDriver::ChimeSystemDriver()
 	lookUp = 0.0;
 	locked = true;
 	moveMain = true;
-	moveAWSwindow = true;
+	openGLMode = false;
 	collider_list = new csVector(16,16);
 	transform_list = new csVector(16,16);
 	
@@ -422,7 +422,7 @@ void ChimeSystemDriver::UserMoved()
 		//MoveUser(roomUrl, "1.1.1.1", newPos.x, 0, newPos.z+4);
 	}
 
-	if ( sprite->GetMovable()->GetSectors()->Find( view->GetCamera()->GetSector() ) == -1) {
+	if ( sprite && sprite->GetMovable()->GetSectors()->Find( view->GetCamera()->GetSector() ) == -1) {
 		sprite->GetMovable()->SetSector( view->GetCamera()->GetSector() );
 		sprite->GetMovable()->UpdateMove();
 	}
@@ -644,6 +644,10 @@ bool ChimeSystemDriver::Initialize(int argc, const char *const argv[], const cha
 
 	//now we will find the mode of that the graphics 3d loader is running at
 	grafx_3d_mode = cfg->GetStr("System.Plugins.iGraphics3D");
+	
+	//if we are in openGL mode, allow moving the AWS window
+	if (!strcmp(grafx_3d_mode, "crystalspace.graphics3d.opengl"))
+		openGLMode = true;
 
 	cfg->DecRef();
 
@@ -1054,7 +1058,7 @@ void ChimeSystemDriver::SetupFrame()
 	  //engine->SetContext (myG3D);
 
 	  //redraw CSWS windows if AWS window has moved
-	  if (moveAWSwindow) {
+	  if (openGLMode) {
 		myG2D->Clear(main_txtmgr->FindRGB(125,125,125));
 		app->chatWindow->Invalidate(true);
 		historyWindow->Invalidate(true);
@@ -1068,14 +1072,17 @@ void ChimeSystemDriver::SetupFrame()
 	  if (!myG3D->BeginDraw (engine->GetBeginDrawFlags () | CSDRAW_2DGRAPHICS|CSDRAW_3DGRAPHICS))
 		  return;
 
-	  if (sprite->GetMovable()->GetSectors()->Find( view->GetCamera()->GetSector() ) < 0)
+	  if (sprite && sprite->GetMovable()->GetSectors()->Find( view->GetCamera()->GetSector() ) < 0)
 		  sprite->GetMovable()->GetSectors()->Add( view->GetCamera()->GetSector() );
 	  csVector3 positionSprite =  view->GetCamera()->GetTransform().GetOrigin();
 	  positionSprite.y = 0;
 	  //positionSprite.z -= 1;
-	  sprite->GetMovable()->SetPosition(positionSprite);
-	  sprite->GetMovable()->UpdateMove();
-	  sprite->DeferUpdateLighting (CS_NLIGHT_STATIC|CS_NLIGHT_DYNAMIC, 10);
+	  if (sprite)
+	  {
+		sprite->GetMovable()->SetPosition(positionSprite);
+		sprite->GetMovable()->UpdateMove();
+		sprite->DeferUpdateLighting (CS_NLIGHT_STATIC|CS_NLIGHT_DYNAMIC, 10);
+	  }
 	  view->Draw ();
 	  if (overviewWindow) overviewWindow->Draw ();
 	  
@@ -2053,7 +2060,7 @@ bool ChimeSystemDriver::HandleEvent (iEvent &Event)
 	pplInvalidate(bound);
 */
 	
-	if (moveAWSwindow)
+	if (openGLMode)
 		if (overviewWindow->HandleEvent(Event))
 			goto handled;
 
@@ -2398,7 +2405,8 @@ iMeshWrapper* ChimeSystemDriver::AddMeshObj (char* tname, char* sname, iSector* 
   spr->DeferUpdateLighting (CS_NLIGHT_STATIC|CS_NLIGHT_DYNAMIC, 10);
   csMatrix3 m; 
   m.Identity (); 
-  //m = m * (size/35);
+  if (!openGLMode)
+      size = size/2.0;
   spr->GetMovable ()->SetTransform (m);
   csYScaleMatrix3 scaley_m(size);
   spr->GetMovable ()->Transform (scaley_m);

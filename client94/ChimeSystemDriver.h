@@ -103,7 +103,7 @@ private:
 	bool moveMain;
 	float lookUp;
 	/// Used for refreshing windows
-	bool moveAWSwindow;
+	bool openGLMode;
 
 
 	/**
