@@ -1348,9 +1348,6 @@ bool ChimeSystemDriver::OpenDoor(char *doorUrl) {
 		comm.SubscribeRoom(doorUrl, username);
 		comm.GetRoom(doorUrl);
 		openDoors->Push(doorUrl);
-	app->chatWindow->ShowMessage("Open doors:");
-	for (int i = 0; i<openDoors->Length(); i++)
-		app->chatWindow->ShowMessage((char*)openDoors->Get(i));
 
 		return true;
 	}
@@ -2813,9 +2810,13 @@ bool ChimeSystemDriver::MoveUser(char *roomUrl, char *username, char *ip_address
 	room = sec->FindRoomContainingPoint(newPos);
 	if( !room ) return false;
 
+	try{
 	obj->GetMovable()->SetPosition(room, newPos);
+	//obj->GetMovable()->SetPosition(newPos);
 	obj->GetMovable()->UpdateMove();
 	obj->DeferUpdateLighting (CS_NLIGHT_STATIC|CS_NLIGHT_DYNAMIC, 10);
+	}
+	catch (...) {printf("MoveUser failed...");}
 
 	return true;
 
@@ -3636,25 +3637,32 @@ bool ChimeSystemDriver::UserLeftRoom(char *oldRoomUrl, char *newRoomUrl, char *u
 
 	if (!user) return false;
 
-	//user->GetMovable()->GetSectors()->Remove(room);
-	//engine->Prepare();
-	app->chatWindow->ShowMessage("Open doors:");
-	for (int i = 0; i<openDoors->Length(); i++)
-		app->chatWindow->ShowMessage((char*)openDoors->Get(i));
-	printf("\nNew door URL: %s", newRoomUrl);
 	char *door;
 	bool isDoorOpen = false;
 	for (int i = 0; i<openDoors->Length(); i++)
 	{
 		door = (char*)openDoors->Get(i);
-		if (!strstr(newRoomUrl, door))
+		if (!strcmp(newRoomUrl, door))
 			isDoorOpen = true;
 	}
-	if (isDoorOpen)
+	if (!isDoorOpen)
 	{
 		DeleteMeshObj(user, room);
 		if (!sec->deleteUser(username))
 			sec->deleteUser(username, ip_address);
+	}
+	else
+	{
+		ChimeSector *newSec = FindSector( newRoomUrl );
+		if( newSec )
+		{
+			for (int i = 0; i<newSec->numRooms; i++)
+			{
+				if (!user->GetMovable()->GetSectors()->Find(newSec->GetRoom(i)))
+					user->GetMovable()->GetSectors()->Add(newSec->GetRoom(i));
+			}
+			user->GetMovable()->UpdateMove();
+		}
 	}
 
 	return true;

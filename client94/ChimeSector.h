@@ -64,7 +64,10 @@ class ChimeSector
 	csVector3 mainRoomOrigin;			//Origin coordinates of the main room
 	float leftWallX;					//x coordinate of the left wall of the main room 
 	float rightWallX;					//x coordinate of the right wall of the main room
+
+public:
 	int		  numRooms;					//Number of rooms in th sector.
+private:
 	int		  numDoors;					//Number of active doors in the sector.
 
 	iEngine* engine;					//Engine that will render this room
