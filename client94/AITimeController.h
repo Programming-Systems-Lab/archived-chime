@@ -28,12 +28,16 @@ public:
 	void runTimerLoop();
 	int current_frame_number;
 	int current_time;
+	int big_bang;  // the beginning of time
+	int pause_time;	
+	int adjust_time;	// used to "speed up" or "slow down" time
 	int master_frame_number;  
 	int master_adj;
 	char* last_action;
 	void start();
 	void stop();
 	void setMaster(int mast_frame);
+	int get_system_time();
 };
 
 #endif // !defined(AFX_AITIMECONTROLLER_H__2E21EA5E_0BD6_4102_9BE6_65F4FD64750B__INCLUDED_)
