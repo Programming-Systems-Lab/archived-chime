@@ -83,7 +83,7 @@ AIVideoPlayer::AIVideoPlayer(ChimeSystemDriver *csd)
 	sound=0;
 	LOCKED=false;
 	EXIT=false;
-	played_start = -10;
+	last_played = -10;
 	isMaster = false;
 
 	// NEW: Create csSchedule
@@ -822,45 +822,44 @@ void AIVideoPlayer::time_changed(){
     PlayerWindow->SetText(play);
     }*/
 
-	  //ckl - testing  -- take this out
-	  //char message[30];
-	  //sprintf(message, "sync action: %s", TimeController->last_action);
-	  //debug(2,message);
+  //ckl - testing  -- take this out
+  //char message[30];
+  //sprintf(message, "sync action: %s", TimeController->last_action);
+  //debug(2,message);
 
+  if (FrameBuffer->size > 0&& // the frame buffer does contain frames
+      // frames array [first element] exists
+      FrameBuffer->frames[(FrameBuffer->getHead()+1)%FrameBuffer->buffer_size] &&
+      // frame array [first element] start time > 0 (first frame displayed when video loaded)
+      FrameBuffer->frames[(FrameBuffer->getHead()+1)%FrameBuffer->buffer_size]->frame_number &&
+      // frame array [first element] start time <= the last frame played start time
+      FrameBuffer->frames[(FrameBuffer->getHead()+1)%FrameBuffer->buffer_size]->frame_number 
+      <= TimeController->current_frame_number-1 &&
+      // avoid calling playThread multiple times w/in same time segment 
+      FrameBuffer->frames[(FrameBuffer->getHead()+1)%FrameBuffer->buffer_size]->frame_number 
+      > last_played //added var last_played -cl
 
-	  if (FrameBuffer->size > 0&& // the frame buffer does contain frames
-	      // frames array [first element] exists
-	      FrameBuffer->frames[(FrameBuffer->getHead()+1)%FrameBuffer->buffer_size] &&
-	      // frame array [first element] start time > 0 (first frame displayed when video loaded)
-	      FrameBuffer->frames[(FrameBuffer->getHead()+1)%FrameBuffer->buffer_size]->start &&
-	      // frame array [first element] start time <= the last frame played start time
-	      FrameBuffer->frames[(FrameBuffer->getHead()+1)%FrameBuffer->buffer_size]->start 
-	      <= TimeController->current_frame_number-1 &&
-	      // avoid calling playThread multiple times w/in same time segment 
-	      FrameBuffer->frames[(FrameBuffer->getHead()+1)%FrameBuffer->buffer_size]->start 
-	      > played_start //added var played_start -cl
+      // use above line for realtime
+      // use this for "Every 1 second iteration" TimeController->current_frame_number % 30 == 0
+      ) {
 
-	      // use above line for realtime
-	      // use this for "Every 1 second iteration" TimeController->current_frame_number % 30 == 0
-	      ) {
+    // keep track of last frame played for next call to fn
+    AIVideoFrame* myframe=0;
+    if (FrameBuffer->size >0) {
+      myframe=FrameBuffer->frames[(FrameBuffer->getHead()+1)%FrameBuffer->buffer_size];
+    }
+    last_played = myframe->frame_number;
 
-	    // keep track of last frame played for next call to fn
-	    AIVideoFrame* myframe=0;
-	    if (FrameBuffer->size >0) {
-	      myframe=FrameBuffer->frames[(FrameBuffer->getHead()+1)%FrameBuffer->buffer_size];
-	    }
-	    played_start = myframe->start;
-
-	    playThread();	
-	  }
+    playThread();	
+  }
 	
-	  if ( TimeController->current_frame_number % 30 == 0){
-	    int tot_sec = TimeController->current_frame_number / 30;
-	    int min = tot_sec/60;
-	    int sec = tot_sec % 60;
-	    char* play= new char[25];
-	    sprintf(play,"Playing (%d:%2d)",min,sec);
-	    PlayerWindow->SetText(play);
-	  }
+  if ( TimeController->current_frame_number % 30 == 0){
+    int tot_sec = TimeController->current_frame_number / 30;
+    int min = tot_sec/60;
+    int sec = tot_sec % 60;
+    char* play= new char[25];
+    sprintf(play,"Playing (%d:%2d)",min,sec);
+    PlayerWindow->SetText(play);
+  }
 	
 }
