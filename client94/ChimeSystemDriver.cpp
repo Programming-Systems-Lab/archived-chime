@@ -743,7 +743,10 @@ bool ChimeSystemDriver::Initialize(int argc, const char *const argv[], const cha
 	userPos.z += GetCurChimeSector()->GetOrigin().z;
 	//userPos.z -= 1;
 
-	sprite = AddMeshObj("user0", name, view->GetCamera()->GetSector(), userPos, 0.028);
+	float size = 0.028;
+	if (!openGLMode)
+		size = 0.029;
+	sprite = AddMeshObj("user0", name, view->GetCamera()->GetSector(), userPos, size);
 	if( !sprite ) return false;
 	user_collider = InitCollider(sprite);
 
@@ -977,80 +980,33 @@ void ChimeSystemDriver::SetupFrame()
 	  float speed = (elapsed_time / 1000.) * (0.03 * 20);
 
 	  if (kbd->GetKeyState (CSKEY_RIGHT)) {
-		  if (moveMain || locked) {
-			  if (lookUp != 0.0) {
-				if (overviewWindow) locked = false;
-				view->GetCamera ()->Move (CS_VEC_RIGHT, 2.0f*speed);
-			  }
-			else
-				view->GetCamera ()->GetTransform().RotateThis (CS_VEC_ROT_RIGHT, 2.0f*speed);
-		  }
-		  if (locked || !moveMain)
-			  if (overviewWindow) overviewWindow->GetCamera ()->GetTransform().RotateOther (CS_VEC_ROT_RIGHT, 2.0f*speed);
+		  if (lookUp == 0.0)
+			RotateRight(speed);
+		  else
+			MoveRight(speed);
 	  }
 	  if (kbd->GetKeyState (CSKEY_LEFT)) {
-		  if (moveMain || locked) {
-			  if (lookUp != 0.0) {
-				if (overviewWindow) locked = false;
-				view->GetCamera ()->Move (CS_VEC_LEFT, 2.0f*speed);
-			  }
-			else
-				view->GetCamera ()->GetTransform().RotateThis (CS_VEC_ROT_LEFT, 2.0f*speed);
-		  }		  if (locked || !moveMain)
-			  if (overviewWindow) overviewWindow->GetCamera ()->GetTransform().RotateOther (CS_VEC_ROT_LEFT, 2.0f*speed);
+		  if (lookUp == 0.0)
+			RotateLeft(speed);
+		  else
+			MoveLeft(speed);
 	  }
 	  if (kbd->GetKeyState (CSKEY_PGUP)) {
 		  if (moveMain || locked) {
 			view->GetCamera ()->GetTransform().RotateThis (CS_VEC_TILT_UP, 2.0f*speed);
 			lookUp = lookUp + 2.0f*speed;
 		  }
-		  //if (locked)
-			  //over_view->GetCamera ()->GetTransform().RotateThis (CS_VEC_TILT_UP, 2.0f*speed);
 	  }
 	  if (kbd->GetKeyState (CSKEY_PGDN)) {
 		  if (moveMain || locked) {
 			view->GetCamera ()->GetTransform().RotateThis (CS_VEC_TILT_DOWN, 2.0f*speed);
 			lookUp = lookUp - 2.0f*speed;
 		  }
-		  //if (locked)
-			  //over_view->GetCamera ()->GetTransform().RotateThis (CS_VEC_TILT_DOWN, 2.0f*speed);
 	  }
 	  if (kbd->GetKeyState (CSKEY_UP))
-	  {
-		  if (moveMain || locked) {
-			  if (lookUp != 0) {
-				  view->GetCamera ()->GetTransform().RotateThis (CS_VEC_TILT_DOWN, lookUp);
-				  lookUp = 0;
-				  if (overviewWindow)
-				  {
-                      overviewWindow->SnapThisCamera();
-					  locked = true;
-				  }
-			  }
-			view->GetCamera ()->Move (CS_VEC_FORWARD * 4.0f * speed * SPEED);
-			UserMoved();
-		  }
-		  if (locked || !moveMain)
-			  if (overviewWindow) overviewWindow->GetCamera ()->Move (CS_VEC_UP * 4.0f * speed * SPEED);
-	  }
+		  MoveForward(speed);
 	  if (kbd->GetKeyState (CSKEY_DOWN))
-	  {
-		  if (moveMain || locked) {
-			  if (lookUp != 0) {
-				  view->GetCamera ()->GetTransform().RotateThis (CS_VEC_TILT_DOWN, lookUp);
-				  lookUp = 0;
-				  if (overviewWindow)
-				  {
-					  overviewWindow->SnapThisCamera();
-					  locked = true;
-				  }
-			  }
-			view->GetCamera ()->Move (CS_VEC_BACKWARD * 4.0f * speed * SPEED);
-			UserMoved();
-		  }
-		  if (locked || !moveMain)
-			  if (overviewWindow) overviewWindow->GetCamera ()->Move (CS_VEC_DOWN * 4.0f * speed * SPEED);
-	  }
+		  MoveBackward(speed);
 
 	  if (overviewWindow && (view->GetCamera()->GetSector() != overviewWindow->GetCamera()->GetSector()) && locked)
 		  overviewWindow->GetCamera()->SetSector(view->GetCamera()->GetSector());
@@ -1846,27 +1802,19 @@ bool ChimeSystemDriver::HandleKeyEvent (iEvent &Event)
 
 		if(Event.Key.Code == 'a')
 		{
-			view->GetCamera ()->Move (CS_VEC_LEFT *  2.0f * moveSpeed);
-			UserMoved();
-			return true;
+			return MoveLeft(speed);
 		}
 		if(Event.Key.Code == 'd')
 		{
-			view->GetCamera ()->Move (CS_VEC_RIGHT *  2.0f * moveSpeed);
-			UserMoved();
-			return true;
+			return MoveRight(speed);
 		}
 		if(Event.Key.Code == 'w')
 		{
-			view->GetCamera ()->Move (CS_VEC_FORWARD * 2.0f * moveSpeed);
-			UserMoved();
-			return true;
+			return MoveForward(speed);
 		}
 		if(Event.Key.Code == 's')
 		{
-			view->GetCamera ()->Move (CS_VEC_BACKWARD * 2.0f * moveSpeed);
-			UserMoved();
-			return true;
+			return MoveBackward(speed);
 		}
 
 		if(Event.Key.Code == 'r')
@@ -2405,8 +2353,6 @@ iMeshWrapper* ChimeSystemDriver::AddMeshObj (char* tname, char* sname, iSector* 
   spr->DeferUpdateLighting (CS_NLIGHT_STATIC|CS_NLIGHT_DYNAMIC, 10);
   csMatrix3 m; 
   m.Identity (); 
-  if (!openGLMode)
-      size = size/2.0;
   spr->GetMovable ()->SetTransform (m);
   csYScaleMatrix3 scaley_m(size);
   spr->GetMovable ()->Transform (scaley_m);
@@ -3514,4 +3460,109 @@ iCollider* ChimeSystemDriver::InitCollider (iMeshWrapper* mesh)
 	"Object doesn't support collision detection!");
     return NULL;
   }
+}
+
+// Move to the left
+bool ChimeSystemDriver::MoveLeft(float speed)
+{
+	view->GetCamera ()->Move (CS_VEC_LEFT, 2.0f*speed);
+	if ((locked || !moveMain) && overviewWindow)
+		overviewWindow->GetCamera ()->Move (CS_VEC_LEFT, 2.0f*speed);
+
+	return true;
+}
+
+// Move to the right
+bool ChimeSystemDriver::MoveRight(float speed)
+{
+	view->GetCamera ()->Move (CS_VEC_RIGHT, 2.0f*speed);
+	if ((locked || !moveMain) && overviewWindow)
+		overviewWindow->GetCamera ()->Move (CS_VEC_RIGHT, 2.0f*speed);
+
+	return true;
+}
+
+// Move forward
+bool ChimeSystemDriver::MoveForward(float speed)
+{
+	//move main camera
+	if (moveMain || locked) {
+		if (lookUp != 0) {
+			view->GetCamera ()->GetTransform().RotateThis (CS_VEC_TILT_DOWN, lookUp);
+			lookUp = 0;
+			if (overviewWindow)
+			{
+				overviewWindow->SnapThisCamera();
+				locked = true;
+			}
+		}
+		view->GetCamera ()->Move (CS_VEC_FORWARD * 4.0f * speed * SPEED);
+		UserMoved();
+	}
+
+	//move overview camera
+	if (locked || !moveMain)
+		if (overviewWindow) overviewWindow->GetCamera ()->Move (CS_VEC_UP * 4.0f * speed * SPEED);
+
+	return true;
+
+}
+
+// Move backward
+bool ChimeSystemDriver::MoveBackward(float speed)
+{
+	//move main camera
+	if (moveMain || locked) {
+		if (lookUp != 0) {
+			view->GetCamera ()->GetTransform().RotateThis (CS_VEC_TILT_DOWN, lookUp);
+			lookUp = 0;
+			if (overviewWindow)
+			{
+				overviewWindow->SnapThisCamera();
+				locked = true;
+			}
+		}
+		view->GetCamera ()->Move (CS_VEC_BACKWARD * 4.0f * speed * SPEED);
+		UserMoved();
+	}
+
+	//move overview camera
+	if (locked || !moveMain)
+		if (overviewWindow) overviewWindow->GetCamera ()->Move (CS_VEC_DOWN * 4.0f * speed * SPEED);
+
+	return true;
+
+}
+
+// Rotate to the left
+bool ChimeSystemDriver::RotateLeft(float speed)
+{
+	//rotate main camera  
+	if (moveMain || locked) {
+		view->GetCamera ()->GetTransform().RotateThis (CS_VEC_ROT_LEFT, 2.0f*speed);
+		sprite->GetMovable()->GetTransform().RotateOther (CS_VEC_ROT_LEFT, 2.0f*speed);
+	}
+
+	//rotate overview window
+	if (locked || !moveMain)
+		if (overviewWindow) overviewWindow->GetCamera ()->GetTransform().RotateOther (CS_VEC_ROT_LEFT, 2.0f*speed);
+
+	return true;
+
+}
+
+// Rotate to the right
+bool ChimeSystemDriver::RotateRight(float speed)
+{
+	//rotate main camera
+	if (moveMain || locked) {
+		view->GetCamera ()->GetTransform().RotateThis (CS_VEC_ROT_RIGHT, 2.0f*speed);
+		sprite->GetMovable()->GetTransform().RotateOther (CS_VEC_ROT_RIGHT, 2.0f*speed);
+	}
+	
+	//rotate overview camera
+	if (locked || !moveMain)
+		if (overviewWindow) overviewWindow->GetCamera ()->GetTransform().RotateOther (CS_VEC_ROT_RIGHT, 2.0f*speed);
+
+	return true;
 }

@@ -444,8 +444,8 @@ int AIVideoPlayer::DisplayFrame(iMaterialWrapper *frame_material){
 
 	// hardcoded scaling and tiling matrices for throwing the frame/texture
 	// onto the wall
-	csVector3 frameSize(0.01, 2.25, 2.9);
-	csVector3 frameTxtSize(2.9, 2.25, 0);
+	csVector3 frameSize(0.01, 2.1, 2.9);
+	csVector3 frameTxtSize(2.9, 2.1, 0);
 	
 	// ChimeSector is the actual room we are in. We use this object's methods
 	// to actually map the texture to the screen/wall, etc.

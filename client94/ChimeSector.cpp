@@ -2075,10 +2075,11 @@ iMeshWrapper* ChimeSector::PutImageOnScreen(iSector *room, csVector3 const &objP
 
 	csVector3 pos = mainRoomOrigin;
 	pos.z += (objPos.z - size.z - (roomSize.z/2));
-	pos.y = 0;
+	pos.z -= 0.3;
+	pos.y = 1.66;
 
 	if(objPos.x > 0){
-		pos.x = rightWallX;
+		pos.x = rightWallX-0.05;
 
 		iPolygon3D* sideDoorTemp;
 
@@ -2088,7 +2089,7 @@ iMeshWrapper* ChimeSector::PutImageOnScreen(iSector *room, csVector3 const &objP
 		SetSideDoorDirection(nextSideDoorNum, RIGHT);
 		SetSideDoorLocation(nextSideDoorNum, pos);
 	}else{
-		pos.x = leftWallX;
+		pos.x = leftWallX+0.05;
 
 		iPolygon3D* sideDoorTemp;
 

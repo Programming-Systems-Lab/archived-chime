@@ -222,6 +222,19 @@ private:
 	bool HandleNetworkEvent(int method, char *params);
 	// Move a specified object
 	bool MoveObject(char *roomUrl, char *objectUrl, float x, float y, float z);
+	// Move to the left
+	bool MoveLeft(float speed);
+	// Move to the right
+	bool MoveRight(float speed);
+	// Move forward
+	bool MoveForward(float speed);
+	// Move backward
+	bool MoveBackward(float speed);
+	// Rotate to the left
+	bool RotateLeft(float speed);
+	// Rotate to the right
+	bool RotateRight(float speed);
+
 	// Move a specified user
 	bool ChimeSystemDriver::MoveUser(char *roomUrl, char *username, char* ip_address, float x, float y, float z);
 	// Add a specified object in a given room

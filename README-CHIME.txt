@@ -98,6 +98,18 @@ Note that CHIME is not intended for standalone operation.  However, a tester pro
 	Object to retrieve:
 		anything that the protocol understands.
 
+
+	 Controlling the Overview Window
+	 ===============================
+
+	 Zoom out  -  '<' key
+	 Zoom in   -  '>' key
+	 Unlock (main and overview cameras move independently)         -  'U' key
+	 Move main camera only (in unlock mode only)                   -  '1' key
+	 Move overview camera only (in unlock mode only)               -  '2' key
+	 Snap overview camera to main camera (returns to locked mode)  -  'L' key
+	 Snap main camera to overview camera (returns to locked mode)  -  'K' key
+
 * Documentation
 
 Published documentation is not yet available for CHIME, as the API is currently under heavy fluctuation.  However, CHIME source is well-commented, and follows Javadoc standards, so if basic
