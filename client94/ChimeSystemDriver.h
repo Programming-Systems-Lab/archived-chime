@@ -148,9 +148,6 @@ private:
 	//the camera position
 	iCameraPosition *cam_pos;
 
-	//Collision detection plugin.
-	iCollideSystem* collide_system;
-
 	//player's body represented as a 3D object
 	iMeshWrapper *plbody, *pllegs;
 
@@ -210,9 +207,15 @@ private:
 	iMeshWrapper* SelectMesh (iCamera *camera, csVector2 *screenCoord, float &dist);
 	//Check if given mesh intersects with the walls of the room or any of the other
 	//objects in the room.
-	bool CollisionDetect(iMeshWrapper *sp, csVector3 pos, iSector *room);
+	bool CollisionDetect();
 	iSector* FindSectContainingPoint(csVector3 &pos, ChimeSector *&sect);
 	void CreateColliders ();
+	//list of colliders
+	csVector *collider_list;
+	//list of transforms
+	csVector *transform_list;
+	//collider for the user mesh
+	iCollider* user_collider;
 
 
 	//			**** Recieved info handling functions ***
@@ -323,6 +326,8 @@ public:
 	//it is called from ConnectWindow
 	//upon closing
 	void FinishWindowSetup();
+	//Collision detection plugin.
+	iCollideSystem* collide_system;
 
 	
 	//communication helper class
@@ -342,6 +347,9 @@ public:
 	//get the visible and invisible numbers for different graphics modes
 	int GetVisibleAlpha();
 	int GetInvisibleAlpha();
+
+	//create a collider wrapper for a mesh
+	iCollider* InitCollider(iMeshWrapper* mesh);
 
 	//transport to some room
 	bool ChimeSystemDriver::TransportToRoom(char *name); 

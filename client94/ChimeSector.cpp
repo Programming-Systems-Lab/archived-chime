@@ -391,6 +391,9 @@ bool ChimeSector::BuildDynamicRoom2(char *roomDesc, const csVector3 &pos, iColli
 	char line[500];
 	char roomURL[MAX_URL];
 
+	collider_list = new csVector(16,16);
+	transform_list = new csVector(16,16);
+
 	iSector *room;
 	iLightList *light_list;
 
@@ -653,63 +656,37 @@ bool ChimeSector::BuildDynamicRoom2(char *roomDesc, const csVector3 &pos, iColli
 
 
 	//Prepare room for collision detection
-	iPolygonMesh* mesh;
-	//iObject *obj;
-	csColliderWrapper *collider;
-
+	iMeshWrapper* sp;
 
 	//Add collision detection to all the objects in the room
 	for ( i = 0 ; i < room->GetMeshes()->GetCount(); i++)
 	{
-		iMeshWrapper* sp = room->GetMeshes()->Get(i);
-		iMeshObject *s = sp->GetMeshObject();
-		mesh = SCF_QUERY_INTERFACE (s, iPolygonMesh);
-		if (mesh)
-		{
-			collider = new csColliderWrapper (sp->QueryObject(), collide_system, mesh);
-			mesh->DecRef ();
-		}
+		sp = room->GetMeshes()->Get(i);
+		System->InitCollider(sp);
 	}
 
 	//Add collision detection to all the objects in the hallway
 	for ( i = 0 ; i < hallway->GetMeshes()->GetCount(); i++)
 	{
-		iMeshWrapper* sp = hallway->GetMeshes()->Get(i);
-		iMeshObject *s = sp->GetMeshObject();
-		mesh = SCF_QUERY_INTERFACE (s, iPolygonMesh);
-		if (mesh)
-		{
-			collider = new csColliderWrapper (sp->QueryObject(), collide_system, mesh);
-			mesh->DecRef ();
-		}
+		sp = hallway->GetMeshes()->Get(i);
+		System->InitCollider(sp);
 	}
 
 	//Add collision detection to all the objects in the first connector
 	for ( i = 0 ; i < connector1->GetMeshes()->GetCount(); i++)
 	{
-		iMeshWrapper* sp = connector1->GetMeshes()->Get(i);
-		iMeshObject *s = sp->GetMeshObject();
-		mesh = SCF_QUERY_INTERFACE (s, iPolygonMesh);
-		if (mesh)
-		{
-			collider = new csColliderWrapper (sp->QueryObject(), collide_system, mesh);
-			mesh->DecRef ();
-		}
+		sp = connector1->GetMeshes()->Get(i);
+		System->InitCollider(sp);
 	}
 
 	//Add collision detection to all the objects in the second connector
 	for ( i = 0 ; i < connector2->GetMeshes()->GetCount(); i++)
 	{
-		iMeshWrapper* sp = connector2->GetMeshes()->Get(i);
-		iMeshObject *s = sp->GetMeshObject();
-		mesh = SCF_QUERY_INTERFACE (s, iPolygonMesh);
-		if (mesh)
-		{
-			collider = new csColliderWrapper (sp->QueryObject(), collide_system, mesh);
-			mesh->DecRef ();
-		}
+		sp = connector2->GetMeshes()->Get(i);
+		System->InitCollider(sp);
 	}
-	collider -> DecRef();
+
+	sp->DecRef();
 
 	int numActiveDoors = __min(connList.Length(), 10);
 	for ( i = 0 ; i < numActiveDoors; i++)
@@ -1094,7 +1071,6 @@ iPolygon3D * ChimeSector::BuildWall(iThingState *walls, char *wall_name, csVecto
 		p->SetTextureSpace (p->GetVertex (0), p->GetVertex (1), txtSize.x, p->GetVertex (3), txtSize.y);
 	}
 
-	//iMW->DecRef();
 	return p;
 }
 

@@ -108,6 +108,8 @@ ChimeSystemDriver::ChimeSystemDriver()
 	locked = true;
 	moveMain = true;
 	moveAWSwindow = true;
+	collider_list = new csVector(16,16);
+	transform_list = new csVector(16,16);
 	
 	//the menu wasn't drawn
 	menu_drawn = false;
@@ -712,8 +714,8 @@ bool ChimeSystemDriver::Initialize(int argc, const char *const argv[], const cha
 	aws->SetFlag(AWSF_AlwaysRedrawWindows);
 	aws->SetCanvas(awsCanvas);
 	// Setup sink.
-	iAwsSink* sink = aws->GetSinkMgr ()->CreateSink ((void*)this);
-	aws->GetSinkMgr ()->RegisterSink ("Sink", sink);
+	//iAwsSink* sink = aws->GetSinkMgr ()->CreateSink ((void*)this);
+	//aws->GetSinkMgr ()->RegisterSink ("Sink", sink);
 
 	if (!aws->GetPrefMgr()->Load("/this/data/temp/awstest.def"))
 		Report(CS_REPORTER_SEVERITY_ERROR, "couldn't load definition file!");
@@ -739,78 +741,8 @@ bool ChimeSystemDriver::Initialize(int argc, const char *const argv[], const cha
 
 	sprite = AddMeshObj("user0", name, view->GetCamera()->GetSector(), userPos, 0.028);
 	if( !sprite ) return false;
-	//sprite->GetMovable()->SetTransform(view->GetCamera()->GetTransform());
+	user_collider = InitCollider(sprite);
 
-	//Add collision detection
-	//iMeshWrapper *sp = FindObject(room, name);
-	//iPolygonMesh* mesh;
-	//iMeshObject *s = sp->GetMeshObject();
-	//mesh = SCF_QUERY_INTERFACE (s, iPolygonMesh);
-	//if (mesh)
-	//{
-		//(void)new csCollider (*sp, collide_system, mesh);
-		//mesh->DecRef ();
-	//}
-
-
-
-
-	//*******************************************************
-	//********* Create the sprite ***************************
-	//*******************************************************
-/**	
-	// Load a texture for our sprite.
-    loader = CS_QUERY_REGISTRY (object_reg, iLoader);
-	if (!loader)
-	{
-		csReport (object_reg, CS_REPORTER_SEVERITY_ERROR,
-    		"crystalspace.application.simple",
-    		"No iLoader plugin!");
-		return false;
-	}
-
-	//Create the texture
-	iTextureWrapper* spriteTxt = loader->LoadTexture ("user",
-		"/lib/stdtex/sky.jpg", CS_TEXTURE_3D, main_txtmgr, true);
-	if (spriteTxt == NULL)
-	{	
-		csReport (object_reg, CS_REPORTER_SEVERITY_ERROR,
- 				"crystalspace.application.simple",
-  				"Error loading texture!");
-		return false;
-	}
-
-	// Load a sprite template from disk.
-	iMeshFactoryWrapper* imeshfact = loader->LoadMeshObjectFactory (
-		"/lib/std/user");
-	if (imeshfact == NULL)
-	{
-		csReport (object_reg, CS_REPORTER_SEVERITY_ERROR,
-			"crystalspace.application.simple1",
-			"Error loading mesh object factory!");
-		return false;
-	}	
-	
-	// Add the sprite to the engine.
-	sprite = engine->CreateMeshWrapper (
-		imeshfact, "MySprite", view->GetCamera()->GetSector(),
-		view->GetCamera()->GetTransform().GetOrigin());
-	csMatrix3 m; m.Identity (); m *= 3.;
-	sprite->GetMovable ()->SetTransform (m);
-	sprite->GetMovable ()->UpdateMove ();
-	iSprite3DState* spstate = SCF_QUERY_INTERFACE (sprite->GetMeshObject (), iSprite3DState);
-	spstate->SetAction ("default");
-	imeshfact->DecRef ();
-	spstate->DecRef ();
-	sprite->SetZBufMode (CS_ZBUF_USE);
-	sprite->SetRenderPriority (engine->GetObjectRenderPriority ());
-	sprite->DeferUpdateLighting (CS_NLIGHT_STATIC|CS_NLIGHT_DYNAMIC, 10);
-	sprite->DecRef ();
-
-	//*************************************************************
-	//**** End of sprite creation *********************************
-	//*************************************************************
-*/
 	return true;
 }
 
@@ -1035,7 +967,7 @@ void ChimeSystemDriver::SetupFrame()
  //   myMotionMan->UpdateAll ();
 
 
-  if( active )
+  if( active && !CollisionDetect())
   {
 	  // Now rotate the camera according to keyboard state
 	  float speed = (elapsed_time / 1000.) * (0.03 * 20);
@@ -1829,17 +1761,13 @@ bool ChimeSystemDriver::MoveSelectedMesh(iEvent &Event)
 	//Check intersection of the move path with walls
 	if(!curSect->HitBeam(start, end, isect) )
 	{
-		//check collision with objects of the room.
-		if(!CollisionDetect(selectedMesh, newMeshPos, view->GetCamera()->GetSector()) )
-		{
-			//csVector3 myPos = view->GetCamera()->GetOrigin();
-			csVector3 myPos = selectedMesh->GetMovable()->GetPosition();
-			iSector *room = FindSectContainingPoint(myPos, selectedMeshNewSect);
+		//csVector3 myPos = view->GetCamera()->GetOrigin();
+		csVector3 myPos = selectedMesh->GetMovable()->GetPosition();
+		iSector *room = FindSectContainingPoint(myPos, selectedMeshNewSect);
 
-			//selectedMesh->GetMovable().MovePosition(offset);
-			selectedMesh->GetMovable()->SetPosition(room, newMeshPos);
-			selectedMesh->GetMovable()->UpdateMove();
-		}
+		//selectedMesh->GetMovable().MovePosition(offset);
+		selectedMesh->GetMovable()->SetPosition(room, newMeshPos);
+		selectedMesh->GetMovable()->UpdateMove();
 	}
 
 
@@ -2621,31 +2549,35 @@ iMeshWrapper* ChimeSystemDriver::SelectMesh (iCamera *camera, csVector2 *screenC
 //* check if there is a collision
 //*
 //*********************************************************************************
-bool ChimeSystemDriver::CollisionDetect(iMeshWrapper *sp, csVector3 pos, iSector *room)
+bool ChimeSystemDriver::CollisionDetect()
 {
-/*	bool rc;
-
-	//Check for collision
-	csMatrix3 m;
-    csOrthoTransform transf1(m, pos);
-	csCollider *curCollider = csCollider::GetCollider(*sp);
-
-	collide_system->ResetCollisionPairs();
-    collide_system->SetOneHitOnly(true);
-
-	if(curCollider->Collide (*room, &transf1))
-		return true;
-	 for (int i = 0; i < room->meshes.Length(); i++)
-	 {
-        iMeshWrapper* spr = (iMeshWrapper*)room->meshes[i];
-		csOrthoTransform transf2(m, spr->GetMovable ().GetPosition());
-
-	    if(rc = curCollider->Collide (*spr, &transf1, &transf2))
+	bool rc = false;
+	//collide_system->ResetCollisionPairs();
+	csReversibleTransform user_tr = sprite->GetMovable ()->GetFullTransform ();
+	iCollider *coll;
+	csReversibleTransform *other_tr;
+	iMeshList *m_list = engine->GetMeshes();
+	for (int i = 0; i<m_list->GetCount(); i++)
+	{
+		printf("\nObject number %i", i);
+		csColliderWrapper* coll_wrap = csColliderWrapper::GetColliderWrapper(m_list->Get(i)->QueryObject());
+		if (coll_wrap && coll_wrap->GetCollider() != user_collider)
 		{
-			return true;
+			printf("\nColliding object number %i", i);
+			coll = coll_wrap->GetCollider();
+			other_tr = &(m_list->Get(i)->GetMovable()->GetFullTransform());
+			try
+			{
+				if(collide_system->Collide(user_collider, &user_tr, coll, other_tr))
+					rc = true;
+			}
+			catch (...) {printf("\nError upon collision. Number %i", i);}
 		}
-	 }
-*/	 return false;
+	}
+
+	if (rc)
+		printf("Collision is true.");
+	return rc;
 }
 
 //*********************************************************************************
@@ -2916,17 +2848,12 @@ bool ChimeSystemDriver::AddObject(char *roomUrl, char *objectUrl, char *shape, c
 
 	iMeshWrapper *m = AddMeshObj(shape, objectUrl, room, objPos, 1);
 	if( !m ) return false;
-
-	//Add collision detection
-	iMeshWrapper *sp = FindObject(room, objectUrl);
-	iPolygonMesh* mesh;
-	iMeshObject *s = sp->GetMeshObject();
-	mesh = SCF_QUERY_INTERFACE (s, iPolygonMesh);
-	if (mesh)
-	{
-		//(void)new csCollider (*sp, collide_system, mesh);
-		//mesh->DecRef ();
+	iCollider* coll = InitCollider(m);
+	if (coll) {
+		collider_list->Push(coll);
+		transform_list->Push(&(m->GetMovable()->GetFullTransform()));
 	}
+	coll->DecRef();
 
 
 	return true;
@@ -3011,15 +2938,12 @@ bool ChimeSystemDriver::AddUser(char *roomUrl, char *username, char *ip_address,
 
 	//Add collision detection
 	iMeshWrapper *sp = FindObject(room, name);
-	iPolygonMesh* mesh;
-	iMeshObject *s = sp->GetMeshObject();
-	mesh = SCF_QUERY_INTERFACE (s, iPolygonMesh);
-	if (mesh)
-	{
-		//csColliderWrapper* wrap = new csColliderWrapper (mesh->QueryObject (), cdsys, polmesh);
-		//polmesh->DecRef ();
-		//wrap->DecRef ();
+	iCollider* coll = InitCollider(sp);
+	if (coll) {
+		collider_list->Push(coll);
+		transform_list->Push(&(m->GetMovable()->GetFullTransform()));
 	}
+	coll->DecRef();
 
 
 	return true;
@@ -3547,4 +3471,25 @@ void ChimeSystemDriver::GetShape (char *name, char *ip, char *txtName)
 	//strcat(txtName, txtNumber);
 	sprintf(txtName, "user%i", txtNumber);
 	printf("\n\nShape: %s", txtName);
+}
+
+//Setup a collider wrapper for a mesh
+iCollider* ChimeSystemDriver::InitCollider (iMeshWrapper* mesh)
+{
+  iPolygonMesh* polmesh = SCF_QUERY_INTERFACE (mesh->GetMeshObject (), iPolygonMesh);
+  if (polmesh)
+  {
+    csColliderWrapper* wrap = new csColliderWrapper
+    	(mesh->QueryObject (), collide_system, polmesh);
+    polmesh->DecRef ();
+    wrap->DecRef ();
+    return wrap->GetCollider ();
+  }
+  else
+  {
+    csReport (object_reg, CS_REPORTER_SEVERITY_ERROR,
+    	"crystalspace.application.simpcd",
+	"Object doesn't support collision detection!");
+    return NULL;
+  }
 }

@@ -169,6 +169,11 @@ public:
 	iSector* GetConn1() { return connector1; };
 	iSector* GetConn2() { return connector2; };
 
+	//list of colliders for all objects in the sector
+	csVector* collider_list;
+	//list of transforms for all objects
+	csVector* transform_list;
+
 	//make a UserID
 	UserIDType MakeUserID(const char *username, const char* ip_address);
 
