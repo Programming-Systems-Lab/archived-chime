@@ -92,7 +92,7 @@
 				Name="VCLinkerTool"
 				AdditionalOptions="/MACHINE:I386"
 				AdditionalDependencies="Cache.lib urlmon.lib zlib.lib png.lib libjpeg.lib dinput.lib dxguid.lib winmm.lib libcsengine_d.lib libcsgeom_d.lib libcsgfx_d.lib csparser.lib libcssys_d.lib libcsutil_d.lib libcstool_d.lib libcsws_d.lib odbc32.lib odbccp32.lib wsock32.lib"
-				ShowProgress="1"
+				ShowProgress="0"
 				OutputFile=".\Debug/chimeClient.exe"
 				LinkIncremental="2"
 				SuppressStartupBanner="TRUE"
