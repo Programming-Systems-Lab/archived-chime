@@ -35,6 +35,7 @@ public:
 	int setupProject(int videoID, char* videoTitle, int compressionLevels[], int compLevelLength, int totalNumVideoFrames, int framesPerSecond);
 	virtual ~AICacheController();
 	int testDownload(char* url);
+	double getAvgBandwidth();
 	int getAvgNetSpeed();
 	int getAvgFileSize();
 

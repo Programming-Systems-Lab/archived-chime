@@ -306,7 +306,7 @@ int AICacheController::setupFrameList(char* filename){
 // kbps.  return value is level in range (0-clevel_count) (high-low) 
 int AICacheController::getSampleBandwidth() {
   int bw_level = 0;
-  int bandwidth = (int)getAvgBandwidth; //kbps
+  int bandwidth = (int)getAvgBandwidth(); //kbps
   
   if (clevel_count > 0) {
     int div = high_bandwidth;
