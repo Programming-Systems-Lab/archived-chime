@@ -9,6 +9,7 @@
 #define CHIMEWINDOW_H
 
 #include <stdarg.h>
+#include <fstream.h>
 #include "cssys/sysdriv.h"
 #include "csgeom/math2d.h"
 #include "csgeom/math3d.h"
@@ -139,6 +140,27 @@ public:
   virtual ~SienaWindow ();
   virtual bool HandleEvent (iEvent &Event);
   //virtual bool Initialize (const char *iConfigName);
+};
+
+//AI2TV setting dialog
+class Ai2tvWindow : public ChimeWindow
+{
+	//graphics components to hold data
+	csInputLine *host_number, *host_ip;
+	csButton *host_ip_btn;
+	//temporary variables
+	int numberOfHosts, currentBuffer;
+	char buffer[20][50], hostNumBuf[5];
+	//input file
+	ifstream *File;
+	//read next line from file
+	void ReadNext();
+	//write all contents to file
+	void Write();
+public:
+	Ai2tvWindow(csComponent *iParent);
+	virtual ~Ai2tvWindow();
+	virtual bool HandleEvent (iEvent &Event);
 };
 
 

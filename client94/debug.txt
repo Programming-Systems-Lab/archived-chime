@@ -43964,3 +43964,881 @@ crystalspace.awsprefs: Could not open image file '/aws/sbdn.png' on VFS!
 crystalspace.awsprefs: Could not open image file '/aws/sbrt.png' on VFS!
 crystalspace.awsprefs: Could not open image file '/aws/sblt.png' on VFS!
 crystalspace.engine.notify: Engine is using back2front mode.
+crystalspace.system: No iGraphics3D Plugin!
+crystalspace.system: Error initializing system!
+crystalspace.system: No iGraphics3D Plugin!
+crystalspace.system: Error initializing system!
+crystalspace.system: No iGraphics3D Plugin!
+crystalspace.system: Error initializing system!
+crystalspace.system: No iGraphics3D Plugin!
+crystalspace.system: Error initializing system!
+crystalspace.system: No iGraphics3D Plugin!
+crystalspace.system: Error initializing system!
+crystalspace.system: No iGraphics3D Plugin!
+crystalspace.system: Error initializing system!
+crystalspace.system: No iGraphics3D Plugin!
+crystalspace.system: Error initializing system!
+crystalspace.canvas.ddraw: Using DirectDraw Primary Display Driver (display)
+crystalspace.video.software: Using windowed mode 1024x768 (internal rendering at 1024x768).
+crystalspace.video.software: Using truecolor mode with 4 bytes per pixel and 8:8:8 RGB mode.
+crystalspace.video.software: Preparing textures (no dithering)...
+crystalspace.video.software:   Creating texture mipmaps...
+crystalspace.system: Siena Publisher
+Unable to Connect Socket to Server
+
+crystalspace.system: Siena Publisher
+Can't Setup Socket
+
+crystalspace.system: Siena Publisher
+Unable to Connect Socket to Server
+
+crystalspace.system: Siena Publisher
+Can't Setup Socket
+
+crystalspace.system: Loading AWS...
+crystalspace.awsprefs: Could not open image file '/aws/chkup.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/chkdn.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/chkon.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/chkoff.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/radup.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/raddn.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/radon.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/radoff.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treecol.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treeexp.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treecol.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treevl.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treehl.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treechke.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treechkf.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treegrpe.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treegrpf.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sbup.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sbdn.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sbrt.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sblt.png' on VFS!
+crystalspace.video.software: Preparing textures (no dithering)...
+crystalspace.video.software:   Creating texture mipmaps...
+crystalspace.engine.notify: Engine is using back2front mode.
+crystalspace.system: Siena Publisher
+Unable to Connect Socket to Server
+
+crystalspace.system: Siena Publisher
+Can't Setup Socket
+
+crystalspace.system: Siena Publisher
+Unable to Connect Socket to Server
+
+crystalspace.system: Siena Publisher
+Can't Setup Socket
+
+crystalspace.system: Siena Publisher
+Unable to Connect Socket to Server
+
+crystalspace.system: Siena Publisher
+Can't Setup Socket
+
+crystalspace.canvas.ddraw: Using DirectDraw Primary Display Driver (display)
+crystalspace.video.software: Using windowed mode 1024x768 (internal rendering at 1024x768).
+crystalspace.video.software: Using truecolor mode with 4 bytes per pixel and 8:8:8 RGB mode.
+crystalspace.video.software: Preparing textures (no dithering)...
+crystalspace.video.software:   Creating texture mipmaps...
+crystalspace.system: Siena Publisher
+Unable to Connect Socket to Server
+
+crystalspace.system: Siena Publisher
+Can't Setup Socket
+
+crystalspace.system: Siena Publisher
+Unable to Connect Socket to Server
+
+crystalspace.system: Siena Publisher
+Can't Setup Socket
+
+crystalspace.system: Loading AWS...
+crystalspace.awsprefs: Could not open image file '/aws/chkup.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/chkdn.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/chkon.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/chkoff.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/radup.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/raddn.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/radon.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/radoff.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treecol.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treeexp.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treecol.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treevl.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treehl.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treechke.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treechkf.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treegrpe.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treegrpf.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sbup.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sbdn.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sbrt.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sblt.png' on VFS!
+crystalspace.video.software: Preparing textures (no dithering)...
+crystalspace.video.software:   Creating texture mipmaps...
+crystalspace.engine.notify: Engine is using back2front mode.
+crystalspace.system: Siena Publisher
+Unable to Connect Socket to Server
+
+crystalspace.system: Siena Publisher
+Can't Setup Socket
+
+crystalspace.system: Siena Publisher
+Unable to Connect Socket to Server
+
+crystalspace.system: Siena Publisher
+Can't Setup Socket
+
+crystalspace.system: Siena Publisher
+Unable to Connect Socket to Server
+
+crystalspace.system: Siena Publisher
+Can't Setup Socket
+
+crystalspace.system: Siena Publisher
+Unable to Connect Socket to Server
+
+crystalspace.system: Siena Publisher
+Can't Setup Socket
+
+crystalspace.canvas.ddraw: Using DirectDraw Primary Display Driver (display)
+crystalspace.video.software: Using windowed mode 1024x768 (internal rendering at 1024x768).
+crystalspace.video.software: Using truecolor mode with 4 bytes per pixel and 8:8:8 RGB mode.
+crystalspace.video.software: Preparing textures (no dithering)...
+crystalspace.video.software:   Creating texture mipmaps...
+crystalspace.system: Siena Publisher
+Unable to Connect Socket to Server
+
+crystalspace.system: Siena Publisher
+Can't Setup Socket
+
+crystalspace.system: Siena Publisher
+Unable to Connect Socket to Server
+
+crystalspace.system: Siena Publisher
+Can't Setup Socket
+
+crystalspace.system: Loading AWS...
+crystalspace.awsprefs: Could not open image file '/aws/chkup.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/chkdn.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/chkon.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/chkoff.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/radup.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/raddn.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/radon.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/radoff.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treecol.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treeexp.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treecol.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treevl.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treehl.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treechke.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treechkf.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treegrpe.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treegrpf.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sbup.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sbdn.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sbrt.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sblt.png' on VFS!
+crystalspace.video.software: Preparing textures (no dithering)...
+crystalspace.video.software:   Creating texture mipmaps...
+crystalspace.engine.notify: Engine is using back2front mode.
+crystalspace.system: Siena Publisher
+Unable to Connect Socket to Server
+
+crystalspace.system: Siena Publisher
+Can't Setup Socket
+
+crystalspace.system: Siena Publisher
+Unable to Connect Socket to Server
+
+crystalspace.system: Siena Publisher
+Can't Setup Socket
+
+crystalspace.system: Siena Publisher
+Unable to Connect Socket to Server
+
+crystalspace.system: Siena Publisher
+Can't Setup Socket
+
+crystalspace.canvas.ddraw: Using DirectDraw Primary Display Driver (display)
+crystalspace.video.software: Using windowed mode 1024x768 (internal rendering at 1024x768).
+crystalspace.video.software: Using truecolor mode with 4 bytes per pixel and 8:8:8 RGB mode.
+crystalspace.video.software: Preparing textures (no dithering)...
+crystalspace.video.software:   Creating texture mipmaps...
+crystalspace.system: Loading AWS...
+crystalspace.awsprefs: Could not open image file '/aws/chkup.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/chkdn.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/chkon.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/chkoff.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/radup.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/raddn.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/radon.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/radoff.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treecol.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treeexp.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treecol.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treevl.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treehl.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treechke.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treechkf.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treegrpe.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treegrpf.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sbup.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sbdn.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sbrt.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sblt.png' on VFS!
+crystalspace.video.software: Preparing textures (no dithering)...
+crystalspace.video.software:   Creating texture mipmaps...
+crystalspace.engine.notify: Engine is using back2front mode.
+crystalspace.canvas.ddraw: Using DirectDraw Primary Display Driver (display)
+crystalspace.video.software: Using windowed mode 1024x768 (internal rendering at 1024x768).
+crystalspace.video.software: Using truecolor mode with 4 bytes per pixel and 8:8:8 RGB mode.
+crystalspace.video.software: Preparing textures (no dithering)...
+crystalspace.video.software:   Creating texture mipmaps...
+crystalspace.system: Loading AWS...
+crystalspace.awsprefs: Could not open image file '/aws/chkup.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/chkdn.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/chkon.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/chkoff.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/radup.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/raddn.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/radon.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/radoff.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treecol.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treeexp.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treecol.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treevl.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treehl.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treechke.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treechkf.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treegrpe.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treegrpf.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sbup.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sbdn.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sbrt.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sblt.png' on VFS!
+crystalspace.video.software: Preparing textures (no dithering)...
+crystalspace.video.software:   Creating texture mipmaps...
+crystalspace.engine.notify: Engine is using back2front mode.
+crystalspace.canvas.ddraw: Using DirectDraw Primary Display Driver (display)
+crystalspace.video.software: Using windowed mode 1024x768 (internal rendering at 1024x768).
+crystalspace.video.software: Using truecolor mode with 4 bytes per pixel and 8:8:8 RGB mode.
+crystalspace.video.software: Preparing textures (no dithering)...
+crystalspace.video.software:   Creating texture mipmaps...
+crystalspace.system: Loading AWS...
+crystalspace.awsprefs: Could not open image file '/aws/chkup.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/chkdn.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/chkon.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/chkoff.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/radup.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/raddn.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/radon.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/radoff.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treecol.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treeexp.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treecol.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treevl.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treehl.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treechke.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treechkf.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treegrpe.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treegrpf.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sbup.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sbdn.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sbrt.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sblt.png' on VFS!
+crystalspace.video.software: Preparing textures (no dithering)...
+crystalspace.video.software:   Creating texture mipmaps...
+crystalspace.engine.notify: Engine is using back2front mode.
+crystalspace.canvas.ddraw: Using DirectDraw Primary Display Driver (display)
+crystalspace.video.software: Using windowed mode 1024x768 (internal rendering at 1024x768).
+crystalspace.video.software: Using truecolor mode with 4 bytes per pixel and 8:8:8 RGB mode.
+crystalspace.video.software: Preparing textures (no dithering)...
+crystalspace.video.software:   Creating texture mipmaps...
+crystalspace.system: Loading AWS...
+crystalspace.awsprefs: Could not open image file '/aws/chkup.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/chkdn.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/chkon.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/chkoff.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/radup.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/raddn.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/radon.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/radoff.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treecol.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treeexp.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treecol.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treevl.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treehl.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treechke.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treechkf.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treegrpe.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treegrpf.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sbup.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sbdn.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sbrt.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sblt.png' on VFS!
+crystalspace.video.software: Preparing textures (no dithering)...
+crystalspace.video.software:   Creating texture mipmaps...
+crystalspace.engine.notify: Engine is using back2front mode.
+crystalspace.system: Siena Publisher
+Unable to Connect Socket to Server
+
+crystalspace.system: Siena Publisher
+Can't Setup Socket
+
+crystalspace.canvas.ddraw: Using DirectDraw Primary Display Driver (display)
+crystalspace.video.software: Using windowed mode 1024x768 (internal rendering at 1024x768).
+crystalspace.video.software: Using truecolor mode with 4 bytes per pixel and 8:8:8 RGB mode.
+crystalspace.video.software: Preparing textures (no dithering)...
+crystalspace.video.software:   Creating texture mipmaps...
+crystalspace.system: Siena Publisher
+Unable to Connect Socket to Server
+
+crystalspace.system: Siena Publisher
+Can't Setup Socket
+
+crystalspace.system: Siena Publisher
+Unable to Connect Socket to Server
+
+crystalspace.system: Siena Publisher
+Can't Setup Socket
+
+crystalspace.system: Loading AWS...
+crystalspace.awsprefs: Could not open image file '/aws/chkup.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/chkdn.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/chkon.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/chkoff.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/radup.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/raddn.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/radon.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/radoff.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treecol.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treeexp.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treecol.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treevl.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treehl.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treechke.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treechkf.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treegrpe.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treegrpf.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sbup.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sbdn.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sbrt.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sblt.png' on VFS!
+crystalspace.video.software: Preparing textures (no dithering)...
+crystalspace.video.software:   Creating texture mipmaps...
+crystalspace.engine.notify: Engine is using back2front mode.
+crystalspace.system: Siena Publisher
+Unable to Connect Socket to Server
+
+crystalspace.system: Siena Publisher
+Can't Setup Socket
+
+crystalspace.canvas.ddraw: Using DirectDraw Primary Display Driver (display)
+crystalspace.video.software: Using windowed mode 1024x768 (internal rendering at 1024x768).
+crystalspace.video.software: Using truecolor mode with 4 bytes per pixel and 8:8:8 RGB mode.
+crystalspace.video.software: Preparing textures (no dithering)...
+crystalspace.video.software:   Creating texture mipmaps...
+crystalspace.system: Siena Publisher
+Unable to Connect Socket to Server
+
+crystalspace.system: Siena Publisher
+Can't Setup Socket
+
+crystalspace.system: Siena Publisher
+Unable to Connect Socket to Server
+
+crystalspace.system: Siena Publisher
+Can't Setup Socket
+
+crystalspace.system: Loading AWS...
+crystalspace.awsprefs: Could not open image file '/aws/chkup.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/chkdn.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/chkon.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/chkoff.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/radup.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/raddn.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/radon.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/radoff.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treecol.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treeexp.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treecol.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treevl.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treehl.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treechke.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treechkf.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treegrpe.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treegrpf.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sbup.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sbdn.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sbrt.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sblt.png' on VFS!
+crystalspace.video.software: Preparing textures (no dithering)...
+crystalspace.video.software:   Creating texture mipmaps...
+crystalspace.engine.notify: Engine is using back2front mode.
+crystalspace.system: Siena Publisher
+Unable to Connect Socket to Server
+
+crystalspace.system: Siena Publisher
+Can't Setup Socket
+
+crystalspace.canvas.ddraw: Using DirectDraw Primary Display Driver (display)
+crystalspace.video.software: Using windowed mode 1024x768 (internal rendering at 1024x768).
+crystalspace.video.software: Using truecolor mode with 4 bytes per pixel and 8:8:8 RGB mode.
+crystalspace.video.software: Preparing textures (no dithering)...
+crystalspace.video.software:   Creating texture mipmaps...
+crystalspace.system: Siena Publisher
+Unable to Connect Socket to Server
+
+crystalspace.system: Siena Publisher
+Can't Setup Socket
+
+crystalspace.system: Siena Publisher
+Unable to Connect Socket to Server
+
+crystalspace.system: Siena Publisher
+Can't Setup Socket
+
+crystalspace.system: Loading AWS...
+crystalspace.awsprefs: Could not open image file '/aws/chkup.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/chkdn.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/chkon.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/chkoff.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/radup.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/raddn.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/radon.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/radoff.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treecol.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treeexp.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treecol.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treevl.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treehl.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treechke.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treechkf.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treegrpe.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treegrpf.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sbup.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sbdn.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sbrt.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sblt.png' on VFS!
+crystalspace.video.software: Preparing textures (no dithering)...
+crystalspace.video.software:   Creating texture mipmaps...
+crystalspace.engine.notify: Engine is using back2front mode.
+crystalspace.system: Siena Publisher
+Unable to Connect Socket to Server
+
+crystalspace.system: Siena Publisher
+Can't Setup Socket
+
+crystalspace.system: Siena Publisher
+Unable to Connect Socket to Server
+
+crystalspace.system: Siena Publisher
+Can't Setup Socket
+
+crystalspace.canvas.ddraw: Using DirectDraw Primary Display Driver (display)
+crystalspace.video.software: Using windowed mode 1024x768 (internal rendering at 1024x768).
+crystalspace.video.software: Using truecolor mode with 4 bytes per pixel and 8:8:8 RGB mode.
+crystalspace.video.software: Preparing textures (no dithering)...
+crystalspace.video.software:   Creating texture mipmaps...
+crystalspace.system: Siena Publisher
+Unable to Connect Socket to Server
+
+crystalspace.system: Siena Publisher
+Can't Setup Socket
+
+crystalspace.system: Siena Publisher
+Unable to Connect Socket to Server
+
+crystalspace.system: Siena Publisher
+Can't Setup Socket
+
+crystalspace.system: Loading AWS...
+crystalspace.awsprefs: Could not open image file '/aws/chkup.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/chkdn.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/chkon.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/chkoff.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/radup.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/raddn.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/radon.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/radoff.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treecol.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treeexp.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treecol.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treevl.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treehl.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treechke.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treechkf.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treegrpe.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treegrpf.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sbup.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sbdn.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sbrt.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sblt.png' on VFS!
+crystalspace.video.software: Preparing textures (no dithering)...
+crystalspace.video.software:   Creating texture mipmaps...
+crystalspace.engine.notify: Engine is using back2front mode.
+crystalspace.system: Siena Publisher
+Unable to Connect Socket to Server
+
+crystalspace.system: Siena Publisher
+Can't Setup Socket
+
+crystalspace.system: Siena Publisher
+Unable to Connect Socket to Server
+
+crystalspace.system: Siena Publisher
+Can't Setup Socket
+
+crystalspace.system: Siena Publisher
+Unable to Connect Socket to Server
+
+crystalspace.system: Siena Publisher
+Can't Setup Socket
+
+crystalspace.system: Siena Publisher
+Unable to Connect Socket to Server
+
+crystalspace.system: Siena Publisher
+Can't Setup Socket
+
+crystalspace.canvas.ddraw: Using DirectDraw Primary Display Driver (display)
+crystalspace.video.software: Using windowed mode 1024x768 (internal rendering at 1024x768).
+crystalspace.video.software: Using truecolor mode with 4 bytes per pixel and 8:8:8 RGB mode.
+crystalspace.video.software: Preparing textures (no dithering)...
+crystalspace.video.software:   Creating texture mipmaps...
+crystalspace.system: Siena Publisher
+Unable to Connect Socket to Server
+
+crystalspace.system: Siena Publisher
+Can't Setup Socket
+
+crystalspace.system: Siena Publisher
+Unable to Connect Socket to Server
+
+crystalspace.system: Siena Publisher
+Can't Setup Socket
+
+crystalspace.system: Loading AWS...
+crystalspace.awsprefs: Could not open image file '/aws/chkup.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/chkdn.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/chkon.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/chkoff.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/radup.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/raddn.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/radon.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/radoff.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treecol.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treeexp.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treecol.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treevl.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treehl.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treechke.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treechkf.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treegrpe.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treegrpf.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sbup.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sbdn.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sbrt.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sblt.png' on VFS!
+crystalspace.video.software: Preparing textures (no dithering)...
+crystalspace.video.software:   Creating texture mipmaps...
+crystalspace.engine.notify: Engine is using back2front mode.
+crystalspace.system: Siena Publisher
+Unable to Connect Socket to Server
+
+crystalspace.system: Siena Publisher
+Can't Setup Socket
+
+crystalspace.system: Siena Publisher
+Unable to Connect Socket to Server
+
+crystalspace.system: Siena Publisher
+Can't Setup Socket
+
+crystalspace.system: Siena Publisher
+Unable to Connect Socket to Server
+
+crystalspace.system: Siena Publisher
+Can't Setup Socket
+
+crystalspace.system: Siena Publisher
+Unable to Connect Socket to Server
+
+crystalspace.system: Siena Publisher
+Can't Setup Socket
+
+crystalspace.system: Siena Publisher
+Unable to Connect Socket to Server
+
+crystalspace.system: Siena Publisher
+Can't Setup Socket
+
+crystalspace.system: Siena Publisher
+Unable to Connect Socket to Server
+
+crystalspace.system: Siena Publisher
+Can't Setup Socket
+
+crystalspace.system: Siena Publisher
+Unable to Connect Socket to Server
+
+crystalspace.system: Siena Publisher
+Can't Setup Socket
+
+crystalspace.system: Siena Publisher
+Unable to Connect Socket to Server
+
+crystalspace.system: Siena Publisher
+Can't Setup Socket
+
+crystalspace.system: Siena Publisher
+Unable to Connect Socket to Server
+
+crystalspace.system: Siena Publisher
+Can't Setup Socket
+
+crystalspace.system: Siena Publisher
+Unable to Connect Socket to Server
+
+crystalspace.system: Siena Publisher
+Can't Setup Socket
+
+crystalspace.system: Siena Publisher
+Unable to Connect Socket to Server
+
+crystalspace.system: Siena Publisher
+Can't Setup Socket
+
+crystalspace.canvas.ddraw: Using DirectDraw Primary Display Driver (display)
+crystalspace.video.software: Using windowed mode 1024x768 (internal rendering at 1024x768).
+crystalspace.video.software: Using truecolor mode with 4 bytes per pixel and 8:8:8 RGB mode.
+crystalspace.video.software: Preparing textures (no dithering)...
+crystalspace.video.software:   Creating texture mipmaps...
+crystalspace.system: Siena Publisher
+Unable to Connect Socket to Server
+
+crystalspace.system: Siena Publisher
+Can't Setup Socket
+
+crystalspace.system: Siena Publisher
+Unable to Connect Socket to Server
+
+crystalspace.system: Siena Publisher
+Can't Setup Socket
+
+crystalspace.system: Loading AWS...
+crystalspace.awsprefs: Could not open image file '/aws/chkup.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/chkdn.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/chkon.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/chkoff.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/radup.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/raddn.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/radon.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/radoff.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treecol.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treeexp.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treecol.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treevl.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treehl.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treechke.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treechkf.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treegrpe.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treegrpf.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sbup.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sbdn.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sbrt.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sblt.png' on VFS!
+crystalspace.video.software: Preparing textures (no dithering)...
+crystalspace.video.software:   Creating texture mipmaps...
+crystalspace.engine.notify: Engine is using back2front mode.
+crystalspace.system: Siena Publisher
+Unable to Connect Socket to Server
+
+crystalspace.system: Siena Publisher
+Can't Setup Socket
+
+crystalspace.system: Siena Publisher
+Unable to Connect Socket to Server
+
+crystalspace.system: Siena Publisher
+Can't Setup Socket
+
+crystalspace.system: Siena Publisher
+Unable to Connect Socket to Server
+
+crystalspace.system: Siena Publisher
+Can't Setup Socket
+
+crystalspace.system: Siena Publisher
+Unable to Connect Socket to Server
+
+crystalspace.system: Siena Publisher
+Can't Setup Socket
+
+crystalspace.system: Siena Publisher
+Unable to Connect Socket to Server
+
+crystalspace.system: Siena Publisher
+Can't Setup Socket
+
+crystalspace.system: Siena Publisher
+Unable to Connect Socket to Server
+
+crystalspace.system: Siena Publisher
+Can't Setup Socket
+
+crystalspace.system: Siena Publisher
+Unable to Connect Socket to Server
+
+crystalspace.system: Siena Publisher
+Can't Setup Socket
+
+crystalspace.system: Siena Publisher
+Unable to Connect Socket to Server
+
+crystalspace.system: Siena Publisher
+Can't Setup Socket
+
+crystalspace.system: Siena Publisher
+Unable to Connect Socket to Server
+
+crystalspace.system: Siena Publisher
+Can't Setup Socket
+
+crystalspace.system: Siena Publisher
+Unable to Connect Socket to Server
+
+crystalspace.system: Siena Publisher
+Can't Setup Socket
+
+crystalspace.system: Siena Publisher
+Unable to Connect Socket to Server
+
+crystalspace.system: Siena Publisher
+Can't Setup Socket
+
+crystalspace.canvas.ddraw: Using DirectDraw Primary Display Driver (display)
+crystalspace.video.software: Using windowed mode 1024x768 (internal rendering at 1024x768).
+crystalspace.video.software: Using truecolor mode with 4 bytes per pixel and 8:8:8 RGB mode.
+crystalspace.video.software: Preparing textures (no dithering)...
+crystalspace.video.software:   Creating texture mipmaps...
+crystalspace.system: Siena Publisher
+Unable to Connect Socket to Server
+
+crystalspace.system: Siena Publisher
+Can't Setup Socket
+
+crystalspace.system: Siena Publisher
+Unable to Connect Socket to Server
+
+crystalspace.system: Siena Publisher
+Can't Setup Socket
+
+crystalspace.system: Loading AWS...
+crystalspace.awsprefs: Could not open image file '/aws/chkup.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/chkdn.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/chkon.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/chkoff.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/radup.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/raddn.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/radon.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/radoff.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treecol.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treeexp.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treecol.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treevl.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treehl.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treechke.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treechkf.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treegrpe.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treegrpf.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sbup.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sbdn.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sbrt.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sblt.png' on VFS!
+crystalspace.video.software: Preparing textures (no dithering)...
+crystalspace.video.software:   Creating texture mipmaps...
+crystalspace.engine.notify: Engine is using back2front mode.
+crystalspace.system: Siena Publisher
+Unable to Connect Socket to Server
+
+crystalspace.system: Siena Publisher
+Can't Setup Socket
+
+crystalspace.system: Siena Publisher
+Unable to Connect Socket to Server
+
+crystalspace.system: Siena Publisher
+Can't Setup Socket
+
+crystalspace.system: Siena Publisher
+Unable to Connect Socket to Server
+
+crystalspace.system: Siena Publisher
+Can't Setup Socket
+
+crystalspace.canvas.ddraw: Using DirectDraw Primary Display Driver (display)
+crystalspace.video.software: Using windowed mode 1024x768 (internal rendering at 1024x768).
+crystalspace.video.software: Using truecolor mode with 4 bytes per pixel and 8:8:8 RGB mode.
+crystalspace.video.software: Preparing textures (no dithering)...
+crystalspace.video.software:   Creating texture mipmaps...
+crystalspace.system: Siena Publisher
+Unable to Connect Socket to Server
+
+crystalspace.system: Siena Publisher
+Can't Setup Socket
+
+crystalspace.system: Siena Publisher
+Unable to Connect Socket to Server
+
+crystalspace.system: Siena Publisher
+Can't Setup Socket
+
+crystalspace.system: Loading AWS...
+crystalspace.awsprefs: Could not open image file '/aws/chkup.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/chkdn.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/chkon.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/chkoff.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/radup.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/raddn.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/radon.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/radoff.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treecol.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treeexp.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treecol.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treevl.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treehl.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treechke.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treechkf.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treegrpe.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treegrpf.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sbup.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sbdn.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sbrt.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sblt.png' on VFS!
+crystalspace.video.software: Preparing textures (no dithering)...
+crystalspace.video.software:   Creating texture mipmaps...
+crystalspace.engine.notify: Engine is using back2front mode.
+crystalspace.system: Siena Publisher
+Unable to Connect Socket to Server
+
+crystalspace.system: Siena Publisher
+Can't Setup Socket
+
+crystalspace.system: Siena Publisher
+Unable to Connect Socket to Server
+
+crystalspace.system: Siena Publisher
+Can't Setup Socket
+
+crystalspace.system: Siena Publisher
+Unable to Connect Socket to Server
+
+crystalspace.system: Siena Publisher
+Can't Setup Socket
+

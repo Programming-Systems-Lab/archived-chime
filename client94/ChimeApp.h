@@ -24,6 +24,7 @@
 #define QUIT_CHIME 66698
 #define CRYSTAL_SPACE_WINDOW 66700
 #define SIENA_WINDOW 66701
+#define AI2TV_WINDOW 66702
 
 struct iEngine;
 struct iObjectRegistry;

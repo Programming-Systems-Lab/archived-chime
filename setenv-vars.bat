@@ -1,4 +1,4 @@
-SET ROOT=D:\pslroot
+SET ROOT=C:\pslroot
 SET CHIME=%ROOT%\psl\chime
 SET FRAX=%CHIME%\frax
 SET JARS=%ROOT%\jars\siena-1.1.2.jar;%ROOT%\jars\HTTPClient.jar

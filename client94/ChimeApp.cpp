@@ -170,12 +170,16 @@ bool ChimeApp::Initialize (const char *iConfigName, InfoStorer *info)
   (void)new csMenuItem (menu, "~Settings", submenu);
 
 	//some crystal space specific setting if needed
-    (void)new csMenuItem (submenu, "C~rystal Space Settings\tCtrl+R", CRYSTAL_SPACE_WINDOW);
-	 ka->Command ('r', CSMASK_CTRL, CRYSTAL_SPACE_WINDOW);
+	(void)new csMenuItem (submenu, "C~rystal Space Settings\tCtrl+R", CRYSTAL_SPACE_WINDOW);
+	ka->Command ('r', CSMASK_CTRL, CRYSTAL_SPACE_WINDOW);
 
-	 //some siena settings
+	//some siena settings
 	(void)new csMenuItem (submenu, "~Siena Settings\tCtrl+S", SIENA_WINDOW);
 	ka->Command ('s', CSMASK_CTRL, SIENA_WINDOW);
+
+	//some AI2TV settings
+	(void)new csMenuItem (submenu, "~AI2TV Settings\tCtrl+A", AI2TV_WINDOW);
+	ka->Command ('a', CSMASK_CTRL, AI2TV_WINDOW);
 
   int fh; menu->GetTextSize("", &fh);
   menu->SetRect (0, 0, bound.xmax, fh + 8);
@@ -282,11 +286,18 @@ bool ChimeApp::HandleEvent (iEvent &Event)
 			  }
 
 		//Siena settings need to be updated
-        case SIENA_WINDOW:
-        {
+        	case SIENA_WINDOW:
+        	{
 			(void)new SienaWindow(this);
 			return true;
-        }
+        	}
+
+		//AI2TV settings need to be updated
+        	case AI2TV_WINDOW:
+        	{
+			(void)new Ai2tvWindow(this);
+			return true;
+        	}
 
         case QUIT_CHIME:
         {

@@ -155,6 +155,9 @@
 				RelativePath=".\AIVideoPlayerWindow.cpp">
 			</File>
 			<File
+				RelativePath="Ai2tvWindow.cpp">
+			</File>
+			<File
 				RelativePath=".\AlwaysVisibleWindow.cpp">
 			</File>
 			<File
