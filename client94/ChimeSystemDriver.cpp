@@ -49,6 +49,7 @@
 
 /* AI2TV */
 #include "AIVideoPlayer.h"
+#include "AIVideoPlayerWindow.h"
 
 extern ChimeSystemDriver *Sys;
 
@@ -106,7 +107,7 @@ ChimeSystemDriver::ChimeSystemDriver()
 	lookUp = 0.0;
 	locked = true;
 	moveMain = true;
-
+	moveAWSwindow = true;
 	
 	//the menu wasn't drawn
 	menu_drawn = false;
@@ -1003,15 +1004,26 @@ void ChimeSystemDriver::SetupFrame()
 	  float speed = (elapsed_time / 1000.) * (0.03 * 20);
 
 	  if (kbd->GetKeyState (CSKEY_RIGHT)) {
-		  if (moveMain || locked)
-			view->GetCamera ()->GetTransform().RotateThis (CS_VEC_ROT_RIGHT, 2.0f*speed);
+		  if (moveMain || locked) {
+			  if (lookUp != 0.0) {
+				if (overviewWindow) locked = false;
+				view->GetCamera ()->Move (CS_VEC_RIGHT, 2.0f*speed);
+			  }
+			else
+				view->GetCamera ()->GetTransform().RotateThis (CS_VEC_ROT_RIGHT, 2.0f*speed);
+		  }
 		  if (locked || !moveMain)
 			  if (overviewWindow) overviewWindow->GetCamera ()->GetTransform().RotateOther (CS_VEC_ROT_RIGHT, 2.0f*speed);
 	  }
 	  if (kbd->GetKeyState (CSKEY_LEFT)) {
-		  if (moveMain || locked)
-			view->GetCamera ()->GetTransform().RotateThis (CS_VEC_ROT_LEFT, 2.0f*speed);
-		  if (locked || !moveMain)
+		  if (moveMain || locked) {
+			  if (lookUp != 0.0) {
+				if (overviewWindow) locked = false;
+				view->GetCamera ()->Move (CS_VEC_LEFT, 2.0f*speed);
+			  }
+			else
+				view->GetCamera ()->GetTransform().RotateThis (CS_VEC_ROT_LEFT, 2.0f*speed);
+		  }		  if (locked || !moveMain)
 			  if (overviewWindow) overviewWindow->GetCamera ()->GetTransform().RotateOther (CS_VEC_ROT_LEFT, 2.0f*speed);
 	  }
 	  if (kbd->GetKeyState (CSKEY_PGUP)) {
@@ -1061,6 +1073,17 @@ void ChimeSystemDriver::SetupFrame()
 		  overviewWindow->GetCamera()->SetSector(view->GetCamera()->GetSector());
 
 	  //engine->SetContext (myG3D);
+
+	  //redraw CSWS windows if AWS window has moved
+	  if (moveAWSwindow) {
+		myG2D->Clear(main_txtmgr->FindRGB(125,125,125));
+		app->chatWindow->Invalidate(true);
+		historyWindow->Invalidate(true);
+		app->vemWindow->Invalidate(true);
+		app->menu->Invalidate(true);
+		if (myVideoPlayer)
+			myVideoPlayer->PlayerWindow->UpdateDialog();
+	  }
 
 	  // Tell 3D driver we're going to display 3D things.
 	  if (!myG3D->BeginDraw (engine->GetBeginDrawFlags () | CSDRAW_2DGRAPHICS|CSDRAW_3DGRAPHICS))
@@ -1465,7 +1488,6 @@ void ChimeSystemDriver::setCSApp(ChimeApp *app) {
 void ChimeSystemDriver::SetHistoryWindow(HistoryWindow *historyWindow) {
 	ChimeSystemDriver::historyWindow = historyWindow;
 }
-
 
 //*************************************************************************
 //*
@@ -2042,7 +2064,17 @@ bool ChimeSystemDriver::HandleEventFromOtherWindow(iEvent &Event) {
 bool ChimeSystemDriver::HandleEvent (iEvent &Event)
 {
 
-	overviewWindow->HandleEvent(Event);
+/**
+	app->Draw();
+	pplBeginDraw(CSDRAW_3DGRAPHICS);
+	view->Draw();
+	pplInvalidate(bound);
+*/
+	
+	if (moveAWSwindow)
+		if (overviewWindow->HandleEvent(Event))
+			goto handled;
+
 	//see if this is an event sent from some other window
 	if (HandleEventFromOtherWindow(Event)) 
 		goto handled;
@@ -2654,7 +2686,19 @@ bool ChimeSystemDriver::HandleNetworkEvent(int method, char *params)
 
 			if (strcmp(username, "") != 0 && strcmp(username, my_username) != 0)
 				result = AddUser(newRoomUrl, username, ip_address, "mdl1", 3, 0, 2);  //NEEDS TO BE FIXED - NOT HARDCODED
+/**
+			csVector3 newPos, roomOrigin;
+			ChimeSector  *sec = GetCurChimeSector();
+			char my_ip_address[50];
+			info->GetMyIPAddress(my_ip_address);
 
+			newPos = view->GetCamera()->GetTransform().GetOrigin();
+			roomOrigin = sec->GetOrigin();
+			newPos -= roomOrigin;
+
+			comm.UserEnteredRoom(my_username, my_ip_address, sec->GetUrl(), newPos.x, newPos.y, newPos.z);
+			ResetLocalChatBuddies(sec);
+*/
 			break;
 		}
 
@@ -2900,7 +2944,7 @@ bool ChimeSystemDriver::AddUser(char *roomUrl, char *username, char *ip_address,
 	strcat(name, " ");
 	strcat(name, ip_address);
 
-	iMeshWrapper *m = AddMeshObj(shape, name, room, userPos, 1);
+	iMeshWrapper *m = AddMeshObj(shape, name, room, userPos, 0.2);
 	if( !m ) return false;
 
 

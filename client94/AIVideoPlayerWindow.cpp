@@ -40,7 +40,7 @@ AIVideoPlayerWindow::AIVideoPlayerWindow(csComponent *iParent)
   int delUp = 25;
 
   //////////create the dialog///////////////
-  csDialog *d = new csDialog(this);
+  d = new csDialog(this);
   this->SetDragStyle (this->GetDragStyle () & ~CS_DRAG_SIZEABLE);
   
    //setup the "play"
@@ -79,6 +79,12 @@ AIVideoPlayerWindow::AIVideoPlayerWindow(csComponent *iParent)
 AIVideoPlayerWindow::~AIVideoPlayerWindow()
 {
 
+}
+
+void AIVideoPlayerWindow::UpdateDialog()
+{
+	this->Invalidate(true, NULL);
+	//d->Invalidate();
 }
 
 

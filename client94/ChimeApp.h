@@ -17,8 +17,6 @@
 #define QUIT_CHIME 66698
 #define CRYSTAL_SPACE_WINDOW 66700
 #define SIENA_WINDOW 66701
-#define SHOW_OVERVIEW 67002
-#define HIDE_OVERVIEW 67003
 
 struct iEngine;
 struct iObjectRegistry;
@@ -39,6 +37,8 @@ class ChimeApp : public csApp
 
 public:
 
+  csMenu *menu;
+
   ChimeSystemDriver *System;
 
   //get a pointer to info
@@ -49,6 +49,9 @@ public:
 
   //pointer to the chat window
   ChatWindow *chatWindow;
+
+  //pointer to the VEM Window
+  VEMWindow *vemWindow;
 
   //encapsulate all the engine views
   csVector engine_views;

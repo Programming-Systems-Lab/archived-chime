@@ -20,6 +20,7 @@ class AIVideoPlayerWindow : public AlwaysVisibleWindow
 
 
 public:
+csDialog *d;
 csButton *PlayBut;
 csButton *PauseBut;
 csButton *NextBut;
@@ -28,6 +29,7 @@ csButton *TimeBut;
   AIVideoPlayerWindow(csComponent *iParent);
   virtual ~AIVideoPlayerWindow ();
   virtual bool HandleEvent (iEvent &Event);
+  virtual void UpdateDialog();
 
 };
 

@@ -102,6 +102,8 @@ private:
 	bool locked;
 	bool moveMain;
 	float lookUp;
+	/// Used for refreshing windows
+	bool moveAWSwindow;
 
 
 	/**
@@ -346,7 +348,7 @@ public:
 
 	//set a pointer to the history window so the system can update it as necessary
 	void SetHistoryWindow(HistoryWindow *historyWindow);
-	
+
 	//Show an error
 	void ShowError(const char *component, const char* error_msg);
 	void ShowError(const char *component, const char* error_msg, const char *variable);

@@ -127,7 +127,7 @@ bool ChimeApp::Initialize (const char *iConfigName, InfoStorer *info)
   GetG2D ()->DoubleBuffer (false);
 
   csKeyboardAccelerator *ka = new csKeyboardAccelerator (this);
-  csMenu *menu = new csMenu (this, csmfsBar, 0);
+  menu = new csMenu (this, csmfsBar, 0);
   menu->id = CSWID_MENUBAR;
   menu->SetFont(mainfont);
   csMenu *submenu = new csMenu (NULL);
@@ -170,14 +170,6 @@ bool ChimeApp::Initialize (const char *iConfigName, InfoStorer *info)
 	(void)new csMenuItem (submenu, "~Siena Settings\tCtrl+S", SIENA_WINDOW);
 	ka->Command ('s', CSMASK_CTRL, SIENA_WINDOW);
 
-  /////////////////////////////CREATE THIRD COLUMN/////////////////////////////////
-  submenu = new csMenu (NULL);
-  (void)new csMenuItem (menu, "~Overview Window", submenu);
-
-    (void)new csMenuItem (submenu, "Show", SHOW_OVERVIEW);
-	(void)new csMenuItem (submenu, "Hide", HIDE_OVERVIEW);
-
-
   int fh; menu->GetTextSize("", &fh);
   menu->SetRect (0, 0, bound.xmax, fh + 8);
 
@@ -195,7 +187,7 @@ bool ChimeApp::Initialize (const char *iConfigName, InfoStorer *info)
   historyWindow = new HistoryWindow(this);
 
   //put in a VEM window
-  (void) new VEMWindow(this);
+  vemWindow = new VEMWindow(this);
 
   //put in the Start/Stop window
   //(void) new StartStopWindow(this);
@@ -278,21 +270,6 @@ bool ChimeApp::HandleEvent (iEvent &Event)
 				  (void)new VEMWindow(this);
 				  return true;
 			  }
-
-		  //show AWS window
-		  case SHOW_OVERVIEW:
-			  {
-				  Sys->overviewWindow->Start();
-				  return true;
-			  }
-
-		  //hide AWS window
-		  case HIDE_OVERVIEW:
-			  {
-				  Sys->overviewWindow->Hide();
-				  return true;
-			  }
-
 
 		//Siena settings need to be updated
         case SIENA_WINDOW:
