@@ -22,11 +22,18 @@ AIDownloader::AIDownloader()
 	AIDownloader::baseURL = "http://localhost:60200/";// NOT USED
 	
 	numMeasurements=0;
-	
-	SpeedArraySize = 3; // by default
-	SpeedArray = new int[SpeedArraySize];
-	SizeArraySize = 3 ; // by default
-	SizeArray = new int[SizeArraySize];
+
+	// SpeedArray and SizeArray are for bandwidth calculations
+	// SpeedArraySize and SizeArraySize define the last 'n' values to average
+	// when performing sample bandwidth calculations
+	// -changed types and sizes -cl
+	SpeedArraySize = 10; // by default
+	//SpeedArray = new int[SpeedArraySize];
+	SpeedArray = new double[SpeedArraySize];
+
+	SizeArraySize = 10 ; // by default
+	//SizeArray = new int[SizeArraySize];
+	SizeArray = new long[SizeArraySize];
 
 	for (int i=0; i < SpeedArraySize;++i){
 		SpeedArray[i]=-1;
@@ -109,31 +116,37 @@ return x;
 int AIDownloader::downloadFile(char* url, char* filename)
 {
 
-printf("\ndownloading %s to %s\n",url,filename);
-CoInitialize(NULL);
-time_t start = 0;
-time_t end=0;
-start=time(NULL);
-int x= URLDownloadToFile(NULL, url, filename, 0, NULL);
-end=time(NULL);
-if (x!=0) return -1;
+  printf("\ndownloading %s to %s\n",url,filename);
+  CoInitialize(NULL);
+  time_t start = 0; // note: time_t is a long
+  time_t end=0;
+  start=time(NULL);
+  int x= URLDownloadToFile(NULL, url, filename, 0, NULL);
+  end=time(NULL);
+  if (x!=0) return -1;
 
-int totaltime = (int)(difftime(end,start));
-//totaltime;
-if (totaltime==0) totaltime=1;
+  //int totaltime = (int)(difftime(end,start));
+  double totaltime = difftime(end,start); // time in seconds
+  if (totaltime==0) totaltime=1;
 
-FILE* fp = fopen(filename,"r");
-long fsize = ftell(fp);
-fclose(fp);
-addMetrics((int)fsize,totaltime);
-if (x == 0){
-printf("\n[DOWNLOAD_SUCCESS] %s -> %s\n",url,filename);
+  // fixed file size retrieval -cl
+  //FILE* fp = fopen(filename,"r");
+  FILE* fp;
+  if ((fp = fopen(filename,"rb")) != NULL) { // open in byte mode
+    fseek(fp, 0, SEEK_END); 
+    long fsize = ftell(fp);
+    fclose(fp);
+    addMetrics(fsize,totaltime);
+  }
 
-} else {
-printf("\n[DOWNLOAD_FAILURE] %s -> %s\n",url,filename);
+  if (x == 0){
+    printf("\n[DOWNLOAD_SUCCESS] %s -> %s\n",url,filename);
 
-}
-return x;
+  } else {
+    printf("\n[DOWNLOAD_FAILURE] %s -> %s\n",url,filename);
+
+  }
+  return x;
 }
 
 // test stuff, never used
@@ -156,7 +169,8 @@ void AIDownloader::getProxies(int videoID){
 /* added by DOV
 /*************************/
 
-void AIDownloader::addMetrics(int file_size, int download_speed){
+//void AIDownloader::addMetrics(int file_size, int download_speed){
+void AIDownloader::addMetrics(long file_size, double download_speed){
 	SizeArray[numMeasurements % SizeArraySize]=file_size;
 	SpeedArray[numMeasurements % SpeedArraySize]=download_speed;
 	numMeasurements++;

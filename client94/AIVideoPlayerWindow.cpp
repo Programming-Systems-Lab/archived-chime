@@ -139,10 +139,14 @@ bool AIVideoPlayerWindow::HandleEvent (iEvent &Event)
 		return true;
 
 		case AI2TV_TIME_PRESSED:
-			sprintf(ev_msg,"T=%2d:%2d",Sys->myVideoPlayer->TimeController->current_time/60000,(Sys->myVideoPlayer->TimeController->current_time/1000)%60);
+			sprintf(ev_msg,"T=%2d:%2d",Sys->myVideoPlayer->TimeController->current_time/60000,
+			(Sys->myVideoPlayer->TimeController->current_time/1000)%60);
 			TimeBut->SetText(ev_msg);
-			if (Sys->myVideoPlayer->TimeController->current_time %2 == 1) Sys->myVideoPlayer->CacheController->WorseCLevel();
-			else Sys->myVideoPlayer->CacheController->BetterCLevel();
+
+			// taking out arbitrary level changing -cl
+			//	  if (Sys->myVideoPlayer->TimeController->current_time %2 == 1) 
+			//	    Sys->myVideoPlayer->CacheController->WorseCLevel();
+			//	  else Sys->myVideoPlayer->CacheController->BetterCLevel();
 			return true;
 	  }
 

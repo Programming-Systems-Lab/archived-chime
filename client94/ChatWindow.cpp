@@ -357,48 +357,52 @@ bool ChatArea::HandleEvent(csEvent &Event) {
 
 //add an item to the chat area
 ChatAreaItem::ChatAreaItem(ChatArea *chat_area, const char *iText, int &iID, csListBoxItemStyle iStyle) : csComponent (chat_area) {
-	int allowed_chars = chat_area->GetCharsPerLine();
-	int earliest_break;
-	int latest_break;
-	char *temp;
-	char *here;
+  int allowed_chars = chat_area->GetCharsPerLine();
+  int earliest_break;
+  int latest_break;
+  char *temp;
+  char *here;
+  csListBoxItem *item; //added -cl
 
-	temp = new char[allowed_chars + 1];
-	here = new char[strlen(iText) + 1];
+  temp = new char[allowed_chars + 1];
+  here = new char[strlen(iText) + 1];
 
-	//here points to the beginning of string
-	strcpy(here, iText);
+  //here points to the beginning of string
+  strcpy(here, iText);
 
-	//if there are elements to write
-	while (here != NULL) {
+  //if there are elements to write
+  while (here != NULL) {
 
-		//if there are less chars to write than allowed then just write them
-		if (strlen(here) < allowed_chars) {
-			csListBoxItem *item = new csListBoxItem(chat_area, here, iID, iStyle);
-			item->SetState(CSS_LISTBOXITEM_SELECTED, false);
-			iID++;
-			here = NULL; //that's it - enough
-		}
+    //if there are less chars to write than allowed then just write them
+    if (strlen(here) < allowed_chars) {
+      item = new csListBoxItem(chat_area, here, iID, iStyle);
+      item->SetState(CSS_LISTBOXITEM_SELECTED, false);
+      iID++;
+      here = NULL; //that's it - enough
+    }
 
-		else {
-			//if you can find a space then do it
-			if (FindSpace(here, allowed_chars, &earliest_break, &latest_break)) {
-				strncpy(temp, here, latest_break);
-				here += latest_break;
-				here++; //just eat up the space
-			}
+    else {
+      //if you can find a space then do it
+      if (FindSpace(here, allowed_chars, &earliest_break, &latest_break)) {
+	strncpy(temp, here, latest_break);
+	here += latest_break;
+	here++; //just eat up the space
+      }
 
-			else {
-				strncpy(temp, here, allowed_chars);
-				here += allowed_chars;
-			}
+      else {
+	strncpy(temp, here, allowed_chars);
+	here += allowed_chars;
+      }
 
-			csListBoxItem *item = new csListBoxItem(chat_area, temp, iID, iStyle);
-			item->SetState(CSS_LISTBOXITEM_SELECTED, false);
-			iID++;
+      csListBoxItem *item = new csListBoxItem(chat_area, temp, iID, iStyle);
+      item->SetState(CSS_LISTBOXITEM_SELECTED, false);
+      iID++;
 		
-		}
-	}
+    }
+  }
+
+  // show last item in box -- causes csScrollBar to scroll to bottom when window is full -cl
+  chat_area->SendCommand(cscmdListBoxMakeVisible, item);
 }
 
 ChatAreaItem::FindSpace(const char* str, int max_chars, int *earliest_break, int *latest_break) {

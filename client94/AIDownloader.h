@@ -16,14 +16,17 @@
 class AIDownloader 
 {
 public:
-	void addMetrics(int file_size, int download_speed);
+	void addMetrics(long file_size, double download_speed);
+	//void addMetrics(int file_size, int download_speed);
 	// this is the proxy server manager. Proxy servers here refer to different
 	// compression levels
 	int numMeasurements;
 	int SpeedArraySize; // used by dov to clock downloads
-	int* SpeedArray;
+	//	int* SpeedArray;
+	double* SpeedArray;
 	int SizeArraySize; // used by dov to predict future download sizes
-	int* SizeArray;
+	//	int* SizeArray;
+	long* SizeArray;
 
 static void getProxies(int videoID);
 static int currentProxyID;

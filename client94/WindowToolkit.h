@@ -46,7 +46,7 @@ class ChatAreaItem : public csComponent
 
 public:
 	ChatAreaItem( ChatArea *chat_area, const char *iText, int &iID, csListBoxItemStyle iStyle=cslisNormal);
-	FindSpace(const char* str, int max_chars, int *earliest_break, int *latest_break);
+	int FindSpace(const char* str, int max_chars, int *earliest_break, int *latest_break);
 
 };
 
@@ -58,7 +58,7 @@ class UserListBox : public csListBox
 
 public:
 	UserListBox(csComponent *iParent, int iStyle, csListBoxFrameStyle iFrameStyle);
-	GetID();  //Get the last ID
+	int GetID();  //Get the last ID
 	DeleteAll();
 };
 

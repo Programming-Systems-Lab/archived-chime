@@ -55,6 +55,8 @@ public:
 public:
 	bool LOCKED;
 	bool EXIT;
+	int played_start; //new var -cl
+	bool isMaster; // new var -cl
 	void TestMusic();
 	void ShutDown();
 	static void TestMusicStatic();
@@ -73,7 +75,7 @@ public:
 	char* frameDir; // the directory on disk where frames reside (absolute)
 	char* frameDirVFS; // The Frame directory, as mapped to the VFS
 
-	void Initialize();// test program to see if componenets work
+	int Initialize();// test program to see if componenets work
 	virtual ~AIVideoPlayer();
 	csVector3 screen_position;
 	int DrawScreen(csVector3 position);

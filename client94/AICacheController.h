@@ -9,6 +9,10 @@
 #pragma once
 #endif // _MSC_VER > 1000
 
+// note-- change here to test different bandwidth divisions
+// currently, clevels (frame play rate) are determined by even division
+// of high_bandwidth/clevel_count -cl
+#define high_bandwidth 128; 
 
 class AIDownloader;
 class AIVideoPlayer;
@@ -17,12 +21,19 @@ class AICacheController
 public:
 	AICache* cache;    // reference to the real cache API implementation
 	AIDownloader* Downloader; // downloading engine to use instead of cache API temporarily
-	AICacheController(char* dsn);
+	//	AICacheController(char* dsn);
+	AICacheController(char* dsn, AIVideoPlayer *p);
+	AIVideoPlayer *player;
+
 	int setupProject(int videoID, char* videoTitle, int compressionLevels[], int compLevelLength, int totalNumVideoFrames, int framesPerSecond);
 	virtual ~AICacheController();
 	int testDownload(char* url);
 	int getAvgNetSpeed();
 	int getAvgFileSize();
+
+	int getSampleBandwidth(); 
+	void SetCLevel(int c_level); // set clevel
+
 	int currentProjectID;
 	void processNextFrame(AIVideoPlayer* player);
 	void checkNetwork();

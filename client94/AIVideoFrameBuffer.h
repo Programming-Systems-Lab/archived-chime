@@ -18,7 +18,7 @@ public:
 	AIVideoFrameBuffer(int bsize);	// specify the size of the buffer
 	AIVideoFrame** frames;			// an array of references to frames
 	virtual ~AIVideoFrameBuffer();	// destructor
-	int size;						// number of frames contained in buffer
+	int size;					// number of frames contained in buffer
 	int buffer_size;				// size of the buffer
 	int head,tail;					// used for circular queue
 	int getHead();

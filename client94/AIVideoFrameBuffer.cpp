@@ -13,7 +13,8 @@ AIVideoFrameBuffer::AIVideoFrameBuffer(int bsize)
 {
 	buffer_size = bsize;
 	size=0;
-	head=0;
+	//	head=0;
+	head=-1; //cl
 	tail=0;
 	frames= new AIVideoFrame*[bsize];
 

@@ -2686,19 +2686,7 @@ bool ChimeSystemDriver::HandleNetworkEvent(int method, char *params)
 
 			if (strcmp(username, "") != 0 && strcmp(username, my_username) != 0)
 				result = AddUser(newRoomUrl, username, ip_address, "mdl1", 3, 0, 2);  //NEEDS TO BE FIXED - NOT HARDCODED
-/**
-			csVector3 newPos, roomOrigin;
-			ChimeSector  *sec = GetCurChimeSector();
-			char my_ip_address[50];
-			info->GetMyIPAddress(my_ip_address);
 
-			newPos = view->GetCamera()->GetTransform().GetOrigin();
-			roomOrigin = sec->GetOrigin();
-			newPos -= roomOrigin;
-
-			comm.UserEnteredRoom(my_username, my_ip_address, sec->GetUrl(), newPos.x, newPos.y, newPos.z);
-			ResetLocalChatBuddies(sec);
-*/
 			break;
 		}
 
@@ -3403,54 +3391,56 @@ bool ChimeSystemDriver::UpdateSideDoorLink(ChimeSector *sec, int doorNum, char *
 	return true;
 }
 
-	/***************************************************
-	*
-	* AI2TV Function: DrawVideoScreen
-	*
-	*	Draws the "screen" jpeg picture of a TV and
-	*	creates the instance of the player....
-	*	much of this code is similar to buildsidedoor, where
-	*	it was "borrowed"
-	*
-	****************************************************/
+/***************************************************
+ *
+ * AI2TV Function: DrawVideoScreen
+ *
+ *	Draws the "screen" jpeg picture of a TV and
+ *	creates the instance of the player....
+ *	much of this code is similar to buildsidedoor, where
+ *	it was "borrowed"
+ *
+ ****************************************************/
 int ChimeSystemDriver::DrawVideoScreen(csVector3 objPos, csVector3 offset, const char* url)
 {
 
-	// we used to play upon creation. Not any more
-	// if (myVideoPlayer!=0){myVideoPlayer->playThread(); return 1;}
+  // we used to play upon creation. Not any more
+  // if (myVideoPlayer!=0){myVideoPlayer->playThread(); return 1;}
 
-	// The screen image size, in coordinates
-	csVector3 doorSize(0, 4, 4);
+  // The screen image size, in coordinates
+  csVector3 doorSize(0, 4, 4);
 	
-	// The position of the screen
-	csVector3 meshPos;
-	meshPos.x = 4.99;
-	meshPos.y = 0;
-	meshPos.z = 0; 
+  // The position of the screen
+  csVector3 meshPos;
+  meshPos.x = 4.99;
+  meshPos.y = 0;
+  meshPos.z = 0; 
 	
-	// if we don't have a player yet, we will create one
-	if (!myVideoPlayer){
-	myVideoPlayer = AIVideoPlayer::getInstance(this);
+  // if we don't have a player yet, we will create one
+  if (!myVideoPlayer){
+	  
+    // getInstance instantiates player, and will in turn download the frames
+    myVideoPlayer = AIVideoPlayer::getInstance(this);
 
-	// This actually draws the screen on the wall
-	myVideoPlayer->DrawScreen(objPos);
+    // This actually draws the screen on the wall
+    myVideoPlayer->DrawScreen(objPos);
 
-	// We used to play when it was created. Now we just leave it paused.
-	 myVideoPlayer->playThread();
-		return 0;
-	}
+    // show first frame, paused on screen
+    myVideoPlayer->playThread();
+    return 0;
+  }
 	
-	else {
-		// We used to play whenever a creation was requested...
-		//	myVideoPlayer->playThread();
-		return 0;
-	}
+  else {
+    // We used to play whenever a creation was requested...
+    //	myVideoPlayer->playThread();
+    return 0;
+  }
 
 }
 
-	/***************************************************
-	*
-	* END AI2TV Function: DrawVideoScreen
-	*
-	*
-	****************************************************/
+/***************************************************
+ *
+ * END AI2TV Function: DrawVideoScreen
+ *
+ *
+ ****************************************************/
