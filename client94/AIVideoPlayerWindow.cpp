@@ -30,13 +30,14 @@ AIVideoPlayerWindow::AIVideoPlayerWindow(csComponent *iParent)
 : AlwaysVisibleWindow(iParent, "-- AI2TV Controls --", CSWS_TITLEBAR | CSWS_BUTCLOSE |
     CSWS_BUTMAXIMIZE)
 {
-   SetRect (Sys->GetApp()->bound.Width() / 2.25 +  Sys->GetApp()->bound.Width() / 4,
-	   Sys->GetApp()->bound.Height() / 4 * 3,
-	    Sys->GetApp()->bound.Width(), 
-		 Sys->GetApp()->bound.Height());
+   SetRect (Sys->GetApp()->bound.Width() / 4, 
+			Sys->GetApp()->bound.Height() * 0.86, 
+			Sys->GetApp()->bound.Width() / 2.25 + Sys->GetApp()->bound.Width() / 4, 
+			Sys->GetApp()->bound.Height());
  
   int px = 15, py = 20;
   int labelw = 150;
+  int delUp = 25;
 
   //////////create the dialog///////////////
   csDialog *d = new csDialog(this);
@@ -46,32 +47,32 @@ AIVideoPlayerWindow::AIVideoPlayerWindow(csComponent *iParent)
   PlayBut = new csButton(d, AI2TV_PLAY_PRESSED);
   PlayBut->SetText("Play");
   PlayBut->SetSuggestedSize((bound.Width() /4), .3 * (bound.Height() /11));
-  PlayBut->SetPos(0, bound.Height() / 4);
+  PlayBut->SetPos(0, bound.Height() / 4 - delUp);
 
      //setup the "next"
   NextBut = new csButton(d, AI2TV_NEXT_PRESSED);
   NextBut->SetText("Next Frame");
   NextBut->SetSuggestedSize((bound.Width() /4), .3 * (bound.Height() /11));
-  NextBut->SetPos(bound.Width()/2, bound.Height() / 4);
+  NextBut->SetPos(bound.Width()/2, bound.Height() / 4 - delUp);
 
      //setup the "network"
   NetBut = new csButton(d, AI2TV_NET_PRESSED);
   NetBut->SetText("Network");
   NetBut->SetSuggestedSize((bound.Width() /4), .3 * (bound.Height() /11));
-  NetBut->SetPos(0, bound.Height() / 2);
+  NetBut->SetPos(0, bound.Height() / 2 - delUp);
 
      //setup the "time"
   TimeBut = new csButton(d, AI2TV_TIME_PRESSED);
   TimeBut->SetText("Time");
   TimeBut->SetSuggestedSize((bound.Width() /4), .3 * (bound.Height() /11));
-  TimeBut->SetPos(bound.Width()/2, bound.Height() / 2);
+  TimeBut->SetPos(bound.Width()/2, bound.Height() / 2 - delUp);
 
   
    //setup the "play"
   PauseBut = new csButton(d, AI2TV_PAUSE_PRESSED);
   PauseBut->SetText("Pause");
   PauseBut->SetSuggestedSize((bound.Width() /4), .3 * (bound.Height() /11));
-  PauseBut->SetPos(0, 3*bound.Height() / 4);
+  PauseBut->SetPos(0, 3*bound.Height() / 4 - delUp);
 
 }
 

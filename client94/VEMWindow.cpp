@@ -385,7 +385,7 @@ VEMWindow::VEMWindow(csComponent *iParent)
     CSWS_BUTMAXIMIZE)
   {
 
-  SetRect (app->bound.Width() / 4, app->bound.Height() / 4 * 3, app->bound.Width() / 2.25 + app->bound.Width() / 4, app->bound.Height());
+  SetRect (app->bound.Width() / 4, app->bound.Height() * 0.65, app->bound.Width() / 2.25 + app->bound.Width() / 4, app->bound.Height() * 0.86);
   //SetState(CSS_DISABLED, true);
   
   //this -> SetSize (500, 285);

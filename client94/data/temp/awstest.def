@@ -45,8 +45,8 @@ skin "Normal Windows"
 window "Overview"
 {
   Style: wfsNormal
-  Options: wfoGrip+wfoTitle+wfoClose+wfoMin+wfoZoom+wfoControl
-  Frame: (713,576)-(1020,770)
+  Options: wfoGrip+wfoTitle+wfoControl
+  Frame: (713,630)-(1022,967)
   Title: "Overview"
 
 }

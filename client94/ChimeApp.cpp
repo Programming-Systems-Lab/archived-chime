@@ -184,7 +184,7 @@ bool ChimeApp::Initialize (const char *iConfigName, InfoStorer *info)
   
   csWindow *w = new csWindow (this, "3D View", CSWS_DEFAULTVALUE & ~(CSWS_BUTCLOSE | CSWS_MENUBAR));
   engine_views.Push (new ChimeWorldView (w, (ChimeSystemDriver*)System));
-  w->SetRect (bound.Width () / 4, 0, bound.Width (), bound.Height () / 4 * 3);
+  w->SetRect (bound.Width () / 4, 0, bound.Width (), bound.Height () * 0.65);
   w->Hide();
 
   //put in a chat window
