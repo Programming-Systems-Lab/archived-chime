@@ -49,8 +49,15 @@ char* chimeComm::ftoa(float num)
 
 	strcpy(tempstr, fcvt(num, 7, &dec, &sign));
 	size = strlen(tempstr);
+	if (num < 0)
+	{
+		size++;
+		str[0] = '-';
+		i = 1;
+	}
+	else
+		i = 0;
 
-	i = 0;
 	j = 0;
 	if(dec <= 0)
 	{		

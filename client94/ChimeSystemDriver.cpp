@@ -2356,7 +2356,9 @@ iMeshWrapper* ChimeSystemDriver::AddMeshObj (char* tname, char* sname, iSector* 
 						      where, pos);
   spr->DeferUpdateLighting (CS_NLIGHT_STATIC|CS_NLIGHT_DYNAMIC, 10);
   csMatrix3 m; 
-  m.Identity (); 
+  m.Identity ();
+  if (size > 0.031)
+	  size = 0.031;
   spr->GetMovable ()->SetTransform (m);
   csYScaleMatrix3 scaley_m(size);
   spr->GetMovable ()->Transform (scaley_m);
