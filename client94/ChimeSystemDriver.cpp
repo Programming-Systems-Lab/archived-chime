@@ -821,8 +821,8 @@ void ChimeSystemDriver::SetInfoObject() {
 	info->GetSienaLocation(siena_location);
 
 	if (strcmp(password, "") == 0 || strcmp(username, "") == 0 || strcmp(siena_location, "") == 0) {
-			info->SetUsername("nav");
-			info->SetPassword("nav");
+			info->SetUsername("suhit");
+			info->SetPassword("suhit");
 			info->SetSienaLocation("localhost");
 	}
 
@@ -1634,7 +1634,7 @@ bool ChimeSystemDriver::HandleLeftMouseClick(iEvent &Event)
 
 		objPos = selectedMesh->GetMovable()->GetPosition() - offset;
 
-	// DOV 03/06/02	DrawSideDoor(objPos, offset, selectedMesh->QueryObject()->GetName()); 
+	//DrawSideDoor(objPos, offset, selectedMesh->QueryObject()->GetName()); 
 
 	}
 	else
