@@ -1,5 +1,255 @@
+CREATE TABLE SOURCE(ID INTEGER,PROTOCOL VARCHAR,URL VARCHAR,SIZE INTEGER,TYPE VARCHAR,CREATED VARCHAR,LAST_MOD VARCHAR,SRC VARCHAR,PARENT INTEGER,CLASSTYPE VARCHAR,SUBTYPE VARCHAR,SHAPE VARCHAR,SHAPE2D VARCHAR,OPT1 VARCHAR,OPT2 VARCHAR,OPT3 VARCHAR,OPT4 VARCHAR,OPT5 VARCHAR,UNIQUE(ID),UNIQUE(PROTOCOL,URL))
+CREATE INDEX ID ON SOURCE(ID)
+CREATE INDEX URL ON SOURCE(PROTOCOL,URL)
 CREATE USER SA PASSWORD "" ADMIN
-/*C1*/CONNECT USER sa PASSWORD ""
-create table SOURCE (id integer, protocol varchar(255), url varchar(255), size integer, type varchar(20), created varchar(255), last_mod varchar(255), src varchar(255), parent integer, classtype varchar(255), subtype varchar(255), shape varchar(255), shape2d varchar(255), opt1 varchar(255), opt2 varchar(255), opt3 varchar(255), opt4 varchar(255), opt5 varchar(255), PRIMARY KEY (id), UNIQUE (protocol, url) )
-create index id on SOURCE(id)
-create index url on SOURCE(protocol, url)
+CREATE ALIAS DAYNAME FOR "org.hsql.Library.dayname"
+CREATE ALIAS SPACE FOR "org.hsql.Library.space"
+CREATE ALIAS SUBSTRING FOR "org.hsql.Library.substring"
+CREATE ALIAS SQRT FOR "java.lang.Math.sqrt"
+CREATE ALIAS ABS FOR "java.lang.Math.abs"
+CREATE ALIAS POWER FOR "java.lang.Math.pow"
+CREATE ALIAS CHAR FOR "org.hsql.Library.character"
+CREATE ALIAS CONCAT FOR "org.hsql.Library.concat"
+CREATE ALIAS PI FOR "org.hsql.Library.pi"
+CREATE ALIAS SECOND FOR "org.hsql.Library.second"
+CREATE ALIAS TRUNCATE FOR "org.hsql.Library.truncate"
+CREATE ALIAS MONTH FOR "org.hsql.Library.month"
+CREATE ALIAS LOWER FOR "org.hsql.Library.lcase"
+CREATE ALIAS ATAN2 FOR "java.lang.Math.atan2"
+CREATE ALIAS REPEAT FOR "org.hsql.Library.repeat"
+CREATE ALIAS DAYOFMONTH FOR "org.hsql.Library.dayofmonth"
+CREATE ALIAS TAN FOR "java.lang.Math.tan"
+CREATE ALIAS RADIANS FOR "java.lang.Math.toRadians"
+CREATE ALIAS FLOOR FOR "java.lang.Math.floor"
+CREATE ALIAS NOW FOR "org.hsql.Library.now"
+CREATE ALIAS ACOS FOR "java.lang.Math.acos"
+CREATE ALIAS DAYOFWEEK FOR "org.hsql.Library.dayofweek"
+CREATE ALIAS CEILING FOR "java.lang.Math.ceil"
+CREATE ALIAS DAYOFYEAR FOR "org.hsql.Library.dayofyear"
+CREATE ALIAS LCASE FOR "org.hsql.Library.lcase"
+CREATE ALIAS WEEK FOR "org.hsql.Library.week"
+CREATE ALIAS SOUNDEX FOR "org.hsql.Library.soundex"
+CREATE ALIAS ASIN FOR "java.lang.Math.asin"
+CREATE ALIAS LOCATE FOR "org.hsql.Library.locate"
+CREATE ALIAS EXP FOR "java.lang.Math.exp"
+CREATE ALIAS MONTHNAME FOR "org.hsql.Library.monthname"
+CREATE ALIAS YEAR FOR "org.hsql.Library.year"
+CREATE ALIAS LEFT FOR "org.hsql.Library.left"
+CREATE ALIAS ROUNDMAGIC FOR "org.hsql.Library.roundMagic"
+CREATE ALIAS BITOR FOR "org.hsql.Library.bitor"
+CREATE ALIAS LTRIM FOR "org.hsql.Library.ltrim"
+CREATE ALIAS COT FOR "org.hsql.Library.cot"
+CREATE ALIAS COS FOR "java.lang.Math.cos"
+CREATE ALIAS MOD FOR "org.hsql.Library.mod"
+CREATE ALIAS SIGN FOR "org.hsql.Library.sign"
+CREATE ALIAS DEGREES FOR "java.lang.Math.toDegrees"
+CREATE ALIAS LOG FOR "java.lang.Math.log"
+CREATE ALIAS SIN FOR "java.lang.Math.sin"
+CREATE ALIAS CURTIME FOR "org.hsql.Library.curtime"
+CREATE ALIAS DIFFERENCE FOR "org.hsql.Library.difference"
+CREATE ALIAS INSERT FOR "org.hsql.Library.insert"
+CREATE ALIAS DATABASE FOR "org.hsql.Library.database"
+CREATE ALIAS MINUTE FOR "org.hsql.Library.minute"
+CREATE ALIAS HOUR FOR "org.hsql.Library.hour"
+CREATE ALIAS IDENTITY FOR "org.hsql.Library.identity"
+CREATE ALIAS QUARTER FOR "org.hsql.Library.quarter"
+CREATE ALIAS CURDATE FOR "org.hsql.Library.curdate"
+CREATE ALIAS BITAND FOR "org.hsql.Library.bitand"
+CREATE ALIAS USER FOR "org.hsql.Library.user"
+CREATE ALIAS UCASE FOR "org.hsql.Library.ucase"
+CREATE ALIAS RTRIM FOR "org.hsql.Library.rtrim"
+CREATE ALIAS LOG10 FOR "org.hsql.Library.log10"
+CREATE ALIAS RIGHT FOR "org.hsql.Library.right"
+CREATE ALIAS ATAN FOR "java.lang.Math.atan"
+CREATE ALIAS UPPER FOR "org.hsql.Library.ucase"
+CREATE ALIAS ASCII FOR "org.hsql.Library.ascii"
+CREATE ALIAS RAND FOR "java.lang.Math.random"
+CREATE ALIAS LENGTH FOR "org.hsql.Library.length"
+CREATE ALIAS ROUND FOR "org.hsql.Library.round"
+CREATE ALIAS REPLACE FOR "org.hsql.Library.replace"
+/*C2*/CONNECT USER sa PASSWORD ""
+INSERT INTO SOURCE VALUES(1,'http','http://www.cs.brandeis.edu/',2171,'text/html','1023828232769','-1','null',-1,NULL,NULL,NULL,NULL,'null','1','\u000a\u0009<Source>http://www.cs.brandeis.edu/img/dept-title-bar.gif</Source>\u000a\u0009<Alt>Brandeis University --\u000aMichtom School of Computer Science</Alt>\u000a\u000a','18','http://www.cs.brandeis.edu/brandeis\u000ahttp://www.brandeis.edu\u000ahttp://www.cs.brandeis.edu/more-info/address.html\u000ahttp://www.cs.brandeis.edu/more-info/directions.html\u000ahttp://www.brandeis.edu/registrar/\u000ahttp://www.library.brandeis.edu/science/\u000ahttp://jscheme.cs.brandeis.edu:8080/jscheme/cosi/classes.servlet\u000ahttp://www.cs.brandeis.edu/course-pages/\u000ahttp://kutz60.kutz.brandeis.edu/AutoCat/COSI01.html\u000ahttp://www.brandeis.edu/admissions/admission1.html\u000ahttp://www.cs.brandeis.edu/~tim/Curriculum/samples.html\u000ahttp://www.brandeis.edu/gsas/\u000ahttp://www.cs.brandeis.edu/gradprogram.html\u000ahttp://www.cs.brandeis.edu/labs/\u000ahttp://www.cs.brandeis.edu/conferences/\u000ahttp://www.cs.brandeis.edu/faculty-descriptions\u000ahttp://www.cs.brandeis.edu/brochure.html\u000ahttp://www.cs.brandeis.edu/mailto:tim@cs.brandeis.edu\u000a')
+DELETE FROM SOURCE WHERE ID=1 AND PROTOCOL='http' AND URL='http://www.cs.brandeis.edu/' AND SIZE=2171 AND TYPE='text/html' AND CREATED='1023828232769' AND LAST_MOD='-1' AND SRC='null' AND PARENT=-1 AND CLASSTYPE=NULL AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL AND OPT1='null' AND OPT2='1' AND OPT3='\u000a\u0009<Source>http://www.cs.brandeis.edu/img/dept-title-bar.gif</Source>\u000a\u0009<Alt>Brandeis University --\u000aMichtom School of Computer Science</Alt>\u000a\u000a' AND OPT4='18' AND OPT5='http://www.cs.brandeis.edu/brandeis\u000ahttp://www.brandeis.edu\u000ahttp://www.cs.brandeis.edu/more-info/address.html\u000ahttp://www.cs.brandeis.edu/more-info/directions.html\u000ahttp://www.brandeis.edu/registrar/\u000ahttp://www.library.brandeis.edu/science/\u000ahttp://jscheme.cs.brandeis.edu:8080/jscheme/cosi/classes.servlet\u000ahttp://www.cs.brandeis.edu/course-pages/\u000ahttp://kutz60.kutz.brandeis.edu/AutoCat/COSI01.html\u000ahttp://www.brandeis.edu/admissions/admission1.html\u000ahttp://www.cs.brandeis.edu/~tim/Curriculum/samples.html\u000ahttp://www.brandeis.edu/gsas/\u000ahttp://www.cs.brandeis.edu/gradprogram.html\u000ahttp://www.cs.brandeis.edu/labs/\u000ahttp://www.cs.brandeis.edu/conferences/\u000ahttp://www.cs.brandeis.edu/faculty-descriptions\u000ahttp://www.cs.brandeis.edu/brochure.html\u000ahttp://www.cs.brandeis.edu/mailto:tim@cs.brandeis.edu\u000a'
+INSERT INTO SOURCE VALUES(1,'http','http://www.cs.brandeis.edu/',2171,'text/html','1023828232769','-1','null',-1,'Connector',NULL,NULL,NULL,'null','1','\u000a\u0009<Source>http://www.cs.brandeis.edu/img/dept-title-bar.gif</Source>\u000a\u0009<Alt>Brandeis University --\u000aMichtom School of Computer Science</Alt>\u000a\u000a','18','http://www.cs.brandeis.edu/brandeis\u000ahttp://www.brandeis.edu\u000ahttp://www.cs.brandeis.edu/more-info/address.html\u000ahttp://www.cs.brandeis.edu/more-info/directions.html\u000ahttp://www.brandeis.edu/registrar/\u000ahttp://www.library.brandeis.edu/science/\u000ahttp://jscheme.cs.brandeis.edu:8080/jscheme/cosi/classes.servlet\u000ahttp://www.cs.brandeis.edu/course-pages/\u000ahttp://kutz60.kutz.brandeis.edu/AutoCat/COSI01.html\u000ahttp://www.brandeis.edu/admissions/admission1.html\u000ahttp://www.cs.brandeis.edu/~tim/Curriculum/samples.html\u000ahttp://www.brandeis.edu/gsas/\u000ahttp://www.cs.brandeis.edu/gradprogram.html\u000ahttp://www.cs.brandeis.edu/labs/\u000ahttp://www.cs.brandeis.edu/conferences/\u000ahttp://www.cs.brandeis.edu/faculty-descriptions\u000ahttp://www.cs.brandeis.edu/brochure.html\u000ahttp://www.cs.brandeis.edu/mailto:tim@cs.brandeis.edu\u000a')
+DELETE FROM SOURCE WHERE ID=1 AND PROTOCOL='http' AND URL='http://www.cs.brandeis.edu/' AND SIZE=2171 AND TYPE='text/html' AND CREATED='1023828232769' AND LAST_MOD='-1' AND SRC='null' AND PARENT=-1 AND CLASSTYPE='Connector' AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL AND OPT1='null' AND OPT2='1' AND OPT3='\u000a\u0009<Source>http://www.cs.brandeis.edu/img/dept-title-bar.gif</Source>\u000a\u0009<Alt>Brandeis University --\u000aMichtom School of Computer Science</Alt>\u000a\u000a' AND OPT4='18' AND OPT5='http://www.cs.brandeis.edu/brandeis\u000ahttp://www.brandeis.edu\u000ahttp://www.cs.brandeis.edu/more-info/address.html\u000ahttp://www.cs.brandeis.edu/more-info/directions.html\u000ahttp://www.brandeis.edu/registrar/\u000ahttp://www.library.brandeis.edu/science/\u000ahttp://jscheme.cs.brandeis.edu:8080/jscheme/cosi/classes.servlet\u000ahttp://www.cs.brandeis.edu/course-pages/\u000ahttp://kutz60.kutz.brandeis.edu/AutoCat/COSI01.html\u000ahttp://www.brandeis.edu/admissions/admission1.html\u000ahttp://www.cs.brandeis.edu/~tim/Curriculum/samples.html\u000ahttp://www.brandeis.edu/gsas/\u000ahttp://www.cs.brandeis.edu/gradprogram.html\u000ahttp://www.cs.brandeis.edu/labs/\u000ahttp://www.cs.brandeis.edu/conferences/\u000ahttp://www.cs.brandeis.edu/faculty-descriptions\u000ahttp://www.cs.brandeis.edu/brochure.html\u000ahttp://www.cs.brandeis.edu/mailto:tim@cs.brandeis.edu\u000a'
+INSERT INTO SOURCE VALUES(1,'http','http://www.cs.brandeis.edu/',2171,'text/html','1023828232769','-1','null',-1,'Connector','Connector',NULL,NULL,'null','1','\u000a\u0009<Source>http://www.cs.brandeis.edu/img/dept-title-bar.gif</Source>\u000a\u0009<Alt>Brandeis University --\u000aMichtom School of Computer Science</Alt>\u000a\u000a','18','http://www.cs.brandeis.edu/brandeis\u000ahttp://www.brandeis.edu\u000ahttp://www.cs.brandeis.edu/more-info/address.html\u000ahttp://www.cs.brandeis.edu/more-info/directions.html\u000ahttp://www.brandeis.edu/registrar/\u000ahttp://www.library.brandeis.edu/science/\u000ahttp://jscheme.cs.brandeis.edu:8080/jscheme/cosi/classes.servlet\u000ahttp://www.cs.brandeis.edu/course-pages/\u000ahttp://kutz60.kutz.brandeis.edu/AutoCat/COSI01.html\u000ahttp://www.brandeis.edu/admissions/admission1.html\u000ahttp://www.cs.brandeis.edu/~tim/Curriculum/samples.html\u000ahttp://www.brandeis.edu/gsas/\u000ahttp://www.cs.brandeis.edu/gradprogram.html\u000ahttp://www.cs.brandeis.edu/labs/\u000ahttp://www.cs.brandeis.edu/conferences/\u000ahttp://www.cs.brandeis.edu/faculty-descriptions\u000ahttp://www.cs.brandeis.edu/brochure.html\u000ahttp://www.cs.brandeis.edu/mailto:tim@cs.brandeis.edu\u000a')
+DELETE FROM SOURCE WHERE ID=1 AND PROTOCOL='http' AND URL='http://www.cs.brandeis.edu/' AND SIZE=2171 AND TYPE='text/html' AND CREATED='1023828232769' AND LAST_MOD='-1' AND SRC='null' AND PARENT=-1 AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE=NULL AND SHAPE2D=NULL AND OPT1='null' AND OPT2='1' AND OPT3='\u000a\u0009<Source>http://www.cs.brandeis.edu/img/dept-title-bar.gif</Source>\u000a\u0009<Alt>Brandeis University --\u000aMichtom School of Computer Science</Alt>\u000a\u000a' AND OPT4='18' AND OPT5='http://www.cs.brandeis.edu/brandeis\u000ahttp://www.brandeis.edu\u000ahttp://www.cs.brandeis.edu/more-info/address.html\u000ahttp://www.cs.brandeis.edu/more-info/directions.html\u000ahttp://www.brandeis.edu/registrar/\u000ahttp://www.library.brandeis.edu/science/\u000ahttp://jscheme.cs.brandeis.edu:8080/jscheme/cosi/classes.servlet\u000ahttp://www.cs.brandeis.edu/course-pages/\u000ahttp://kutz60.kutz.brandeis.edu/AutoCat/COSI01.html\u000ahttp://www.brandeis.edu/admissions/admission1.html\u000ahttp://www.cs.brandeis.edu/~tim/Curriculum/samples.html\u000ahttp://www.brandeis.edu/gsas/\u000ahttp://www.cs.brandeis.edu/gradprogram.html\u000ahttp://www.cs.brandeis.edu/labs/\u000ahttp://www.cs.brandeis.edu/conferences/\u000ahttp://www.cs.brandeis.edu/faculty-descriptions\u000ahttp://www.cs.brandeis.edu/brochure.html\u000ahttp://www.cs.brandeis.edu/mailto:tim@cs.brandeis.edu\u000a'
+INSERT INTO SOURCE VALUES(1,'http','http://www.cs.brandeis.edu/',2171,'text/html','1023828232769','-1','null',-1,'Connector','Connector','stool',NULL,'null','1','\u000a\u0009<Source>http://www.cs.brandeis.edu/img/dept-title-bar.gif</Source>\u000a\u0009<Alt>Brandeis University --\u000aMichtom School of Computer Science</Alt>\u000a\u000a','18','http://www.cs.brandeis.edu/brandeis\u000ahttp://www.brandeis.edu\u000ahttp://www.cs.brandeis.edu/more-info/address.html\u000ahttp://www.cs.brandeis.edu/more-info/directions.html\u000ahttp://www.brandeis.edu/registrar/\u000ahttp://www.library.brandeis.edu/science/\u000ahttp://jscheme.cs.brandeis.edu:8080/jscheme/cosi/classes.servlet\u000ahttp://www.cs.brandeis.edu/course-pages/\u000ahttp://kutz60.kutz.brandeis.edu/AutoCat/COSI01.html\u000ahttp://www.brandeis.edu/admissions/admission1.html\u000ahttp://www.cs.brandeis.edu/~tim/Curriculum/samples.html\u000ahttp://www.brandeis.edu/gsas/\u000ahttp://www.cs.brandeis.edu/gradprogram.html\u000ahttp://www.cs.brandeis.edu/labs/\u000ahttp://www.cs.brandeis.edu/conferences/\u000ahttp://www.cs.brandeis.edu/faculty-descriptions\u000ahttp://www.cs.brandeis.edu/brochure.html\u000ahttp://www.cs.brandeis.edu/mailto:tim@cs.brandeis.edu\u000a')
+DELETE FROM SOURCE WHERE ID=1 AND PROTOCOL='http' AND URL='http://www.cs.brandeis.edu/' AND SIZE=2171 AND TYPE='text/html' AND CREATED='1023828232769' AND LAST_MOD='-1' AND SRC='null' AND PARENT=-1 AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE='stool' AND SHAPE2D=NULL AND OPT1='null' AND OPT2='1' AND OPT3='\u000a\u0009<Source>http://www.cs.brandeis.edu/img/dept-title-bar.gif</Source>\u000a\u0009<Alt>Brandeis University --\u000aMichtom School of Computer Science</Alt>\u000a\u000a' AND OPT4='18' AND OPT5='http://www.cs.brandeis.edu/brandeis\u000ahttp://www.brandeis.edu\u000ahttp://www.cs.brandeis.edu/more-info/address.html\u000ahttp://www.cs.brandeis.edu/more-info/directions.html\u000ahttp://www.brandeis.edu/registrar/\u000ahttp://www.library.brandeis.edu/science/\u000ahttp://jscheme.cs.brandeis.edu:8080/jscheme/cosi/classes.servlet\u000ahttp://www.cs.brandeis.edu/course-pages/\u000ahttp://kutz60.kutz.brandeis.edu/AutoCat/COSI01.html\u000ahttp://www.brandeis.edu/admissions/admission1.html\u000ahttp://www.cs.brandeis.edu/~tim/Curriculum/samples.html\u000ahttp://www.brandeis.edu/gsas/\u000ahttp://www.cs.brandeis.edu/gradprogram.html\u000ahttp://www.cs.brandeis.edu/labs/\u000ahttp://www.cs.brandeis.edu/conferences/\u000ahttp://www.cs.brandeis.edu/faculty-descriptions\u000ahttp://www.cs.brandeis.edu/brochure.html\u000ahttp://www.cs.brandeis.edu/mailto:tim@cs.brandeis.edu\u000a'
+INSERT INTO SOURCE VALUES(1,'http','http://www.cs.brandeis.edu/',2171,'text/html','1023828232769','-1','null',-1,'Connector','Connector','stool','stool','null','1','\u000a\u0009<Source>http://www.cs.brandeis.edu/img/dept-title-bar.gif</Source>\u000a\u0009<Alt>Brandeis University --\u000aMichtom School of Computer Science</Alt>\u000a\u000a','18','http://www.cs.brandeis.edu/brandeis\u000ahttp://www.brandeis.edu\u000ahttp://www.cs.brandeis.edu/more-info/address.html\u000ahttp://www.cs.brandeis.edu/more-info/directions.html\u000ahttp://www.brandeis.edu/registrar/\u000ahttp://www.library.brandeis.edu/science/\u000ahttp://jscheme.cs.brandeis.edu:8080/jscheme/cosi/classes.servlet\u000ahttp://www.cs.brandeis.edu/course-pages/\u000ahttp://kutz60.kutz.brandeis.edu/AutoCat/COSI01.html\u000ahttp://www.brandeis.edu/admissions/admission1.html\u000ahttp://www.cs.brandeis.edu/~tim/Curriculum/samples.html\u000ahttp://www.brandeis.edu/gsas/\u000ahttp://www.cs.brandeis.edu/gradprogram.html\u000ahttp://www.cs.brandeis.edu/labs/\u000ahttp://www.cs.brandeis.edu/conferences/\u000ahttp://www.cs.brandeis.edu/faculty-descriptions\u000ahttp://www.cs.brandeis.edu/brochure.html\u000ahttp://www.cs.brandeis.edu/mailto:tim@cs.brandeis.edu\u000a')
+create table table1 (url varchar(255), type varchar(255), classtype varchar(255), subtype varchar(255), shape varchar(255), shape2d varchar(255) )
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/img/dept-title-bar.gif','IMAGE',NULL,NULL,NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.cs.brandeis.edu/img/dept-title-bar.gif' AND TYPE='IMAGE' AND CLASSTYPE=NULL AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/img/dept-title-bar.gif','IMAGE','Component',NULL,NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.cs.brandeis.edu/img/dept-title-bar.gif' AND TYPE='IMAGE' AND CLASSTYPE='Component' AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/img/dept-title-bar.gif','IMAGE','Component','Component',NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.cs.brandeis.edu/img/dept-title-bar.gif' AND TYPE='IMAGE' AND CLASSTYPE='Component' AND SUBTYPE='Component' AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/img/dept-title-bar.gif','IMAGE','Component','Component','cube',NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.cs.brandeis.edu/img/dept-title-bar.gif' AND TYPE='IMAGE' AND CLASSTYPE='Component' AND SUBTYPE='Component' AND SHAPE='cube' AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/img/dept-title-bar.gif','IMAGE','Component','Component','cube','cube')
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/brandeis','LINK',NULL,NULL,NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.cs.brandeis.edu/brandeis' AND TYPE='LINK' AND CLASSTYPE=NULL AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/brandeis','LINK','Connector',NULL,NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.cs.brandeis.edu/brandeis' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/brandeis','LINK','Connector','Connector',NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.cs.brandeis.edu/brandeis' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/brandeis','LINK','Connector','Connector','stool',NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.cs.brandeis.edu/brandeis' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE='stool' AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/brandeis','LINK','Connector','Connector','stool','stool')
+INSERT INTO TABLE1 VALUES('http://www.brandeis.edu','LINK',NULL,NULL,NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.brandeis.edu' AND TYPE='LINK' AND CLASSTYPE=NULL AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.brandeis.edu','LINK','Connector',NULL,NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.brandeis.edu' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.brandeis.edu','LINK','Connector','Connector',NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.brandeis.edu' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.brandeis.edu','LINK','Connector','Connector','stool',NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.brandeis.edu' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE='stool' AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.brandeis.edu','LINK','Connector','Connector','stool','stool')
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/more-info/address.html','LINK',NULL,NULL,NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.cs.brandeis.edu/more-info/address.html' AND TYPE='LINK' AND CLASSTYPE=NULL AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/more-info/address.html','LINK','Connector',NULL,NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.cs.brandeis.edu/more-info/address.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/more-info/address.html','LINK','Connector','Connector',NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.cs.brandeis.edu/more-info/address.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/more-info/address.html','LINK','Connector','Connector','stool',NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.cs.brandeis.edu/more-info/address.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE='stool' AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/more-info/address.html','LINK','Connector','Connector','stool','stool')
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/more-info/directions.html','LINK',NULL,NULL,NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.cs.brandeis.edu/more-info/directions.html' AND TYPE='LINK' AND CLASSTYPE=NULL AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/more-info/directions.html','LINK','Connector',NULL,NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.cs.brandeis.edu/more-info/directions.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/more-info/directions.html','LINK','Connector','Connector',NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.cs.brandeis.edu/more-info/directions.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/more-info/directions.html','LINK','Connector','Connector','stool',NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.cs.brandeis.edu/more-info/directions.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE='stool' AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/more-info/directions.html','LINK','Connector','Connector','stool','stool')
+INSERT INTO TABLE1 VALUES('http://www.brandeis.edu/registrar/','LINK',NULL,NULL,NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.brandeis.edu/registrar/' AND TYPE='LINK' AND CLASSTYPE=NULL AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.brandeis.edu/registrar/','LINK','Connector',NULL,NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.brandeis.edu/registrar/' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.brandeis.edu/registrar/','LINK','Connector','Connector',NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.brandeis.edu/registrar/' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.brandeis.edu/registrar/','LINK','Connector','Connector','stool',NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.brandeis.edu/registrar/' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE='stool' AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.brandeis.edu/registrar/','LINK','Connector','Connector','stool','stool')
+INSERT INTO TABLE1 VALUES('http://www.library.brandeis.edu/science/','LINK',NULL,NULL,NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.library.brandeis.edu/science/' AND TYPE='LINK' AND CLASSTYPE=NULL AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.library.brandeis.edu/science/','LINK','Connector',NULL,NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.library.brandeis.edu/science/' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.library.brandeis.edu/science/','LINK','Connector','Connector',NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.library.brandeis.edu/science/' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.library.brandeis.edu/science/','LINK','Connector','Connector','stool',NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.library.brandeis.edu/science/' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE='stool' AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.library.brandeis.edu/science/','LINK','Connector','Connector','stool','stool')
+INSERT INTO TABLE1 VALUES('http://jscheme.cs.brandeis.edu:8080/jscheme/cosi/classes.servlet','LINK',NULL,NULL,NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://jscheme.cs.brandeis.edu:8080/jscheme/cosi/classes.servlet' AND TYPE='LINK' AND CLASSTYPE=NULL AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://jscheme.cs.brandeis.edu:8080/jscheme/cosi/classes.servlet','LINK','Connector',NULL,NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://jscheme.cs.brandeis.edu:8080/jscheme/cosi/classes.servlet' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://jscheme.cs.brandeis.edu:8080/jscheme/cosi/classes.servlet','LINK','Connector','Connector',NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://jscheme.cs.brandeis.edu:8080/jscheme/cosi/classes.servlet' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://jscheme.cs.brandeis.edu:8080/jscheme/cosi/classes.servlet','LINK','Connector','Connector','stool',NULL)
+DELETE FROM TABLE1 WHERE URL='http://jscheme.cs.brandeis.edu:8080/jscheme/cosi/classes.servlet' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE='stool' AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://jscheme.cs.brandeis.edu:8080/jscheme/cosi/classes.servlet','LINK','Connector','Connector','stool','stool')
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/course-pages/','LINK',NULL,NULL,NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.cs.brandeis.edu/course-pages/' AND TYPE='LINK' AND CLASSTYPE=NULL AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/course-pages/','LINK','Connector',NULL,NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.cs.brandeis.edu/course-pages/' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/course-pages/','LINK','Connector','Connector',NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.cs.brandeis.edu/course-pages/' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/course-pages/','LINK','Connector','Connector','stool',NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.cs.brandeis.edu/course-pages/' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE='stool' AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/course-pages/','LINK','Connector','Connector','stool','stool')
+INSERT INTO TABLE1 VALUES('http://kutz60.kutz.brandeis.edu/AutoCat/COSI01.html','LINK',NULL,NULL,NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://kutz60.kutz.brandeis.edu/AutoCat/COSI01.html' AND TYPE='LINK' AND CLASSTYPE=NULL AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://kutz60.kutz.brandeis.edu/AutoCat/COSI01.html','LINK','Connector',NULL,NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://kutz60.kutz.brandeis.edu/AutoCat/COSI01.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://kutz60.kutz.brandeis.edu/AutoCat/COSI01.html','LINK','Connector','Connector',NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://kutz60.kutz.brandeis.edu/AutoCat/COSI01.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://kutz60.kutz.brandeis.edu/AutoCat/COSI01.html','LINK','Connector','Connector','stool',NULL)
+DELETE FROM TABLE1 WHERE URL='http://kutz60.kutz.brandeis.edu/AutoCat/COSI01.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE='stool' AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://kutz60.kutz.brandeis.edu/AutoCat/COSI01.html','LINK','Connector','Connector','stool','stool')
+INSERT INTO TABLE1 VALUES('http://www.brandeis.edu/admissions/admission1.html','LINK',NULL,NULL,NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.brandeis.edu/admissions/admission1.html' AND TYPE='LINK' AND CLASSTYPE=NULL AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.brandeis.edu/admissions/admission1.html','LINK','Connector',NULL,NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.brandeis.edu/admissions/admission1.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.brandeis.edu/admissions/admission1.html','LINK','Connector','Connector',NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.brandeis.edu/admissions/admission1.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.brandeis.edu/admissions/admission1.html','LINK','Connector','Connector','stool',NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.brandeis.edu/admissions/admission1.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE='stool' AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.brandeis.edu/admissions/admission1.html','LINK','Connector','Connector','stool','stool')
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/~tim/Curriculum/samples.html','LINK',NULL,NULL,NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.cs.brandeis.edu/~tim/Curriculum/samples.html' AND TYPE='LINK' AND CLASSTYPE=NULL AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/~tim/Curriculum/samples.html','LINK','Connector',NULL,NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.cs.brandeis.edu/~tim/Curriculum/samples.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/~tim/Curriculum/samples.html','LINK','Connector','Connector',NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.cs.brandeis.edu/~tim/Curriculum/samples.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/~tim/Curriculum/samples.html','LINK','Connector','Connector','stool',NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.cs.brandeis.edu/~tim/Curriculum/samples.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE='stool' AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/~tim/Curriculum/samples.html','LINK','Connector','Connector','stool','stool')
+INSERT INTO TABLE1 VALUES('http://www.brandeis.edu/gsas/','LINK',NULL,NULL,NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.brandeis.edu/gsas/' AND TYPE='LINK' AND CLASSTYPE=NULL AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.brandeis.edu/gsas/','LINK','Connector',NULL,NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.brandeis.edu/gsas/' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.brandeis.edu/gsas/','LINK','Connector','Connector',NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.brandeis.edu/gsas/' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.brandeis.edu/gsas/','LINK','Connector','Connector','stool',NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.brandeis.edu/gsas/' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE='stool' AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.brandeis.edu/gsas/','LINK','Connector','Connector','stool','stool')
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/gradprogram.html','LINK',NULL,NULL,NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.cs.brandeis.edu/gradprogram.html' AND TYPE='LINK' AND CLASSTYPE=NULL AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/gradprogram.html','LINK','Connector',NULL,NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.cs.brandeis.edu/gradprogram.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/gradprogram.html','LINK','Connector','Connector',NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.cs.brandeis.edu/gradprogram.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/gradprogram.html','LINK','Connector','Connector','stool',NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.cs.brandeis.edu/gradprogram.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE='stool' AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/gradprogram.html','LINK','Connector','Connector','stool','stool')
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/labs/','LINK',NULL,NULL,NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.cs.brandeis.edu/labs/' AND TYPE='LINK' AND CLASSTYPE=NULL AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/labs/','LINK','Connector',NULL,NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.cs.brandeis.edu/labs/' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/labs/','LINK','Connector','Connector',NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.cs.brandeis.edu/labs/' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/labs/','LINK','Connector','Connector','stool',NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.cs.brandeis.edu/labs/' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE='stool' AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/labs/','LINK','Connector','Connector','stool','stool')
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/conferences/','LINK',NULL,NULL,NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.cs.brandeis.edu/conferences/' AND TYPE='LINK' AND CLASSTYPE=NULL AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/conferences/','LINK','Connector',NULL,NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.cs.brandeis.edu/conferences/' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/conferences/','LINK','Connector','Connector',NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.cs.brandeis.edu/conferences/' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/conferences/','LINK','Connector','Connector','stool',NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.cs.brandeis.edu/conferences/' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE='stool' AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/conferences/','LINK','Connector','Connector','stool','stool')
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/faculty-descriptions','LINK',NULL,NULL,NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.cs.brandeis.edu/faculty-descriptions' AND TYPE='LINK' AND CLASSTYPE=NULL AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/faculty-descriptions','LINK','Connector',NULL,NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.cs.brandeis.edu/faculty-descriptions' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/faculty-descriptions','LINK','Connector','Connector',NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.cs.brandeis.edu/faculty-descriptions' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/faculty-descriptions','LINK','Connector','Connector','stool',NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.cs.brandeis.edu/faculty-descriptions' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE='stool' AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/faculty-descriptions','LINK','Connector','Connector','stool','stool')
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/brochure.html','LINK',NULL,NULL,NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.cs.brandeis.edu/brochure.html' AND TYPE='LINK' AND CLASSTYPE=NULL AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/brochure.html','LINK','Connector',NULL,NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.cs.brandeis.edu/brochure.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/brochure.html','LINK','Connector','Connector',NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.cs.brandeis.edu/brochure.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/brochure.html','LINK','Connector','Connector','stool',NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.cs.brandeis.edu/brochure.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE='stool' AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/brochure.html','LINK','Connector','Connector','stool','stool')
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/mailto:tim@cs.brandeis.edu','LINK',NULL,NULL,NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.cs.brandeis.edu/mailto:tim@cs.brandeis.edu' AND TYPE='LINK' AND CLASSTYPE=NULL AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/mailto:tim@cs.brandeis.edu','LINK','Connector',NULL,NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.cs.brandeis.edu/mailto:tim@cs.brandeis.edu' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/mailto:tim@cs.brandeis.edu','LINK','Connector','Connector',NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.cs.brandeis.edu/mailto:tim@cs.brandeis.edu' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/mailto:tim@cs.brandeis.edu','LINK','Connector','Connector','stool',NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.cs.brandeis.edu/mailto:tim@cs.brandeis.edu' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE='stool' AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/mailto:tim@cs.brandeis.edu','LINK','Connector','Connector','stool','stool')
+INSERT INTO SOURCE VALUES(4,'http','http://kutz60.kutz.brandeis.edu/',-1,'dir','-1','-1',NULL,-1,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL)
+INSERT INTO SOURCE VALUES(3,'http','http://kutz60.kutz.brandeis.edu/autocat/',-1,'dir','-1','-1',NULL,4,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL)
+INSERT INTO SOURCE VALUES(2,'http','http://kutz60.kutz.brandeis.edu/autocat/cosi01.html',31102,'text/html; charset=ISO-8859-1','1023828333301','-1','null',3,NULL,NULL,NULL,NULL,'null','0','','0','')
+create table table2 (url varchar(255), type varchar(255), classtype varchar(255), subtype varchar(255), shape varchar(255), shape2d varchar(255) )

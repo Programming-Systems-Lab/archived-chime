@@ -1,9 +1,73 @@
+CREATE TABLE ROOM(URL VARCHAR,USERNAME VARCHAR,USERIP VARCHAR,UNIQUE(URL,USERNAME))
+CREATE INDEX URL ON ROOM(URL)
+CREATE TABLE MOVEMENT(ROOM VARCHAR,OBJ VARCHAR,X0 REAL,Y0 REAL,Z0 REAL,X1 REAL,Y1 REAL,Z1 REAL)
+CREATE INDEX OBJ ON MOVEMENT(OBJ)
 CREATE USER SA PASSWORD "" ADMIN
-/*C1*/CONNECT USER sa PASSWORD ""
-create table ROOM (url varchar(255), username varchar(255), userip varchar(255), PRIMARY KEY (url, username))
-create index url on ROOM(url)
-create table MOVEMENT (room varchar(255), obj varchar(255), x0 real, y0 real, z0 real, x1 real, y1 real, z1 real)
-create index obj on MOVEMENT(obj)
+CREATE ALIAS DAYNAME FOR "org.hsql.Library.dayname"
+CREATE ALIAS SPACE FOR "org.hsql.Library.space"
+CREATE ALIAS SUBSTRING FOR "org.hsql.Library.substring"
+CREATE ALIAS SQRT FOR "java.lang.Math.sqrt"
+CREATE ALIAS ABS FOR "java.lang.Math.abs"
+CREATE ALIAS POWER FOR "java.lang.Math.pow"
+CREATE ALIAS CHAR FOR "org.hsql.Library.character"
+CREATE ALIAS CONCAT FOR "org.hsql.Library.concat"
+CREATE ALIAS PI FOR "org.hsql.Library.pi"
+CREATE ALIAS SECOND FOR "org.hsql.Library.second"
+CREATE ALIAS TRUNCATE FOR "org.hsql.Library.truncate"
+CREATE ALIAS MONTH FOR "org.hsql.Library.month"
+CREATE ALIAS LOWER FOR "org.hsql.Library.lcase"
+CREATE ALIAS ATAN2 FOR "java.lang.Math.atan2"
+CREATE ALIAS REPEAT FOR "org.hsql.Library.repeat"
+CREATE ALIAS DAYOFMONTH FOR "org.hsql.Library.dayofmonth"
+CREATE ALIAS TAN FOR "java.lang.Math.tan"
+CREATE ALIAS RADIANS FOR "java.lang.Math.toRadians"
+CREATE ALIAS FLOOR FOR "java.lang.Math.floor"
+CREATE ALIAS NOW FOR "org.hsql.Library.now"
+CREATE ALIAS ACOS FOR "java.lang.Math.acos"
+CREATE ALIAS DAYOFWEEK FOR "org.hsql.Library.dayofweek"
+CREATE ALIAS CEILING FOR "java.lang.Math.ceil"
+CREATE ALIAS DAYOFYEAR FOR "org.hsql.Library.dayofyear"
+CREATE ALIAS LCASE FOR "org.hsql.Library.lcase"
+CREATE ALIAS WEEK FOR "org.hsql.Library.week"
+CREATE ALIAS SOUNDEX FOR "org.hsql.Library.soundex"
+CREATE ALIAS ASIN FOR "java.lang.Math.asin"
+CREATE ALIAS LOCATE FOR "org.hsql.Library.locate"
+CREATE ALIAS EXP FOR "java.lang.Math.exp"
+CREATE ALIAS MONTHNAME FOR "org.hsql.Library.monthname"
+CREATE ALIAS YEAR FOR "org.hsql.Library.year"
+CREATE ALIAS LEFT FOR "org.hsql.Library.left"
+CREATE ALIAS ROUNDMAGIC FOR "org.hsql.Library.roundMagic"
+CREATE ALIAS BITOR FOR "org.hsql.Library.bitor"
+CREATE ALIAS LTRIM FOR "org.hsql.Library.ltrim"
+CREATE ALIAS COT FOR "org.hsql.Library.cot"
+CREATE ALIAS COS FOR "java.lang.Math.cos"
+CREATE ALIAS MOD FOR "org.hsql.Library.mod"
+CREATE ALIAS SIGN FOR "org.hsql.Library.sign"
+CREATE ALIAS DEGREES FOR "java.lang.Math.toDegrees"
+CREATE ALIAS LOG FOR "java.lang.Math.log"
+CREATE ALIAS SIN FOR "java.lang.Math.sin"
+CREATE ALIAS CURTIME FOR "org.hsql.Library.curtime"
+CREATE ALIAS DIFFERENCE FOR "org.hsql.Library.difference"
+CREATE ALIAS INSERT FOR "org.hsql.Library.insert"
+CREATE ALIAS DATABASE FOR "org.hsql.Library.database"
+CREATE ALIAS MINUTE FOR "org.hsql.Library.minute"
+CREATE ALIAS HOUR FOR "org.hsql.Library.hour"
+CREATE ALIAS IDENTITY FOR "org.hsql.Library.identity"
+CREATE ALIAS QUARTER FOR "org.hsql.Library.quarter"
+CREATE ALIAS CURDATE FOR "org.hsql.Library.curdate"
+CREATE ALIAS BITAND FOR "org.hsql.Library.bitand"
+CREATE ALIAS USER FOR "org.hsql.Library.user"
+CREATE ALIAS UCASE FOR "org.hsql.Library.ucase"
+CREATE ALIAS RTRIM FOR "org.hsql.Library.rtrim"
+CREATE ALIAS LOG10 FOR "org.hsql.Library.log10"
+CREATE ALIAS RIGHT FOR "org.hsql.Library.right"
+CREATE ALIAS ATAN FOR "java.lang.Math.atan"
+CREATE ALIAS UPPER FOR "org.hsql.Library.ucase"
+CREATE ALIAS ASCII FOR "org.hsql.Library.ascii"
+CREATE ALIAS RAND FOR "java.lang.Math.random"
+CREATE ALIAS LENGTH FOR "org.hsql.Library.length"
+CREATE ALIAS ROUND FOR "org.hsql.Library.round"
+CREATE ALIAS REPLACE FOR "org.hsql.Library.replace"
 INSERT INTO ROOM VALUES('http://www.yahoo.com/','denis','128.59.23.34')
 INSERT INTO ROOM VALUES('http://www.yahoo.com/','suhit','128.59.23.58')
 INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,5.0,2.0,0.0)
@@ -77,3 +141,8 @@ INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,5.0,2
 INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,5.0394673,0.0,0.3131526)
 INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,5.0,2.0,0.0)
 INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,5.0,2.0,0.0)
+/*C2*/CONNECT USER sa PASSWORD ""
+INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,5.0,2.0,0.0)
+INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','http://www.altavista.com/',0.0,0.0,0.0,1.6301537,0.0,10.463245)
+INSERT INTO ROOM VALUES('http://www.cs.brandeis.edu/','suhit','128.59.23.42')
+INSERT INTO ROOM VALUES('http://kutz60.kutz.brandeis.edu/autocat/cosi01.html','suhit','128.59.23.42')
