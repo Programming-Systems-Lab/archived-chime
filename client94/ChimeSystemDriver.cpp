@@ -808,9 +808,9 @@ void ChimeSystemDriver::SetInfoObject() {
 	info->GetSienaLocation(siena_location);
 
 	if (strcmp(password, "") == 0 || strcmp(username, "") == 0 || strcmp(siena_location, "") == 0) {
-			info->SetUsername("denis");
-			info->SetPassword("denis");
-			info->SetSienaLocation("localhost");
+			info->SetUsername("suhit");
+			info->SetPassword("suhit");
+			info->SetSienaLocation("128.59.23.58");
 	}
 
 	info->SetSienaPort(1234);

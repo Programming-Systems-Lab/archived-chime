@@ -941,6 +941,11 @@ bool ChimeSector::BuildTopConnector(iSector *room, csVector3 const &size, csVect
 	trans += pos;
 	//BuildWall(room, size, trans, BACK, txt, csVector3(3,3,3));
 	buildBackDoorWall(walls, room, size, trans, txt, doortxt, csVector3(3,3,3), csVector3(2,3,0), 1, 0, connBackDoor);
+
+	//txt = engine->GetMaterialList()->FindByName ("brownfabric");
+	//doortxt = engine->GetMaterialList()->FindByName ("brownfabric");
+
+
 	//Build Left wall of the room
 	trans.Set(-size.x/2, 12.0, -size.z/2.0);
 	trans += pos;
@@ -999,7 +1004,6 @@ bool ChimeSector::BuildHallway(iSector *room, csVector3 const &size, csVector3 c
 	trans.y += 12.0;
 	doortxt = engine->GetMaterialList()->FindByName ("marble1");
 	buildBackDoorWall(walls, room, size, trans, txt, doortxt, csVector3(3,3,3), csVector3(2,3,0), 1, doorOff, hallBackTopDoor);
-	doortxt = engine->GetMaterialList()->FindByName ("halldoor");
 
 	//Build Left wall of the room
 	trans.Set(-size.x/2, 0, -size.z/2.0);
