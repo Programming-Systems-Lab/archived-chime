@@ -451,8 +451,11 @@ int AIVideoPlayer::DisplayFrame(iMaterialWrapper *frame_material){
 
 	// hardcoded scaling and tiling matrices for throwing the frame/texture
 	// onto the wall
-	csVector3 frameSize(0.01, 2.1, 2.9);
-	csVector3 frameTxtSize(2.9, 2.1, 0);
+	int width = 4, height = 3;  // 320x240 jpg for ai2tv
+	double scale = .7;	    // dp2041: I found this to look the "best"
+	csVector3 frameSize(0.01, height*scale, width*scale);  // old values = 0.01, 2.1, 2.9
+	csVector3 frameTxtSize(width*scale, height*scale, 0); // old values = 2.9, 2.1, 0
+	csVector3 frameOffset(-0.5,1.6,0.5);
 	
 	// ChimeSector is the actual room we are in. We use this object's methods
 	// to actually map the texture to the screen/wall, etc.
@@ -461,7 +464,7 @@ int AIVideoPlayer::DisplayFrame(iMaterialWrapper *frame_material){
 	room = sec2->GetRoom(0);
 
 	// This chimeSector method is used to actually put the frame on the wall...
-	iMeshWrapper *doormesh = sec2->PutImageOnScreen(sec2->GetRoom(0), screen_position, csVector3(-0.5,1.6,0.5), frameSize, frame_material, frameTxtSize);
+	iMeshWrapper *doormesh = sec2->PutImageOnScreen(sec2->GetRoom(0), screen_position, frameOffset, frameSize, frame_material, frameTxtSize);
 	room->ShineLights ();
 	}
 LOCKED=false;
