@@ -60,6 +60,8 @@ class ChimeSector
 	iSector *connector1, *connector2;	//Connector room
 	iSector *topConnector;				//Connector room for the top camera
 	iSector* hallway;					//Hallway
+	iSector* room;						//Main room
+	csVector3 mainRoomOrigin;
 	int		  numRooms;					//Number of rooms in th sector.
 	int		  numDoors;					//Number of active doors in the sector.
 
@@ -165,6 +167,7 @@ class ChimeSector
 public:
 
 	iSector* GetRoom(int index);
+	iSector* GetMainRoom() {return room; }
 	iSector* GetHallway() { return hallway; };
 	iSector* GetConn1() { return connector1; };
 	iSector* GetConn2() { return connector2; };
@@ -292,7 +295,7 @@ public:
 	void SetSideDoorLocation(int sideDoorNum, csVector3 location){sideDoorLocation[sideDoorNum]= location;}
 
 	// ADDED BY Suhit - to build ai2tv screen
-	iPolygon3D* BuildScreenOnWall(iSector *room, csVector3 const &objPos, csVector3 const &offset, csVector3 const &size, iMaterialWrapper *txt, csVector3 const &txtSize);
+	iPolygon3D* BuildScreenOnWall(csVector3 const &objPos, csVector3 const &offset, csVector3 const &size, iMaterialWrapper *txt, csVector3 const &txtSize);
 	// ADDED by DOV - to put AIVideo Frames on Screen
 	iMeshWrapper* ChimeSector::PutImageOnScreen(iSector *room, csVector3 const &objPos, csVector3 const &offset, csVector3 const &size, iMaterialWrapper *txt, csVector3 const &txtSize);
 };

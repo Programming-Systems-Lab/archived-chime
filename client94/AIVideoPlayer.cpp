@@ -304,7 +304,7 @@ int  AIVideoPlayer::DrawScreen(csVector3 position){
 	ChimeSector *sec2 = Sys->GetCurChimeSector();
 	iSector* room;
 	room = sec2->GetRoom(0);
-	screen = sec2->BuildScreenOnWall(sec2->GetRoom(0), position, csVector3(0,0,0), doorSize, mw, doorTxtSize);
+	screen = sec2->BuildScreenOnWall(position, csVector3(0,0,0), doorSize, mw, doorTxtSize);
 	screen_position=position;
 	room->ShineLights ();
 	return 1;

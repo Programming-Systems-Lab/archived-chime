@@ -1,184 +1,38 @@
-CREATE TABLE ROOM(URL VARCHAR,USERNAME VARCHAR,USERIP VARCHAR,UNIQUE(URL,USERNAME))
-CREATE INDEX URL ON ROOM(URL)
-CREATE TABLE MOVEMENT(ROOM VARCHAR,OBJ VARCHAR,X0 REAL,Y0 REAL,Z0 REAL,X1 REAL,Y1 REAL,Z1 REAL)
-CREATE INDEX OBJ ON MOVEMENT(OBJ)
 CREATE USER SA PASSWORD "" ADMIN
-CREATE ALIAS DAYNAME FOR "org.hsql.Library.dayname"
-CREATE ALIAS SPACE FOR "org.hsql.Library.space"
-CREATE ALIAS SUBSTRING FOR "org.hsql.Library.substring"
-CREATE ALIAS SQRT FOR "java.lang.Math.sqrt"
-CREATE ALIAS ABS FOR "java.lang.Math.abs"
-CREATE ALIAS POWER FOR "java.lang.Math.pow"
-CREATE ALIAS CHAR FOR "org.hsql.Library.character"
-CREATE ALIAS CONCAT FOR "org.hsql.Library.concat"
-CREATE ALIAS PI FOR "org.hsql.Library.pi"
-CREATE ALIAS SECOND FOR "org.hsql.Library.second"
-CREATE ALIAS TRUNCATE FOR "org.hsql.Library.truncate"
-CREATE ALIAS MONTH FOR "org.hsql.Library.month"
-CREATE ALIAS LOWER FOR "org.hsql.Library.lcase"
-CREATE ALIAS ATAN2 FOR "java.lang.Math.atan2"
-CREATE ALIAS REPEAT FOR "org.hsql.Library.repeat"
-CREATE ALIAS DAYOFMONTH FOR "org.hsql.Library.dayofmonth"
-CREATE ALIAS TAN FOR "java.lang.Math.tan"
-CREATE ALIAS RADIANS FOR "java.lang.Math.toRadians"
-CREATE ALIAS FLOOR FOR "java.lang.Math.floor"
-CREATE ALIAS NOW FOR "org.hsql.Library.now"
-CREATE ALIAS ACOS FOR "java.lang.Math.acos"
-CREATE ALIAS DAYOFWEEK FOR "org.hsql.Library.dayofweek"
-CREATE ALIAS CEILING FOR "java.lang.Math.ceil"
-CREATE ALIAS DAYOFYEAR FOR "org.hsql.Library.dayofyear"
-CREATE ALIAS LCASE FOR "org.hsql.Library.lcase"
-CREATE ALIAS WEEK FOR "org.hsql.Library.week"
-CREATE ALIAS SOUNDEX FOR "org.hsql.Library.soundex"
-CREATE ALIAS ASIN FOR "java.lang.Math.asin"
-CREATE ALIAS LOCATE FOR "org.hsql.Library.locate"
-CREATE ALIAS EXP FOR "java.lang.Math.exp"
-CREATE ALIAS MONTHNAME FOR "org.hsql.Library.monthname"
-CREATE ALIAS YEAR FOR "org.hsql.Library.year"
-CREATE ALIAS LEFT FOR "org.hsql.Library.left"
-CREATE ALIAS ROUNDMAGIC FOR "org.hsql.Library.roundMagic"
-CREATE ALIAS BITOR FOR "org.hsql.Library.bitor"
-CREATE ALIAS LTRIM FOR "org.hsql.Library.ltrim"
-CREATE ALIAS COT FOR "org.hsql.Library.cot"
-CREATE ALIAS COS FOR "java.lang.Math.cos"
-CREATE ALIAS MOD FOR "org.hsql.Library.mod"
-CREATE ALIAS SIGN FOR "org.hsql.Library.sign"
-CREATE ALIAS DEGREES FOR "java.lang.Math.toDegrees"
-CREATE ALIAS LOG FOR "java.lang.Math.log"
-CREATE ALIAS SIN FOR "java.lang.Math.sin"
-CREATE ALIAS CURTIME FOR "org.hsql.Library.curtime"
-CREATE ALIAS DIFFERENCE FOR "org.hsql.Library.difference"
-CREATE ALIAS INSERT FOR "org.hsql.Library.insert"
-CREATE ALIAS DATABASE FOR "org.hsql.Library.database"
-CREATE ALIAS MINUTE FOR "org.hsql.Library.minute"
-CREATE ALIAS HOUR FOR "org.hsql.Library.hour"
-CREATE ALIAS IDENTITY FOR "org.hsql.Library.identity"
-CREATE ALIAS QUARTER FOR "org.hsql.Library.quarter"
-CREATE ALIAS CURDATE FOR "org.hsql.Library.curdate"
-CREATE ALIAS BITAND FOR "org.hsql.Library.bitand"
-CREATE ALIAS USER FOR "org.hsql.Library.user"
-CREATE ALIAS UCASE FOR "org.hsql.Library.ucase"
-CREATE ALIAS RTRIM FOR "org.hsql.Library.rtrim"
-CREATE ALIAS LOG10 FOR "org.hsql.Library.log10"
-CREATE ALIAS RIGHT FOR "org.hsql.Library.right"
-CREATE ALIAS ATAN FOR "java.lang.Math.atan"
-CREATE ALIAS UPPER FOR "org.hsql.Library.ucase"
-CREATE ALIAS ASCII FOR "org.hsql.Library.ascii"
-CREATE ALIAS RAND FOR "java.lang.Math.random"
-CREATE ALIAS LENGTH FOR "org.hsql.Library.length"
-CREATE ALIAS ROUND FOR "org.hsql.Library.round"
-CREATE ALIAS REPLACE FOR "org.hsql.Library.replace"
-INSERT INTO ROOM VALUES('http://www.yahoo.com/','denis','128.59.23.34')
+/*C1*/CONNECT USER sa PASSWORD ""
+create table ROOM (url varchar(255), username varchar(255), userip varchar(255), PRIMARY KEY (url, username))
+create index url on ROOM(url)
+create table MOVEMENT (room varchar(255), obj varchar(255), x0 real, y0 real, z0 real, x1 real, y1 real, z1 real)
+create index obj on MOVEMENT(obj)
 INSERT INTO ROOM VALUES('http://www.yahoo.com/','suhit','128.59.23.58')
-INSERT INTO ROOM VALUES('http://www.cs.brandeis.edu/','suhit','128.59.23.42')
-INSERT INTO ROOM VALUES('http://kutz60.kutz.brandeis.edu/autocat/cosi01.html','suhit','128.59.23.42')
-INSERT INTO ROOM VALUES('http://www.cs.brandeis.edu/','denis','128.59.23.34')
-INSERT INTO ROOM VALUES('http://www.navy.mil/','suhit','128.59.23.42')
-INSERT INTO ROOM VALUES('http://www.navy.mil/','denis','128.59.23.34')
-INSERT INTO ROOM VALUES('http://www.suhit.com/','denis','128.59.23.34')
-INSERT INTO ROOM VALUES('http://www.philgross.com/','denis','128.59.23.58')
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,5.0,2.0,0.0)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,5.0,2.0,0.0)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,5.0,2.0,0.0)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','http://www.cnn.com/',0.0,0.0,0.0,2.0,0.0,3.0)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','http://www.altavista.com/',0.0,0.0,0.0,1.7496943,0.0,13.852097)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,6.52421,2.0,17.348198)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,6.52421,2.0,17.348198)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,6.52421,2.0,17.348198)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,6.52421,2.0,17.348198)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,6.52421,2.0,17.348198)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,6.52421,2.0,17.348198)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,6.52421,2.0,17.348198)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,6.52421,2.0,17.348198)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,5.0,2.0,0.0)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,5.0,2.0,0.0)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,5.0,2.0,0.0)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,5.0,2.0,0.0)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,5.0,2.0,0.0)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','http://www.altavista.com/',0.0,0.0,0.0,2.2677486,0.0,12.426418)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,7.445319,0.0,12.608941)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,5.0,2.0,0.0)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,5.0,2.0,0.0)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,4.8918095,0.0,0.2612908)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','http://www.google.com/',0.0,0.0,0.0,2.4584742,0.0,6.3787317)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,5.54743,2.0,3.573597)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,5.0,2.0,0.0)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,5.0,2.0,0.0)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,5.0,2.0,0.0)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,5.0,2.0,0.0)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,5.0,2.0,0.0)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,5.0,2.0,0.0)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,5.0,2.0,0.0)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,5.0,2.0,0.0)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,5.0,2.0,0.0)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,5.0,2.0,0.0)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,5.0,2.0,0.0)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,5.0,2.0,0.0)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,4.9346733,0.0,0.3135688)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,5.0,2.0,0.0)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,4.937929,0.0,0.3220971)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,5.0,2.0,0.0)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,5.0,2.0,0.0)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,5.0,2.0,0.0)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,5.0,2.0,0.0)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,5.0,2.0,0.0)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,5.0,2.0,0.0)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,5.0,2.0,0.0)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,5.0,2.0,0.0)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,5.0,2.0,0.0)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,5.0,2.0,0.0)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,5.0,2.0,0.0)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,5.0,2.0,0.0)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,5.0,2.0,0.0)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,5.0,2.0,0.0)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,5.0,2.0,6.144)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,5.0,2.0,6.144)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,5.0,2.0,6.144)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,5.0,2.0,6.144)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,5.0,2.0,6.144)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,5.0,2.0,6.144)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,5.0,2.0,6.144)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,5.0,2.0,6.144)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,5.0,2.0,6.144)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,5.0,2.0,6.144)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,5.0,2.0,6.144)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,5.0,2.0,6.144)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,5.0,2.0,0.0)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,5.0,2.0,0.0)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,5.0394673,0.0,0.3131526)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,5.0,2.0,0.0)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,5.0,2.0,0.0)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,5.0,2.0,0.0)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','http://www.altavista.com/',0.0,0.0,0.0,1.6301537,0.0,10.463245)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,4.9903903,0.0,0.290689)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,5.0,2.0,0.0)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,5.0,2.0,0.0)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,5.0,2.0,0.0)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','denis',0.0,0.0,0.0,0.0,0.0,0.0)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,5.0,2.0,0.0)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,5.0,2.0,0.0)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,5.0,2.0,0.0)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,5.0,2.0,0.0)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','suhit',0.0,0.0,0.0,0.0,0.0,0.0)
-INSERT INTO MOVEMENT VALUES('http://www.navy.mil/','http://www.navy.mil/slice_06.jpg',0.0,0.0,0.0,7.8496675,0.0,4.874527)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,5.0,2.0,0.0)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,5.0,2.0,0.0)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,5.0,2.0,0.0)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,4.9894934,0.0,0.2905769)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,5.0,2.0,0.0)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,5.0,2.0,0.0)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,5.0,2.0,0.0)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,5.0,2.0,0.0)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,5.0,2.0,0.0)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,4.9882607,0.0,0.2913761)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,4.9945903,0.0,0.2909119)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,5.0,2.0,0.0)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,5.0,2.0,0.0)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','suhit',0.0,0.0,0.0,0.0,0.0,0.0)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','suhit',0.0,0.0,0.0,0.0,0.0,0.0)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','suhit',0.0,0.0,0.0,0.0,0.0,0.0)
-/*C2*/CONNECT USER sa PASSWORD ""
+INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','http://www.altavista.com/',0.0,0.0,0.0,1.7058215,0.0,13.785532)
+INSERT INTO ROOM VALUES('http://www.navy.mil/','suhit','128.59.23.58')
+INSERT INTO MOVEMENT VALUES('http://www.navy.mil/','http://www.navy.mil/statbut2.gif',0.0,0.0,0.0,1.1502924,0.0,29.426006)
+INSERT INTO ROOM VALUES('http://www.philgross.com/','suhit','128.59.23.58')
 INSERT INTO ROOM VALUES('http://www.suhit.com/','suhit','128.59.23.58')
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','http://www.altavista.com/',0.0,0.0,0.0,1.907269,0.0,12.320016)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','http://www.altavista.com/',0.0,0.0,0.0,1.907269,0.0,12.320016)
-INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','http://www.altavista.com/',0.0,0.0,0.0,1.907269,0.0,12.320016)
+INSERT INTO ROOM VALUES('http://www.cs.brandeis.edu/','suhit','128.59.23.58')
+INSERT INTO MOVEMENT VALUES('http://www.navy.mil/','http://www.navy.mil/about1.gif',0.0,0.0,0.0,1.8255291,0.0,34.376442)
+INSERT INTO MOVEMENT VALUES('http://www.philgross.com/','http://www.philgross.com/study-9.ps',0.0,0.0,0.0,8.3347,0.0,10.663864)
+INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','http://www.altavista.com/',0.0,0.0,0.0,1.3010821,0.0,12.735246)
+INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','http://www.altavista.com/',0.0,0.0,0.0,1.4429083,0.0,12.747351)
+INSERT INTO MOVEMENT VALUES('http://www.philgross.com/','http://www.philgross.com/me.html',0.0,0.0,0.0,1.658905,0.0,7.9387817)
+INSERT INTO MOVEMENT VALUES('http://www.philgross.com/','http://www.philgross.com/resume.html',0.0,0.0,0.0,2.0773602,0.0,11.582844)
+INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','http://www.altavista.com/',0.0,0.0,0.0,1.5678267,0.0,12.653918)
+INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','http://www.altavista.com/',0.0,0.0,0.0,1.5279412,0.0,12.656223)
+INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','http://www.altavista.com/',0.0,0.0,0.0,1.5524111,0.0,12.934412)
+INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','http://www.suhit.com/',0.0,0.0,0.0,8.650564,0.0,7.414688)
+INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','http://www.suhit.com/',0.0,0.0,0.0,8.370968,0.0,6.615905)
+INSERT INTO MOVEMENT VALUES('http://www.philgross.com/','http://www.philgross.com/teaching_tips.html',0.0,0.0,0.0,1.625248,0.0,14.801807)
+INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','http://www.altavista.com/',0.0,0.0,0.0,1.5481977,0.0,13.101235)
+INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','http://www.altavista.com/',0.0,0.0,0.0,1.5481977,0.0,13.101235)
+INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','http://www.altavista.com/',0.0,0.0,0.0,1.5481977,0.0,13.101235)
+INSERT INTO MOVEMENT VALUES('http://www.suhit.com/','http://www.suhit.com/city.gif',0.0,0.0,0.0,1.4186935,0.0,10.921383)
+INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','http://www.altavista.com/',0.0,0.0,0.0,1.6519487,0.0,13.775362)
+INSERT INTO MOVEMENT VALUES('http://www.philgross.com/','http://www.philgross.com/resume.html',0.0,0.0,0.0,1.7072163,0.0,10.767445)
+INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','http://www.altavista.com/',0.0,0.0,0.0,1.117753,0.0,12.547117)
+INSERT INTO MOVEMENT VALUES('http://www.suhit.com/','http://www.suhit.com/art.gif',0.0,0.0,0.0,1.428196,0.0,13.739246)
+INSERT INTO MOVEMENT VALUES('http://www.suhit.com/','http://www.suhit.com/comp.gif',0.0,0.0,0.0,1.6350069,0.0,6.4528008)
+INSERT INTO MOVEMENT VALUES('http://www.suhit.com/','http://www.suhit.com/nice.gif',0.0,0.0,0.0,1.2607193,0.0,8.317547)
+INSERT INTO MOVEMENT VALUES('http://www.suhit.com/','http://www.suhit.com/city.gif',0.0,0.0,0.0,0.9592557,0.0,11.620415)
+INSERT INTO MOVEMENT VALUES('http://www.philgross.com/','http://www.philgross.com/me.html',0.0,0.0,0.0,1.544838,0.0,8.40947)
+INSERT INTO MOVEMENT VALUES('http://www.suhit.com/','http://www.suhit.com/art.gif',0.0,0.0,0.0,1.5798149,0.0,14.507896)

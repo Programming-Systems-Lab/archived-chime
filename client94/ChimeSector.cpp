@@ -394,7 +394,7 @@ bool ChimeSector::BuildDynamicRoom2(char *roomDesc, const csVector3 &pos, iColli
 	collider_list = new csVector(16,16);
 	transform_list = new csVector(16,16);
 
-	iSector *room;
+	//iSector *room;
 	iLightList *light_list;
 
 	csVector3 size(10, 5, 10);
@@ -456,11 +456,27 @@ bool ChimeSector::BuildDynamicRoom2(char *roomDesc, const csVector3 &pos, iColli
 	curPos.z += 1+(roomSize.z/2);
 	roomSize.y = 30;
 	BuildStandardRoom(room, roomSize, curPos);
+	mainRoomOrigin = curPos;
 
 	//setup lighting for the room
-	lightHeight = 10.0;
+	lightHeight = 5.0;
 	delta = 0.5;
-	radius = 20;
+	radius = 7;
+	light_list = room->GetLights();
+	int numLights = roomSize.z;
+	for (int i = 0; i<numLights; i++)
+	{
+		light = engine -> CreateLight (NULL, csVector3(-(roomOrigin.x/2)+delta, lightHeight, roomOrigin.z+i+delta), radius, csColor(1, 1, 1), false);
+		light_list->Add (light->QueryLight());
+		light = engine -> CreateLight (NULL, csVector3((roomOrigin.x/2)+delta, lightHeight, roomOrigin.z+i+delta), radius, csColor(1, 1, 1), false);
+		light_list->Add (light->QueryLight());
+	}
+	
+	/**
+	if (roomSize.z <= 20)
+        radius = 20;
+	else
+		radius = 0.7 * roomSize.z;
 	light_list = room->GetLights();
 	light = engine -> CreateLight (NULL, csVector3(roomOrigin.x+delta, lightHeight, roomOrigin.z+delta), radius, csColor(1, 1, 1), false);
 	light_list->Add (light->QueryLight());
@@ -472,6 +488,8 @@ bool ChimeSector::BuildDynamicRoom2(char *roomDesc, const csVector3 &pos, iColli
 	light_list->Add (light->QueryLight());
 	light = engine -> CreateLight (NULL, csVector3((roomSize.x/2)+roomOrigin.x, lightHeight, (roomSize.z/2)+roomOrigin.z), radius, csColor(1, 1, 1), false);
 	light_list->Add (light->QueryLight());
+	*/
+
 	
 	curPos.z += roomSize.z/2 + 1;
 
@@ -2236,20 +2254,22 @@ bool ChimeSector::ConnectSectors2(ChimeSector *otherSect, int atDoor)
 
 
 // Build a screen on the wall
-iPolygon3D* ChimeSector::BuildScreenOnWall(iSector *room, csVector3 const &objPos, csVector3 const &offset, csVector3 const &size, iMaterialWrapper *txt, csVector3 const &txtSize)
+iPolygon3D* ChimeSector::BuildScreenOnWall(csVector3 const &objPos, csVector3 const &offset, csVector3 const &size, iMaterialWrapper *txt, csVector3 const &txtSize)
 {
 
 	iMeshWrapper *doormesh = engine -> CreateSectorWallsMesh(room, "side_door");
 	iThingState *sidedoor = SCF_QUERY_INTERFACE(doormesh->GetMeshObject(), iThingState);
 
-	csVector3 pos(4.9999, 0, 7); //FIXIT: Should NOT be hardcoded
-	pos.z = objPos.z;
+	csVector3 pos = mainRoomOrigin;//(4.9999, 0, 7); //FIXIT: Should NOT be hardcoded
+	pos.z += (objPos.z - (size.z/2));
+	pos.x += (roomSize.x/2);
+	pos.y = 0;
 //	pos.x = 4.9999 //FIXIT: This is not smart way
 
-		iPolygon3D* sideDoorTemp;
+	iPolygon3D* sideDoorTemp;
 
 	if(objPos.x > 0){
-		pos += offset;
+		//pos += offset;
 
 		
 
@@ -2260,7 +2280,7 @@ iPolygon3D* ChimeSector::BuildScreenOnWall(iSector *room, csVector3 const &objPo
 		SetSideDoorLocation(nextSideDoorNum, pos);
 	}else{
 		pos.x = -pos.x;
-		pos += offset;
+		//pos += offset;
 
 	
 
