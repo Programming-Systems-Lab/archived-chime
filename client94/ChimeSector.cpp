@@ -644,15 +644,15 @@ bool ChimeSector::BuildDynamicRoom2(char *roomDesc, const csVector3 &pos, iColli
 
 	//Connect room and topConnector room
 	roomTopDoor[0]->CreatePortal(topConnector);
-	roomTopDoor[0]->SetAlpha(100);
+	roomTopDoor[0]->SetAlpha(255);
 	topConnBackDoor[0]->CreatePortal(room);
-	topConnBackDoor[0]->SetAlpha(100);
+	topConnBackDoor[0]->SetAlpha(255);
 
 	//Connect hallway and topConnector
 	topConnFrontDoor[0]->CreatePortal(hallway);
-	topConnFrontDoor[0]->SetAlpha(100);
+	topConnFrontDoor[0]->SetAlpha(255);
 	hallBackTopDoor[0]->CreatePortal(topConnector);
-	hallBackTopDoor[0]->SetAlpha(100);
+	hallBackTopDoor[0]->SetAlpha(255);
 
 
 	//Prepare room for collision detection

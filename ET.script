@@ -76,6 +76,7 @@ INSERT INTO ROOM VALUES('http://www.cs.brandeis.edu/','denis','128.59.23.34')
 INSERT INTO ROOM VALUES('http://www.navy.mil/','suhit','128.59.23.42')
 INSERT INTO ROOM VALUES('http://www.navy.mil/','denis','128.59.23.34')
 INSERT INTO ROOM VALUES('http://www.suhit.com/','denis','128.59.23.34')
+INSERT INTO ROOM VALUES('http://www.philgross.com/','denis','128.59.23.58')
 INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,5.0,2.0,0.0)
 INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,5.0,2.0,0.0)
 INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,5.0,2.0,0.0)
@@ -176,5 +177,8 @@ INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','mysprite',0.0,0.0,0.0,5.0,2
 INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','suhit',0.0,0.0,0.0,0.0,0.0,0.0)
 INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','suhit',0.0,0.0,0.0,0.0,0.0,0.0)
 INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','suhit',0.0,0.0,0.0,0.0,0.0,0.0)
-/*C1*/CONNECT USER sa PASSWORD ""
-INSERT INTO ROOM VALUES('http://www.philgross.com/','denis','128.59.23.58')
+/*C2*/CONNECT USER sa PASSWORD ""
+INSERT INTO ROOM VALUES('http://www.suhit.com/','suhit','128.59.23.58')
+INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','http://www.altavista.com/',0.0,0.0,0.0,1.907269,0.0,12.320016)
+INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','http://www.altavista.com/',0.0,0.0,0.0,1.907269,0.0,12.320016)
+INSERT INTO MOVEMENT VALUES('http://www.yahoo.com/','http://www.altavista.com/',0.0,0.0,0.0,1.907269,0.0,12.320016)

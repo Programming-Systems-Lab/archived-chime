@@ -810,7 +810,7 @@ void ChimeSystemDriver::SetInfoObject() {
 	if (strcmp(password, "") == 0 || strcmp(username, "") == 0 || strcmp(siena_location, "") == 0) {
 			info->SetUsername("suhit");
 			info->SetPassword("suhit");
-			info->SetSienaLocation("128.59.23.58");
+			info->SetSienaLocation("localhost");
 	}
 
 	info->SetSienaPort(1234);
@@ -1017,6 +1017,11 @@ void ChimeSystemDriver::SetupFrame()
 			  if (lookUp != 0) {
 				  view->GetCamera ()->GetTransform().RotateThis (CS_VEC_TILT_DOWN, lookUp);
 				  lookUp = 0;
+				  if (overviewWindow)
+				  {
+                      overviewWindow->SnapThisCamera();
+					  locked = true;
+				  }
 			  }
 			view->GetCamera ()->Move (CS_VEC_FORWARD * 4.0f * speed * SPEED);
 			UserMoved();
@@ -1030,6 +1035,11 @@ void ChimeSystemDriver::SetupFrame()
 			  if (lookUp != 0) {
 				  view->GetCamera ()->GetTransform().RotateThis (CS_VEC_TILT_DOWN, lookUp);
 				  lookUp = 0;
+				  if (overviewWindow)
+				  {
+					  overviewWindow->SnapThisCamera();
+					  locked = true;
+				  }
 			  }
 			view->GetCamera ()->Move (CS_VEC_BACKWARD * 4.0f * speed * SPEED);
 			UserMoved();
@@ -1695,10 +1705,13 @@ bool ChimeSystemDriver::HandleLeftMouseDoubleClick(iEvent &Event)
 	//if it isn't then just launch the browser
 	else 	
 		{
-//			csVector3 objPos;
-//			csVector3 offset;
-//			DrawSideDoor(objPos, offset, selectedMesh->QueryObject()->GetName()); 
-			_spawnl(_P_NOWAIT, browserPath, "browser", selectedMesh->QueryObject()->GetName(), NULL);
+			// get orine and set diff so that it'd be corresponded to the coordinate of 'room'
+			csVector3 origin2 = selectedMeshNewSect->GetOrigin();
+			csVector3 diff(5, 0, -2);
+			csVector3 offset = origin2 + diff;
+			csVector3 objPos = selectedMesh->GetMovable()->GetPosition() - offset;
+			DrawSideDoor(objPos, offset, selectedMesh->QueryObject()->GetName()); 
+			//_spawnl(_P_NOWAIT, browserPath, "browser", selectedMesh->QueryObject()->GetName(), NULL);
 		}
 
 	}
