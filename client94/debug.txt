@@ -37008,3 +37008,509 @@ crystalspace.awsprefs: Could not open image file '/aws/sbdn.png' on VFS!
 crystalspace.awsprefs: Could not open image file '/aws/sbrt.png' on VFS!
 crystalspace.awsprefs: Could not open image file '/aws/sblt.png' on VFS!
 crystalspace.engine.notify: Engine is using back2front mode.
+crystalspace.canvas.openglwin: Using 32 bits per pixel (16777216 color mode).
+crystalspace.canvas.openglcommon: OpenGL renderer: GeForce2 MX/AGP/3DNOW! (vendor: NVIDIA Corporation) version 1.3.1
+crystalspace.canvas.openglcommon: Using windowed mode at resolution 1024x968.
+crystalspace.graphics3d.opengl:   Super lightmaps: num=10 size=256x256
+crystalspace.graphics3d.opengl:   Optional Clipping: 0Pp
+crystalspace.graphics3d.opengl:   Required Clipping: 0Pp
+crystalspace.graphics3d.opengl:   Outer Clipping: PZp
+crystalspace.system: Loading AWS...
+crystalspace.awsprefs: Could not open image file '/aws/chkup.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/chkdn.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/chkon.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/chkoff.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/radup.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/raddn.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/radon.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/radoff.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treecol.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treeexp.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treecol.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treevl.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treehl.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treechke.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treechkf.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treegrpe.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treegrpf.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sbup.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sbdn.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sbrt.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sblt.png' on VFS!
+crystalspace.engine.notify: Engine is using back2front mode.
+crystalspace.canvas.openglwin: Using 32 bits per pixel (16777216 color mode).
+crystalspace.canvas.openglcommon: OpenGL renderer: GeForce2 MX/AGP/3DNOW! (vendor: NVIDIA Corporation) version 1.3.1
+crystalspace.canvas.openglcommon: Using windowed mode at resolution 1024x968.
+crystalspace.graphics3d.opengl:   Super lightmaps: num=10 size=256x256
+crystalspace.graphics3d.opengl:   Optional Clipping: 0Pp
+crystalspace.graphics3d.opengl:   Required Clipping: 0Pp
+crystalspace.graphics3d.opengl:   Outer Clipping: PZp
+crystalspace.system: Siena Subscriber
+Unable to Connect Socket to Server
+
+crystalspace.system: Siena Subscriber
+Unable to Listen
+
+crystalspace.system: Loading AWS...
+crystalspace.awsprefs: Could not open image file '/aws/chkup.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/chkdn.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/chkon.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/chkoff.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/radup.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/raddn.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/radon.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/radoff.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treecol.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treeexp.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treecol.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treevl.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treehl.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treechke.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treechkf.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treegrpe.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treegrpf.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sbup.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sbdn.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sbrt.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sblt.png' on VFS!
+crystalspace.engine.notify: Engine is using back2front mode.
+crystalspace.canvas.openglwin: Using 32 bits per pixel (16777216 color mode).
+crystalspace.canvas.openglcommon: OpenGL renderer: GeForce2 MX/AGP/3DNOW! (vendor: NVIDIA Corporation) version 1.3.1
+crystalspace.canvas.openglcommon: Using windowed mode at resolution 1024x968.
+crystalspace.graphics3d.opengl:   Super lightmaps: num=10 size=256x256
+crystalspace.graphics3d.opengl:   Optional Clipping: 0Pp
+crystalspace.graphics3d.opengl:   Required Clipping: 0Pp
+crystalspace.graphics3d.opengl:   Outer Clipping: PZp
+crystalspace.system: Loading AWS...
+crystalspace.awsprefs: Could not open image file '/aws/chkup.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/chkdn.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/chkon.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/chkoff.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/radup.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/raddn.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/radon.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/radoff.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treecol.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treeexp.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treecol.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treevl.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treehl.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treechke.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treechkf.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treegrpe.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treegrpf.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sbup.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sbdn.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sbrt.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sblt.png' on VFS!
+crystalspace.engine.notify: Engine is using back2front mode.
+crystalspace.canvas.openglwin: Using 32 bits per pixel (16777216 color mode).
+crystalspace.canvas.openglcommon: OpenGL renderer: GeForce2 MX/AGP/3DNOW! (vendor: NVIDIA Corporation) version 1.3.1
+crystalspace.canvas.openglcommon: Using windowed mode at resolution 1024x968.
+crystalspace.graphics3d.opengl:   Super lightmaps: num=10 size=256x256
+crystalspace.graphics3d.opengl:   Optional Clipping: 0Pp
+crystalspace.graphics3d.opengl:   Required Clipping: 0Pp
+crystalspace.graphics3d.opengl:   Outer Clipping: PZp
+crystalspace.system: Loading AWS...
+crystalspace.awsprefs: Could not open image file '/aws/chkup.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/chkdn.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/chkon.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/chkoff.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/radup.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/raddn.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/radon.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/radoff.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treecol.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treeexp.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treecol.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treevl.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treehl.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treechke.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treechkf.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treegrpe.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treegrpf.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sbup.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sbdn.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sbrt.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sblt.png' on VFS!
+crystalspace.engine.notify: Engine is using back2front mode.
+crystalspace.canvas.openglwin: Using 32 bits per pixel (16777216 color mode).
+crystalspace.canvas.openglcommon: OpenGL renderer: GeForce2 MX/AGP/3DNOW! (vendor: NVIDIA Corporation) version 1.3.1
+crystalspace.canvas.openglcommon: Using windowed mode at resolution 1024x968.
+crystalspace.graphics3d.opengl:   Super lightmaps: num=10 size=256x256
+crystalspace.graphics3d.opengl:   Optional Clipping: 0Pp
+crystalspace.graphics3d.opengl:   Required Clipping: 0Pp
+crystalspace.graphics3d.opengl:   Outer Clipping: PZp
+crystalspace.system: Loading AWS...
+crystalspace.awsprefs: Could not open image file '/aws/chkup.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/chkdn.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/chkon.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/chkoff.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/radup.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/raddn.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/radon.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/radoff.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treecol.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treeexp.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treecol.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treevl.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treehl.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treechke.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treechkf.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treegrpe.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treegrpf.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sbup.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sbdn.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sbrt.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sblt.png' on VFS!
+crystalspace.engine.notify: Engine is using back2front mode.
+crystalspace.canvas.openglwin: Using 32 bits per pixel (16777216 color mode).
+crystalspace.canvas.openglcommon: OpenGL renderer: GeForce2 MX/AGP/3DNOW! (vendor: NVIDIA Corporation) version 1.3.1
+crystalspace.canvas.openglcommon: Using windowed mode at resolution 1024x968.
+crystalspace.graphics3d.opengl:   Super lightmaps: num=10 size=256x256
+crystalspace.graphics3d.opengl:   Optional Clipping: 0Pp
+crystalspace.graphics3d.opengl:   Required Clipping: 0Pp
+crystalspace.graphics3d.opengl:   Outer Clipping: PZp
+crystalspace.system: Loading AWS...
+crystalspace.awsprefs: Could not open image file '/aws/chkup.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/chkdn.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/chkon.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/chkoff.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/radup.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/raddn.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/radon.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/radoff.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treecol.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treeexp.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treecol.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treevl.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treehl.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treechke.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treechkf.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treegrpe.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treegrpf.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sbup.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sbdn.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sbrt.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sblt.png' on VFS!
+crystalspace.engine.notify: Engine is using back2front mode.
+crystalspace.canvas.openglwin: Using 32 bits per pixel (16777216 color mode).
+crystalspace.canvas.openglcommon: OpenGL renderer: GeForce2 MX/AGP/3DNOW! (vendor: NVIDIA Corporation) version 1.3.1
+crystalspace.canvas.openglcommon: Using windowed mode at resolution 1024x968.
+crystalspace.graphics3d.opengl:   Super lightmaps: num=10 size=256x256
+crystalspace.graphics3d.opengl:   Optional Clipping: 0Pp
+crystalspace.graphics3d.opengl:   Required Clipping: 0Pp
+crystalspace.graphics3d.opengl:   Outer Clipping: PZp
+crystalspace.system: Loading AWS...
+crystalspace.awsprefs: Could not open image file '/aws/chkup.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/chkdn.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/chkon.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/chkoff.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/radup.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/raddn.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/radon.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/radoff.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treecol.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treeexp.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treecol.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treevl.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treehl.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treechke.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treechkf.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treegrpe.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treegrpf.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sbup.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sbdn.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sbrt.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sblt.png' on VFS!
+crystalspace.engine.notify: Engine is using back2front mode.
+crystalspace.canvas.openglwin: Using 32 bits per pixel (16777216 color mode).
+crystalspace.canvas.openglcommon: OpenGL renderer: GeForce2 MX/AGP/3DNOW! (vendor: NVIDIA Corporation) version 1.3.1
+crystalspace.canvas.openglcommon: Using windowed mode at resolution 1024x968.
+crystalspace.graphics3d.opengl:   Super lightmaps: num=10 size=256x256
+crystalspace.graphics3d.opengl:   Optional Clipping: 0Pp
+crystalspace.graphics3d.opengl:   Required Clipping: 0Pp
+crystalspace.graphics3d.opengl:   Outer Clipping: PZp
+crystalspace.system: Loading AWS...
+crystalspace.awsprefs: Could not open image file '/aws/chkup.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/chkdn.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/chkon.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/chkoff.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/radup.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/raddn.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/radon.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/radoff.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treecol.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treeexp.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treecol.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treevl.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treehl.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treechke.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treechkf.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treegrpe.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treegrpf.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sbup.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sbdn.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sbrt.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sblt.png' on VFS!
+crystalspace.engine.notify: Engine is using back2front mode.
+crystalspace.canvas.openglwin: Using 32 bits per pixel (16777216 color mode).
+crystalspace.canvas.openglcommon: OpenGL renderer: GeForce2 MX/AGP/3DNOW! (vendor: NVIDIA Corporation) version 1.3.1
+crystalspace.canvas.openglcommon: Using windowed mode at resolution 1024x968.
+crystalspace.graphics3d.opengl:   Super lightmaps: num=10 size=256x256
+crystalspace.graphics3d.opengl:   Optional Clipping: 0Pp
+crystalspace.graphics3d.opengl:   Required Clipping: 0Pp
+crystalspace.graphics3d.opengl:   Outer Clipping: PZp
+crystalspace.system: Loading AWS...
+crystalspace.awsprefs: Could not open image file '/aws/chkup.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/chkdn.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/chkon.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/chkoff.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/radup.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/raddn.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/radon.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/radoff.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treecol.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treeexp.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treecol.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treevl.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treehl.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treechke.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treechkf.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treegrpe.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treegrpf.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sbup.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sbdn.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sbrt.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sblt.png' on VFS!
+crystalspace.engine.notify: Engine is using back2front mode.
+crystalspace.canvas.openglwin: Using 32 bits per pixel (16777216 color mode).
+crystalspace.canvas.openglcommon: OpenGL renderer: GeForce2 MX/AGP/3DNOW! (vendor: NVIDIA Corporation) version 1.3.1
+crystalspace.canvas.openglcommon: Using windowed mode at resolution 1024x968.
+crystalspace.graphics3d.opengl:   Super lightmaps: num=10 size=256x256
+crystalspace.graphics3d.opengl:   Optional Clipping: 0Pp
+crystalspace.graphics3d.opengl:   Required Clipping: 0Pp
+crystalspace.graphics3d.opengl:   Outer Clipping: PZp
+crystalspace.system: Loading AWS...
+crystalspace.awsprefs: Could not open image file '/aws/chkup.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/chkdn.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/chkon.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/chkoff.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/radup.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/raddn.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/radon.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/radoff.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treecol.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treeexp.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treecol.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treevl.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treehl.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treechke.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treechkf.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treegrpe.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treegrpf.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sbup.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sbdn.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sbrt.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sblt.png' on VFS!
+crystalspace.engine.notify: Engine is using back2front mode.
+crystalspace.canvas.openglwin: Using 32 bits per pixel (16777216 color mode).
+crystalspace.canvas.openglcommon: OpenGL renderer: GeForce2 MX/AGP/3DNOW! (vendor: NVIDIA Corporation) version 1.3.1
+crystalspace.canvas.openglcommon: Using windowed mode at resolution 1024x968.
+crystalspace.graphics3d.opengl:   Super lightmaps: num=10 size=256x256
+crystalspace.graphics3d.opengl:   Optional Clipping: 0Pp
+crystalspace.graphics3d.opengl:   Required Clipping: 0Pp
+crystalspace.graphics3d.opengl:   Outer Clipping: PZp
+crystalspace.system: Loading AWS...
+crystalspace.awsprefs: Could not open image file '/aws/chkup.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/chkdn.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/chkon.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/chkoff.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/radup.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/raddn.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/radon.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/radoff.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treecol.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treeexp.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treecol.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treevl.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treehl.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treechke.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treechkf.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treegrpe.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treegrpf.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sbup.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sbdn.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sbrt.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sblt.png' on VFS!
+crystalspace.engine.notify: Engine is using back2front mode.
+crystalspace.canvas.openglwin: Using 32 bits per pixel (16777216 color mode).
+crystalspace.canvas.openglcommon: OpenGL renderer: GeForce2 MX/AGP/3DNOW! (vendor: NVIDIA Corporation) version 1.3.1
+crystalspace.canvas.openglcommon: Using windowed mode at resolution 1024x968.
+crystalspace.graphics3d.opengl:   Super lightmaps: num=10 size=256x256
+crystalspace.graphics3d.opengl:   Optional Clipping: 0Pp
+crystalspace.graphics3d.opengl:   Required Clipping: 0Pp
+crystalspace.graphics3d.opengl:   Outer Clipping: PZp
+crystalspace.system: Siena Subscriber
+Unable to Connect Socket to Server
+
+crystalspace.system: Siena Subscriber
+Unable to Listen
+
+crystalspace.system: Loading AWS...
+crystalspace.awsprefs: Could not open image file '/aws/chkup.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/chkdn.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/chkon.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/chkoff.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/radup.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/raddn.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/radon.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/radoff.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treecol.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treeexp.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treecol.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treevl.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treehl.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treechke.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treechkf.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treegrpe.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treegrpf.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sbup.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sbdn.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sbrt.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sblt.png' on VFS!
+crystalspace.engine.notify: Engine is using back2front mode.
+crystalspace.canvas.openglwin: Using 32 bits per pixel (16777216 color mode).
+crystalspace.canvas.openglcommon: OpenGL renderer: GeForce2 MX/AGP/3DNOW! (vendor: NVIDIA Corporation) version 1.3.1
+crystalspace.canvas.openglcommon: Using windowed mode at resolution 1024x968.
+crystalspace.graphics3d.opengl:   Super lightmaps: num=10 size=256x256
+crystalspace.graphics3d.opengl:   Optional Clipping: 0Pp
+crystalspace.graphics3d.opengl:   Required Clipping: 0Pp
+crystalspace.graphics3d.opengl:   Outer Clipping: PZp
+crystalspace.system: Siena Subscriber
+Unable to Connect Socket to Server
+
+crystalspace.system: Siena Subscriber
+Unable to Listen
+
+crystalspace.system: Siena Publisher
+Unable to Connect Socket to Server
+
+crystalspace.system: Siena Publisher
+Can't Setup Socket
+
+crystalspace.system: Loading AWS...
+crystalspace.awsprefs: Could not open image file '/aws/chkup.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/chkdn.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/chkon.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/chkoff.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/radup.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/raddn.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/radon.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/radoff.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treecol.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treeexp.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treecol.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treevl.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treehl.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treechke.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treechkf.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treegrpe.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treegrpf.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sbup.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sbdn.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sbrt.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sblt.png' on VFS!
+crystalspace.engine.notify: Engine is using back2front mode.
+crystalspace.canvas.openglwin: Using 32 bits per pixel (16777216 color mode).
+crystalspace.canvas.openglcommon: OpenGL renderer: GeForce2 MX/AGP/3DNOW! (vendor: NVIDIA Corporation) version 1.3.1
+crystalspace.canvas.openglcommon: Using windowed mode at resolution 1024x968.
+crystalspace.graphics3d.opengl:   Super lightmaps: num=10 size=256x256
+crystalspace.graphics3d.opengl:   Optional Clipping: 0Pp
+crystalspace.graphics3d.opengl:   Required Clipping: 0Pp
+crystalspace.graphics3d.opengl:   Outer Clipping: PZp
+crystalspace.system: Siena Subscriber
+Unable to Connect Socket to Server
+
+crystalspace.system: Siena Subscriber
+Unable to Listen
+
+crystalspace.canvas.openglwin: Using 32 bits per pixel (16777216 color mode).
+crystalspace.canvas.openglcommon: OpenGL renderer: GeForce2 MX/AGP/3DNOW! (vendor: NVIDIA Corporation) version 1.3.1
+crystalspace.canvas.openglcommon: Using windowed mode at resolution 1024x968.
+crystalspace.graphics3d.opengl:   Super lightmaps: num=10 size=256x256
+crystalspace.graphics3d.opengl:   Optional Clipping: 0Pp
+crystalspace.graphics3d.opengl:   Required Clipping: 0Pp
+crystalspace.graphics3d.opengl:   Outer Clipping: PZp
+crystalspace.system: Siena Subscriber
+Unable to Connect Socket to Server
+
+crystalspace.system: Siena Subscriber
+Unable to Listen
+
+crystalspace.system: Loading AWS...
+crystalspace.awsprefs: Could not open image file '/aws/chkup.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/chkdn.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/chkon.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/chkoff.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/radup.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/raddn.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/radon.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/radoff.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treecol.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treeexp.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treecol.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treevl.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treehl.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treechke.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treechkf.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treegrpe.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treegrpf.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sbup.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sbdn.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sbrt.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sblt.png' on VFS!
+crystalspace.engine.notify: Engine is using back2front mode.
+crystalspace.canvas.openglwin: Using 32 bits per pixel (16777216 color mode).
+crystalspace.canvas.openglcommon: OpenGL renderer: GeForce2 MX/AGP/3DNOW! (vendor: NVIDIA Corporation) version 1.3.1
+crystalspace.canvas.openglcommon: Using windowed mode at resolution 1024x968.
+crystalspace.graphics3d.opengl:   Super lightmaps: num=10 size=256x256
+crystalspace.graphics3d.opengl:   Optional Clipping: 0Pp
+crystalspace.graphics3d.opengl:   Required Clipping: 0Pp
+crystalspace.graphics3d.opengl:   Outer Clipping: PZp
+crystalspace.system: Siena Subscriber
+Unable to Connect Socket to Server
+
+crystalspace.system: Siena Subscriber
+Unable to Listen
+
+crystalspace.canvas.openglwin: Using 32 bits per pixel (16777216 color mode).
+crystalspace.canvas.openglcommon: OpenGL renderer: GeForce2 MX/AGP/3DNOW! (vendor: NVIDIA Corporation) version 1.3.1
+crystalspace.canvas.openglcommon: Using windowed mode at resolution 1024x968.
+crystalspace.graphics3d.opengl:   Super lightmaps: num=10 size=256x256
+crystalspace.graphics3d.opengl:   Optional Clipping: 0Pp
+crystalspace.graphics3d.opengl:   Required Clipping: 0Pp
+crystalspace.graphics3d.opengl:   Outer Clipping: PZp
+crystalspace.system: Loading AWS...
+crystalspace.awsprefs: Could not open image file '/aws/chkup.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/chkdn.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/chkon.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/chkoff.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/radup.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/raddn.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/radon.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/radoff.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treecol.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treeexp.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treecol.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treevl.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treehl.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treechke.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treechkf.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treegrpe.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/treegrpf.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sbup.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sbdn.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sbrt.png' on VFS!
+crystalspace.awsprefs: Could not open image file '/aws/sblt.png' on VFS!
+crystalspace.engine.notify: Engine is using back2front mode.

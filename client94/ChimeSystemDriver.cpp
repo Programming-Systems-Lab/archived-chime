@@ -388,16 +388,7 @@ void ChimeSystemDriver::UserMoved()
 			nextSector++;			//protect this room from caching out
 		}
 		
-		app->chatWindow->ShowMessage("Leaving room:");
-		app->chatWindow->ShowMessage(prevSector->GetUrl());
-		app->chatWindow->ShowMessage(currentSector->GetUrl());
 		comm.UserLeftRoom(username, my_ip_address, prevSector->GetUrl(), currentSector->GetUrl());
-
-		/*
-		newPos = view->GetCamera()->GetOrigin();
-		roomOrigin = sec->GetOrigin();
-		newPos -= roomOrigin;
-		*/
 
 		newPos = view->GetCamera()->GetTransform().GetOrigin();
 		roomOrigin = sec->GetOrigin();
@@ -410,18 +401,11 @@ void ChimeSystemDriver::UserMoved()
 	{
 		roomUrl = sec->GetUrl();
 
-		/*
-		newPos = view->GetCamera()->GetOrigin();
-		roomOrigin = sec->GetOrigin();
-		newPos -= roomOrigin;
-		*/
-
 		newPos = view->GetCamera()->GetTransform().GetOrigin();
 		roomOrigin = sec->GetOrigin();
 		newPos -= roomOrigin;
 
 		comm.MoveUser(roomUrl, username, my_ip_address, newPos.x, 0, newPos.z, sec->GetUserList());
-		//MoveUser(roomUrl, "1.1.1.1", newPos.x, 0, newPos.z+4);
 	}
 
 	if ( sprite && sprite->GetMovable()->GetSectors()->Find( view->GetCamera()->GetSector() ) == -1) {
@@ -2389,8 +2373,20 @@ bool ChimeSystemDriver::DeleteMeshObj(iMeshWrapper *mesh, iSector *room)
 	{
 		csColliderWrapper* coll_wrap = csColliderWrapper::GetColliderWrapper(mesh->QueryObject());
 		if (coll_wrap)
-			coll_wrap->DecRef();
-		return engine->RemoveObject(mesh);
+		{
+			try
+			{
+				coll_wrap->DecRef();
+			}
+			catch (...) { printf("\n"); }
+		}
+		bool rt = false;
+		try
+		{
+			rt = engine->RemoveObject(mesh);
+		}
+		catch (...) { printf("\n"); }
+		return rt;
 	}
     else
 	{
@@ -2915,9 +2911,12 @@ bool ChimeSystemDriver::AddUser(char *roomUrl, char *username, char *ip_address,
 	userPos.y += y;
 	userPos.z += z;
 
+
 	//Add user to the userList for UDP communication
 	if(!sec->AddUser(username, ip_address))
+	{
 		return true;
+	}
 
 	char *name = sec->MakeUserID(username, ip_address);
 	//char name[100];
@@ -2928,7 +2927,6 @@ bool ChimeSystemDriver::AddUser(char *roomUrl, char *username, char *ip_address,
 
 	iMeshWrapper *m = AddMeshObj(shape, name, room, userPos, 0.031);
 	if( !m ) return false;
-
 
 	//Add collision detection
 	iMeshWrapper *sp = FindObject(room, name);
@@ -3653,6 +3651,12 @@ bool ChimeSystemDriver::UserLeftRoom(char *oldRoomUrl, char *newRoomUrl, char *u
 	}
 	else
 	{
+		DeleteUser(oldRoomUrl, username, ip_address);
+		char shape[10];
+		GetShape(username, ip_address, shape);
+		AddUser(newRoomUrl, username, ip_address, shape, 10, 0, 2.0);
+		
+		/**
 		ChimeSector *newSec = FindSector( newRoomUrl );
 		if( newSec )
 		{
@@ -3663,6 +3667,7 @@ bool ChimeSystemDriver::UserLeftRoom(char *oldRoomUrl, char *newRoomUrl, char *u
 			}
 			user->GetMovable()->UpdateMove();
 		}
+		*/
 	}
 
 	return true;

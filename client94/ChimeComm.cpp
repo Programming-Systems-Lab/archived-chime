@@ -144,6 +144,7 @@ bool chimeComm::MoveUser(char *roomUrl, char *username, char *ip_address, float 
 
 			client_comm->SendUDPFunction(to_ip_address, c_moveUser, command);
 	}
+	client_comm->SendSienaFunction(c_moveUser, command, roomUrl, "HTTP");
 	return true;
 }
 
