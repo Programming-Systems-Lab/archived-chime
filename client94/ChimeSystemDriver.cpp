@@ -2800,7 +2800,7 @@ bool ChimeSystemDriver::MoveUser(char *roomUrl, char *username, char *ip_address
 	iMeshWrapper* obj = NULL;
 	obj = sec->FindObject(userID, room);
 	//hack fix to add meshes for users that are in the room
-	if (sec == GetCurChimeSector())
+	if (!strcmp(roomUrl, GetCurChimeSector()->GetUrl()))
 	{
 		while ( !obj ) {
 			char shape[7];
@@ -3461,7 +3461,6 @@ void ChimeSystemDriver::GetShape (char *name, char *ip, char *txtName)
 	//strcpy(txtName, "user");
 	//strcat(txtName, txtNumber);
 	sprintf(txtName, "user%i", txtNumber);
-	printf("\n\nShape: %s", txtName);
 }
 
 //Setup a collider wrapper for a mesh
@@ -3643,7 +3642,15 @@ bool ChimeSystemDriver::UserLeftRoom(char *oldRoomUrl, char *newRoomUrl, char *u
 	for (int i = 0; i<openDoors->Length(); i++)
 		app->chatWindow->ShowMessage((char*)openDoors->Get(i));
 	printf("\nNew door URL: %s", newRoomUrl);
-	if (openDoors->Find(newRoomUrl) == -1)
+	char *door;
+	bool isDoorOpen = false;
+	for (int i = 0; i<openDoors->Length(); i++)
+	{
+		door = (char*)openDoors->Get(i);
+		if (!strstr(newRoomUrl, door))
+			isDoorOpen = true;
+	}
+	if (isDoorOpen)
 	{
 		DeleteMeshObj(user, room);
 		if (!sec->deleteUser(username))

@@ -213,6 +213,9 @@ void ChimeApp::Stop3D() {
 bool ChimeApp::HandleEvent (iEvent &Event)
 {
  
+  //catch the quit command
+  if (Event.Type == csevBroadcast && Event.Command.Code == cscmdQuit && Sys)
+	  Sys->ExitSystem();
   //handle an event from the application
   if (csApp::HandleEvent (Event))
     return true;

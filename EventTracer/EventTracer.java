@@ -281,6 +281,7 @@ public class EventTracer {
 		String roomUrl = st.nextToken();
 		//String username = e.getUsername();
 
+
 		// notify users in the old room
 		String oldRoom = null;
 		Vector v = null;
@@ -290,14 +291,14 @@ public class EventTracer {
 		    v = findRoomTuple(oldRoom);
 		    e.setMethod("s_leftRoom");
 		    e.setData(username + " " + userIP + " " + oldRoom);
-		    try {
-				e.publish();
-			} catch (Exception ex) {
-				ex.printStackTrace();
-			}
+		    //try {
+		    //		e.publish();
+		    //} catch (Exception ex) {
+		    //	ex.printStackTrace();
+		    //}
 
 			//again don't need to tell each user - just tell the entire room once
-			/*
+			/**
 			if (v!=null) {
 			    for (int idx=0; idx<v.size(); idx++) {
 				roommate = ((RoomTuple)v.elementAt(idx)).getUser();
@@ -379,11 +380,12 @@ public class EventTracer {
 
 		System.err.println("METHOD CALL: CLIENT.C_LEFTROOM");
 
-		if (st.countTokens() < 3)
+		if (st.countTokens() < 4)
 		    return;
 		String user = st.nextToken();
 		String userIP = st.nextToken(); //no reason for this yet
 		String roomUrl = st.nextToken();
+		String newRoomUrl = st.nextToken();
 
 
 		// notify users in the old room
@@ -402,7 +404,7 @@ public class EventTracer {
 				//if (!roommate.equals(user)) {
 				    //e.setUsername(roommate);
 				    e.setUsername(user);
-				    e.setData(user + " " + userIP + " " + oldRoom);
+				    e.setData(user + " " + userIP + " " + roomUrl + " " + newRoomUrl);
 				    e.publish();
 				//}
 			    //}
