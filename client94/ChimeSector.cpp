@@ -818,11 +818,11 @@ iMeshWrapper* ChimeSector::AddMeshObj (char* tname, char* sname, iSector* where,
   }
   iMeshWrapper* spr = Sys->engine->CreateMeshWrapper (tmpl, sname,
 						      where, pos);
-  csMatrix3 m; m.Identity (); m = m * (size/20);
-  csXRotMatrix3 rot_m(-3.141/2);
-  m = rot_m * m;
+  //csMatrix3 m; m.Identity (); m = m * (size/20);
+  //csXRotMatrix3 rot_m(-3.141/2);
+  //m = rot_m * m;
 
-  spr->GetMovable ()->SetTransform (m);
+  //spr->GetMovable ()->SetTransform (m);
   spr->GetMovable ()->UpdateMove ();
 
   spr->DeferUpdateLighting (CS_NLIGHT_STATIC|CS_NLIGHT_DYNAMIC, 10);

@@ -30,7 +30,8 @@
 				ObjectFile=".\Release/"
 				ProgramDataBaseFileName=".\Release/"
 				WarningLevel="3"
-				SuppressStartupBanner="TRUE"/>
+				SuppressStartupBanner="TRUE"
+				DisableSpecificWarnings="4995"/>
 			<Tool
 				Name="VCCustomBuildTool"/>
 			<Tool
