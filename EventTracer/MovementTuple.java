@@ -4,8 +4,6 @@
  *
  * RoomTuple.java
  *
- * @author: Shen Li
- * 
  * The definition of a tuple of rooms.
  */
 
