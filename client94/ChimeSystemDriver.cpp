@@ -1028,8 +1028,9 @@ void ChimeSystemDriver::SetupFrame()
 	  if (!myG3D->BeginDraw (engine->GetBeginDrawFlags () | CSDRAW_2DGRAPHICS|CSDRAW_3DGRAPHICS))
 		  return;
 
-	  if (sprite && sprite->GetMovable()->GetSectors()->Find( view->GetCamera()->GetSector() ) < 0)
-		  sprite->GetMovable()->GetSectors()->Add( view->GetCamera()->GetSector() );
+	  if (sprite)
+		  if (sprite->GetMovable()->GetSectors()->Find( view->GetCamera()->GetSector() ) < 0)
+			sprite->GetMovable()->GetSectors()->Add( view->GetCamera()->GetSector() );
 	  csVector3 positionSprite =  view->GetCamera()->GetTransform().GetOrigin();
 	  positionSprite.y = 0;
 	  //positionSprite.z -= 1;
@@ -2380,6 +2381,7 @@ bool ChimeSystemDriver::DeleteMeshObj(iMeshWrapper *mesh, iSector *room)
     if (mesh && room)
 	{
 		//return room->GetMeshes()->Remove(mesh);
+		//return engine->RemoveObject(mesh);
 		return true;
 	}
     else
@@ -2681,6 +2683,17 @@ bool ChimeSystemDriver::HandleNetworkEvent(int method, char *params)
 	case s_roomInfo:
 		{
 			result = ReadRoom(params);
+			break;
+		}
+
+	case c_disconnect:
+		{
+			char username [50];
+			char roomUrl[MAX_URL];
+			char ip_address[50];
+
+			sscanf(params, "%s %s", roomUrl, username, ip_address);
+			result = DeleteUser(roomUrl, username, ip_address);
 			break;
 		}
 
@@ -3465,7 +3478,8 @@ iCollider* ChimeSystemDriver::InitCollider (iMeshWrapper* mesh)
 // Move to the left
 bool ChimeSystemDriver::MoveLeft(float speed)
 {
-	view->GetCamera ()->Move (CS_VEC_LEFT, 2.0f*speed);
+	if (moveMain)
+		view->GetCamera ()->Move (CS_VEC_LEFT, 2.0f*speed);
 	if ((locked || !moveMain) && overviewWindow)
 		overviewWindow->GetCamera ()->Move (CS_VEC_LEFT, 2.0f*speed);
 
@@ -3475,7 +3489,8 @@ bool ChimeSystemDriver::MoveLeft(float speed)
 // Move to the right
 bool ChimeSystemDriver::MoveRight(float speed)
 {
-	view->GetCamera ()->Move (CS_VEC_RIGHT, 2.0f*speed);
+	if (moveMain)
+		view->GetCamera ()->Move (CS_VEC_RIGHT, 2.0f*speed);
 	if ((locked || !moveMain) && overviewWindow)
 		overviewWindow->GetCamera ()->Move (CS_VEC_RIGHT, 2.0f*speed);
 
@@ -3565,4 +3580,15 @@ bool ChimeSystemDriver::RotateRight(float speed)
 		if (overviewWindow) overviewWindow->GetCamera ()->GetTransform().RotateOther (CS_VEC_ROT_RIGHT, 2.0f*speed);
 
 	return true;
+}
+
+void ChimeSystemDriver::ExitSystem()
+{
+	char username[50];
+	info->GetUsername(username);
+	char ipaddress[50];
+	info->GetMyIPAddress(ipaddress);
+	ChimeSector *sec = GetCurChimeSector();
+	comm.Disconnect(sec->GetUrl(), username, ipaddress, sec->GetUserList());
+	app->chatWindow->ShowMessage("Quit");
 }

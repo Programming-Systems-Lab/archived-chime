@@ -162,7 +162,7 @@ bool chimeComm::UserEnteredRoom(char *username, char *ip_address, char *newRoomU
 	AppendToken(command, ftoa(y));
 	AppendToken(command, ftoa(z));
 
-	client_comm->SendSienaFunction(c_enteredRoom, command, newRoomUrl,"HTTP");
+	client_comm->SendSienaFunction(c_enteredRoom, command, newRoomUrl, "HTTP");
 	return true;
 }
 
@@ -222,10 +222,30 @@ bool chimeComm::UnsubscribeRoom(char *roomUrl, char *username)
 }
 
 //Disconnect user from CHIME server
-bool chimeComm::Disconnect(char *username)
+bool chimeComm::Disconnect(char *roomUrl, char *username, char *ip_address, const csStrVector *userList)
 {
-	strcpy(command, username);
+	strcpy(command, roomUrl);
+	AppendToken(command, username);
+	AppendToken(command, ip_address);
 
-//	client_comm->SendSienaFunction(c_disconnect, command, roomUrl,"HTTP");
+	//Send signal to all the users in this room
+	for(int i = 0 ; i < userList->Length(); i++)
+	{
+		char temp[100];
+		strcpy(temp, userList->Get(i));
+		char *to_username = strtok(temp, " ");
+		char *to_ip_address = strtok(NULL, " ");
+
+		if (to_username != NULL && to_ip_address != NULL 
+			&& strcmp(to_ip_address, ip_address) != 0) //don't send it to yourself
+			
+
+			client_comm->SendUDPFunction(to_ip_address, c_disconnect, command);
+	}
+	
+	
+	//strcpy(command, username);
+
+	//client_comm->SendSienaFunction(c_disconnect, command, roomUrl, "HTTP");
 	return true;
 }

@@ -65,7 +65,7 @@ public:
 	//Unsubscribe for events of this room
 	bool UnsubscribeRoom(char *roomUrl, char *username);
 	//Disconnect user from CHIME server
-	bool Disconnect(char *username);
+	bool Disconnect(char *roomUrl, char *username, char *ip_address, const csStrVector *userList);
 
 	void UpdateChimeComm();
 

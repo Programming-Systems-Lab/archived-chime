@@ -447,6 +447,7 @@ public:
 
 	//Destructor to clean up and shutdown the engine.
 	virtual ~ChimeSystemDriver();
+	void ExitSystem();
 
 
 	///Comm section

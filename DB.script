@@ -3,329 +3,184 @@ CREATE USER SA PASSWORD "" ADMIN
 create table SOURCE (id integer, protocol varchar(255), url varchar(255), size integer, type varchar(20), created varchar(255), last_mod varchar(255), src varchar(255), parent integer, classtype varchar(255), subtype varchar(255), shape varchar(255), shape2d varchar(255), opt1 varchar(255), opt2 varchar(255), opt3 varchar(255), opt4 varchar(255), opt5 varchar(255), PRIMARY KEY (id), UNIQUE (protocol, url) )
 create index id on SOURCE(id)
 create index url on SOURCE(protocol, url)
-INSERT INTO SOURCE VALUES(1,'http','http://www.philgross.com/',-1,'text/html','1024693373639','-1','null',-1,NULL,NULL,NULL,NULL,'null','3','\u000a\u0009<Source>http://www.philgross.com/flash_and_me_2.jpg</Source>\u000a\u0009<Alt>Me and a koala named Flash</Alt>\u000a\u000a\u000a\u0009<Source>http://www.philgross.com/T_nl_windmill_1c.jpg</Source>\u000a\u0009<Alt>Row of windmills NE</Alt>\u000a\u000a\u000a\u0009<Source>http://www.philgross.com/T_nl_windmill_2c.jpg</Source>\u000a\u0009<Alt>Row of windmills SW</Alt>\u000a\u000a','11','http://www.philgross.com/me.html\u000ahttp://www.philgross.com/resume.html\u000ahttp://softe.cs.columbia.edu/3156-f01/\u000ahttp://www.philgross.com/Teaching_tips.html\u000ahttp://www.cs.columbia.edu/~phil/cs1001-2/public_html\u000ahttp://www.philgross.com/stl/stl.htm\u000ahttp://whim.cs.columbia.edu\u000ahttp://www.philgross.com/current_events.ppt\u000ahttp://www.philgross.com/study-1-8.ps\u000ahttp://www.philgross.com/study-9.ps\u000ahttp://www.philgross.com/study-10.ps\u000a')
-DELETE FROM SOURCE WHERE ID=1 AND PROTOCOL='http' AND URL='http://www.philgross.com/' AND SIZE=-1 AND TYPE='text/html' AND CREATED='1024693373639' AND LAST_MOD='-1' AND SRC='null' AND PARENT=-1 AND CLASSTYPE=NULL AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL AND OPT1='null' AND OPT2='3' AND OPT3='\u000a\u0009<Source>http://www.philgross.com/flash_and_me_2.jpg</Source>\u000a\u0009<Alt>Me and a koala named Flash</Alt>\u000a\u000a\u000a\u0009<Source>http://www.philgross.com/T_nl_windmill_1c.jpg</Source>\u000a\u0009<Alt>Row of windmills NE</Alt>\u000a\u000a\u000a\u0009<Source>http://www.philgross.com/T_nl_windmill_2c.jpg</Source>\u000a\u0009<Alt>Row of windmills SW</Alt>\u000a\u000a' AND OPT4='11' AND OPT5='http://www.philgross.com/me.html\u000ahttp://www.philgross.com/resume.html\u000ahttp://softe.cs.columbia.edu/3156-f01/\u000ahttp://www.philgross.com/Teaching_tips.html\u000ahttp://www.cs.columbia.edu/~phil/cs1001-2/public_html\u000ahttp://www.philgross.com/stl/stl.htm\u000ahttp://whim.cs.columbia.edu\u000ahttp://www.philgross.com/current_events.ppt\u000ahttp://www.philgross.com/study-1-8.ps\u000ahttp://www.philgross.com/study-9.ps\u000ahttp://www.philgross.com/study-10.ps\u000a'
-INSERT INTO SOURCE VALUES(1,'http','http://www.philgross.com/',-1,'text/html','1024693373639','-1','null',-1,'Connector',NULL,NULL,NULL,'null','3','\u000a\u0009<Source>http://www.philgross.com/flash_and_me_2.jpg</Source>\u000a\u0009<Alt>Me and a koala named Flash</Alt>\u000a\u000a\u000a\u0009<Source>http://www.philgross.com/T_nl_windmill_1c.jpg</Source>\u000a\u0009<Alt>Row of windmills NE</Alt>\u000a\u000a\u000a\u0009<Source>http://www.philgross.com/T_nl_windmill_2c.jpg</Source>\u000a\u0009<Alt>Row of windmills SW</Alt>\u000a\u000a','11','http://www.philgross.com/me.html\u000ahttp://www.philgross.com/resume.html\u000ahttp://softe.cs.columbia.edu/3156-f01/\u000ahttp://www.philgross.com/Teaching_tips.html\u000ahttp://www.cs.columbia.edu/~phil/cs1001-2/public_html\u000ahttp://www.philgross.com/stl/stl.htm\u000ahttp://whim.cs.columbia.edu\u000ahttp://www.philgross.com/current_events.ppt\u000ahttp://www.philgross.com/study-1-8.ps\u000ahttp://www.philgross.com/study-9.ps\u000ahttp://www.philgross.com/study-10.ps\u000a')
-DELETE FROM SOURCE WHERE ID=1 AND PROTOCOL='http' AND URL='http://www.philgross.com/' AND SIZE=-1 AND TYPE='text/html' AND CREATED='1024693373639' AND LAST_MOD='-1' AND SRC='null' AND PARENT=-1 AND CLASSTYPE='Connector' AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL AND OPT1='null' AND OPT2='3' AND OPT3='\u000a\u0009<Source>http://www.philgross.com/flash_and_me_2.jpg</Source>\u000a\u0009<Alt>Me and a koala named Flash</Alt>\u000a\u000a\u000a\u0009<Source>http://www.philgross.com/T_nl_windmill_1c.jpg</Source>\u000a\u0009<Alt>Row of windmills NE</Alt>\u000a\u000a\u000a\u0009<Source>http://www.philgross.com/T_nl_windmill_2c.jpg</Source>\u000a\u0009<Alt>Row of windmills SW</Alt>\u000a\u000a' AND OPT4='11' AND OPT5='http://www.philgross.com/me.html\u000ahttp://www.philgross.com/resume.html\u000ahttp://softe.cs.columbia.edu/3156-f01/\u000ahttp://www.philgross.com/Teaching_tips.html\u000ahttp://www.cs.columbia.edu/~phil/cs1001-2/public_html\u000ahttp://www.philgross.com/stl/stl.htm\u000ahttp://whim.cs.columbia.edu\u000ahttp://www.philgross.com/current_events.ppt\u000ahttp://www.philgross.com/study-1-8.ps\u000ahttp://www.philgross.com/study-9.ps\u000ahttp://www.philgross.com/study-10.ps\u000a'
-INSERT INTO SOURCE VALUES(1,'http','http://www.philgross.com/',-1,'text/html','1024693373639','-1','null',-1,'Connector','Connector',NULL,NULL,'null','3','\u000a\u0009<Source>http://www.philgross.com/flash_and_me_2.jpg</Source>\u000a\u0009<Alt>Me and a koala named Flash</Alt>\u000a\u000a\u000a\u0009<Source>http://www.philgross.com/T_nl_windmill_1c.jpg</Source>\u000a\u0009<Alt>Row of windmills NE</Alt>\u000a\u000a\u000a\u0009<Source>http://www.philgross.com/T_nl_windmill_2c.jpg</Source>\u000a\u0009<Alt>Row of windmills SW</Alt>\u000a\u000a','11','http://www.philgross.com/me.html\u000ahttp://www.philgross.com/resume.html\u000ahttp://softe.cs.columbia.edu/3156-f01/\u000ahttp://www.philgross.com/Teaching_tips.html\u000ahttp://www.cs.columbia.edu/~phil/cs1001-2/public_html\u000ahttp://www.philgross.com/stl/stl.htm\u000ahttp://whim.cs.columbia.edu\u000ahttp://www.philgross.com/current_events.ppt\u000ahttp://www.philgross.com/study-1-8.ps\u000ahttp://www.philgross.com/study-9.ps\u000ahttp://www.philgross.com/study-10.ps\u000a')
-DELETE FROM SOURCE WHERE ID=1 AND PROTOCOL='http' AND URL='http://www.philgross.com/' AND SIZE=-1 AND TYPE='text/html' AND CREATED='1024693373639' AND LAST_MOD='-1' AND SRC='null' AND PARENT=-1 AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE=NULL AND SHAPE2D=NULL AND OPT1='null' AND OPT2='3' AND OPT3='\u000a\u0009<Source>http://www.philgross.com/flash_and_me_2.jpg</Source>\u000a\u0009<Alt>Me and a koala named Flash</Alt>\u000a\u000a\u000a\u0009<Source>http://www.philgross.com/T_nl_windmill_1c.jpg</Source>\u000a\u0009<Alt>Row of windmills NE</Alt>\u000a\u000a\u000a\u0009<Source>http://www.philgross.com/T_nl_windmill_2c.jpg</Source>\u000a\u0009<Alt>Row of windmills SW</Alt>\u000a\u000a' AND OPT4='11' AND OPT5='http://www.philgross.com/me.html\u000ahttp://www.philgross.com/resume.html\u000ahttp://softe.cs.columbia.edu/3156-f01/\u000ahttp://www.philgross.com/Teaching_tips.html\u000ahttp://www.cs.columbia.edu/~phil/cs1001-2/public_html\u000ahttp://www.philgross.com/stl/stl.htm\u000ahttp://whim.cs.columbia.edu\u000ahttp://www.philgross.com/current_events.ppt\u000ahttp://www.philgross.com/study-1-8.ps\u000ahttp://www.philgross.com/study-9.ps\u000ahttp://www.philgross.com/study-10.ps\u000a'
-INSERT INTO SOURCE VALUES(1,'http','http://www.philgross.com/',-1,'text/html','1024693373639','-1','null',-1,'Connector','Connector','stool',NULL,'null','3','\u000a\u0009<Source>http://www.philgross.com/flash_and_me_2.jpg</Source>\u000a\u0009<Alt>Me and a koala named Flash</Alt>\u000a\u000a\u000a\u0009<Source>http://www.philgross.com/T_nl_windmill_1c.jpg</Source>\u000a\u0009<Alt>Row of windmills NE</Alt>\u000a\u000a\u000a\u0009<Source>http://www.philgross.com/T_nl_windmill_2c.jpg</Source>\u000a\u0009<Alt>Row of windmills SW</Alt>\u000a\u000a','11','http://www.philgross.com/me.html\u000ahttp://www.philgross.com/resume.html\u000ahttp://softe.cs.columbia.edu/3156-f01/\u000ahttp://www.philgross.com/Teaching_tips.html\u000ahttp://www.cs.columbia.edu/~phil/cs1001-2/public_html\u000ahttp://www.philgross.com/stl/stl.htm\u000ahttp://whim.cs.columbia.edu\u000ahttp://www.philgross.com/current_events.ppt\u000ahttp://www.philgross.com/study-1-8.ps\u000ahttp://www.philgross.com/study-9.ps\u000ahttp://www.philgross.com/study-10.ps\u000a')
-DELETE FROM SOURCE WHERE ID=1 AND PROTOCOL='http' AND URL='http://www.philgross.com/' AND SIZE=-1 AND TYPE='text/html' AND CREATED='1024693373639' AND LAST_MOD='-1' AND SRC='null' AND PARENT=-1 AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE='stool' AND SHAPE2D=NULL AND OPT1='null' AND OPT2='3' AND OPT3='\u000a\u0009<Source>http://www.philgross.com/flash_and_me_2.jpg</Source>\u000a\u0009<Alt>Me and a koala named Flash</Alt>\u000a\u000a\u000a\u0009<Source>http://www.philgross.com/T_nl_windmill_1c.jpg</Source>\u000a\u0009<Alt>Row of windmills NE</Alt>\u000a\u000a\u000a\u0009<Source>http://www.philgross.com/T_nl_windmill_2c.jpg</Source>\u000a\u0009<Alt>Row of windmills SW</Alt>\u000a\u000a' AND OPT4='11' AND OPT5='http://www.philgross.com/me.html\u000ahttp://www.philgross.com/resume.html\u000ahttp://softe.cs.columbia.edu/3156-f01/\u000ahttp://www.philgross.com/Teaching_tips.html\u000ahttp://www.cs.columbia.edu/~phil/cs1001-2/public_html\u000ahttp://www.philgross.com/stl/stl.htm\u000ahttp://whim.cs.columbia.edu\u000ahttp://www.philgross.com/current_events.ppt\u000ahttp://www.philgross.com/study-1-8.ps\u000ahttp://www.philgross.com/study-9.ps\u000ahttp://www.philgross.com/study-10.ps\u000a'
-INSERT INTO SOURCE VALUES(1,'http','http://www.philgross.com/',-1,'text/html','1024693373639','-1','null',-1,'Connector','Connector','stool','stool','null','3','\u000a\u0009<Source>http://www.philgross.com/flash_and_me_2.jpg</Source>\u000a\u0009<Alt>Me and a koala named Flash</Alt>\u000a\u000a\u000a\u0009<Source>http://www.philgross.com/T_nl_windmill_1c.jpg</Source>\u000a\u0009<Alt>Row of windmills NE</Alt>\u000a\u000a\u000a\u0009<Source>http://www.philgross.com/T_nl_windmill_2c.jpg</Source>\u000a\u0009<Alt>Row of windmills SW</Alt>\u000a\u000a','11','http://www.philgross.com/me.html\u000ahttp://www.philgross.com/resume.html\u000ahttp://softe.cs.columbia.edu/3156-f01/\u000ahttp://www.philgross.com/Teaching_tips.html\u000ahttp://www.cs.columbia.edu/~phil/cs1001-2/public_html\u000ahttp://www.philgross.com/stl/stl.htm\u000ahttp://whim.cs.columbia.edu\u000ahttp://www.philgross.com/current_events.ppt\u000ahttp://www.philgross.com/study-1-8.ps\u000ahttp://www.philgross.com/study-9.ps\u000ahttp://www.philgross.com/study-10.ps\u000a')
+INSERT INTO SOURCE VALUES(1,'http','http://www.cs.brandeis.edu/',2171,'text/html','1024935669389','-1','null',-1,NULL,NULL,NULL,NULL,'null','1','\u000a\u0009<Source>http://www.cs.brandeis.edu/img/dept-title-bar.gif</Source>\u000a\u0009<Alt>Brandeis University --\u000aMichtom School of Computer Science</Alt>\u000a\u000a','18','http://www.cs.brandeis.edu/brandeis\u000ahttp://www.brandeis.edu\u000ahttp://www.cs.brandeis.edu/more-info/address.html\u000ahttp://www.cs.brandeis.edu/more-info/directions.html\u000ahttp://www.brandeis.edu/registrar/\u000ahttp://www.library.brandeis.edu/science/\u000ahttp://jscheme.cs.brandeis.edu:8080/jscheme/cosi/classes.servlet\u000ahttp://www.cs.brandeis.edu/course-pages/\u000ahttp://kutz60.kutz.brandeis.edu/AutoCat/COSI01.html\u000ahttp://www.brandeis.edu/admissions/admission1.html\u000ahttp://www.cs.brandeis.edu/~tim/Curriculum/samples.html\u000ahttp://www.brandeis.edu/gsas/\u000ahttp://www.cs.brandeis.edu/gradprogram.html\u000ahttp://www.cs.brandeis.edu/labs/\u000ahttp://www.cs.brandeis.edu/conferences/\u000ahttp://www.cs.brandeis.edu/faculty-descriptions\u000ahttp://www.cs.brandeis.edu/brochure.html\u000ahttp://www.cs.brandeis.edu/mailto:tim@cs.brandeis.edu\u000a')
+DELETE FROM SOURCE WHERE ID=1 AND PROTOCOL='http' AND URL='http://www.cs.brandeis.edu/' AND SIZE=2171 AND TYPE='text/html' AND CREATED='1024935669389' AND LAST_MOD='-1' AND SRC='null' AND PARENT=-1 AND CLASSTYPE=NULL AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL AND OPT1='null' AND OPT2='1' AND OPT3='\u000a\u0009<Source>http://www.cs.brandeis.edu/img/dept-title-bar.gif</Source>\u000a\u0009<Alt>Brandeis University --\u000aMichtom School of Computer Science</Alt>\u000a\u000a' AND OPT4='18' AND OPT5='http://www.cs.brandeis.edu/brandeis\u000ahttp://www.brandeis.edu\u000ahttp://www.cs.brandeis.edu/more-info/address.html\u000ahttp://www.cs.brandeis.edu/more-info/directions.html\u000ahttp://www.brandeis.edu/registrar/\u000ahttp://www.library.brandeis.edu/science/\u000ahttp://jscheme.cs.brandeis.edu:8080/jscheme/cosi/classes.servlet\u000ahttp://www.cs.brandeis.edu/course-pages/\u000ahttp://kutz60.kutz.brandeis.edu/AutoCat/COSI01.html\u000ahttp://www.brandeis.edu/admissions/admission1.html\u000ahttp://www.cs.brandeis.edu/~tim/Curriculum/samples.html\u000ahttp://www.brandeis.edu/gsas/\u000ahttp://www.cs.brandeis.edu/gradprogram.html\u000ahttp://www.cs.brandeis.edu/labs/\u000ahttp://www.cs.brandeis.edu/conferences/\u000ahttp://www.cs.brandeis.edu/faculty-descriptions\u000ahttp://www.cs.brandeis.edu/brochure.html\u000ahttp://www.cs.brandeis.edu/mailto:tim@cs.brandeis.edu\u000a'
+INSERT INTO SOURCE VALUES(1,'http','http://www.cs.brandeis.edu/',2171,'text/html','1024935669389','-1','null',-1,'Connector',NULL,NULL,NULL,'null','1','\u000a\u0009<Source>http://www.cs.brandeis.edu/img/dept-title-bar.gif</Source>\u000a\u0009<Alt>Brandeis University --\u000aMichtom School of Computer Science</Alt>\u000a\u000a','18','http://www.cs.brandeis.edu/brandeis\u000ahttp://www.brandeis.edu\u000ahttp://www.cs.brandeis.edu/more-info/address.html\u000ahttp://www.cs.brandeis.edu/more-info/directions.html\u000ahttp://www.brandeis.edu/registrar/\u000ahttp://www.library.brandeis.edu/science/\u000ahttp://jscheme.cs.brandeis.edu:8080/jscheme/cosi/classes.servlet\u000ahttp://www.cs.brandeis.edu/course-pages/\u000ahttp://kutz60.kutz.brandeis.edu/AutoCat/COSI01.html\u000ahttp://www.brandeis.edu/admissions/admission1.html\u000ahttp://www.cs.brandeis.edu/~tim/Curriculum/samples.html\u000ahttp://www.brandeis.edu/gsas/\u000ahttp://www.cs.brandeis.edu/gradprogram.html\u000ahttp://www.cs.brandeis.edu/labs/\u000ahttp://www.cs.brandeis.edu/conferences/\u000ahttp://www.cs.brandeis.edu/faculty-descriptions\u000ahttp://www.cs.brandeis.edu/brochure.html\u000ahttp://www.cs.brandeis.edu/mailto:tim@cs.brandeis.edu\u000a')
+DELETE FROM SOURCE WHERE ID=1 AND PROTOCOL='http' AND URL='http://www.cs.brandeis.edu/' AND SIZE=2171 AND TYPE='text/html' AND CREATED='1024935669389' AND LAST_MOD='-1' AND SRC='null' AND PARENT=-1 AND CLASSTYPE='Connector' AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL AND OPT1='null' AND OPT2='1' AND OPT3='\u000a\u0009<Source>http://www.cs.brandeis.edu/img/dept-title-bar.gif</Source>\u000a\u0009<Alt>Brandeis University --\u000aMichtom School of Computer Science</Alt>\u000a\u000a' AND OPT4='18' AND OPT5='http://www.cs.brandeis.edu/brandeis\u000ahttp://www.brandeis.edu\u000ahttp://www.cs.brandeis.edu/more-info/address.html\u000ahttp://www.cs.brandeis.edu/more-info/directions.html\u000ahttp://www.brandeis.edu/registrar/\u000ahttp://www.library.brandeis.edu/science/\u000ahttp://jscheme.cs.brandeis.edu:8080/jscheme/cosi/classes.servlet\u000ahttp://www.cs.brandeis.edu/course-pages/\u000ahttp://kutz60.kutz.brandeis.edu/AutoCat/COSI01.html\u000ahttp://www.brandeis.edu/admissions/admission1.html\u000ahttp://www.cs.brandeis.edu/~tim/Curriculum/samples.html\u000ahttp://www.brandeis.edu/gsas/\u000ahttp://www.cs.brandeis.edu/gradprogram.html\u000ahttp://www.cs.brandeis.edu/labs/\u000ahttp://www.cs.brandeis.edu/conferences/\u000ahttp://www.cs.brandeis.edu/faculty-descriptions\u000ahttp://www.cs.brandeis.edu/brochure.html\u000ahttp://www.cs.brandeis.edu/mailto:tim@cs.brandeis.edu\u000a'
+INSERT INTO SOURCE VALUES(1,'http','http://www.cs.brandeis.edu/',2171,'text/html','1024935669389','-1','null',-1,'Connector','Connector',NULL,NULL,'null','1','\u000a\u0009<Source>http://www.cs.brandeis.edu/img/dept-title-bar.gif</Source>\u000a\u0009<Alt>Brandeis University --\u000aMichtom School of Computer Science</Alt>\u000a\u000a','18','http://www.cs.brandeis.edu/brandeis\u000ahttp://www.brandeis.edu\u000ahttp://www.cs.brandeis.edu/more-info/address.html\u000ahttp://www.cs.brandeis.edu/more-info/directions.html\u000ahttp://www.brandeis.edu/registrar/\u000ahttp://www.library.brandeis.edu/science/\u000ahttp://jscheme.cs.brandeis.edu:8080/jscheme/cosi/classes.servlet\u000ahttp://www.cs.brandeis.edu/course-pages/\u000ahttp://kutz60.kutz.brandeis.edu/AutoCat/COSI01.html\u000ahttp://www.brandeis.edu/admissions/admission1.html\u000ahttp://www.cs.brandeis.edu/~tim/Curriculum/samples.html\u000ahttp://www.brandeis.edu/gsas/\u000ahttp://www.cs.brandeis.edu/gradprogram.html\u000ahttp://www.cs.brandeis.edu/labs/\u000ahttp://www.cs.brandeis.edu/conferences/\u000ahttp://www.cs.brandeis.edu/faculty-descriptions\u000ahttp://www.cs.brandeis.edu/brochure.html\u000ahttp://www.cs.brandeis.edu/mailto:tim@cs.brandeis.edu\u000a')
+DELETE FROM SOURCE WHERE ID=1 AND PROTOCOL='http' AND URL='http://www.cs.brandeis.edu/' AND SIZE=2171 AND TYPE='text/html' AND CREATED='1024935669389' AND LAST_MOD='-1' AND SRC='null' AND PARENT=-1 AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE=NULL AND SHAPE2D=NULL AND OPT1='null' AND OPT2='1' AND OPT3='\u000a\u0009<Source>http://www.cs.brandeis.edu/img/dept-title-bar.gif</Source>\u000a\u0009<Alt>Brandeis University --\u000aMichtom School of Computer Science</Alt>\u000a\u000a' AND OPT4='18' AND OPT5='http://www.cs.brandeis.edu/brandeis\u000ahttp://www.brandeis.edu\u000ahttp://www.cs.brandeis.edu/more-info/address.html\u000ahttp://www.cs.brandeis.edu/more-info/directions.html\u000ahttp://www.brandeis.edu/registrar/\u000ahttp://www.library.brandeis.edu/science/\u000ahttp://jscheme.cs.brandeis.edu:8080/jscheme/cosi/classes.servlet\u000ahttp://www.cs.brandeis.edu/course-pages/\u000ahttp://kutz60.kutz.brandeis.edu/AutoCat/COSI01.html\u000ahttp://www.brandeis.edu/admissions/admission1.html\u000ahttp://www.cs.brandeis.edu/~tim/Curriculum/samples.html\u000ahttp://www.brandeis.edu/gsas/\u000ahttp://www.cs.brandeis.edu/gradprogram.html\u000ahttp://www.cs.brandeis.edu/labs/\u000ahttp://www.cs.brandeis.edu/conferences/\u000ahttp://www.cs.brandeis.edu/faculty-descriptions\u000ahttp://www.cs.brandeis.edu/brochure.html\u000ahttp://www.cs.brandeis.edu/mailto:tim@cs.brandeis.edu\u000a'
+INSERT INTO SOURCE VALUES(1,'http','http://www.cs.brandeis.edu/',2171,'text/html','1024935669389','-1','null',-1,'Connector','Connector','stool',NULL,'null','1','\u000a\u0009<Source>http://www.cs.brandeis.edu/img/dept-title-bar.gif</Source>\u000a\u0009<Alt>Brandeis University --\u000aMichtom School of Computer Science</Alt>\u000a\u000a','18','http://www.cs.brandeis.edu/brandeis\u000ahttp://www.brandeis.edu\u000ahttp://www.cs.brandeis.edu/more-info/address.html\u000ahttp://www.cs.brandeis.edu/more-info/directions.html\u000ahttp://www.brandeis.edu/registrar/\u000ahttp://www.library.brandeis.edu/science/\u000ahttp://jscheme.cs.brandeis.edu:8080/jscheme/cosi/classes.servlet\u000ahttp://www.cs.brandeis.edu/course-pages/\u000ahttp://kutz60.kutz.brandeis.edu/AutoCat/COSI01.html\u000ahttp://www.brandeis.edu/admissions/admission1.html\u000ahttp://www.cs.brandeis.edu/~tim/Curriculum/samples.html\u000ahttp://www.brandeis.edu/gsas/\u000ahttp://www.cs.brandeis.edu/gradprogram.html\u000ahttp://www.cs.brandeis.edu/labs/\u000ahttp://www.cs.brandeis.edu/conferences/\u000ahttp://www.cs.brandeis.edu/faculty-descriptions\u000ahttp://www.cs.brandeis.edu/brochure.html\u000ahttp://www.cs.brandeis.edu/mailto:tim@cs.brandeis.edu\u000a')
+DELETE FROM SOURCE WHERE ID=1 AND PROTOCOL='http' AND URL='http://www.cs.brandeis.edu/' AND SIZE=2171 AND TYPE='text/html' AND CREATED='1024935669389' AND LAST_MOD='-1' AND SRC='null' AND PARENT=-1 AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE='stool' AND SHAPE2D=NULL AND OPT1='null' AND OPT2='1' AND OPT3='\u000a\u0009<Source>http://www.cs.brandeis.edu/img/dept-title-bar.gif</Source>\u000a\u0009<Alt>Brandeis University --\u000aMichtom School of Computer Science</Alt>\u000a\u000a' AND OPT4='18' AND OPT5='http://www.cs.brandeis.edu/brandeis\u000ahttp://www.brandeis.edu\u000ahttp://www.cs.brandeis.edu/more-info/address.html\u000ahttp://www.cs.brandeis.edu/more-info/directions.html\u000ahttp://www.brandeis.edu/registrar/\u000ahttp://www.library.brandeis.edu/science/\u000ahttp://jscheme.cs.brandeis.edu:8080/jscheme/cosi/classes.servlet\u000ahttp://www.cs.brandeis.edu/course-pages/\u000ahttp://kutz60.kutz.brandeis.edu/AutoCat/COSI01.html\u000ahttp://www.brandeis.edu/admissions/admission1.html\u000ahttp://www.cs.brandeis.edu/~tim/Curriculum/samples.html\u000ahttp://www.brandeis.edu/gsas/\u000ahttp://www.cs.brandeis.edu/gradprogram.html\u000ahttp://www.cs.brandeis.edu/labs/\u000ahttp://www.cs.brandeis.edu/conferences/\u000ahttp://www.cs.brandeis.edu/faculty-descriptions\u000ahttp://www.cs.brandeis.edu/brochure.html\u000ahttp://www.cs.brandeis.edu/mailto:tim@cs.brandeis.edu\u000a'
+INSERT INTO SOURCE VALUES(1,'http','http://www.cs.brandeis.edu/',2171,'text/html','1024935669389','-1','null',-1,'Connector','Connector','stool','stool','null','1','\u000a\u0009<Source>http://www.cs.brandeis.edu/img/dept-title-bar.gif</Source>\u000a\u0009<Alt>Brandeis University --\u000aMichtom School of Computer Science</Alt>\u000a\u000a','18','http://www.cs.brandeis.edu/brandeis\u000ahttp://www.brandeis.edu\u000ahttp://www.cs.brandeis.edu/more-info/address.html\u000ahttp://www.cs.brandeis.edu/more-info/directions.html\u000ahttp://www.brandeis.edu/registrar/\u000ahttp://www.library.brandeis.edu/science/\u000ahttp://jscheme.cs.brandeis.edu:8080/jscheme/cosi/classes.servlet\u000ahttp://www.cs.brandeis.edu/course-pages/\u000ahttp://kutz60.kutz.brandeis.edu/AutoCat/COSI01.html\u000ahttp://www.brandeis.edu/admissions/admission1.html\u000ahttp://www.cs.brandeis.edu/~tim/Curriculum/samples.html\u000ahttp://www.brandeis.edu/gsas/\u000ahttp://www.cs.brandeis.edu/gradprogram.html\u000ahttp://www.cs.brandeis.edu/labs/\u000ahttp://www.cs.brandeis.edu/conferences/\u000ahttp://www.cs.brandeis.edu/faculty-descriptions\u000ahttp://www.cs.brandeis.edu/brochure.html\u000ahttp://www.cs.brandeis.edu/mailto:tim@cs.brandeis.edu\u000a')
 create table table1 (url varchar(255), type varchar(255), classtype varchar(255), subtype varchar(255), shape varchar(255), shape2d varchar(255) )
-INSERT INTO TABLE1 VALUES('http://www.philgross.com/flash_and_me_2.jpg','IMAGE',NULL,NULL,NULL,NULL)
-DELETE FROM TABLE1 WHERE URL='http://www.philgross.com/flash_and_me_2.jpg' AND TYPE='IMAGE' AND CLASSTYPE=NULL AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE1 VALUES('http://www.philgross.com/flash_and_me_2.jpg','IMAGE','Component',NULL,NULL,NULL)
-DELETE FROM TABLE1 WHERE URL='http://www.philgross.com/flash_and_me_2.jpg' AND TYPE='IMAGE' AND CLASSTYPE='Component' AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE1 VALUES('http://www.philgross.com/flash_and_me_2.jpg','IMAGE','Component','Component',NULL,NULL)
-DELETE FROM TABLE1 WHERE URL='http://www.philgross.com/flash_and_me_2.jpg' AND TYPE='IMAGE' AND CLASSTYPE='Component' AND SUBTYPE='Component' AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE1 VALUES('http://www.philgross.com/flash_and_me_2.jpg','IMAGE','Component','Component','books',NULL)
-DELETE FROM TABLE1 WHERE URL='http://www.philgross.com/flash_and_me_2.jpg' AND TYPE='IMAGE' AND CLASSTYPE='Component' AND SUBTYPE='Component' AND SHAPE='books' AND SHAPE2D=NULL
-INSERT INTO TABLE1 VALUES('http://www.philgross.com/flash_and_me_2.jpg','IMAGE','Component','Component','books','books')
-INSERT INTO TABLE1 VALUES('http://www.philgross.com/T_nl_windmill_1c.jpg','IMAGE',NULL,NULL,NULL,NULL)
-DELETE FROM TABLE1 WHERE URL='http://www.philgross.com/T_nl_windmill_1c.jpg' AND TYPE='IMAGE' AND CLASSTYPE=NULL AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE1 VALUES('http://www.philgross.com/T_nl_windmill_1c.jpg','IMAGE','Component',NULL,NULL,NULL)
-DELETE FROM TABLE1 WHERE URL='http://www.philgross.com/T_nl_windmill_1c.jpg' AND TYPE='IMAGE' AND CLASSTYPE='Component' AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE1 VALUES('http://www.philgross.com/T_nl_windmill_1c.jpg','IMAGE','Component','Component',NULL,NULL)
-DELETE FROM TABLE1 WHERE URL='http://www.philgross.com/T_nl_windmill_1c.jpg' AND TYPE='IMAGE' AND CLASSTYPE='Component' AND SUBTYPE='Component' AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE1 VALUES('http://www.philgross.com/T_nl_windmill_1c.jpg','IMAGE','Component','Component','books',NULL)
-DELETE FROM TABLE1 WHERE URL='http://www.philgross.com/T_nl_windmill_1c.jpg' AND TYPE='IMAGE' AND CLASSTYPE='Component' AND SUBTYPE='Component' AND SHAPE='books' AND SHAPE2D=NULL
-INSERT INTO TABLE1 VALUES('http://www.philgross.com/T_nl_windmill_1c.jpg','IMAGE','Component','Component','books','books')
-INSERT INTO TABLE1 VALUES('http://www.philgross.com/T_nl_windmill_2c.jpg','IMAGE',NULL,NULL,NULL,NULL)
-DELETE FROM TABLE1 WHERE URL='http://www.philgross.com/T_nl_windmill_2c.jpg' AND TYPE='IMAGE' AND CLASSTYPE=NULL AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE1 VALUES('http://www.philgross.com/T_nl_windmill_2c.jpg','IMAGE','Component',NULL,NULL,NULL)
-DELETE FROM TABLE1 WHERE URL='http://www.philgross.com/T_nl_windmill_2c.jpg' AND TYPE='IMAGE' AND CLASSTYPE='Component' AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE1 VALUES('http://www.philgross.com/T_nl_windmill_2c.jpg','IMAGE','Component','Component',NULL,NULL)
-DELETE FROM TABLE1 WHERE URL='http://www.philgross.com/T_nl_windmill_2c.jpg' AND TYPE='IMAGE' AND CLASSTYPE='Component' AND SUBTYPE='Component' AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE1 VALUES('http://www.philgross.com/T_nl_windmill_2c.jpg','IMAGE','Component','Component','books',NULL)
-DELETE FROM TABLE1 WHERE URL='http://www.philgross.com/T_nl_windmill_2c.jpg' AND TYPE='IMAGE' AND CLASSTYPE='Component' AND SUBTYPE='Component' AND SHAPE='books' AND SHAPE2D=NULL
-INSERT INTO TABLE1 VALUES('http://www.philgross.com/T_nl_windmill_2c.jpg','IMAGE','Component','Component','books','books')
-INSERT INTO TABLE1 VALUES('http://www.philgross.com/me.html','LINK',NULL,NULL,NULL,NULL)
-DELETE FROM TABLE1 WHERE URL='http://www.philgross.com/me.html' AND TYPE='LINK' AND CLASSTYPE=NULL AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE1 VALUES('http://www.philgross.com/me.html','LINK','Connector',NULL,NULL,NULL)
-DELETE FROM TABLE1 WHERE URL='http://www.philgross.com/me.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE1 VALUES('http://www.philgross.com/me.html','LINK','Connector','Connector',NULL,NULL)
-DELETE FROM TABLE1 WHERE URL='http://www.philgross.com/me.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE1 VALUES('http://www.philgross.com/me.html','LINK','Connector','Connector','stool',NULL)
-DELETE FROM TABLE1 WHERE URL='http://www.philgross.com/me.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE='stool' AND SHAPE2D=NULL
-INSERT INTO TABLE1 VALUES('http://www.philgross.com/me.html','LINK','Connector','Connector','stool','stool')
-INSERT INTO TABLE1 VALUES('http://www.philgross.com/resume.html','LINK',NULL,NULL,NULL,NULL)
-DELETE FROM TABLE1 WHERE URL='http://www.philgross.com/resume.html' AND TYPE='LINK' AND CLASSTYPE=NULL AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE1 VALUES('http://www.philgross.com/resume.html','LINK','Connector',NULL,NULL,NULL)
-DELETE FROM TABLE1 WHERE URL='http://www.philgross.com/resume.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE1 VALUES('http://www.philgross.com/resume.html','LINK','Connector','Connector',NULL,NULL)
-DELETE FROM TABLE1 WHERE URL='http://www.philgross.com/resume.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE1 VALUES('http://www.philgross.com/resume.html','LINK','Connector','Connector','stool',NULL)
-DELETE FROM TABLE1 WHERE URL='http://www.philgross.com/resume.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE='stool' AND SHAPE2D=NULL
-INSERT INTO TABLE1 VALUES('http://www.philgross.com/resume.html','LINK','Connector','Connector','stool','stool')
-INSERT INTO TABLE1 VALUES('http://softe.cs.columbia.edu/3156-f01/','LINK',NULL,NULL,NULL,NULL)
-DELETE FROM TABLE1 WHERE URL='http://softe.cs.columbia.edu/3156-f01/' AND TYPE='LINK' AND CLASSTYPE=NULL AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE1 VALUES('http://softe.cs.columbia.edu/3156-f01/','LINK','Connector',NULL,NULL,NULL)
-DELETE FROM TABLE1 WHERE URL='http://softe.cs.columbia.edu/3156-f01/' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE1 VALUES('http://softe.cs.columbia.edu/3156-f01/','LINK','Connector','Connector',NULL,NULL)
-DELETE FROM TABLE1 WHERE URL='http://softe.cs.columbia.edu/3156-f01/' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE1 VALUES('http://softe.cs.columbia.edu/3156-f01/','LINK','Connector','Connector','stool',NULL)
-DELETE FROM TABLE1 WHERE URL='http://softe.cs.columbia.edu/3156-f01/' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE='stool' AND SHAPE2D=NULL
-INSERT INTO TABLE1 VALUES('http://softe.cs.columbia.edu/3156-f01/','LINK','Connector','Connector','stool','stool')
-INSERT INTO TABLE1 VALUES('http://www.philgross.com/Teaching_tips.html','LINK',NULL,NULL,NULL,NULL)
-DELETE FROM TABLE1 WHERE URL='http://www.philgross.com/Teaching_tips.html' AND TYPE='LINK' AND CLASSTYPE=NULL AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE1 VALUES('http://www.philgross.com/Teaching_tips.html','LINK','Connector',NULL,NULL,NULL)
-DELETE FROM TABLE1 WHERE URL='http://www.philgross.com/Teaching_tips.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE1 VALUES('http://www.philgross.com/Teaching_tips.html','LINK','Connector','Connector',NULL,NULL)
-DELETE FROM TABLE1 WHERE URL='http://www.philgross.com/Teaching_tips.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE1 VALUES('http://www.philgross.com/Teaching_tips.html','LINK','Connector','Connector','stool',NULL)
-DELETE FROM TABLE1 WHERE URL='http://www.philgross.com/Teaching_tips.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE='stool' AND SHAPE2D=NULL
-INSERT INTO TABLE1 VALUES('http://www.philgross.com/Teaching_tips.html','LINK','Connector','Connector','stool','stool')
-INSERT INTO TABLE1 VALUES('http://www.cs.columbia.edu/~phil/cs1001-2/public_html','LINK',NULL,NULL,NULL,NULL)
-DELETE FROM TABLE1 WHERE URL='http://www.cs.columbia.edu/~phil/cs1001-2/public_html' AND TYPE='LINK' AND CLASSTYPE=NULL AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE1 VALUES('http://www.cs.columbia.edu/~phil/cs1001-2/public_html','LINK','Connector',NULL,NULL,NULL)
-DELETE FROM TABLE1 WHERE URL='http://www.cs.columbia.edu/~phil/cs1001-2/public_html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE1 VALUES('http://www.cs.columbia.edu/~phil/cs1001-2/public_html','LINK','Connector','Connector',NULL,NULL)
-DELETE FROM TABLE1 WHERE URL='http://www.cs.columbia.edu/~phil/cs1001-2/public_html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE1 VALUES('http://www.cs.columbia.edu/~phil/cs1001-2/public_html','LINK','Connector','Connector','stool',NULL)
-DELETE FROM TABLE1 WHERE URL='http://www.cs.columbia.edu/~phil/cs1001-2/public_html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE='stool' AND SHAPE2D=NULL
-INSERT INTO TABLE1 VALUES('http://www.cs.columbia.edu/~phil/cs1001-2/public_html','LINK','Connector','Connector','stool','stool')
-INSERT INTO TABLE1 VALUES('http://www.philgross.com/stl/stl.htm','LINK',NULL,NULL,NULL,NULL)
-DELETE FROM TABLE1 WHERE URL='http://www.philgross.com/stl/stl.htm' AND TYPE='LINK' AND CLASSTYPE=NULL AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE1 VALUES('http://www.philgross.com/stl/stl.htm','LINK','Connector',NULL,NULL,NULL)
-DELETE FROM TABLE1 WHERE URL='http://www.philgross.com/stl/stl.htm' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE1 VALUES('http://www.philgross.com/stl/stl.htm','LINK','Connector','Connector',NULL,NULL)
-DELETE FROM TABLE1 WHERE URL='http://www.philgross.com/stl/stl.htm' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE1 VALUES('http://www.philgross.com/stl/stl.htm','LINK','Connector','Connector','stool',NULL)
-DELETE FROM TABLE1 WHERE URL='http://www.philgross.com/stl/stl.htm' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE='stool' AND SHAPE2D=NULL
-INSERT INTO TABLE1 VALUES('http://www.philgross.com/stl/stl.htm','LINK','Connector','Connector','stool','stool')
-INSERT INTO TABLE1 VALUES('http://whim.cs.columbia.edu','LINK',NULL,NULL,NULL,NULL)
-DELETE FROM TABLE1 WHERE URL='http://whim.cs.columbia.edu' AND TYPE='LINK' AND CLASSTYPE=NULL AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE1 VALUES('http://whim.cs.columbia.edu','LINK','Connector',NULL,NULL,NULL)
-DELETE FROM TABLE1 WHERE URL='http://whim.cs.columbia.edu' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE1 VALUES('http://whim.cs.columbia.edu','LINK','Connector','Connector',NULL,NULL)
-DELETE FROM TABLE1 WHERE URL='http://whim.cs.columbia.edu' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE1 VALUES('http://whim.cs.columbia.edu','LINK','Connector','Connector','stool',NULL)
-DELETE FROM TABLE1 WHERE URL='http://whim.cs.columbia.edu' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE='stool' AND SHAPE2D=NULL
-INSERT INTO TABLE1 VALUES('http://whim.cs.columbia.edu','LINK','Connector','Connector','stool','stool')
-INSERT INTO TABLE1 VALUES('http://www.philgross.com/current_events.ppt','LINK',NULL,NULL,NULL,NULL)
-DELETE FROM TABLE1 WHERE URL='http://www.philgross.com/current_events.ppt' AND TYPE='LINK' AND CLASSTYPE=NULL AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE1 VALUES('http://www.philgross.com/current_events.ppt','LINK','Connector',NULL,NULL,NULL)
-DELETE FROM TABLE1 WHERE URL='http://www.philgross.com/current_events.ppt' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE1 VALUES('http://www.philgross.com/current_events.ppt','LINK','Connector','Connector',NULL,NULL)
-DELETE FROM TABLE1 WHERE URL='http://www.philgross.com/current_events.ppt' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE1 VALUES('http://www.philgross.com/current_events.ppt','LINK','Connector','Connector','stool',NULL)
-DELETE FROM TABLE1 WHERE URL='http://www.philgross.com/current_events.ppt' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE='stool' AND SHAPE2D=NULL
-INSERT INTO TABLE1 VALUES('http://www.philgross.com/current_events.ppt','LINK','Connector','Connector','stool','stool')
-INSERT INTO TABLE1 VALUES('http://www.philgross.com/study-1-8.ps','LINK',NULL,NULL,NULL,NULL)
-DELETE FROM TABLE1 WHERE URL='http://www.philgross.com/study-1-8.ps' AND TYPE='LINK' AND CLASSTYPE=NULL AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE1 VALUES('http://www.philgross.com/study-1-8.ps','LINK','Connector',NULL,NULL,NULL)
-DELETE FROM TABLE1 WHERE URL='http://www.philgross.com/study-1-8.ps' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE1 VALUES('http://www.philgross.com/study-1-8.ps','LINK','Connector','Connector',NULL,NULL)
-DELETE FROM TABLE1 WHERE URL='http://www.philgross.com/study-1-8.ps' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE1 VALUES('http://www.philgross.com/study-1-8.ps','LINK','Connector','Connector','stool',NULL)
-DELETE FROM TABLE1 WHERE URL='http://www.philgross.com/study-1-8.ps' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE='stool' AND SHAPE2D=NULL
-INSERT INTO TABLE1 VALUES('http://www.philgross.com/study-1-8.ps','LINK','Connector','Connector','stool','stool')
-INSERT INTO TABLE1 VALUES('http://www.philgross.com/study-9.ps','LINK',NULL,NULL,NULL,NULL)
-DELETE FROM TABLE1 WHERE URL='http://www.philgross.com/study-9.ps' AND TYPE='LINK' AND CLASSTYPE=NULL AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE1 VALUES('http://www.philgross.com/study-9.ps','LINK','Connector',NULL,NULL,NULL)
-DELETE FROM TABLE1 WHERE URL='http://www.philgross.com/study-9.ps' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE1 VALUES('http://www.philgross.com/study-9.ps','LINK','Connector','Connector',NULL,NULL)
-DELETE FROM TABLE1 WHERE URL='http://www.philgross.com/study-9.ps' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE1 VALUES('http://www.philgross.com/study-9.ps','LINK','Connector','Connector','stool',NULL)
-DELETE FROM TABLE1 WHERE URL='http://www.philgross.com/study-9.ps' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE='stool' AND SHAPE2D=NULL
-INSERT INTO TABLE1 VALUES('http://www.philgross.com/study-9.ps','LINK','Connector','Connector','stool','stool')
-INSERT INTO TABLE1 VALUES('http://www.philgross.com/study-10.ps','LINK',NULL,NULL,NULL,NULL)
-DELETE FROM TABLE1 WHERE URL='http://www.philgross.com/study-10.ps' AND TYPE='LINK' AND CLASSTYPE=NULL AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE1 VALUES('http://www.philgross.com/study-10.ps','LINK','Connector',NULL,NULL,NULL)
-DELETE FROM TABLE1 WHERE URL='http://www.philgross.com/study-10.ps' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE1 VALUES('http://www.philgross.com/study-10.ps','LINK','Connector','Connector',NULL,NULL)
-DELETE FROM TABLE1 WHERE URL='http://www.philgross.com/study-10.ps' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE1 VALUES('http://www.philgross.com/study-10.ps','LINK','Connector','Connector','stool',NULL)
-DELETE FROM TABLE1 WHERE URL='http://www.philgross.com/study-10.ps' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE='stool' AND SHAPE2D=NULL
-INSERT INTO TABLE1 VALUES('http://www.philgross.com/study-10.ps','LINK','Connector','Connector','stool','stool')
-INSERT INTO SOURCE VALUES(2,'http','http://www.suhit.com/',-1,'text/html','1024694379916','-1','null',-1,NULL,NULL,NULL,NULL,'null','6','\u000a\u0009<Source>http://www.suhit.com/top.gif</Source>\u000a\u000a\u000a\u0009<Source>http://www.suhit.com/header.gif</Source>\u000a\u000a\u000a\u0009<Source>http://www.suhit.com/comp.gif</Source>\u000a\u000a\u000a\u0009<Source>http://www.suhit.com/nice.gif</Source>\u000a\u000a\u000a\u0009<Source>http://www.suhit.com/city.gif</Source>\u000a\u000a\u000a\u0009<Source>http://www.suhit.com/art.gif</Source>\u000a\u000a','14','http://www.suhit.com/comp.html\u000ahttp://www.suhit.com/nice.html\u000ahttp://www.suhit.com/city.html\u000ahttp://www.suhit.com/art.html\u000ahttp://www.suhit.com/resume.html\u000ahttp://www.suhit.com/checkers.html\u000ahttp://www.suhit.com/sp.html\u000ahttp://www.suhit.com/dungeons.html\u000ahttp://www.suhit.com/porsche.html\u000ahttp://www.suhit.com/diablo.html\u000ahttp://www.suhit.com/links.html\u000ahttp://www.suhit.com/friends.html\u000ahttp://www.suhit.com/miscel.html\u000ahttp://www.suhit.com/contact.html\u000a')
-DELETE FROM SOURCE WHERE ID=2 AND PROTOCOL='http' AND URL='http://www.suhit.com/' AND SIZE=-1 AND TYPE='text/html' AND CREATED='1024694379916' AND LAST_MOD='-1' AND SRC='null' AND PARENT=-1 AND CLASSTYPE=NULL AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL AND OPT1='null' AND OPT2='6' AND OPT3='\u000a\u0009<Source>http://www.suhit.com/top.gif</Source>\u000a\u000a\u000a\u0009<Source>http://www.suhit.com/header.gif</Source>\u000a\u000a\u000a\u0009<Source>http://www.suhit.com/comp.gif</Source>\u000a\u000a\u000a\u0009<Source>http://www.suhit.com/nice.gif</Source>\u000a\u000a\u000a\u0009<Source>http://www.suhit.com/city.gif</Source>\u000a\u000a\u000a\u0009<Source>http://www.suhit.com/art.gif</Source>\u000a\u000a' AND OPT4='14' AND OPT5='http://www.suhit.com/comp.html\u000ahttp://www.suhit.com/nice.html\u000ahttp://www.suhit.com/city.html\u000ahttp://www.suhit.com/art.html\u000ahttp://www.suhit.com/resume.html\u000ahttp://www.suhit.com/checkers.html\u000ahttp://www.suhit.com/sp.html\u000ahttp://www.suhit.com/dungeons.html\u000ahttp://www.suhit.com/porsche.html\u000ahttp://www.suhit.com/diablo.html\u000ahttp://www.suhit.com/links.html\u000ahttp://www.suhit.com/friends.html\u000ahttp://www.suhit.com/miscel.html\u000ahttp://www.suhit.com/contact.html\u000a'
-INSERT INTO SOURCE VALUES(2,'http','http://www.suhit.com/',-1,'text/html','1024694379916','-1','null',-1,'Connector',NULL,NULL,NULL,'null','6','\u000a\u0009<Source>http://www.suhit.com/top.gif</Source>\u000a\u000a\u000a\u0009<Source>http://www.suhit.com/header.gif</Source>\u000a\u000a\u000a\u0009<Source>http://www.suhit.com/comp.gif</Source>\u000a\u000a\u000a\u0009<Source>http://www.suhit.com/nice.gif</Source>\u000a\u000a\u000a\u0009<Source>http://www.suhit.com/city.gif</Source>\u000a\u000a\u000a\u0009<Source>http://www.suhit.com/art.gif</Source>\u000a\u000a','14','http://www.suhit.com/comp.html\u000ahttp://www.suhit.com/nice.html\u000ahttp://www.suhit.com/city.html\u000ahttp://www.suhit.com/art.html\u000ahttp://www.suhit.com/resume.html\u000ahttp://www.suhit.com/checkers.html\u000ahttp://www.suhit.com/sp.html\u000ahttp://www.suhit.com/dungeons.html\u000ahttp://www.suhit.com/porsche.html\u000ahttp://www.suhit.com/diablo.html\u000ahttp://www.suhit.com/links.html\u000ahttp://www.suhit.com/friends.html\u000ahttp://www.suhit.com/miscel.html\u000ahttp://www.suhit.com/contact.html\u000a')
-DELETE FROM SOURCE WHERE ID=2 AND PROTOCOL='http' AND URL='http://www.suhit.com/' AND SIZE=-1 AND TYPE='text/html' AND CREATED='1024694379916' AND LAST_MOD='-1' AND SRC='null' AND PARENT=-1 AND CLASSTYPE='Connector' AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL AND OPT1='null' AND OPT2='6' AND OPT3='\u000a\u0009<Source>http://www.suhit.com/top.gif</Source>\u000a\u000a\u000a\u0009<Source>http://www.suhit.com/header.gif</Source>\u000a\u000a\u000a\u0009<Source>http://www.suhit.com/comp.gif</Source>\u000a\u000a\u000a\u0009<Source>http://www.suhit.com/nice.gif</Source>\u000a\u000a\u000a\u0009<Source>http://www.suhit.com/city.gif</Source>\u000a\u000a\u000a\u0009<Source>http://www.suhit.com/art.gif</Source>\u000a\u000a' AND OPT4='14' AND OPT5='http://www.suhit.com/comp.html\u000ahttp://www.suhit.com/nice.html\u000ahttp://www.suhit.com/city.html\u000ahttp://www.suhit.com/art.html\u000ahttp://www.suhit.com/resume.html\u000ahttp://www.suhit.com/checkers.html\u000ahttp://www.suhit.com/sp.html\u000ahttp://www.suhit.com/dungeons.html\u000ahttp://www.suhit.com/porsche.html\u000ahttp://www.suhit.com/diablo.html\u000ahttp://www.suhit.com/links.html\u000ahttp://www.suhit.com/friends.html\u000ahttp://www.suhit.com/miscel.html\u000ahttp://www.suhit.com/contact.html\u000a'
-INSERT INTO SOURCE VALUES(2,'http','http://www.suhit.com/',-1,'text/html','1024694379916','-1','null',-1,'Connector','Connector',NULL,NULL,'null','6','\u000a\u0009<Source>http://www.suhit.com/top.gif</Source>\u000a\u000a\u000a\u0009<Source>http://www.suhit.com/header.gif</Source>\u000a\u000a\u000a\u0009<Source>http://www.suhit.com/comp.gif</Source>\u000a\u000a\u000a\u0009<Source>http://www.suhit.com/nice.gif</Source>\u000a\u000a\u000a\u0009<Source>http://www.suhit.com/city.gif</Source>\u000a\u000a\u000a\u0009<Source>http://www.suhit.com/art.gif</Source>\u000a\u000a','14','http://www.suhit.com/comp.html\u000ahttp://www.suhit.com/nice.html\u000ahttp://www.suhit.com/city.html\u000ahttp://www.suhit.com/art.html\u000ahttp://www.suhit.com/resume.html\u000ahttp://www.suhit.com/checkers.html\u000ahttp://www.suhit.com/sp.html\u000ahttp://www.suhit.com/dungeons.html\u000ahttp://www.suhit.com/porsche.html\u000ahttp://www.suhit.com/diablo.html\u000ahttp://www.suhit.com/links.html\u000ahttp://www.suhit.com/friends.html\u000ahttp://www.suhit.com/miscel.html\u000ahttp://www.suhit.com/contact.html\u000a')
-DELETE FROM SOURCE WHERE ID=2 AND PROTOCOL='http' AND URL='http://www.suhit.com/' AND SIZE=-1 AND TYPE='text/html' AND CREATED='1024694379916' AND LAST_MOD='-1' AND SRC='null' AND PARENT=-1 AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE=NULL AND SHAPE2D=NULL AND OPT1='null' AND OPT2='6' AND OPT3='\u000a\u0009<Source>http://www.suhit.com/top.gif</Source>\u000a\u000a\u000a\u0009<Source>http://www.suhit.com/header.gif</Source>\u000a\u000a\u000a\u0009<Source>http://www.suhit.com/comp.gif</Source>\u000a\u000a\u000a\u0009<Source>http://www.suhit.com/nice.gif</Source>\u000a\u000a\u000a\u0009<Source>http://www.suhit.com/city.gif</Source>\u000a\u000a\u000a\u0009<Source>http://www.suhit.com/art.gif</Source>\u000a\u000a' AND OPT4='14' AND OPT5='http://www.suhit.com/comp.html\u000ahttp://www.suhit.com/nice.html\u000ahttp://www.suhit.com/city.html\u000ahttp://www.suhit.com/art.html\u000ahttp://www.suhit.com/resume.html\u000ahttp://www.suhit.com/checkers.html\u000ahttp://www.suhit.com/sp.html\u000ahttp://www.suhit.com/dungeons.html\u000ahttp://www.suhit.com/porsche.html\u000ahttp://www.suhit.com/diablo.html\u000ahttp://www.suhit.com/links.html\u000ahttp://www.suhit.com/friends.html\u000ahttp://www.suhit.com/miscel.html\u000ahttp://www.suhit.com/contact.html\u000a'
-INSERT INTO SOURCE VALUES(2,'http','http://www.suhit.com/',-1,'text/html','1024694379916','-1','null',-1,'Connector','Connector','stool',NULL,'null','6','\u000a\u0009<Source>http://www.suhit.com/top.gif</Source>\u000a\u000a\u000a\u0009<Source>http://www.suhit.com/header.gif</Source>\u000a\u000a\u000a\u0009<Source>http://www.suhit.com/comp.gif</Source>\u000a\u000a\u000a\u0009<Source>http://www.suhit.com/nice.gif</Source>\u000a\u000a\u000a\u0009<Source>http://www.suhit.com/city.gif</Source>\u000a\u000a\u000a\u0009<Source>http://www.suhit.com/art.gif</Source>\u000a\u000a','14','http://www.suhit.com/comp.html\u000ahttp://www.suhit.com/nice.html\u000ahttp://www.suhit.com/city.html\u000ahttp://www.suhit.com/art.html\u000ahttp://www.suhit.com/resume.html\u000ahttp://www.suhit.com/checkers.html\u000ahttp://www.suhit.com/sp.html\u000ahttp://www.suhit.com/dungeons.html\u000ahttp://www.suhit.com/porsche.html\u000ahttp://www.suhit.com/diablo.html\u000ahttp://www.suhit.com/links.html\u000ahttp://www.suhit.com/friends.html\u000ahttp://www.suhit.com/miscel.html\u000ahttp://www.suhit.com/contact.html\u000a')
-DELETE FROM SOURCE WHERE ID=2 AND PROTOCOL='http' AND URL='http://www.suhit.com/' AND SIZE=-1 AND TYPE='text/html' AND CREATED='1024694379916' AND LAST_MOD='-1' AND SRC='null' AND PARENT=-1 AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE='stool' AND SHAPE2D=NULL AND OPT1='null' AND OPT2='6' AND OPT3='\u000a\u0009<Source>http://www.suhit.com/top.gif</Source>\u000a\u000a\u000a\u0009<Source>http://www.suhit.com/header.gif</Source>\u000a\u000a\u000a\u0009<Source>http://www.suhit.com/comp.gif</Source>\u000a\u000a\u000a\u0009<Source>http://www.suhit.com/nice.gif</Source>\u000a\u000a\u000a\u0009<Source>http://www.suhit.com/city.gif</Source>\u000a\u000a\u000a\u0009<Source>http://www.suhit.com/art.gif</Source>\u000a\u000a' AND OPT4='14' AND OPT5='http://www.suhit.com/comp.html\u000ahttp://www.suhit.com/nice.html\u000ahttp://www.suhit.com/city.html\u000ahttp://www.suhit.com/art.html\u000ahttp://www.suhit.com/resume.html\u000ahttp://www.suhit.com/checkers.html\u000ahttp://www.suhit.com/sp.html\u000ahttp://www.suhit.com/dungeons.html\u000ahttp://www.suhit.com/porsche.html\u000ahttp://www.suhit.com/diablo.html\u000ahttp://www.suhit.com/links.html\u000ahttp://www.suhit.com/friends.html\u000ahttp://www.suhit.com/miscel.html\u000ahttp://www.suhit.com/contact.html\u000a'
-INSERT INTO SOURCE VALUES(2,'http','http://www.suhit.com/',-1,'text/html','1024694379916','-1','null',-1,'Connector','Connector','stool','stool','null','6','\u000a\u0009<Source>http://www.suhit.com/top.gif</Source>\u000a\u000a\u000a\u0009<Source>http://www.suhit.com/header.gif</Source>\u000a\u000a\u000a\u0009<Source>http://www.suhit.com/comp.gif</Source>\u000a\u000a\u000a\u0009<Source>http://www.suhit.com/nice.gif</Source>\u000a\u000a\u000a\u0009<Source>http://www.suhit.com/city.gif</Source>\u000a\u000a\u000a\u0009<Source>http://www.suhit.com/art.gif</Source>\u000a\u000a','14','http://www.suhit.com/comp.html\u000ahttp://www.suhit.com/nice.html\u000ahttp://www.suhit.com/city.html\u000ahttp://www.suhit.com/art.html\u000ahttp://www.suhit.com/resume.html\u000ahttp://www.suhit.com/checkers.html\u000ahttp://www.suhit.com/sp.html\u000ahttp://www.suhit.com/dungeons.html\u000ahttp://www.suhit.com/porsche.html\u000ahttp://www.suhit.com/diablo.html\u000ahttp://www.suhit.com/links.html\u000ahttp://www.suhit.com/friends.html\u000ahttp://www.suhit.com/miscel.html\u000ahttp://www.suhit.com/contact.html\u000a')
-create table table2 (url varchar(255), type varchar(255), classtype varchar(255), subtype varchar(255), shape varchar(255), shape2d varchar(255) )
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/top.gif','IMAGE',NULL,NULL,NULL,NULL)
-DELETE FROM TABLE2 WHERE URL='http://www.suhit.com/top.gif' AND TYPE='IMAGE' AND CLASSTYPE=NULL AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/top.gif','IMAGE','Component',NULL,NULL,NULL)
-DELETE FROM TABLE2 WHERE URL='http://www.suhit.com/top.gif' AND TYPE='IMAGE' AND CLASSTYPE='Component' AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/top.gif','IMAGE','Component','Component',NULL,NULL)
-DELETE FROM TABLE2 WHERE URL='http://www.suhit.com/top.gif' AND TYPE='IMAGE' AND CLASSTYPE='Component' AND SUBTYPE='Component' AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/top.gif','IMAGE','Component','Component','cube',NULL)
-DELETE FROM TABLE2 WHERE URL='http://www.suhit.com/top.gif' AND TYPE='IMAGE' AND CLASSTYPE='Component' AND SUBTYPE='Component' AND SHAPE='cube' AND SHAPE2D=NULL
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/top.gif','IMAGE','Component','Component','cube','cube')
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/header.gif','IMAGE',NULL,NULL,NULL,NULL)
-DELETE FROM TABLE2 WHERE URL='http://www.suhit.com/header.gif' AND TYPE='IMAGE' AND CLASSTYPE=NULL AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/header.gif','IMAGE','Component',NULL,NULL,NULL)
-DELETE FROM TABLE2 WHERE URL='http://www.suhit.com/header.gif' AND TYPE='IMAGE' AND CLASSTYPE='Component' AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/header.gif','IMAGE','Component','Component',NULL,NULL)
-DELETE FROM TABLE2 WHERE URL='http://www.suhit.com/header.gif' AND TYPE='IMAGE' AND CLASSTYPE='Component' AND SUBTYPE='Component' AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/header.gif','IMAGE','Component','Component','cube',NULL)
-DELETE FROM TABLE2 WHERE URL='http://www.suhit.com/header.gif' AND TYPE='IMAGE' AND CLASSTYPE='Component' AND SUBTYPE='Component' AND SHAPE='cube' AND SHAPE2D=NULL
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/header.gif','IMAGE','Component','Component','cube','cube')
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/comp.gif','IMAGE',NULL,NULL,NULL,NULL)
-DELETE FROM TABLE2 WHERE URL='http://www.suhit.com/comp.gif' AND TYPE='IMAGE' AND CLASSTYPE=NULL AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/comp.gif','IMAGE','Component',NULL,NULL,NULL)
-DELETE FROM TABLE2 WHERE URL='http://www.suhit.com/comp.gif' AND TYPE='IMAGE' AND CLASSTYPE='Component' AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/comp.gif','IMAGE','Component','Component',NULL,NULL)
-DELETE FROM TABLE2 WHERE URL='http://www.suhit.com/comp.gif' AND TYPE='IMAGE' AND CLASSTYPE='Component' AND SUBTYPE='Component' AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/comp.gif','IMAGE','Component','Component','cube',NULL)
-DELETE FROM TABLE2 WHERE URL='http://www.suhit.com/comp.gif' AND TYPE='IMAGE' AND CLASSTYPE='Component' AND SUBTYPE='Component' AND SHAPE='cube' AND SHAPE2D=NULL
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/comp.gif','IMAGE','Component','Component','cube','cube')
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/nice.gif','IMAGE',NULL,NULL,NULL,NULL)
-DELETE FROM TABLE2 WHERE URL='http://www.suhit.com/nice.gif' AND TYPE='IMAGE' AND CLASSTYPE=NULL AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/nice.gif','IMAGE','Component',NULL,NULL,NULL)
-DELETE FROM TABLE2 WHERE URL='http://www.suhit.com/nice.gif' AND TYPE='IMAGE' AND CLASSTYPE='Component' AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/nice.gif','IMAGE','Component','Component',NULL,NULL)
-DELETE FROM TABLE2 WHERE URL='http://www.suhit.com/nice.gif' AND TYPE='IMAGE' AND CLASSTYPE='Component' AND SUBTYPE='Component' AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/nice.gif','IMAGE','Component','Component','cube',NULL)
-DELETE FROM TABLE2 WHERE URL='http://www.suhit.com/nice.gif' AND TYPE='IMAGE' AND CLASSTYPE='Component' AND SUBTYPE='Component' AND SHAPE='cube' AND SHAPE2D=NULL
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/nice.gif','IMAGE','Component','Component','cube','cube')
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/city.gif','IMAGE',NULL,NULL,NULL,NULL)
-DELETE FROM TABLE2 WHERE URL='http://www.suhit.com/city.gif' AND TYPE='IMAGE' AND CLASSTYPE=NULL AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/city.gif','IMAGE','Component',NULL,NULL,NULL)
-DELETE FROM TABLE2 WHERE URL='http://www.suhit.com/city.gif' AND TYPE='IMAGE' AND CLASSTYPE='Component' AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/city.gif','IMAGE','Component','Component',NULL,NULL)
-DELETE FROM TABLE2 WHERE URL='http://www.suhit.com/city.gif' AND TYPE='IMAGE' AND CLASSTYPE='Component' AND SUBTYPE='Component' AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/city.gif','IMAGE','Component','Component','cube',NULL)
-DELETE FROM TABLE2 WHERE URL='http://www.suhit.com/city.gif' AND TYPE='IMAGE' AND CLASSTYPE='Component' AND SUBTYPE='Component' AND SHAPE='cube' AND SHAPE2D=NULL
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/city.gif','IMAGE','Component','Component','cube','cube')
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/art.gif','IMAGE',NULL,NULL,NULL,NULL)
-DELETE FROM TABLE2 WHERE URL='http://www.suhit.com/art.gif' AND TYPE='IMAGE' AND CLASSTYPE=NULL AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/art.gif','IMAGE','Component',NULL,NULL,NULL)
-DELETE FROM TABLE2 WHERE URL='http://www.suhit.com/art.gif' AND TYPE='IMAGE' AND CLASSTYPE='Component' AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/art.gif','IMAGE','Component','Component',NULL,NULL)
-DELETE FROM TABLE2 WHERE URL='http://www.suhit.com/art.gif' AND TYPE='IMAGE' AND CLASSTYPE='Component' AND SUBTYPE='Component' AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/art.gif','IMAGE','Component','Component','cube',NULL)
-DELETE FROM TABLE2 WHERE URL='http://www.suhit.com/art.gif' AND TYPE='IMAGE' AND CLASSTYPE='Component' AND SUBTYPE='Component' AND SHAPE='cube' AND SHAPE2D=NULL
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/art.gif','IMAGE','Component','Component','cube','cube')
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/comp.html','LINK',NULL,NULL,NULL,NULL)
-DELETE FROM TABLE2 WHERE URL='http://www.suhit.com/comp.html' AND TYPE='LINK' AND CLASSTYPE=NULL AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/comp.html','LINK','Connector',NULL,NULL,NULL)
-DELETE FROM TABLE2 WHERE URL='http://www.suhit.com/comp.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/comp.html','LINK','Connector','Connector',NULL,NULL)
-DELETE FROM TABLE2 WHERE URL='http://www.suhit.com/comp.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/comp.html','LINK','Connector','Connector','stool',NULL)
-DELETE FROM TABLE2 WHERE URL='http://www.suhit.com/comp.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE='stool' AND SHAPE2D=NULL
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/comp.html','LINK','Connector','Connector','stool','stool')
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/nice.html','LINK',NULL,NULL,NULL,NULL)
-DELETE FROM TABLE2 WHERE URL='http://www.suhit.com/nice.html' AND TYPE='LINK' AND CLASSTYPE=NULL AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/nice.html','LINK','Connector',NULL,NULL,NULL)
-DELETE FROM TABLE2 WHERE URL='http://www.suhit.com/nice.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/nice.html','LINK','Connector','Connector',NULL,NULL)
-DELETE FROM TABLE2 WHERE URL='http://www.suhit.com/nice.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/nice.html','LINK','Connector','Connector','stool',NULL)
-DELETE FROM TABLE2 WHERE URL='http://www.suhit.com/nice.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE='stool' AND SHAPE2D=NULL
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/nice.html','LINK','Connector','Connector','stool','stool')
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/city.html','LINK',NULL,NULL,NULL,NULL)
-DELETE FROM TABLE2 WHERE URL='http://www.suhit.com/city.html' AND TYPE='LINK' AND CLASSTYPE=NULL AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/city.html','LINK','Connector',NULL,NULL,NULL)
-DELETE FROM TABLE2 WHERE URL='http://www.suhit.com/city.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/city.html','LINK','Connector','Connector',NULL,NULL)
-DELETE FROM TABLE2 WHERE URL='http://www.suhit.com/city.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/city.html','LINK','Connector','Connector','stool',NULL)
-DELETE FROM TABLE2 WHERE URL='http://www.suhit.com/city.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE='stool' AND SHAPE2D=NULL
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/city.html','LINK','Connector','Connector','stool','stool')
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/art.html','LINK',NULL,NULL,NULL,NULL)
-DELETE FROM TABLE2 WHERE URL='http://www.suhit.com/art.html' AND TYPE='LINK' AND CLASSTYPE=NULL AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/art.html','LINK','Connector',NULL,NULL,NULL)
-DELETE FROM TABLE2 WHERE URL='http://www.suhit.com/art.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/art.html','LINK','Connector','Connector',NULL,NULL)
-DELETE FROM TABLE2 WHERE URL='http://www.suhit.com/art.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/art.html','LINK','Connector','Connector','stool',NULL)
-DELETE FROM TABLE2 WHERE URL='http://www.suhit.com/art.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE='stool' AND SHAPE2D=NULL
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/art.html','LINK','Connector','Connector','stool','stool')
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/resume.html','LINK',NULL,NULL,NULL,NULL)
-DELETE FROM TABLE2 WHERE URL='http://www.suhit.com/resume.html' AND TYPE='LINK' AND CLASSTYPE=NULL AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/resume.html','LINK','Connector',NULL,NULL,NULL)
-DELETE FROM TABLE2 WHERE URL='http://www.suhit.com/resume.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/resume.html','LINK','Connector','Connector',NULL,NULL)
-DELETE FROM TABLE2 WHERE URL='http://www.suhit.com/resume.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/resume.html','LINK','Connector','Connector','stool',NULL)
-DELETE FROM TABLE2 WHERE URL='http://www.suhit.com/resume.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE='stool' AND SHAPE2D=NULL
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/resume.html','LINK','Connector','Connector','stool','stool')
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/checkers.html','LINK',NULL,NULL,NULL,NULL)
-DELETE FROM TABLE2 WHERE URL='http://www.suhit.com/checkers.html' AND TYPE='LINK' AND CLASSTYPE=NULL AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/checkers.html','LINK','Connector',NULL,NULL,NULL)
-DELETE FROM TABLE2 WHERE URL='http://www.suhit.com/checkers.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/checkers.html','LINK','Connector','Connector',NULL,NULL)
-DELETE FROM TABLE2 WHERE URL='http://www.suhit.com/checkers.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/checkers.html','LINK','Connector','Connector','stool',NULL)
-DELETE FROM TABLE2 WHERE URL='http://www.suhit.com/checkers.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE='stool' AND SHAPE2D=NULL
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/checkers.html','LINK','Connector','Connector','stool','stool')
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/sp.html','LINK',NULL,NULL,NULL,NULL)
-DELETE FROM TABLE2 WHERE URL='http://www.suhit.com/sp.html' AND TYPE='LINK' AND CLASSTYPE=NULL AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/sp.html','LINK','Connector',NULL,NULL,NULL)
-DELETE FROM TABLE2 WHERE URL='http://www.suhit.com/sp.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/sp.html','LINK','Connector','Connector',NULL,NULL)
-DELETE FROM TABLE2 WHERE URL='http://www.suhit.com/sp.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/sp.html','LINK','Connector','Connector','stool',NULL)
-DELETE FROM TABLE2 WHERE URL='http://www.suhit.com/sp.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE='stool' AND SHAPE2D=NULL
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/sp.html','LINK','Connector','Connector','stool','stool')
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/dungeons.html','LINK',NULL,NULL,NULL,NULL)
-DELETE FROM TABLE2 WHERE URL='http://www.suhit.com/dungeons.html' AND TYPE='LINK' AND CLASSTYPE=NULL AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/dungeons.html','LINK','Connector',NULL,NULL,NULL)
-DELETE FROM TABLE2 WHERE URL='http://www.suhit.com/dungeons.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/dungeons.html','LINK','Connector','Connector',NULL,NULL)
-DELETE FROM TABLE2 WHERE URL='http://www.suhit.com/dungeons.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/dungeons.html','LINK','Connector','Connector','stool',NULL)
-DELETE FROM TABLE2 WHERE URL='http://www.suhit.com/dungeons.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE='stool' AND SHAPE2D=NULL
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/dungeons.html','LINK','Connector','Connector','stool','stool')
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/porsche.html','LINK',NULL,NULL,NULL,NULL)
-DELETE FROM TABLE2 WHERE URL='http://www.suhit.com/porsche.html' AND TYPE='LINK' AND CLASSTYPE=NULL AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/porsche.html','LINK','Connector',NULL,NULL,NULL)
-DELETE FROM TABLE2 WHERE URL='http://www.suhit.com/porsche.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/porsche.html','LINK','Connector','Connector',NULL,NULL)
-DELETE FROM TABLE2 WHERE URL='http://www.suhit.com/porsche.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/porsche.html','LINK','Connector','Connector','stool',NULL)
-DELETE FROM TABLE2 WHERE URL='http://www.suhit.com/porsche.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE='stool' AND SHAPE2D=NULL
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/porsche.html','LINK','Connector','Connector','stool','stool')
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/diablo.html','LINK',NULL,NULL,NULL,NULL)
-DELETE FROM TABLE2 WHERE URL='http://www.suhit.com/diablo.html' AND TYPE='LINK' AND CLASSTYPE=NULL AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/diablo.html','LINK','Connector',NULL,NULL,NULL)
-DELETE FROM TABLE2 WHERE URL='http://www.suhit.com/diablo.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/diablo.html','LINK','Connector','Connector',NULL,NULL)
-DELETE FROM TABLE2 WHERE URL='http://www.suhit.com/diablo.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/diablo.html','LINK','Connector','Connector','stool',NULL)
-DELETE FROM TABLE2 WHERE URL='http://www.suhit.com/diablo.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE='stool' AND SHAPE2D=NULL
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/diablo.html','LINK','Connector','Connector','stool','stool')
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/links.html','LINK',NULL,NULL,NULL,NULL)
-DELETE FROM TABLE2 WHERE URL='http://www.suhit.com/links.html' AND TYPE='LINK' AND CLASSTYPE=NULL AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/links.html','LINK','Connector',NULL,NULL,NULL)
-DELETE FROM TABLE2 WHERE URL='http://www.suhit.com/links.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/links.html','LINK','Connector','Connector',NULL,NULL)
-DELETE FROM TABLE2 WHERE URL='http://www.suhit.com/links.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/links.html','LINK','Connector','Connector','stool',NULL)
-DELETE FROM TABLE2 WHERE URL='http://www.suhit.com/links.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE='stool' AND SHAPE2D=NULL
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/links.html','LINK','Connector','Connector','stool','stool')
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/friends.html','LINK',NULL,NULL,NULL,NULL)
-DELETE FROM TABLE2 WHERE URL='http://www.suhit.com/friends.html' AND TYPE='LINK' AND CLASSTYPE=NULL AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/friends.html','LINK','Connector',NULL,NULL,NULL)
-DELETE FROM TABLE2 WHERE URL='http://www.suhit.com/friends.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/friends.html','LINK','Connector','Connector',NULL,NULL)
-DELETE FROM TABLE2 WHERE URL='http://www.suhit.com/friends.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/friends.html','LINK','Connector','Connector','stool',NULL)
-DELETE FROM TABLE2 WHERE URL='http://www.suhit.com/friends.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE='stool' AND SHAPE2D=NULL
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/friends.html','LINK','Connector','Connector','stool','stool')
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/miscel.html','LINK',NULL,NULL,NULL,NULL)
-DELETE FROM TABLE2 WHERE URL='http://www.suhit.com/miscel.html' AND TYPE='LINK' AND CLASSTYPE=NULL AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/miscel.html','LINK','Connector',NULL,NULL,NULL)
-DELETE FROM TABLE2 WHERE URL='http://www.suhit.com/miscel.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/miscel.html','LINK','Connector','Connector',NULL,NULL)
-DELETE FROM TABLE2 WHERE URL='http://www.suhit.com/miscel.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/miscel.html','LINK','Connector','Connector','stool',NULL)
-DELETE FROM TABLE2 WHERE URL='http://www.suhit.com/miscel.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE='stool' AND SHAPE2D=NULL
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/miscel.html','LINK','Connector','Connector','stool','stool')
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/contact.html','LINK',NULL,NULL,NULL,NULL)
-DELETE FROM TABLE2 WHERE URL='http://www.suhit.com/contact.html' AND TYPE='LINK' AND CLASSTYPE=NULL AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/contact.html','LINK','Connector',NULL,NULL,NULL)
-DELETE FROM TABLE2 WHERE URL='http://www.suhit.com/contact.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/contact.html','LINK','Connector','Connector',NULL,NULL)
-DELETE FROM TABLE2 WHERE URL='http://www.suhit.com/contact.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE=NULL AND SHAPE2D=NULL
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/contact.html','LINK','Connector','Connector','stool',NULL)
-DELETE FROM TABLE2 WHERE URL='http://www.suhit.com/contact.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE='stool' AND SHAPE2D=NULL
-INSERT INTO TABLE2 VALUES('http://www.suhit.com/contact.html','LINK','Connector','Connector','stool','stool')
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/img/dept-title-bar.gif','IMAGE',NULL,NULL,NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.cs.brandeis.edu/img/dept-title-bar.gif' AND TYPE='IMAGE' AND CLASSTYPE=NULL AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/img/dept-title-bar.gif','IMAGE','Component',NULL,NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.cs.brandeis.edu/img/dept-title-bar.gif' AND TYPE='IMAGE' AND CLASSTYPE='Component' AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/img/dept-title-bar.gif','IMAGE','Component','Component',NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.cs.brandeis.edu/img/dept-title-bar.gif' AND TYPE='IMAGE' AND CLASSTYPE='Component' AND SUBTYPE='Component' AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/img/dept-title-bar.gif','IMAGE','Component','Component','cube',NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.cs.brandeis.edu/img/dept-title-bar.gif' AND TYPE='IMAGE' AND CLASSTYPE='Component' AND SUBTYPE='Component' AND SHAPE='cube' AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/img/dept-title-bar.gif','IMAGE','Component','Component','cube','cube')
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/brandeis','LINK',NULL,NULL,NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.cs.brandeis.edu/brandeis' AND TYPE='LINK' AND CLASSTYPE=NULL AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/brandeis','LINK','Connector',NULL,NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.cs.brandeis.edu/brandeis' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/brandeis','LINK','Connector','Connector',NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.cs.brandeis.edu/brandeis' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/brandeis','LINK','Connector','Connector','stool',NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.cs.brandeis.edu/brandeis' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE='stool' AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/brandeis','LINK','Connector','Connector','stool','stool')
+INSERT INTO TABLE1 VALUES('http://www.brandeis.edu','LINK',NULL,NULL,NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.brandeis.edu' AND TYPE='LINK' AND CLASSTYPE=NULL AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.brandeis.edu','LINK','Connector',NULL,NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.brandeis.edu' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.brandeis.edu','LINK','Connector','Connector',NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.brandeis.edu' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.brandeis.edu','LINK','Connector','Connector','stool',NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.brandeis.edu' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE='stool' AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.brandeis.edu','LINK','Connector','Connector','stool','stool')
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/more-info/address.html','LINK',NULL,NULL,NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.cs.brandeis.edu/more-info/address.html' AND TYPE='LINK' AND CLASSTYPE=NULL AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/more-info/address.html','LINK','Connector',NULL,NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.cs.brandeis.edu/more-info/address.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/more-info/address.html','LINK','Connector','Connector',NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.cs.brandeis.edu/more-info/address.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/more-info/address.html','LINK','Connector','Connector','stool',NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.cs.brandeis.edu/more-info/address.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE='stool' AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/more-info/address.html','LINK','Connector','Connector','stool','stool')
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/more-info/directions.html','LINK',NULL,NULL,NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.cs.brandeis.edu/more-info/directions.html' AND TYPE='LINK' AND CLASSTYPE=NULL AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/more-info/directions.html','LINK','Connector',NULL,NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.cs.brandeis.edu/more-info/directions.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/more-info/directions.html','LINK','Connector','Connector',NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.cs.brandeis.edu/more-info/directions.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/more-info/directions.html','LINK','Connector','Connector','stool',NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.cs.brandeis.edu/more-info/directions.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE='stool' AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/more-info/directions.html','LINK','Connector','Connector','stool','stool')
+INSERT INTO TABLE1 VALUES('http://www.brandeis.edu/registrar/','LINK',NULL,NULL,NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.brandeis.edu/registrar/' AND TYPE='LINK' AND CLASSTYPE=NULL AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.brandeis.edu/registrar/','LINK','Connector',NULL,NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.brandeis.edu/registrar/' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.brandeis.edu/registrar/','LINK','Connector','Connector',NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.brandeis.edu/registrar/' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.brandeis.edu/registrar/','LINK','Connector','Connector','stool',NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.brandeis.edu/registrar/' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE='stool' AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.brandeis.edu/registrar/','LINK','Connector','Connector','stool','stool')
+INSERT INTO TABLE1 VALUES('http://www.library.brandeis.edu/science/','LINK',NULL,NULL,NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.library.brandeis.edu/science/' AND TYPE='LINK' AND CLASSTYPE=NULL AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.library.brandeis.edu/science/','LINK','Connector',NULL,NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.library.brandeis.edu/science/' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.library.brandeis.edu/science/','LINK','Connector','Connector',NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.library.brandeis.edu/science/' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.library.brandeis.edu/science/','LINK','Connector','Connector','stool',NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.library.brandeis.edu/science/' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE='stool' AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.library.brandeis.edu/science/','LINK','Connector','Connector','stool','stool')
+INSERT INTO TABLE1 VALUES('http://jscheme.cs.brandeis.edu:8080/jscheme/cosi/classes.servlet','LINK',NULL,NULL,NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://jscheme.cs.brandeis.edu:8080/jscheme/cosi/classes.servlet' AND TYPE='LINK' AND CLASSTYPE=NULL AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://jscheme.cs.brandeis.edu:8080/jscheme/cosi/classes.servlet','LINK','Connector',NULL,NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://jscheme.cs.brandeis.edu:8080/jscheme/cosi/classes.servlet' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://jscheme.cs.brandeis.edu:8080/jscheme/cosi/classes.servlet','LINK','Connector','Connector',NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://jscheme.cs.brandeis.edu:8080/jscheme/cosi/classes.servlet' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://jscheme.cs.brandeis.edu:8080/jscheme/cosi/classes.servlet','LINK','Connector','Connector','stool',NULL)
+DELETE FROM TABLE1 WHERE URL='http://jscheme.cs.brandeis.edu:8080/jscheme/cosi/classes.servlet' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE='stool' AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://jscheme.cs.brandeis.edu:8080/jscheme/cosi/classes.servlet','LINK','Connector','Connector','stool','stool')
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/course-pages/','LINK',NULL,NULL,NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.cs.brandeis.edu/course-pages/' AND TYPE='LINK' AND CLASSTYPE=NULL AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/course-pages/','LINK','Connector',NULL,NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.cs.brandeis.edu/course-pages/' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/course-pages/','LINK','Connector','Connector',NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.cs.brandeis.edu/course-pages/' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/course-pages/','LINK','Connector','Connector','stool',NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.cs.brandeis.edu/course-pages/' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE='stool' AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/course-pages/','LINK','Connector','Connector','stool','stool')
+INSERT INTO TABLE1 VALUES('http://kutz60.kutz.brandeis.edu/AutoCat/COSI01.html','LINK',NULL,NULL,NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://kutz60.kutz.brandeis.edu/AutoCat/COSI01.html' AND TYPE='LINK' AND CLASSTYPE=NULL AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://kutz60.kutz.brandeis.edu/AutoCat/COSI01.html','LINK','Connector',NULL,NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://kutz60.kutz.brandeis.edu/AutoCat/COSI01.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://kutz60.kutz.brandeis.edu/AutoCat/COSI01.html','LINK','Connector','Connector',NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://kutz60.kutz.brandeis.edu/AutoCat/COSI01.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://kutz60.kutz.brandeis.edu/AutoCat/COSI01.html','LINK','Connector','Connector','stool',NULL)
+DELETE FROM TABLE1 WHERE URL='http://kutz60.kutz.brandeis.edu/AutoCat/COSI01.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE='stool' AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://kutz60.kutz.brandeis.edu/AutoCat/COSI01.html','LINK','Connector','Connector','stool','stool')
+INSERT INTO TABLE1 VALUES('http://www.brandeis.edu/admissions/admission1.html','LINK',NULL,NULL,NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.brandeis.edu/admissions/admission1.html' AND TYPE='LINK' AND CLASSTYPE=NULL AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.brandeis.edu/admissions/admission1.html','LINK','Connector',NULL,NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.brandeis.edu/admissions/admission1.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.brandeis.edu/admissions/admission1.html','LINK','Connector','Connector',NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.brandeis.edu/admissions/admission1.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.brandeis.edu/admissions/admission1.html','LINK','Connector','Connector','stool',NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.brandeis.edu/admissions/admission1.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE='stool' AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.brandeis.edu/admissions/admission1.html','LINK','Connector','Connector','stool','stool')
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/~tim/Curriculum/samples.html','LINK',NULL,NULL,NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.cs.brandeis.edu/~tim/Curriculum/samples.html' AND TYPE='LINK' AND CLASSTYPE=NULL AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/~tim/Curriculum/samples.html','LINK','Connector',NULL,NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.cs.brandeis.edu/~tim/Curriculum/samples.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/~tim/Curriculum/samples.html','LINK','Connector','Connector',NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.cs.brandeis.edu/~tim/Curriculum/samples.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/~tim/Curriculum/samples.html','LINK','Connector','Connector','stool',NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.cs.brandeis.edu/~tim/Curriculum/samples.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE='stool' AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/~tim/Curriculum/samples.html','LINK','Connector','Connector','stool','stool')
+INSERT INTO TABLE1 VALUES('http://www.brandeis.edu/gsas/','LINK',NULL,NULL,NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.brandeis.edu/gsas/' AND TYPE='LINK' AND CLASSTYPE=NULL AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.brandeis.edu/gsas/','LINK','Connector',NULL,NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.brandeis.edu/gsas/' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.brandeis.edu/gsas/','LINK','Connector','Connector',NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.brandeis.edu/gsas/' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.brandeis.edu/gsas/','LINK','Connector','Connector','stool',NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.brandeis.edu/gsas/' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE='stool' AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.brandeis.edu/gsas/','LINK','Connector','Connector','stool','stool')
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/gradprogram.html','LINK',NULL,NULL,NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.cs.brandeis.edu/gradprogram.html' AND TYPE='LINK' AND CLASSTYPE=NULL AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/gradprogram.html','LINK','Connector',NULL,NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.cs.brandeis.edu/gradprogram.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/gradprogram.html','LINK','Connector','Connector',NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.cs.brandeis.edu/gradprogram.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/gradprogram.html','LINK','Connector','Connector','stool',NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.cs.brandeis.edu/gradprogram.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE='stool' AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/gradprogram.html','LINK','Connector','Connector','stool','stool')
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/labs/','LINK',NULL,NULL,NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.cs.brandeis.edu/labs/' AND TYPE='LINK' AND CLASSTYPE=NULL AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/labs/','LINK','Connector',NULL,NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.cs.brandeis.edu/labs/' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/labs/','LINK','Connector','Connector',NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.cs.brandeis.edu/labs/' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/labs/','LINK','Connector','Connector','stool',NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.cs.brandeis.edu/labs/' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE='stool' AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/labs/','LINK','Connector','Connector','stool','stool')
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/conferences/','LINK',NULL,NULL,NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.cs.brandeis.edu/conferences/' AND TYPE='LINK' AND CLASSTYPE=NULL AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/conferences/','LINK','Connector',NULL,NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.cs.brandeis.edu/conferences/' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/conferences/','LINK','Connector','Connector',NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.cs.brandeis.edu/conferences/' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/conferences/','LINK','Connector','Connector','stool',NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.cs.brandeis.edu/conferences/' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE='stool' AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/conferences/','LINK','Connector','Connector','stool','stool')
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/faculty-descriptions','LINK',NULL,NULL,NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.cs.brandeis.edu/faculty-descriptions' AND TYPE='LINK' AND CLASSTYPE=NULL AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/faculty-descriptions','LINK','Connector',NULL,NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.cs.brandeis.edu/faculty-descriptions' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/faculty-descriptions','LINK','Connector','Connector',NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.cs.brandeis.edu/faculty-descriptions' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/faculty-descriptions','LINK','Connector','Connector','stool',NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.cs.brandeis.edu/faculty-descriptions' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE='stool' AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/faculty-descriptions','LINK','Connector','Connector','stool','stool')
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/brochure.html','LINK',NULL,NULL,NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.cs.brandeis.edu/brochure.html' AND TYPE='LINK' AND CLASSTYPE=NULL AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/brochure.html','LINK','Connector',NULL,NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.cs.brandeis.edu/brochure.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/brochure.html','LINK','Connector','Connector',NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.cs.brandeis.edu/brochure.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/brochure.html','LINK','Connector','Connector','stool',NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.cs.brandeis.edu/brochure.html' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE='stool' AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/brochure.html','LINK','Connector','Connector','stool','stool')
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/mailto:tim@cs.brandeis.edu','LINK',NULL,NULL,NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.cs.brandeis.edu/mailto:tim@cs.brandeis.edu' AND TYPE='LINK' AND CLASSTYPE=NULL AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/mailto:tim@cs.brandeis.edu','LINK','Connector',NULL,NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.cs.brandeis.edu/mailto:tim@cs.brandeis.edu' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE=NULL AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/mailto:tim@cs.brandeis.edu','LINK','Connector','Connector',NULL,NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.cs.brandeis.edu/mailto:tim@cs.brandeis.edu' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE=NULL AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/mailto:tim@cs.brandeis.edu','LINK','Connector','Connector','stool',NULL)
+DELETE FROM TABLE1 WHERE URL='http://www.cs.brandeis.edu/mailto:tim@cs.brandeis.edu' AND TYPE='LINK' AND CLASSTYPE='Connector' AND SUBTYPE='Connector' AND SHAPE='stool' AND SHAPE2D=NULL
+INSERT INTO TABLE1 VALUES('http://www.cs.brandeis.edu/mailto:tim@cs.brandeis.edu','LINK','Connector','Connector','stool','stool')
