@@ -7,11 +7,21 @@
 package psl.chime.frax;
 import java.lang.Class;
 import java.lang.reflect.*;
+import java.util.*;
 import psl.chime.frax.fraxExceptions.*;
 import psl.chime.sienautils.*;
 
 public class FRAXProtLoader {
-
+	private static Map sResultMap;
+	
+	static {
+		sResultMap = new HashMap();
+	}
+	
+	public static synchronized void addResult(SienaObject iS, String iXML) {
+		sResultMap.put(iS, iXML);
+	}
+	
     /**
      * Load and run the protocol class.
      **/
@@ -30,6 +40,15 @@ public class FRAXProtLoader {
 	System.out.println("Protocol Ended Successfully: " + success);
 	return true;
     }
+		
+		/**
+		 * A hack that enables us to bypass the Siena bus.  Since this version of
+		 * FRAX will soon be replaced, this code isn't particularly elegant.
+		 */
+		public synchronized String runProtExpectingReturn(SienaObject s) throws ClassNotFoundException, EntryNotFoundException, MethodNotFoundException {
+			runProt(s);
+			return (String) sResultMap.remove(s);
+		}
 
 
     /**
