@@ -1,3 +1,10 @@
+/*    
+ *
+ * Copyright (c) 2002: The Trustees of Columbia University 
+ *    in the City of New York.  All Rights Reserved.
+ *
+ */
+
 import java.sql.*;
 import java.io.InputStreamReader;
 import java.io.BufferedReader;

@@ -1,3 +1,9 @@
+/*    
+ *
+ * Copyright (c) 2001: The Trustees of Columbia University 
+ *    in the City of New York.  All Rights Reserved.
+ *
+ */
 
 /**
  * The main control panel for mime and plugs 

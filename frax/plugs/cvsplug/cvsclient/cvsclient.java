@@ -1,3 +1,10 @@
+/*    
+ *
+ * Copyright (c) 2002: The Trustees of Columbia University 
+ *    in the City of New York.  All Rights Reserved.
+ *
+ */
+
 import org.netbeans.lib.cvsclient.*;
 import org.netbeans.lib.cvsclient.admin.*;
 import org.netbeans.lib.cvsclient.connection.*;
@@ -11,14 +18,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.File;
 
-/**
- * Title:
- * Description:
- * Copyright:    Copyright (c) 2001
- * Company:
- * @author
- * @version 1.0
- */
 
 public class cvsclient {
 

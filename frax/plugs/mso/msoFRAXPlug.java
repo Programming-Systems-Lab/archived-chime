@@ -1,14 +1,10 @@
-/*
- * msoFRAXPlug.java
+/*    
  *
- * Created on February 1, 2002, 9:21 PM
+ * Copyright (c) 2002: The Trustees of Columbia University 
+ *    in the City of New York.  All Rights Reserved.
+ *
  */
 
-/**
- *
- * @author  Rean Griffith
- * @version 
- */
 
 package psl.chime.frax.plugs.mso;
 

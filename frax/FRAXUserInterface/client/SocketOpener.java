@@ -1,3 +1,9 @@
+/*    
+ *
+ * Copyright (c) 2001: The Trustees of Columbia University 
+ *    in the City of New York.  All Rights Reserved.
+ *
+ */
 /**
  * this class tries to open a socket. It is taking from "Core Java" by HorstMann and Cornell
  */

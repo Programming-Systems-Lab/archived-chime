@@ -1,3 +1,9 @@
+/*    
+ *
+ * Copyright (c) 2001: The Trustees of Columbia University 
+ *    in the City of New York.  All Rights Reserved.
+ *
+ */
 /**
  *	This class implements a server for the FUI component.
  *	It listens on a port and creates a new FRAXUserInterfaceServerConnection object
