@@ -5,3 +5,8 @@ create index url on ROOM(url)
 create table MOVEMENT (room varchar(255), obj varchar(255), x0 real, y0 real, z0 real, x1 real, y1 real, z1 real)
 create index obj on MOVEMENT(obj)
 INSERT INTO ROOM VALUES('http://www.yahoo.com/','suhit','128.59.23.58','user1')
+INSERT INTO ROOM VALUES('http://www.yahoo.com/','denis','128.59.23.42','user3')
+INSERT INTO ROOM VALUES('http://www.suhit.com/','denis','128.59.23.42','user3')
+INSERT INTO ROOM VALUES('http://www.suhit.com/','suhit','128.59.23.58','user1')
+DELETE FROM ROOM WHERE URL='http://www.yahoo.com/' AND USERNAME='suhit' AND USERIP='128.59.23.58' AND SHAPE='user1'
+DELETE FROM ROOM WHERE URL='http://www.suhit.com/' AND USERNAME='suhit' AND USERIP='128.59.23.58' AND SHAPE='user1'

@@ -590,10 +590,9 @@ bool ChimeSector::BuildDynamicRoom2(char *roomDesc, const csVector3 &pos, iColli
 		if (proceed) {
 
 			float size = 1.0;
-			if (!strcmp(shape, "mdl1"))
+			if (strstr(shape, "user"))
 			{
-				size = 0.75;
-				strcpy(shape, "user1");
+				size = 0.6;
 			}
 			buf += count;
 			//location.y = 1;

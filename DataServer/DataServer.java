@@ -435,11 +435,12 @@ public class DataServer {
 		for (int idx=0; idx<users.size(); idx++) {
 			String user = ((RoomTuple)users.elementAt(idx)).getUser();
 			String userIP = ((RoomTuple)users.elementAt(idx)).getUserIP();
+			String shape = ((RoomTuple)users.elementAt(idx)).getUserShape();
 
 			//make sure to only show other users in the room - ignore myself...
 			if (!user.equals(current_user)) {
 
-				data += user + " shape2 User " + userIP + " ";
+				data += user + " " + shape + " User " + userIP + " ";
 
 				MovementTuple mv = et.findLastMovement(roomUrl, user);
 

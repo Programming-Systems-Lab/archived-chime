@@ -443,7 +443,7 @@ public class EventTracer {
 		String user = st.nextToken();
 		String userip = st.nextToken();
 
-		/**
+		
 		// notify users in the old room
 		String oldRoom = null;
 		Vector v = null;
@@ -468,7 +468,7 @@ public class EventTracer {
 			return;
 		    }
 		}
-		*/
+		
 
 		// remove user from the old room
 		removeUser(user, userip, false);
@@ -624,7 +624,7 @@ public class EventTracer {
 	user = user.toLowerCase();
 
 	try {
-	    statement.executeQuery("delete from ROOM where USER='" +
+	    statement.executeQuery("delete from ROOM where USERNAME='" +
 				   user + "' AND USERIP= '" + userIP + "'");
 		System.err.println("User "+user+" was removed");
 		r = true;
@@ -643,7 +643,7 @@ public class EventTracer {
 
 	try {
 	    statement.executeQuery("delete from ROOM where URL='" +
-				   url + "' AND USER='" +
+				   url + "' AND USERNAME='" +
 				   user + "'");
 	} catch(SQLException e) {
 	    System.err.println(e);
