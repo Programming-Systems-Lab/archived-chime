@@ -446,7 +446,8 @@ bool SienaPublisher::publish(int function, char *params, char *address, char *pr
 	sprintf (publishString, "%s chime_method=\"%s\"", publishString, method);
 	sprintf (publishString, "%s access=\"\"}", publishString);
 	printf("Sending: %s\n\n", publishString);
-	
+	System->info->AddToLog("Siena Publish", publishString);
+
 	if (send (s, publishString, strlen(publishString), 0) == SOCKET_ERROR)
 	{
 		System->ShowError(Component, "Can't Send Publish Request");

@@ -68,8 +68,8 @@ CS_IMPLEMENT_APPLICATION
 SCF_REGISTER_STATIC_LIBRARY (engine)
 #endif
 
-//-----------------------------------------------------------------------------
 
+//-----------------------------------------------------------------------------
 //this is the method we register with the registry
 static bool ChimeHandleEvent(iEvent& ev) {
 
@@ -87,14 +87,6 @@ static bool ChimeHandleEvent(iEvent& ev) {
 		return Sys ? Sys->HandleEvent(ev): false;
 }
 
-//Shutdown the engine.
-/*
-void Cleanup()
-{
-	System->console_out ("Cleaning up...\n");
-	delete System;
-}
-*/
 
 ChimeSystemDriver::ChimeSystemDriver()
 {

@@ -64,16 +64,17 @@ void UDPServer::parseResponse(char *string) {
   //	nav->GetApp()->chatWindow->ShowMessage(string);
 	//change chatWindow to something else to re-route the debug messages
 	if (nav->myVideoPlayer && nav->myVideoPlayer->Comm->parseResponse(string)){
-	
+		nav->info->AddToLog("AI2TV UDP Receive", string);
 		 return;
 	}
 
+	nav->info->AddToLog("UDP Receive", string);
 	char *method = strtok(string, "\t");
 	char *params = strtok(NULL, "\t");
 
 	if (method != NULL && params != NULL) {
 		int meth = getMethod(method);
-		if (meth != -1)
+		if (meth != -1) 
 			nav->GetFunction(meth, params);
 	}
 }
@@ -158,9 +159,9 @@ int UDPServer::startServer() {
 					fprintf (stderr, "\n\nUDPServer Error: Error in Receiving\n\n");
 					closesocket (sock);
 			}
-
-
-			if (recvString != NULL) {
+			
+			
+				if (recvString != NULL) {
 				//nav->getFunction(recvString);
 				printf ("%s\n\n", recvString);
 				parseResponse(recvString);

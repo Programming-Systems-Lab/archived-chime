@@ -135,6 +135,7 @@ void UDPClient::sendMess(const char *host, char *string) {
 		return;
 	}
 
+	System->info->AddToLog("AI2TV UDP Sending", string);
 	//free(msg);
 }
 
@@ -202,6 +203,7 @@ void UDPClient::sendMess(const char *host, int func, char *params) {
 		return;
 	}
 
+	System->info->AddToLog("UDP Sending", msg);
 	//free(msg);
 }
 

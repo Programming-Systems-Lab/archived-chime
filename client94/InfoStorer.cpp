@@ -18,26 +18,33 @@
 
 //setup internal things
 InfoStorer::InfoStorer() {
-  //siena port
-  siena_port = NULL;
-
-  //chat port to use
-  chat_port = NULL;
-
-  //client communications object
-  comm_object = NULL;
-
-  //set the ip address of this machine
-  SetMyIPAddress(GetLocalIP());
+  
+  siena_port = NULL;			//siena port
+  chat_port = NULL;				//chat port to use
+  comm_object = NULL;			//client communications object
+  SetMyIPAddress(GetLocalIP());	//set the ip address of this machine
 
   strcpy(username, "");
-
   strcpy(password, "");
-
   strcpy(siena_location, "");
+  log_file.open("chime_network.log");
 
   //create the Mutex object the first time we create this class
   mutex=CreateMutex(NULL,FALSE,NULL); // create a mutex object with no name
+}
+
+void InfoStorer::AddToLog(const char *system, const char *message) {
+	char finalmsg[2048];
+	__time64_t ltime;
+
+	sprintf(finalmsg, "\n---------\nSystem: %s\nTime Now: %s\nMessage: %s\n*********\n", system, _ctime64(&ltime), message);
+	if (log_file.is_open())
+		log_file.write(finalmsg, strlen(finalmsg));
+}
+
+void InfoStorer::CloseLog() {
+	if (log_file.is_open())
+		log_file.close();
 }
 
 //get the communication object

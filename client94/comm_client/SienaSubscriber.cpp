@@ -513,6 +513,7 @@ bool SienaSubscriber::startServer() {
 		{
 			//recvString[length] = NULL;
 			//printf("The string is: %s\n", recvString);
+			System->info->AddToLog("Siena Subscriber Received", finalString);
 			formatResponse(finalString);
 			printf ("%s\n\n", finalString);
 		}

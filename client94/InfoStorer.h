@@ -8,6 +8,8 @@
 #ifndef __INFOSTORER_H_
 #define __INFOSTORER_H_
 
+#include <fstream.h>
+#include <time.h>
 //forward declarations
 class ClientComm;
 
@@ -17,77 +19,45 @@ class InfoStorer {
 //will keep this in the back of my head for now
 private:
 	 
-  //the username
-  char username[50];
-  
-  //the password
-  char password[50];
+  char username[50];		//the username
+  char password[50];		//the password
+  char siena_location[50];	//siena location
+  int siena_port;			//siena port
+  int chat_port;			//chat port to use
+  char ip_address[50];		//ip_address of this machine
+  ClientComm *comm_object;	//communication object
+  ofstream log_file;		//init the log file
 
-  //siena location
-  char siena_location[50];
-
-  //siena port
-  int siena_port;
-
-  //chat port to use
-  int chat_port;
-
-  //ip_address of this machine
-  char ip_address[50];
-
-  //communication object
-  ClientComm *comm_object;
-
-  // Create a Mutex object
-  volatile HANDLE mutex; 
+  volatile HANDLE mutex;	// Create a Mutex object
 
 public:
-	//setup internal things
-	InfoStorer::InfoStorer();
+	
+	InfoStorer();						//setup internal things
+	~InfoStorer() { CloseLog(); };		//destruct this object
 
-	//get the client comm object
-	ClientComm* GetCommObject();
+	//clientComm manipulation
+	ClientComm* GetCommObject();					//get the client comm object
+	void SetCommObject(ClientComm *comm_object);	//set the communications object
+	
+	void GetUsername(char *username);				//get the username
+	void GetPassword(char *password);				//get the password
+	const int GetChatPort();						//return the port used to send chat commands
+	
+	void GetSienaLocation(char *siena_location);	//get the hostname of the siena
+	const int GetSienaPort();						//get the port on which Siena is listening
+	void SetUsername(const char *username);			//set the username
+	void SetPassword(const char *password);			//set the password
 
-	//set the communications object
-	void SetCommObject(ClientComm *comm_object);
+	void SetChatPort(int chat_port);				//set the port used to send chat commands
+	void SetSienaLocation(const char *siena_location);	//set the hostname of the siena
 
-	//get the username
-	void GetUsername(char *username);
+	void SetSienaPort(int siena_port);				//set the port on which Siena is listening
+	void SetMyIPAddress(char *ip_address);			//set my IP address
+	void GetMyIPAddress(char *my_address);			//get my IP address
 
-	//get the password
-	void GetPassword(char *password);
-
-	//return the port used to send chat commands
-	const int GetChatPort();
-
-	//get the hostname of the siena
-	void GetSienaLocation(char *siena_location);
-
-	//get the port on which Siena is listening
-	const int GetSienaPort();
-
-	//set the username
-	void SetUsername(const char *username);
-
-	//set the password
-	void SetPassword(const char *password);
-
-	//set the port used to send chat commands
-	void SetChatPort(int chat_port);
-
-	//set the hostname of the siena
-	void SetSienaLocation(const char *siena_location);
-
-	//set the port on which Siena is listening
-	void SetSienaPort(int siena_port);
-
-	//set my IP address
-	void SetMyIPAddress(char *ip_address);
-
-	//get my IP address
-	void GetMyIPAddress(char *my_address);
-
-	char* GetLocalIP();
+	char* GetLocalIP();								//get the local IP address
+	void AddToLog(const char *system, const char *message);
+	void CloseLog();
 };
 
 #endif
