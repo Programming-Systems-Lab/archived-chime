@@ -1,6 +1,4 @@
-3
-canal.psl.cs.columbia.edu
-bank.psl.cs.columbia.edu
-localhot
-park.psl.cs.columbia.edu
+1
+250 localhost
+http://www.cs.columbia.edu/~suhit/ai2tv/1/
 frame_index.txt

@@ -9,14 +9,13 @@
 #define CHIMEWINDOW_H
 
 #include <stdarg.h>
-#include <fstream.h>
 #include "cssys/sysdriv.h"
 #include "csgeom/math2d.h"
 #include "csgeom/math3d.h"
 #include "csws/csws.h"
 #include "WindowToolkit.h"
 
-
+#include <fstream.h>
 
 // Scroll bar class default palette
 static int palette [] =
@@ -142,25 +141,31 @@ public:
   //virtual bool Initialize (const char *iConfigName);
 };
 
-//AI2TV setting dialog
+//AI2TV settings dialog
+#define PAGE_SIZE 5
+#define SET_SIZE_STATE 0
+#define ENTER_IP_STATE 1
+#define SET_SERVER_STATE 2
 class Ai2tvWindow : public ChimeWindow
 {
-	//graphics components to hold data
-	csInputLine *host_number, *host_ip;
-	csButton *host_ip_btn;
-	//temporary variables
-	int numberOfHosts, currentBuffer;
-	char buffer[20][50], hostNumBuf[5];
-	//input file
-	ifstream *File;
-	//read next line from file
-	void ReadNext();
-	//write all contents to file
-	void Write();
+	//visual components
+	csDialog *d;
+	csInputLine *txtGroupSize, *txtGroupIP[PAGE_SIZE];
+	csButton *btnNext, *btnOK, *btnCAN;
+	csStatic *lblTop, *lblIP[PAGE_SIZE];
+
+	//temprorary variables
+	int groupSize, state, pageNumber, px, py;
+	ofstream File;
+
 public:
+
 	Ai2tvWindow(csComponent *iParent);
 	virtual ~Ai2tvWindow();
 	virtual bool HandleEvent (iEvent &Event);
+	void SetupInput();
+	void ReadInput();
+	void OpenErrorScreen();
 };
 
 
