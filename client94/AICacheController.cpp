@@ -306,12 +306,7 @@ int AICacheController::setupFrameList(char* filename){
 // kbps.  return value is level in range (0-clevel_count) (high-low) 
 int AICacheController::getSampleBandwidth() {
   int bw_level = 0;
-  int size = getAvgFileSize();
-  int speed = getAvgNetSpeed();
-  speed = ((speed>0)?speed:1);
-
-  // division of averages - very approximate
-  int bandwidth = (int)(((long)size*8)/((long)speed*1000)); //kbps
+  int bandwidth = (int)getAvgBandwidth; //kbps
   
   if (clevel_count > 0) {
     int div = high_bandwidth;
@@ -339,6 +334,44 @@ int AICacheController::getSampleBandwidth() {
       768 Kbps    DSL 768k   
       1500 Kbps    DSL 1.5MB  
   */
+}
+
+/*******************************
+*
+*	Lazy Dan's Bandwidth Detection, just average the last N of them
+*
+*******************************/
+// added by dp2041.  same as the two functions below, but because we
+// can assume that SizeArraySize and SpeedArraySize are equal, then we
+// don't have to loop through both arrays separately.
+// also, I don't round the speed (double) to an int until later on
+// preserving...maybe a little precision.....
+
+// This calculation relies on the precision of the timing of 
+// AIDownloader.URLDownloadFile().  These times are kept in the
+// SpeedArray.  Also, I still don't know what the magic number 
+// 8 is in the return value calculation, but I assume it's correct...
+double AICacheController::getAvgBandwidth(){
+
+  double total_size=0, total_speed=0;
+
+  if (Downloader->SizeArray && Downloader->SpeedArray) {
+
+    for (int i = 0; i < Downloader->SizeArraySize; i++){
+      if (Downloader->SizeArray[i] != -1 && Downloader->SpeedArray[i] != -1){
+	total_size += (double)Downloader->SizeArray[i];
+	total_speed += (double)Downloader->SpeedArray[i];
+      }
+    }
+
+    // printf("calculated bandwidth: %f\n", (total_size / total_speed / 1000 * 8));
+    return ( (total_speed >0) ? (total_size / total_speed / 1000 * 8) : -1);
+  } else if (!Downloader->SizeArray) 
+    Downloader->SizeArray = new long[Downloader->SizeArraySize];
+  else 
+    Downloader->SpeedArray = new double[Downloader->SpeedArraySize];
+
+  return -1;
 }
 
 
@@ -371,26 +404,28 @@ int AICacheController::getAvgFileSize(){
 *	Lazy Man's Bandwidth Detection, just average the last N of them
 *
 *******************************/
-int AICacheController::getAvgNetSpeed(){
-	 return 0; // stopped working, so killed it
-	int count = 0;
-	int total=0;
-	/*	
-	if (Downloader->SpeedArray) {
 
-			for (int i = count; i < cache->SpeedArraySize; i++){
-		if (Downloader->SpeedArray[i] > 0){
-			total+=Downloader->SpeedArray[i];
-			++count;
-		}
-	}
-	return ((count>0)?(total/count):0);
-		} else {
-		Downloader->SpeedArray = new int[Downloader->SpeedArraySize];
-		return -1;
-	}
-*/
+int AICacheController::getAvgNetSpeed(){
+  return 0; // stopped working, so killed it
+
+  int count = 0;
+  int total=0;
+  /*
+  if (Downloader->SpeedArray) {
+
+    for (int i = count; i < cache->SpeedArraySize; i++){
+      if (Downloader->SpeedArray[i] > 0){
+	total+=Downloader->SpeedArray[i];
+	++count;
+      }
+    }
+    return ((count>0)?(total/count):0);
+  } else {
+    Downloader->SpeedArray = new int[Downloader->SpeedArraySize];
+    return -1;
   }
+  */  
+}
 
 // processes next video frame
 
